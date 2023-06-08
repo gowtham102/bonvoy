@@ -67,15 +67,15 @@ footer {
 
 footer .footer-section {
     padding: 80px 0 35px;
-    font-family: 'GothaProReg';
+    font-family: 'roobert-reg';
     font-size: 16px;
     justify-content: space-between;
 }
 
 footer .footer-section img {
     width: 100%;
-    height: 93px;
-    margin-bottom: 15px;
+    /* height: 93px;
+    margin-bottom: 15px; */
     object-fit: contain;
 }
 
@@ -87,7 +87,7 @@ footer .footer-section img {
 
 footer .footer-section p {
     font-size: 12px;
-    color: #B4B4B4;
+    color: #FFFFFF;
     text-align: left;
     margin-bottom: 55px;
     font-family: 'roobert-reg';
@@ -95,7 +95,7 @@ footer .footer-section p {
 }
 
 footer .footer-section .social-icons img {
-    margin: 10px;
+    /* margin: 10px; */
     width: 20px;
     height: 20px;
     filter: brightness(0) invert(1);
@@ -110,11 +110,12 @@ footer .footer-section h6 {
 
 .social-icons {
     display: flex;
+    grid-column-gap: 30px;
 }
 
 .footer-padding a {
     font-size: 14px;
-    color: #B4B4B4;
+    color: #FFFFFF;
     display: block;
     width: max-content;
     max-width: 100%;
@@ -139,13 +140,13 @@ footer .footer-section ul li a {
 footer .copy-right {
     position: relative;
     z-index: 1;
-    background: #171717;
+    background: #353535;
 }
 
 footer .copy-right .col-md-12 {
     padding: 20px;
     text-align: center;
-    color: var(--c-white);
+    color: #FFFFFF;
     font-size: 12px;
 }
 
@@ -180,7 +181,7 @@ footer .cards-strip svg rect {
 
 .copy-right p {
     font-size: 12px;
-    color: #B4B4B4;
+    color: #FFFFFF;
     letter-spacing: 0.24px;
     margin-bottom: 0;
     font-family: 'roobert-reg';
@@ -271,4 +272,43 @@ footer .cards-strip svg rect {
     .float-whatsapp img {
         width: 125px;
     }
+}
+
+
+
+.footer-padding:first-child{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+
+.footer-padding button{
+    text-align: center;
+    border: none;
+    padding: 10px 17px;
+    color: #2A353C;
+    font-size: 12px;
+    background: #FFFFFF;
+    font-family: 'roobert-reg';
+    border-radius: 19px;
+   
+   
+}
+
+.footer-padding input{
+    border: none;
+    color: #FFFFFF;
+    border-radius: 19px;
+    background: #292929;
+    margin-right: 10px;
+    padding: 7px 10px;
+    /* height: 100%; */
+}
+
+.footer-padding p{
+    color: #FFFFFF;
+    font-size: 12px;
+
 }
