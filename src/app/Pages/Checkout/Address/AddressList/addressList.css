@@ -1,0 +1,713 @@
+    textarea:focus,
+    textarea:focus-within,
+    textarea:focus-visible {
+        outline: none;
+    }
+    
+    .cart-details {
+        padding: 21px 50px;
+        background: var(--c-white);
+        color: var(--t-color);
+        margin-bottom: 4px;
+    }
+    
+    .cart-details h6 {
+        font-family: 'GothaProMed';
+        font-size: 12px;
+        color: var(--c-black);
+    }
+    
+    .address-list {
+        grid-row-gap: 30px;
+    }
+    
+    .address-list .single-address1 {
+        border: 1px solid var(--c-addons);
+        position: relative;
+        padding: 20px;
+        border-radius: 12px;
+        margin: 10px 0px 0px 0px;
+        height: 100%;
+    }
+    
+    .send-address {
+        padding: 0;
+        margin: 33px 0 21px;
+        font-size: 12px;
+        color: #000;
+        font-family: 'roobert-med';
+        text-decoration: underline;
+    }
+    /* .address-list .single-address.active {
+    background: var(--c-cart);
+    color: var(--c-white);
+    border: 1px solid var(--c-cart);
+} */
+    
+    .single-address .address-part {
+        margin-left: 35px;
+        font-size: 14px;
+        width: 200px;
+    }
+    
+    .single-address .address-part p {
+        margin: 0;
+        font-size: 14px;
+        color: #0C0C0C;
+        direction: ltr;
+    }
+    
+    .address-list .single-address .address-part p span {
+        padding: 0px 10px;
+        border-radius: 4px;
+        display: inline-block;
+        position: absolute;
+        right: 25px;
+        font-size: 12px;
+    }
+    
+    .address-list .single-address .address-part p span.home {
+        border: 1px solid var(--c-black);
+        color: var(--c-black);
+    }
+    
+    .address-list .single-address .address-part p span.office {
+        border: 1px solid var(--c-black);
+        color: var(--c-black);
+    }
+    
+    .address-list .single-address .address-part p span.other {
+        border: 1px solid var(--c-breadcrumb);
+        color: var(--c-breadcrumb);
+    }
+    
+    .address-list .single-address.active .address-part p span.home,
+    .address-list .single-address.active .address-part p span.office,
+    .address-list .single-address .address-part p span.other {
+        border: 1px solid var(--c-white);
+        color: var(--c-white);
+    }
+    
+    .single-address .address-part span.location {
+        display: inline-block;
+        margin-top: 22px;
+        font-size: 14px;
+        color: #000000;
+        font-family: 'roobert-reg';
+        display: inline-block;
+        margin-top: 15px;
+    }
+    
+    .single-address .select {
+        position: absolute;
+        top: 24px;
+        left: 22px;
+        line-height: 1;
+    }
+    
+    .single-address button.select-btn {
+        padding: 0;
+        border: 1px solid var(--c-addons);
+        border-radius: 50%;
+        transition: .5s ease-in-out;
+        background: 0 0;
+        width: 22px;
+        height: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .single-address.active button.select-btn {
+        border: 1px solid var(--c-black);
+    }
+    
+    .single-address button.select-btn span {
+        font-size: 1px;
+        width: 15px;
+        height: 15px;
+        display: block;
+        transition: .5s ease-in-out;
+        border-radius: 50%;
+    }
+    
+    .single-address.active button.select-btn span {
+        background: #000;
+        border: 4px solid #fff;
+    }
+    
+    .date {
+        display: flex;
+        flex-wrap: wrap;
+        grid-column-gap: 30px;
+    }
+    
+    .date .single-date {
+        border: 1px solid #C7C7C7;
+        width: 105px;
+        height: 105px;
+        text-align: center;
+        align-items: center;
+        border-radius: 12px;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        grid-row-gap: 8px;
+    }
+    
+    .single-date p {
+        font-size: 14px;
+        color: #000000;
+        font-family: 'roobert-reg';
+        margin: 0;
+        padding: 0 20px;
+    }
+    
+    .single-date:last-child p {
+        font-family: 'roobert-med';
+    }
+    
+    .date .single-date p i {
+        font-size: 30px;
+    }
+    
+    .date.time .single-date {
+        padding: 7px;
+        width: auto;
+        height: 36px;
+        border-radius: 8px;
+        margin-right: 15px;
+    }
+    
+    .date.time .single-date p {
+        margin: 0;
+    }
+    
+    .date .single-date.active {
+        /* background: var(--c-cart);
+        color: var(--c-white); */
+        border: 1.5px solid #000000;
+    }
+    
+    .date .single-date.active p {
+        font-family: 'roobert-semi';
+    }
+    
+    .date .not-available {
+        border: 1px solid #C7C7C7;
+        background-color: transparent;
+        cursor: not-allowed;
+    }
+    
+    .preview-card {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .cart-details:last-child {
+        border-radius: 0 0 12px 12px;
+    }
+    
+    .preview-card a {
+        font-size: 12px;
+        text-decoration: underline;
+        cursor: pointer;
+        color: #000;
+    }
+    
+    .add-address-modal button.close {
+        position: absolute;
+        right: 6%;
+        top: 2%;
+        z-index: 2;
+    }
+    
+    .add-address-modal .address {
+        padding: 42px 53px;
+    }
+    /* .add-address-modal .address .header h2 {
+        font-family: 'Playfair Display';
+    } */
+    
+    .map,
+    .map agm-map {
+        height: 100%;
+    }
+    
+    .form-control,
+    .form-control:focus {
+        border: 1px solid #DEE4E8;
+        font-size: 14px;
+        box-shadow: none;
+        border-radius: 27px;
+        padding: 10px 23px
+    }
+    
+    .address input {
+        height: 58px;
+        /* border-radius: 8px; */
+    }
+    
+    .country-code input {
+        border: 0;
+        padding-right: 0;
+    }
+    
+    .address ::placeholder {
+        color: var(--c-coupon-placeholder);
+    }
+    
+    .address :-ms-input-placeholder {
+        color: var(--c-coupon-placeholder);
+    }
+    
+    .address ::-ms-input-placeholder {
+        color: var(--c-coupon-placeholder);
+    }
+    
+    .address .btn.location {
+        width: 100%;
+        height: 56px;
+        background: #fff;
+        color: #000000;
+        font-family: 'roobert-semi';
+        font-size: 14px;
+        border-radius: 12px;
+        border: 1px solid #000000;
+    }
+    
+    .address .btn.location img {
+        width: 26px;
+        height: 26px;
+        margin-right: 30px;
+    }
+    
+    .address .form_input {
+        margin: 20px 0;
+        display: flex;
+        width: 100%;
+    }
+    
+    .country-code {
+        border-radius: 27px;
+        border: 1px solid #DEE4E8;
+        padding: 0 23px;
+    }
+    
+    .country button {
+        color: #A8A8A8;
+    }
+    
+    .dropdown-toggle::after {
+        display: inline-block;
+        margin-left: 11px;
+        vertical-align: middle;
+        content: "";
+        border: 0;
+        /* padding-right: 14px; */
+        height: 17px;
+        width: 1px;
+        background: #a8a8a8;
+    }
+    
+    .address .form_input label {
+        font-size: 12px;
+        color: #000000;
+        margin: 0;
+        padding-bottom: 14px;
+    }
+    
+    .address .form_input textarea.form-control {
+        height: 100px;
+        border-radius: 12px;
+    }
+    /* .address .country-code input {
+        margin-left: 25%;
+        width: 75%;
+    } */
+    
+    .address .country {
+        /* position: absolute; */
+        width: 20%;
+    }
+    
+    .address .country input,
+    .address .country select {
+        margin: 0;
+        width: 100%;
+    }
+    
+    .address .country select {
+        border: 1px solid var(--c-filter-check);
+        font-size: 14px;
+        box-shadow: none;
+        padding: 0;
+        height: 58px;
+        text-align: center;
+        direction: ltr;
+    }
+    
+    .address .country-code span {
+        position: absolute;
+        width: 5%;
+        height: 58px;
+        left: 20%;
+    }
+    
+    .address-type button {
+        /* width: 108px; */
+        /* height: 36px; */
+        /* border: 1px solid var(--t-color); */
+        /* border-radius: 12px; */
+        background: var(--c-white);
+        /* color: var(--t-color); */
+        /* margin: 10px 10px 0 0; */
+        font-size: 14px;
+        font-family: 'GothaProMed';
+        border-radius: 169px;
+        padding: 6px 32px;
+        color: #000;
+        border: 1px solid #C7C7C7;
+    }
+    
+    .address-type button.active,
+    .address-type button:hover {
+        transition: .3s ease-in-out;
+        border: 2px solid #000
+    }
+    
+    .address-type {
+        display: flex;
+        grid-column-gap: 16px;
+    }
+    
+    .save-address {
+        margin: 30px 0;
+    }
+    
+    .save-address input {
+        display: none;
+    }
+    
+    .save-address label {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        height: 18px;
+    }
+    
+    .save-address label .fa-check {
+        margin-right: 15px;
+        border: 1px solid var(--c-filter-check);
+        color: transparent;
+        font-size: 10px;
+        padding: 3px;
+        transition: .4s ease-in-out;
+        border-radius: 4px;
+    }
+    
+    .save-address input:checked~label .fa-check {
+        background: var(--t-color);
+        color: var(--c-white);
+    }
+    
+    button.cancel {
+        background: var(--c-lgrey);
+        width: 100%;
+        height: 54px;
+        color: var(--c-cart);
+        border-radius: 12px;
+        border: 1px solid var(--c-cart);
+        display: none;
+    }
+    
+    span.overlay {
+        display: block;
+        background: var(--t-color);
+        opacity: .6;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 12px;
+        z-index: 2;
+    }
+    
+    .span.overlay .lds-dual-ring:after {
+        border: 6px solid var(--c-cart);
+        border-color: var(--c-cart) transparent var(--c-cart) transparent;
+    }
+    
+    .card-preview-modal .cart-details {
+        padding-bottom: 0;
+    }
+    
+    .cart-details .input-message {
+        position: relative;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    /* .cart-details .card-message {
+    padding: 20px;
+    border: 1px solid var(--c-addons);
+    border-radius: 10px;
+} */
+    
+    .card-message .card-input textarea,
+    .card-message .card-input input {
+        border: none;
+        border-bottom: 1px solid #E3E3E3;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .card-message .card-input textarea {
+        border: none;
+        width: 100%;
+        height: 30px;
+        margin: 25px 0;
+        border-bottom: 1px solid #E3E3E3;
+    }
+    
+    .preview {
+        font-size: 12px;
+        font-family: 'roobert-med';
+        border-radius: 27px;
+        color: #000000;
+        border: 1px solid #000000;
+        padding: 7px 24px;
+    }
+    
+    .cart-details .input-message input,
+    .cart-details .input-message textarea {
+        border: none;
+        border-bottom: 1px solid var(--c-addons);
+        width: 100%;
+        font-size: 12px;
+        padding: 10px 10px 10px 5px;
+        display: block;
+    }
+    
+    .cart-details .input-message textarea {
+        border: 1px solid var(--c-addons);
+        height: 150px;
+    }
+    /* .cart-details .input-message textarea::placeholder {
+    color: var(--c-addons);
+} */
+    
+     ::placeholder {
+        color: #A8A8A8;
+        font-size: 14px;
+    }
+    
+    .cart-details .input-message input~label {
+        color: var(--c-addons);
+        font-size: 14px;
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: 5px;
+        top: 10px;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+    
+    .cart-details .input-message input:focus,
+    .cart-details .input-message textarea:focus {
+        outline: none;
+    }
+    
+    .cart-details .input-message input:focus+label,
+    .cart-details .input-message input:valid+label {
+        top: -20px;
+        font-size: 12px;
+    }
+    
+    .card-preview-modal .modal-header,
+    .modal-footer {
+        border: none;
+        justify-content: center;
+        font-family: 'Playfair Display';
+    }
+    
+    .card-preview-modal .modal-header button {
+        position: absolute;
+        right: 3%;
+        top: 2%;
+    }
+    
+    .card-preview-modal .modal-header button span {
+        font-size: 30px;
+        font-family: 'GothaProMed';
+        color: var(--t-color);
+    }
+    
+    .card-preview-modal .modal-footer button {
+        width: 294px;
+        height: 54px;
+        background: #fff;
+        border: 1px solid var(--c-cart);
+        color: var(--c-cart);
+        border-radius: 12px;
+        font-family: 'GothaProBol';
+    }
+    
+    .btn-group.country-code.form-control.dropdown {
+        /* border: 1px solid var(--c-filter-check); */
+        font-size: 14px;
+        box-shadow: none;
+        padding: 0;
+        height: 58px;
+        text-align: center;
+        direction: ltr;
+        margin: 0;
+        width: 100%;
+        justify-content: center;
+        border: 0;
+    }
+    
+    span.required {
+        color: var(--c-cart);
+    }
+    /* =========================arabic========================= */
+    
+    .arabic.add-address-modal {
+        text-align: right;
+    }
+    
+    .arabic.add-address-modal .address .country-code input {
+        margin-right: 25%;
+        margin-left: auto;
+    }
+    
+    .arabic.add-address-modal .address-type button {
+        margin: 10px 0 0 10px;
+    }
+    
+    .arabic.add-address-modal button.close {
+        left: 6%;
+        right: auto;
+    }
+    
+    @media screen and (max-width: 572px) {
+        .cart-details {
+            padding: 20px 25px;
+        }
+        .date .single-date {
+            width: 115px;
+            margin: auto;
+        }
+        .date.time .single-date {
+            margin: auto;
+        }
+        .address .country {
+            width: 30%;
+        }
+        .address .country-code span {
+            width: 5%;
+            left: 25%;
+        }
+        .address .country-code input {
+            margin-left: 35%;
+            width: 65%;
+        }
+        .address .country input {
+            width: 100%;
+            margin: 0;
+        }
+        .address-type button {
+            width: 80px;
+            height: 35px;
+            padding: 0;
+        }
+        button.checkout {
+            margin: 0 auto 17px;
+        }
+        .add-address-modal .address {
+            padding: 20px;
+        }
+        .map agm-map {
+            height: 250px;
+        }
+        .add-address-modal button.close {
+            display: none;
+        }
+        button.cancel {
+            display: block;
+        }
+        .card-message .card-input textarea,
+        .card-message .card-input input {
+            width: 100%;
+        }
+        /* ==============arabic=========== */
+        .arabic.add-address-modal .address .country-code input {
+            margin-right: 35%;
+            margin-left: auto;
+        }
+    }
+    
+    @media screen and (max-width: 320px) {
+        .cart-details {
+            padding: 15px 20px;
+        }
+        .date .single-date {
+            width: 95px;
+            height: 95px;
+            margin: auto;
+            padding: 15px 0;
+        }
+        .date.time .single-date {
+            margin: auto;
+        }
+        .address .country-code input {
+            padding: 10px;
+        }
+        .address-type button {
+            width: 90px;
+            height: 35px;
+            margin: 10px 10px 0 0;
+        }
+        .cart-details .input-message textarea {
+            height: 100px;
+        }
+    }
+    
+    .card-wrap {
+        padding-top: 21px;
+        display: flex;
+        grid-gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .card-wrap a span {
+        display: block;
+        font-size: 12px;
+        color: #000000;
+        padding-top: 5px;
+        font-family: 'roobert-reg';
+    }
+    
+    .modal-title {
+        font-size: 24px;
+        color: #000;
+        font-family: 'roobert-semi';
+        text-transform: uppercase;
+    }
+    
+    .form-address {
+        display: block !important;
+    }
+    .country-input{
+        display: flex;
+        align-items: center;
+    }
+    .country-input .input-message{
+        width: 100%;
+    }

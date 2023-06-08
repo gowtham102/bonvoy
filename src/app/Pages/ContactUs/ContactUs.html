@@ -1,0 +1,84 @@
+<div class="site_wrapper bg-grey">
+    <div class="background"></div>
+    <div class="contact-us">
+        <div class="col-md-9 mx-auto">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="image">
+                        <img src="assets/images/contact-us.png" alt="">
+
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="contact-details">
+                                <h1>{{LANG.Contact_Us}}</h1>
+                                <p>{{LANG.We_would_love_to_hear_from_you_Please_find_the_details_to_contact_us_below}}</p>
+                                <div class="company-details d-flex">
+                                    <div class="email-details">
+                                        <label>{{LANG.CALL_US}}</label>
+                                        <p dir="ltr">{{footer_data?.contact_number}}</p>
+                                    </div>
+                                    <div class="email-details">
+                                        <label>{{LANG.EMAIL_US}}</label>
+                                        <p>{{footer_data?.email_id}}</p>
+                                    </div>
+                                </div>
+                                <div class="socail-icons d-flex align-items-center">
+                                    <h6>{{LANG.FOLLOW_US}}</h6>
+                                    <a href="https://{{footer_data?.facebook}}" target="_blank">
+                                        <img src="assets/images/icons/contact-fb.svg" alt="" />
+                                    </a>
+                                    <a href="{{footer_data?.instagram}}" target="_blank">
+                                        <img src="assets/images/icons/contact-insta.svg" alt="" />
+                                    </a>
+                                    <a href="{{footer_data?.twitter}}" target="_blank">
+                                        <img src="assets/images/icons/contact-twitter.svg" alt="" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="contact-form">
+                                <h1>{{LANG.Or_drop_us_a_line}}</h1>
+                                <form>
+                                    <div class="input-message">
+                                        <input type="text" required name="full_name" [(ngModel)]="full_name" placeholder="{{LANG.Full_Name}}">
+                                        <!-- <label>{{LANG.Full_Name}} <span class="required">*</span></label> -->
+                                        <span class="error" *ngIf="form_error.full_name">{{LANG.This_field_is_required}}</span>
+                                    </div>
+                                    <!-- <div class="input-message">
+                                    <input type="text" required name="email_id" [(ngModel)]="email_id">
+                                    <label>Email Id <span class="required">*</span></label>
+                                    <span class="error" *ngIf="form_error.email_id">{{LANG.This_field_is_required}}</span>
+                                    <span class="error" *ngIf="form_error.email_id_valid">{{LANG.Please_enter_valid_Email}}</span>
+                                </div> -->
+                                    <div class="input-message">
+                                        <input type="text" required name="mobile_number" placeholder="{{LANG.Mobile_Number}}" [(ngModel)]="mobile_number" [maxlength]="maxLength" (input)="changeMaxLength()" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)">
+                                        <!-- <label>{{LANG.Mobile_Number}} <span class="required">*</span></label> -->
+                                        <span class="error" *ngIf="form_error.mobile_number">{{LANG.This_field_is_required}}</span>
+                                        <span class="error" *ngIf="form_error.mobile_number_valid">{{LANG.Enter_Valid_Number}}</span>
+                                    </div>
+                                    <div class="input-message">
+                                        <textarea required name="message" placeholder="{{LANG.Message}}" [(ngModel)]="message"></textarea>
+                                        <!-- <label>{{LANG.Message}} <span class="required">*</span></label> -->
+                                        <span class="error" *ngIf="form_error.message">{{LANG.This_field_is_required}}</span>
+                                    </div>
+                                    <button class="checkout mt-4" (click)="submitFormData()" *ngIf="!load;else loader">{{LANG.Send}}</button>
+                                    <ng-template #loader>
+                                        <button class="checkout  cart-loader">
+                                        <loader></loader>
+                                    </button>
+                                    </ng-template>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>

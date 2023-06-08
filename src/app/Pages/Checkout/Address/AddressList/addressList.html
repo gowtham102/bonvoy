@@ -1,0 +1,268 @@
+<!-- <div class="cart-details ">
+    <h6>Select card design</h6>
+    <div class="card-wrap">
+        <a href="#">
+            <img src="assets/images/card-design1.png" class="w-100" alt="" />
+            <span>Simple white</span>
+        </a>
+        <a href="#">
+            <img src="assets/images/card-design2.png" class="w-100" alt="" />
+            <span>Love card</span>
+        </a>
+    </div>
+</div> -->
+<div class="cart-details mb-2" *ngIf="address_list.length > 0">
+    <h6>{{LANG.Saved_Address}}</h6>
+    <div class="address-list row">
+        <div class="  col-md-6 single-address" *ngFor="let data of address_list;let i=index;" (click)="changeSelectedAddress(data)" [class.active]="data.id == delivery_address_id">
+            <div class=" cur-pointer single-address1">
+                <span class="overlay" *ngIf="data.load">
+                    <loader class="centered"></loader>
+                </span>
+                <div class="address-part">
+                    <p class="name">{{data.full_name}} <span class="{{data.type_class}}">{{data.type}}</span></p>
+                    <p>{{data.country_code}} {{data.phone}}</p>
+                    <span class="location">{{data.address}}</span>
+                </div>
+                <div class="select">
+                    <button class="select-btn"><span>o</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <button class="btn send-address">SEND TO NEW ADDRESS</button> -->
+    <div class="preview-card btn send-address">
+        <a (click)="openLg(address_modal,1)"><i class="fa fa-plus-square m-1" aria-hidden="true"></i>
+            {{LANG.Add_address}}</a>
+    </div>
+</div>
+
+<div class="cart-details mb-2">
+    <h6>{{LANG.reciever_details}}</h6>
+    <div class="input-message">
+        <!-- <input type="text" required [(ngModel)]="reciever_address" (change)="inputChange(4)">
+        <label>{{LANG.Address}}</label> -->
+        <!-- <div class="preview-card">
+            <a (click)="openLg(address_modal,1)"><i class="fa fa-plus-square m-1" aria-hidden="true"></i>
+                {{LANG.Add_address}}</a>
+        </div> -->
+    </div>
+    <div class="country-input">
+    <div class="country">
+                                               
+        <div class="btn-group country-code form-control" ngbDropdown role="group" display="dynamic" placement="bottom-left">
+            <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
+                {{country_code}}
+            </button>
+            <div class="dropdown-menu dropdown-menu-right sml" ngbDropdownMenu>
+                <button *ngFor="let data of country_list;" class="dropdown-item" type="button" ngbDropdownItem (click)="changeCountryCode(data.country_code)">
+                  {{data.country_code}}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="input-message">
+        
+        <input type="text" required [(ngModel)]="reciever_number" (change)="inputChange(5)" [maxlength]="maxLength" (input)="changeMaxLength()" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)">
+        <label>{{LANG.reciever_phone}} <span class="required">*</span></label>
+        <span class="error" *ngIf="reciever_details_error?.mobile_number">{{LANG.This_field_is_required}}</span>
+        <span class="error" *ngIf="reciever_details_error?.mobile_number_valid">{{LANG.Enter_Valid_Number}}</span>
+    </div>
+    </div>
+
+    <!-- <div class="preview-card" *ngIf="cart_design_id">
+        <a (click)="openScrollableContent(card_message)">{{LANG.Preview_card}}</a>
+    </div> -->
+</div>
+
+<!-- <div class="cart-details mb-2">
+    <h6>{{LANG.Card_Message}}</h6>
+    <div class="card-message">
+        <div class="card-input" [class.text-right]="text_right">
+            <input type="text" [class.text-right]="text_right" placeholder="{{LANG.To}}" [(ngModel)]="to_text" (change)="inputChange(1)" (input)="onMessageChange()">
+        </div>
+        <div class="card-input">
+            <textarea [class.text-right]="text_right" [(ngModel)]="message" (change)="inputChange(3)" placeholder="{{LANG.Message}}" (input)="onMessageChange()"></textarea>
+        </div>
+       
+        <button class="btn preview" data-target="#previewmodal" data-target="modal">Preview Card</button>
+    </div>
+
+    
+</div>
+
+
+<div class="cart-details mb-2">
+    <h6>{{LANG.Select_Date}}</h6>
+    <div class="date">
+        <div class="single-date mt-2" [class.active]="order_day == 1" (click)="selectOrderDay(1)" [class.not-available]="date_availability == 2 || disable_both">
+            <p>{{LANG.Today}}</p>
+            <p>{{today | date :'dd MMM'}}</p>
+        </div>
+        <div class="single-date mt-2" [class.active]="order_day == 2" (click)="selectOrderDay(2)" [class.not-available]="date_availability == 3 || disable_both">
+            <p>{{LANG.Tomorrow}}</p>
+            <p>{{tomorrow | date :'dd MMM'}}</p>
+        </div>
+        <div class="single-date mt-2 position-relative" [class.active]="order_day == 3">
+            <div (click)="d.toggle()">
+                <p>{{LANG.Pick_a_date}}</p>
+             
+            </div>
+
+            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" (dateSelect)="dateChanged()" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" style="display: none;" [markDisabled]="markDisabled" [minDate]="minDate">
+        </div>
+    </div>
+</div>
+
+
+<div class="cart-details mb-2">
+    <h6>{{LANG.Select_Delivery_Time}}</h6>
+    <div class="date time">
+        <ng-container *ngFor="let data of order_timings;">
+            <div class="single-date mt-2 cur-pointer" [class.not-available]="order_day == 1 && data.available == '0' || order_day == 0" [class.active]="data.time == order_time" (click)="selectOrderTime(data)">
+                <p *ngIf="data.time !='90 Minutes Delivery'">{{data.time | time}} - {{data.to_time != null && data.to_time != '' ?(data.to_time | time):''}}</p>
+                <p *ngIf="data.time =='90 Minutes Delivery'">{{data.time }} </p>
+            </div>
+        </ng-container>
+
+    </div>
+</div> -->
+
+
+
+
+
+
+<ng-template #address_modal let-modal>
+    <div class="add-address-modal" [class.arabic]="arabic">
+        <div class="row">
+            <div class="col-md-5 col-12">
+                <div class="map">
+                    <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onSelectAddress($event)">
+                        <agm-marker *ngIf="address_clicked" [latitude]="latitude" [longitude]="longitude" [iconUrl]="icon">
+                        </agm-marker>
+                    </agm-map>
+                </div>
+            </div>
+            <div class="col-md-7 col-12">
+              
+                <div class="modal-body address">
+                    <div class="header">
+                        <h2 class="modal-title">{{LANG.Add_Address}}</h2>
+
+                    </div>
+                    <div class="address-form">
+                        <div class="form_input">
+                            <button class="btn location" (click)="useCurrentLocation()">
+                                <img src="assets/images/icons/location.svg"> {{LANG.Use_My_Location}}
+                            </button>
+                        </div>
+                        <div class="form_input">
+                            <form autocomplete="off">
+                                <textarea name="address" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="off" class="form-control" placeholder="{{LANG.Address_building_no}}" id="search_field" [(ngModel)]="address" (change)="clearSelectedAddress()"></textarea>
+                            </form>
+                            <span class="error" *ngIf="address_error.address">{{LANG.This_field_is_required}}</span>
+                            <span class="error" *ngIf="address_error.address_valid">{{LANG.Please_Select_valid_address}}</span>
+                        </div>
+                        <div class="form_input ">
+                            <div class="country-code form_input position-relative m-0">
+                                <div class="country">
+                                    <div class="btn-group country-code form-control" ngbDropdown role="group" display="dynamic" placement="bottom-left">
+                                        <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
+                                            {{country_code}}
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right sml" ngbDropdownMenu>
+                                            <button *ngFor="let data of country_list;" class="dropdown-item" type="button" ngbDropdownItem (click)="changeCountryCode(data.country_code)">
+                                                {{data.country_code}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span></span>
+                                <input type="text" placeholder="{{LANG.Mobile_Number}}" class="form-control" name="mobile_number" maxlength="10" [(ngModel)]="mobile_number" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)">
+                            </div>
+                            <span class="error" *ngIf="address_error.mobile_number">{{LANG.This_field_is_required}}</span>
+                            <span class="error" *ngIf="address_error.mobile_number_valid && country_code == '+91'">{{LANG.Enter_Valid_Number}}
+                                (Ex: 0551234567 or 551235678)</span>
+                            <span class="error" *ngIf="address_error.mobile_number_valid && country_code != '+91'">{{LANG.Enter_Valid_Number}}</span>
+                        </div>
+                        <div class="form_input">
+                            <input class="form-control" placeholder="{{LANG.Full_Name}}" name="full_name" [(ngModel)]="full_name">
+                            <span class="error f-name" *ngIf="address_error.full_name">{{LANG.This_field_is_required}}</span>
+                        </div>
+                        <div class="form_input">
+                            <input class="form-control" placeholder="{{LANG.Email_ID}}" name="email_id" [(ngModel)]="email_id">
+                            <!-- <span class="error" *ngIf="address_error.email_id">{{LANG.This_field_is_required}}</span> -->
+                            <span class="error" *ngIf="address_error.email_id_valid">{{LANG.Please_enter_valid_Email}}</span>
+                        </div>
+                        <div class="form_input form-address">
+                            <label>{{LANG.Address_Type}}</label>
+                            <div class="address-type">
+                                <button [class.active]="address_type == '1'" (click)="changeAddressType('1')">
+                                    {{LANG.Home}}
+                                </button>
+                                <button [class.active]="address_type == '2'" (click)="changeAddressType('2')">
+                                    {{LANG.Office}}
+                                </button>
+                                <button [class.active]="address_type == '3'" (click)="changeAddressType('3')">
+                                    {{LANG.Other}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="save-btn">
+                        <button class="checkout mt-2" (click)="addAddress()" *ngIf="!load;else loader">{{address_id ?
+                            LANG.Update_Address : LANG.Add_address}}</button>
+                        <ng-template #loader>
+                            <button class="checkout cart-loader">
+                                <loader></loader>
+                            </button>
+                        </ng-template>
+                        <button class="cancel mt-2" (click)="modal.dismiss('Cross click')" [disabled]="load">{{LANG.Cancel}}</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</ng-template>
+<app-payment></app-payment>
+
+
+
+<!-- <ng-template #card_message let-modal>
+    <div class="card-preview-modal">
+        <div class="modal-header">
+            <h2 class="modal-title">{{LANG.Card_Preview}}</h2>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="cart-details mb-2">
+                <h6>{{LANG.Card_Message}}</h6>
+                <div class="input-message">
+                    <input type="text" required [(ngModel)]="to_text" (change)="inputChange(1)">
+                    <label>{{LANG.To}}</label>
+                </div>
+                <div class="input-message">
+                    <input type="text" required [(ngModel)]="from_text" (change)="inputChange(2)">
+                    <label>{{LANG.From}}</label>
+                </div>
+                <div class="input-message">
+                    <input type="text" required [(ngModel)]="message" (change)="inputChange(3)">
+                    <label>{{LANG.Message}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">{{LANG.ADD}}</button>
+        </div>
+
+    </div>
+    
+</ng-template>  -->

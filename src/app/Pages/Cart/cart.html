@@ -1,0 +1,190 @@
+<div class="site_wrapper bg-grey">
+
+    <div class="product-container container ">
+        <div class="breadcrumbs">
+            <div class="row m-0">
+                <p><a routerLink="/">{{LANG.Home}} </a> / <a class="active">{{LANG.Cart}}</a> </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3" [ngClass]="cart_length == 0 && cart_loaded ? 'col-md-12':'col-md-7'">
+                <div class="cart-details checkout-status ">
+                    <div class="row position-relative">
+                        <b class="hr-line">
+                <!-- <span [style.width.%]="width"></span> -->
+              </b>
+                        <div class="col-4">
+                            <button class="active">1</button>
+                            <p>{{LANG.Cart}}</p>
+                        </div>
+                        <div class="col-4">
+                            <button>2</button>
+                            <p>{{LANG.Address}}</p>
+                        </div>
+                        <div class="col-4">
+                            <button>3</button>
+                            <p>{{LANG.Payment}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-details">
+                    <h6 *ngIf="cart_length > 0">{{cart_length}} {{cart_length == 1 ? LANG.Item : LANG.Items }}</h6>
+
+                    <div class="pt-3 pb-5 continue-shopping" *ngIf="cart_length == 0 && cart_loaded">
+                        <h3>{{LANG.Your_cart_is_empty}}</h3>
+                    </div>
+
+                    <div class="single-item align-centered" *ngFor="let data of cartDetails.cart_Detail;let i=index;">
+                        <div class="img cur-pointer" (click)="goToproductDetails(data)">
+                            <img src="{{data.image}}" alt="image" onError="this.src='assets/images/icons/logo-grey.svg';">
+                        </div>
+                        <div class="details">
+                            <p class="cur-pointer" (click)="goToproductDetails(data)">{{data.product_title}}</p>
+                            <span><del *ngIf="+data.discount > 0">{{data.unit_price}} {{data.currency}}</del>{{+data.unit_price - +data.discount}} {{data.currency}} </span>
+                            <p class="p-0">
+                                <a class="remove" (click)="removeCart(data)"><img src="assets/images/icons/remove-cross.svg" alt="remove">
+                                    <!-- {{LANG.Remove}} -->
+                                </a>
+                                <!-- <a class="to-wishlist" (click)="addToWishlist(data)"><img src="assets/images/icons/wishlist.svg" alt="wishlist">{{LANG.Move_to_wishlist}}</a> -->
+                            </p>
+                        </div>
+                        <div class="d-flex align-centered quant-date">
+                            <div class="quantity detail">
+                                <span class="minus" (click)="decrementQuantity(data)"><img class="" src="assets/images/icons/minus-icon.svg" alt="minus"></span>
+                                <input type="text" name="quantity" [(ngModel)]="data.quantity" disabled>
+                                <span class="plus" (click)="incrementQuantity(data)"><img class="" src="assets/images/icons/plus-icon.svg" alt="plus"></span>
+                            </div>
+
+                            <div class="available-date" *ngIf="data.display_from_date || data.display_to_date">
+                                <p class="label">{{LANG.available_on}} </p>
+                                <p><span>{{data.display_from_date}} - {{data.display_to_date}}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="cart-details mb-3 border-wra" *ngIf="addon_categories?.category?.length > 0 && cart_length > 0">
+                    <h6>{{LANG.Select_add_ons}}</h6>
+                    <div class="row add-ons m-0">
+                        <div class="col-md-12 col-12 mb-2 add-on-heading p-0">
+                            <ng-container *ngFor="let data of addon_categories?.category;">
+                                <ng-container *ngIf="data?.ad_ons?.length > 0">
+                                    <h6 [class.active]="data.id == addon_category_id" (click)="changeAddonsCategoy(data)">{{data.title}}</h6>
+                                </ng-container>
+                            </ng-container>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-6 p-0" *ngFor="let item of addon_list;">
+                            <div class="item prod text-center">
+                                <div class="prod-image cur-pointer" [class.active]="item.id == addon_id">
+                                    <img src="{{item.image}}">
+                                </div>
+                                <div class="prod-name text-center mt-3">
+                                    <p class="m-0">{{item.title}}</p>
+                                    <span>{{item.price}} {{item.currency}}</span>
+                                </div>
+                                <button class="add-cart m-auto" (click)="selectAddons(item)" *ngIf="!item.load;else loader;">
+                              {{LANG.ADD}}
+                          </button>
+                                <ng-template #loader>
+                                    <button class="add-cart m-auto cart-loader"> 
+                                  <loader></loader>
+                              </button>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="col-md-5 summary-details" *ngIf="cart_length > 0 && cart_loaded">
+                <div class="cart-details summary">
+                    <h5>{{LANG.Summary}}</h5>
+                    <!-- <div class="single-item" *ngFor="let data of cartDetails.cart_Detail;let i=index;">
+                        <a class="remove-cart" (click)="removeCart(data)"><img src="assets/images/icons/close.svg"></a>
+                        <div class="img cur-pointer" (click)="goToproductDetails(data)">
+                            <img src="{{data.image}}" alt="image" onError="this.src='assets/images/icons/logo-grey.svg';">
+                        </div>
+                        <div class="details">
+                            <p class="cur-pointer" (click)="goToproductDetails(data)">{{data.product_title}}</p>
+                            <span>{{+data.unit_price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.unit_price}} {{data.currency}}</del></span>
+                            <div class="quantity">
+                                <span class="plus" (click)="incrementQuantity(data)"><img class="centered" src="assets/images/icons/plus.svg" alt="plus"></span>
+                                <input type="text" name="quantity" [(ngModel)]="data.quantity" disabled>
+                                <span class="minus" (click)="decrementQuantity(data)"><img class="centered" src="assets/images/icons/minus.svg" alt="minus"></span>
+                            </div>
+                        </div>
+
+                    </div> -->
+
+                    <ul>
+                        <li>
+                            <span>{{LANG.SUBTOTAL}}</span><span>{{cartDetails.currency}} {{cartDetails.sub_total}}</span>
+                        </li>
+                        <li>
+                            <span>{{LANG.VAT}}</span><span>+ {{cartDetails.currency}} {{cartDetails.vat}}</span>
+                        </li>
+                        <li *ngIf="+cartDetails.shipping_charge == 0;else show_shipping">
+                            <span>{{LANG.DELIVERY}}</span><span class="text-success">{{LANG.FREE}}</span>
+                        </li>
+                        <ng-template #show_shipping>
+                            <li>
+                                <span>{{LANG.DELIVERY}}</span><span class="text-debit">+ {{cartDetails.currency}} {{cartDetails.shipping_charge}}</span>
+                            </li>
+                        </ng-template>
+                        <li *ngIf="+cartDetails.discount_total > 0">
+                            <span>{{LANG.Discount}}</span><span class="text-success">- {{cartDetails.currency}} {{cartDetails.discount_total}}</span>
+                        </li>
+                        <li *ngIf="+cartDetails.bill_value_discount > 0">
+                            <span>{{LANG.Discount_on_Bill}}</span><span class="text-success">- {{cartDetails.currency}} {{cartDetails.bill_value_discount}}</span>
+                        </li>
+                    </ul>
+
+                    <div class="coupon mt-4" *ngIf="!coupon_applied && cart_loaded">
+                        <div class="form_input">
+                            <label>{{LANG.HAVE_A_COUPON_CODE}}</label>
+                            <div class="apply-coupon">
+                                <input class="form-control" type="text" placeholder="{{LANG.Enter_Coupon_Code}}" autocomplete="off" name="coupon_code" [(ngModel)]="coupon_code">
+                                <button class="btn save_btn" (click)="applyCoupon()" *ngIf="!load;else loader;">{{LANG.Apply}}</button>
+                                <ng-template #loader>
+                                    <button class="btn save_btn cart-loader coupon-loader">
+                              <loader></loader>
+                          </button>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ng-container *ngIf="coupon_applied && cart_loaded">
+                        <div class="coupon mt-4 coupon-applied">
+                            <div class="form_input">
+                                <label>
+                          <div class="coupon-applied-text">
+                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            <span>{{LANG.Coupon_Applied}}</span>
+                          </div>
+                        </label>
+                                <div class="apply-coupon">
+                                    <input class="form-control" type="text" autocomplete="off" disabled name="coupon_code" [(ngModel)]="coupon_code">
+                                    <button class="btn save_btn" (click)="removeCoupon()" *ngIf="!load;else loader;">{{LANG.Remove}}</button>
+                                    <ng-template #loader>
+                                        <button class="btn save_btn cart-loader coupon-loader">
+                                  <loader></loader>
+                              </button>
+                                    </ng-template>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    <ul class="mt-5 total-wrap">
+                        <li>
+                            <span>{{LANG.Total}}</span><span>{{cartDetails.currency}} {{cartDetails.grand_total}}</span>
+                        </li>
+                    </ul>
+
+                    <button class="checkout mt-4" routerLink="/checkout/address">{{LANG.Checkout}}</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

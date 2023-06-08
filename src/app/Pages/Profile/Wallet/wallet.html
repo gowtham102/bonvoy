@@ -1,0 +1,42 @@
+<div class="wallet mb-2">
+    <h6>{{LANG.WALLET}}</h6>
+
+    <div class="wallet-section ">
+        <div class="content">
+            <p>{{LANG.AVAILABLE_BALANCE}}</p>
+            <h3>{{currency}} {{available_amount}}</h3>
+        </div>
+        <button class="btn add-money">Add Money</button>
+        <!-- <div class="add-btn position-relative">
+            <button class="add-money" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+                {{LANG.ADD_MONEY}}
+            </button>
+            <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="amount mt-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="{{LANG.Enter_amount}}">
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+    <h4 class="">{{LANG.TRANSACTION}}</h4>
+
+    <div class="wallet-history">
+        <div class="single-data" *ngIf="walletList.length == 0 && wallet_loaded">
+            <div class="transaction-date">
+                <h5>{{LANG.No_transactions_to_display}}</h5>
+            </div>
+
+        </div>
+        <div class="single-data" *ngFor="let data of walletList;let i=index;">
+            <div class="transaction-date">
+                <p>{{data.flag == '2' ? LANG.Credited_on : LANG.Debited_on}} {{data.display_date}}, {{LANG.Reference}}: {{data.reference_id}}</p>
+            </div>
+            <div class="transaction-price">
+                <p [ngClass]="data.flag == '2' ? 'text-success' : 'text-debit'">{{data.flag == '2' ? '+' : '-'}} {{currency}} {{data.amount}}</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>

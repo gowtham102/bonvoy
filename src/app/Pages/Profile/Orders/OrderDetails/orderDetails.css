@@ -1,0 +1,282 @@
+.order-wrapper {
+    padding: 40px 50px 10px;
+    background: var(--c-white);
+    color: var(--c-black);
+    border-radius: 12px;
+}
+
+.order-wrapper h6 {
+    font-size: 24px;
+    color: #000;
+    margin: 0;
+    font-family: 'roobert-semi';
+    padding-bottom: 12px;
+}
+
+.orders .order-date {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+    font-family: 'roobert-semi';
+    color: #000;
+    margin-bottom: 0;
+}
+
+.orders .order-date p {
+    margin-right: 30px;
+    margin-bottom: 0px;
+}
+
+.orders .order-details {
+    /* font-family: 'GothaProMed'; */
+    /* font-size: 12px; */
+    padding-top: 36px;
+}
+
+p.items {
+    color: var(--c-black);
+    font-size: 12px;
+    font-family: 'roobert-semi';
+    margin-bottom: 21px;
+}
+
+.details p {
+    font-size: 14px;
+    color: #515151;
+    font-family: 'roobert-med';
+}
+
+.order-details .single-order {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.orders .single-order .img {
+    margin-right: 20px;
+}
+
+.orders .single-order .img img {
+    width: 51px;
+    height: 51px;
+    border-radius: 8px;
+}
+
+.orders .single-order .details {
+    font-size: 14px;
+    margin-top: 10px;
+    font-family: 'GothaProMed';
+}
+
+.orders .single-order .details span {
+    color: #000;
+    font-size: 14px;
+    font-family: 'roobert-med';
+}
+
+.orders .single-order .details span:last-child {
+    margin-left: 10px;
+}
+
+.orders .delivery-address {
+    /* font-size: 14px; */
+    /* font-family: 'GothaProMed'; */
+    margin-top: 49px;
+}
+
+.delivery-address p {
+    margin-bottom: 12px;
+}
+
+.orders .delivery-address .address-part p {
+    margin: 0;
+    direction: ltr;
+    font-size: 14px;
+    color: #000;
+    font-family: 'roobert-med';
+}
+
+.orders .delivery-address .address-part span {
+    display: inline-block;
+    margin-top: 22px;
+    font-family: 'roobert-reg';
+    font-size: 14px;
+    color: #000;
+}
+
+.orders .order-status .status {
+    display: inline-block;
+    margin-right: 60px;
+    font-family: 'GothaProMed';
+    font-size: 14px;
+}
+
+.orders .order-status .status label {
+    font-size: 12px;
+    color: var(--c-black);
+}
+
+.card {
+    width: 100%;
+    border: 1px solid #D6D6D6;
+    border-radius: 16px;
+    margin-bottom: 16px;
+}
+
+.card .card-message,
+.summary-details {
+    padding: 22px 24px;
+}
+
+.card .card-message p {
+    margin: 0;
+    font-size: 12px;
+    font-family: 'roobert-reg';
+}
+
+.card-message p:nth-child(2) {
+    font-size: 14px !important;
+    margin: 18px 0 8px !important;
+}
+
+.card-message p:first-child {
+    font-family: 'roobert-med' !important;
+}
+
+.cart-details.summary h6 {
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    font-family: 'roobert-med';
+    padding-bottom: 33px;
+}
+
+.card .card-message span {
+    font-size: 12px;
+    font-family: 'GothaProReg';
+    display: block;
+}
+
+.cart-details .single-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 14px;
+    font-family: 'GothaProReg';
+    position: relative;
+    border-bottom: 1px solid var(--c-filter-check);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.cart-details .single-item img {
+    width: 100px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: fill;
+}
+
+.cart-details .single-item .details {
+    padding: 5px 15px;
+    width: 100%;
+}
+
+.cart-details .single-item .details p {
+    margin: 0;
+    text-transform: capitalize;
+    color: var(--t-color);
+    font-family: 'GothaProMed';
+}
+
+.cart-details .single-item .details span {
+    font-size: 12px;
+    color: var(--c-cart);
+}
+
+.summary ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-family: 'GothaProMed';
+    color: var(--c-black);
+    text-transform: uppercase;
+}
+
+.summary ul li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 17px;
+    font-size: 12px;
+    font-family: 'roobert-med';
+}
+
+.summary ul li:last-child {
+    margin-top: 30px;
+    font-family: 'roobert-bold';
+}
+
+.text-debit {
+    color: #2EAD37;
+}
+
+.invoice-download a {
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.invoice-download a i {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 572px) {
+    .order-wrapper {
+        padding: 20px 30px;
+    }
+    .card .card-message,
+    .summary-details {
+        padding: 20px;
+    }
+    .orders .order-date p {
+        margin-right: 12px;
+    }
+}
+
+.summary-last .cart-details.summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary-left h5 {
+    font-size: 18px;
+    color: #000000;
+    font-family: 'roobert-med';
+}
+
+.summary-left p {
+    font-size: 14px;
+    font-family: 'roobert-reg';
+    margin: 0;
+    color: #000;
+}
+
+.summary-right p {
+    font-size: 11px;
+    color: #6E6E6E;
+    font-family: 'roobert-reg';
+    margin-bottom: 3px;
+}
+
+.summary-right h5 {
+    font-size: 12px;
+    color: #6E6E6E;
+    font-family: 'GothaProReg';
+    margin: 0;
+}
+
+.summary-right h5 img {
+    margin-right: 7px;
+}

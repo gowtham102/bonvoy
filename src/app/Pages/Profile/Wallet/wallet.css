@@ -1,0 +1,119 @@
+.wallet {
+    padding: 40px 50px;
+    background: var(--c-white);
+    color: var(--c-black);
+    border-radius: 12px;
+}
+
+.wallet h6 {
+    font-size: 24px;
+    color: #000;
+    margin: 0;
+    font-family: 'roobert-semi';
+    padding-bottom: 23px;
+}
+
+.wallet h4 {
+    font-size: 14px;
+    color: #000;
+    font-family: 'roobert-med';
+    padding: 32px 0 18px;
+}
+
+.single-data p {
+    font-size: 14px;
+    color: #000;
+    font-family: 'roobert-reg';
+}
+
+.text-debit {
+    color: #B91803 !important;
+}
+
+.text-success {
+    color: #34A72B !important;
+}
+
+.add-money {
+    background: #fff;
+    border-radius: 24px;
+    font-size: 14px;
+    color: #000;
+    font-family: 'roobert-bold';
+    padding: 12px 56px;
+}
+
+.wallet .wallet-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 24px 25px 24px 60px;
+    background: var(--c-black);
+    color: var(--c-white);
+    font-family: 'GothaProMed';
+    font-size: 14px;
+    /* margin-top: 20px; */
+    border-radius: 12px;
+    align-items: center;
+}
+
+.wallet-section .content p,
+.wallet-section .content h3 {
+    font-size: 14px;
+    color: #fff;
+    font-family: 'roobert-med';
+    margin: 0;
+}
+
+.wallet-section .content h3 {
+    font-size: 28px;
+}
+
+.wallet-section .add-btn button.add-money {
+    width: 186px;
+    height: 48px;
+    border-radius: 12px;
+    border: none;
+    background: var(--c-white);
+    color: var(--c-cart);
+    font-family: 'GothaProBol';
+}
+
+.wallet-section .add-btn .amount {
+    position: absolute;
+    width: 225px;
+    bottom: -65px;
+}
+
+.wallet-history .single-data {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 14px;
+    font-family: 'GothaProReg';
+    border-bottom: 1px solid var(--c-filter-check);
+    margin-top: 20px;
+}
+
+.wallet-history .single-data:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+@media screen and (max-width: 572px) {
+    .wallet {
+        padding: 15px 5%;
+    }
+    .wallet .wallet-section {
+        padding: 25px;
+    }
+    .wallet-section .add-btn {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .wallet-history .single-data .transaction-date {
+        width: 100%;
+    }
+}

@@ -1,0 +1,130 @@
+<div class="address-details mb-2">
+    <div class="header">
+        <h6 *ngIf="address_list.length > 0">{{LANG.Saved_Address}}</h6>
+        <h4 *ngIf="address_list.length == 0 && country_loaded">{{LANG.You_Have_Not_added_any_Address_yet}}</h4>
+
+        <div class="preview-card" *ngIf='country_loaded'>
+            <a (click)="openLg(address_modal,1)">{{LANG.Add_new_address}}</a>
+        </div>
+    </div>
+    <div class="address-list row">
+        <div class="single-address col-md-6" *ngFor="let data of address_list;let i=index;">
+            <div class="cur-pointer single-address1">
+                <span class="overlay" *ngIf="data.load">
+                <loader class="centered"></loader>
+            </span>
+                <!-- <a class="remove-address" (click)="removeAddress(data,i)">
+                    <img src="assets/images/icons/close.svg">
+                </a> -->
+                <div class="profile-address address-part">
+                    <p class="name">{{data.full_name}} <span class="{{data.type_class}}">{{data.type}}</span></p>
+                    <p>{{data.country_code}} {{data.phone}}</p>
+                    <span class="location">{{data.address}}</span>
+                    <p>
+                        <!-- <a (click)="editAddress(data)">{{LANG.Edit}}</a> -->
+                        <a class="remove-address" (click)="removeAddress(data,i)">
+                            Remove
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<ng-template #address_modal let-modal>
+    <div class="add-address-modal" [class.arabic]="arabic">
+        <div class="row">
+            <div class="col-md-5 col-12">
+                <div class="map">
+                    <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onSelectAddress($event)">
+                        <agm-marker *ngIf="address_clicked" [latitude]="latitude" [longitude]="longitude" [iconUrl]="icon">
+                        </agm-marker>
+                    </agm-map>
+                </div>
+            </div>
+            <div class="col-md-7 col-12">
+                <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button> -->
+                <div class="modal-body address">
+                    <div class="header">
+                        <h2 class="modal-title">{{address_id ? LANG.Update_Address : LANG.Add_address}}</h2>
+
+                    </div>
+                    <div class="address-form">
+                        <div class="form_input">
+                            <button class="btn location" (click)="useCurrentLocation()">
+                                <img src="assets/images/icons/location.svg"> {{LANG.Use_My_Location}}
+                            </button>
+                        </div>
+                        <div class="form_input">
+                            <form autocomplete="off">
+                                <textarea name="address" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="off" class="form-control" placeholder="{{LANG.Address_building_no}}" id="search_field" [(ngModel)]="address" (change)="clearSelectedAddress()"></textarea>
+                            </form>
+                            <span class="error" *ngIf="address_error.address">{{LANG.This_field_is_required}}</span>
+                            <span class="error" *ngIf="address_error.address_valid">{{LANG.Please_Select_valid_address}}</span>
+                        </div>
+                        <div class="form_input ">
+                            <div class="country-code form_input position-relative m-0">
+                                <div class="country">
+                                    <div class="btn-group country-code form-control" ngbDropdown role="group" display="dynamic" placement="bottom-left">
+                                        <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
+                                          {{country_code}}
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right sml" ngbDropdownMenu>
+                                            <button *ngFor="let data of country_list;" class="dropdown-item" type="button" ngbDropdownItem (click)="changeCountryCode(data.country_code)">
+                                              {{data.country_code}}
+                                          </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span></span>
+                                <input type="text" placeholder="{{LANG.Mobile_Number}}" class="form-control" name="mobile_number" maxlength="10" [(ngModel)]="mobile_number" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)">
+                            </div>
+                            <span class="error" *ngIf="address_error.mobile_number">{{LANG.This_field_is_required}}</span>
+                            <span class="error" *ngIf="address_error.mobile_number_valid && country_code == '+966'">{{LANG.Enter_Valid_Number}} (Ex: 0551234567 or 551235678)</span>
+                            <span class="error" *ngIf="address_error.mobile_number_valid && country_code != '+966'">{{LANG.Enter_Valid_Number}}</span>
+                        </div>
+                        <div class="form_input">
+                            <input class="form-control" placeholder="{{LANG.Full_Name}}" name="full_name" [(ngModel)]="full_name">
+                            <span class="error f-name" *ngIf="address_error.full_name">{{LANG.This_field_is_required}}</span>
+                        </div>
+                        <div class="form_input ">
+                            <input class="form-control" placeholder="{{LANG.Email_ID}}" name="email_id" [(ngModel)]="email_id">
+                            <!-- <span class="error" *ngIf="address_error.email_id">{{LANG.This_field_is_required}}</span> -->
+                            <span class="error" *ngIf="address_error.email_id_valid">{{LANG.Please_enter_valid_Email}}</span> </div>
+                        <div class="form_input form-adress">
+                            <label>{{LANG.Address_Type}}</label>
+                            <div class="address-type">
+                                <button [class.active]="address_type == '1'" (click)="changeAddressType('1')"> 
+                                    {{LANG.Home}}
+                                </button>
+                                <button [class.active]="address_type == '2'" (click)="changeAddressType('2')">
+                                    {{LANG.Office}}
+                                </button>
+                                <button [class.active]="address_type == '3'" (click)="changeAddressType('3')">
+                                    {{LANG.Other}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="save-btn">
+                        <button class="checkout mt-2" (click)="addAddress()" *ngIf="!load;else loader">{{address_id ? LANG.Update_Address : LANG.Add_address}}</button>
+                        <ng-template #loader>
+                            <button class="checkout cart-loader">
+                                <loader></loader>
+                            </button>
+                        </ng-template>
+                        <button class="cancel mt-2" (click)="modal.dismiss('Cross click')" [disabled]="load">{{LANG.Cancel}}</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</ng-template>

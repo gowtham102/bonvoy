@@ -1,0 +1,143 @@
+.order-wrapper {
+    padding: 40px 50px;
+    background: var(--c-white);
+    color: var(--c-black);
+    border-radius: 12px;
+}
+
+.order-wrapper h6 {
+    font-size: 24px;
+    color: #000;
+    margin: 0;
+    font-family: 'roobert-semi';
+    padding-bottom: 31px;
+}
+
+.orders {
+    font-family: 'GothaProMed';
+    font-size: 12px;
+    border-bottom: 1px solid var(--c-filter-check);
+    margin-bottom: 20px;
+}
+
+.orders:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.orders .order-date {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #000;
+    font-family: 'roobert-reg';
+}
+
+.orders .order-date p {
+    font-family: 'roobert-reg';
+    margin-right: 40px;
+    margin-bottom: 18px;
+    color: #181818;
+}
+
+.orders .single-order {
+    display: flex;
+    margin-bottom: 23px;
+    align-items: center;
+}
+
+
+/* .orders .single-order:last-child{
+    margin-bottom: 0;
+} */
+
+.orders .single-order .img {
+    margin-right: 20px;
+}
+
+.orders .single-order .img img {
+    width: 51px;
+    height: 51px;
+    border-radius: 8px;
+}
+
+.details p {
+    font-size: 14px;
+    color: #515151;
+    font-family: 'roobert-med';
+}
+
+.orders .single-order .details {
+    font-size: 14px;
+}
+
+.order-row {
+    align-items: center;
+}
+
+
+/* .orders .single-order .details span {
+    color: var(--c-cart);
+    font-size: 12px;
+} */
+
+.orders .order-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.orders a.order-details img {
+    width: 14px;
+    height: 16px;
+}
+
+button.checkout {
+    width: 30%;
+}
+
+.order-wrapper .details-icon {
+    text-align: right;
+}
+
+@media screen and (max-width: 572px) {
+    .order-wrapper {
+        padding: 20px 30px;
+    }
+    .orders .order-date p {
+        margin-right: 12px;
+    }
+    .orders .order-status {
+        justify-content: flex-start;
+        left: 65px;
+        position: relative;
+    }
+    .orders .order-status p {
+        margin-bottom: 10px;
+    }
+    .orders a.order-details a {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .orders .order-status {
+        justify-content: flex-start;
+        left: 65px;
+        position: relative;
+    }
+}
+
+.order-status p {
+    border: 1px solid #000000;
+    color: #000 !important;
+    font-size: 12px;
+    padding: 3px 5px;
+    border-radius: 6px;
+    font-family: 'roobert-reg';
+    margin: 0;
+}

@@ -1,0 +1,94 @@
+<div class="profile-details">
+    <h2>Profile details</h2>
+    <div class="row">
+        <div class="col-lg-3 col-md-12">
+            <div class="profile-img position-relative mb-3">
+                <div class="profile-img-wrapper">
+                    <input style="display: none" type="file" (change)="changeProfileImage($event)" #fileInput1>
+                    <img class="profile cur-pointer" src="{{profileImage}}" alt="profile-image" (click)="showFileInput(fileInput1)">
+                    <img *ngIf="edit_profile" class="pencil cur-pointer" src="assets/images/icons/pencil.svg" alt="profile-image" (click)="showFileInput(fileInput1)">
+                </div>
+            </div>
+            <ng-container *ngIf="progress && progress !== 100">
+                <div class="text-center">
+                    <progress max="100" [value]="progress"></progress>
+                </div>
+            </ng-container>
+        </div>
+        <div class="col-lg-9 col-md-12">
+            <ng-container *ngIf="!edit_profile;else edit">
+                <div class="row">
+                    <div class="col-md-6 pb-4">
+                        <label>{{LANG.Name}}</label>
+                        <h6>{{profile_details.full_name}}</h6>
+                    </div>
+                    <div class="col-md-6 pb-4">
+                        <label>{{LANG.Mobile_No}}</label>
+                        <h6>{{profile_details.country_code}} {{profile_details.mobile_number}}</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 pb-4">
+                        <label>{{LANG.Email_ID}}</label>
+                        <h6>{{profile_details.email_id}}</h6>
+                    </div>
+                    <div class="col-md-6 pb-4">
+                        <label>{{LANG.Password}}</label>
+                        <h6>**************</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="checkout" (click)="editProfile()">{{edit_profile ? LANG.Update_Profile : LANG.EDIT_DETAILS}}</button>
+                        <button *ngIf="edit_profile" class="cancel mt-2" (click)="cancel()">{{LANG.Cancel}}</button>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #edit>
+                <div class="row">
+                    <div class="col-md-6 pb-4">
+                        <label>{{LANG.Name}}</label>
+                        <div class="form_input">
+                            <input class="form-control" type="text" placeholder="{{LANG.Name}}" name="full_name" [(ngModel)]="post_data.full_name">
+                            <span class="error" *ngIf="profile_error.full_name">{{LANG.This_field_is_required}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pb-4">
+                        <label>{{LANG.Mobile_No}}</label>
+                        <div class="form_input">
+                            <input class="form-control my-mobile" type="text" placeholder="{{LANG.Mobiel_Number}}" name="mobile_number" [(ngModel)]="post_data.display_number" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 pb-4">
+                        <label>{{LANG.Email_ID}}</label>
+                        <div class="form_input">
+                            <input class="form-control" type="text" placeholder="{{LANG.Email_ID}}" name="email_id" [(ngModel)]="post_data.email_id">
+                            <span class="error" *ngIf="profile_error.email_id">{{LANG.This_field_is_required}}</span>
+                            <span class="error" *ngIf="profile_error.email_id_valid">{{LANG.Please_enter_valid_Email}}</span>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-6 pb-4">
+                        <label>{{LANG.Password}}</label>
+                        <div class="form_input">
+                            <input class="form-control" type="password" placeholder="{{LANG.Password}}" name="password" [(ngModel)]="new_password">
+                            <span class="error" *ngIf="profile_error.password_valid">{{LANG.Password_must_be_characters_or_more}}</span>                        
+                        </div>  
+                    </div> -->
+                </div>
+                <div class="row">
+                    <div class="col-md-12 update-btn">
+                        <button class="checkout" (click)="updateProfile()" *ngIf="!load;else loader">{{LANG.Update_Profile}}</button>
+                        <ng-template #loader>
+                            <button class="checkout cart-loader">
+                                <loader></loader>
+                            </button>
+                        </ng-template>
+                        <button *ngIf="edit_profile" class="checkout cancel mt-2" (click)="cancel()" [disabled]="load">{{LANG.Cancel}}</button>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="guest-address">
+    <div class="map">
+        <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onSelectAddress($event)">
+            <agm-marker 
+                *ngIf="address_clicked"
+                [latitude]="latitude" 
+                [longitude]="longitude"
+                [iconUrl]="icon"
+            >
+            </agm-marker>
+        </agm-map>  
+    </div>
+</div>
+<div class="search-box">
+    <div class="form_input">
+        <form autocomplete="off">
+            <textarea 
+                name="address" 
+                autocorrect="off" 
+                autocomplete="off" 
+                autocapitalize="off" 
+                spellcheck="off" 
+                class="form-control" 
+                placeholder="Search here..."
+                id="search_field"
+                [(ngModel)]="address" 
+                (change)="clearSelectedAddress()"></textarea>
+        </form>
+        <span class="error" *ngIf="address_error.address">{{LANG.This_field_is_required}}</span>
+        <span class="error" *ngIf="address_error.address_valid">{{LANG.Please_Select_valid_address}}</span>
+    </div>
+    <div class="add-address">
+        <button class="checkout mt-4" *ngIf="!load;else loader" (click)="addAddress()">{{LANG.Add_address}}</button>
+        <ng-template #loader>
+            <button class="checkout cart-loader mt-4">
+                <loader></loader>
+            </button>
+        </ng-template> 
+    </div>
+
+</div>

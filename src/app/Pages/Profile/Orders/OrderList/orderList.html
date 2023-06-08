@@ -1,0 +1,50 @@
+<div class="order-wrapper mb-2">
+    <h6>{{LANG.MY_ORDERS}}</h6>
+    <ng-container *ngIf="order_list.length == 0 && orders_loaded">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>{{LANG.You_Have_Not_placed_any_orders_yet}}</h4>
+            </div>
+        </div>
+    </ng-container>
+    <div class="orders" *ngFor="let data of order_list;">
+        <div class="order-date mb-2">
+            <p><span>{{LANG.Order_NUMBER}}</span><span> {{data.order_number}}</span></p>
+            <p><span>{{LANG.Date}}</span><span> {{data.ordered_date}}</span></p>
+        </div>
+        <div class="row order-row">
+            <div class="col-md-6">
+                <div class="single-order" *ngFor="let item of data.order_detail;">
+                    <div class="img cur-pointer" (click)="goToproductDetails(item)">
+                        <img src="{{item.product_image}}" alt="image" onError="this.src='assets/images/icons/logo-grey.svg';">
+                    </div>
+                    <div class="details">
+                        <p class="m-0 cur-pointer" (click)="goToproductDetails(item)">{{item.product_title}}</p>
+                        <span>{{item.unit_price}} {{item.currency}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-8">
+                <div class="order-status">
+                    <p [ngClass]="data.status == '107' ? 'text-debit' : 'text-success'">{{data.status_title}}</p>
+                </div>
+            </div>
+            <div class="col-md-3 details-icon col-4">
+                <a class="order-details cur-pointer" (click)="goToOrderDetails(data.order_id)">
+                    <img src="assets/images/icons/arrow-right.svg" alt="arrow-right">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 text-center mb-3" *ngIf="order_count > 0 && order_count != order_list.length">
+        <button class="checkout" *ngIf="!load;else load_more_loader;" (click)="loadMore()">
+            {{LANG.Load_More}}
+        </button>
+        <ng-template #load_more_loader>
+            <div class="order-loader">
+                <loader></loader>
+            </div>
+        </ng-template>
+    </div>
+</div>

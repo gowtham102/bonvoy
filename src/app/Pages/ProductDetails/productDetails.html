@@ -1,0 +1,155 @@
+<div class="site_wrapper">
+
+    <!-- <div class="banner-image">
+        <img src="assets/images/pd-banner.svg" alt="banner">
+        <div class="centered text-center">
+            <h1>{{LANG.Where_flowers_bloom_So_does_hope}}</h1>
+        </div>
+    </div> -->
+
+    <div class="product-container container mt-3" [class.no-product]="no_product">
+        <ng-container *ngIf="!no_product && product_loaded">
+            <div class="breadcrumbs mb-4">
+                <div class="row m-0 px-4">
+                    <p><a routerLink="/">{{LANG.Home}} </a> / <a (click)="goToproductList()" class="cur-pointer">{{product_details.category}}</a> / <a class="active">{{product_details.title}}</a> </p>
+                </div>
+            </div>
+
+            <div class="row bread-crumb-row">
+                <div class="col-md-6">
+                    <div class="row m-0">
+                        <div class="col-md-10">
+                            <div class="prod-img" [class.image-err]="img_error">
+                                <lib-ngx-image-zoom [thumbImage]=main_image [fullImage]=main_image *ngIf="is_video != '2'"></lib-ngx-image-zoom>
+                                <div class="video" *ngIf="is_video == '2'">
+                                    <video controls>
+                                        <source src="{{main_image}}" type="video/mp4"/>
+                                        Browser not supported
+                                    </video>
+                                </div>
+                                <!-- <img src="{{main_image}}" alt="details-img" *ngIf="fade_in" onError="this.src='assets/images/icons/logo-grey.svg';"> -->
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="row m-0 justify-content-center">
+                                <ng-container *ngFor="let data of product_details?.images">
+                                    <div class="prod_det_thumb" (click)="changeProductImage(data)">
+                                        <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';" *ngIf="data.type != '2'">
+                                        <i class="fa fa-file-video-o" aria-hidden="true" *ngIf="data.type == '2'"></i>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 details">
+                    <!-- <div class="pd-background-1">
+                        <img src="assets/images/bg1.svg" alt="bg1">
+                    </div> -->
+                    <div class="prod-desc mb-4">
+                        <h2>{{product_details.title}}</h2>
+                        <span><h4>{{+product_details.price - +product_details.discount}} {{product_details.currency}} <del *ngIf="+product_details.discount > 0">{{product_details.price}} {{product_details.currency}}</del></h4></span>
+                    </div>
+                    <div class="prod-quantity ">
+                        <div class="quantity position-relative">
+                            <span class="minus" (click)="decrementQuantity()"><img class="" src="assets/images/icons/minus-icon.svg" alt="minus"></span>
+                            <input type="text" [ngModel]="product_details.quantity" disabled>
+                            <span class="plus" (click)="incrementQuantity()"><img class="" src="assets/images/icons/plus-icon.svg" alt="plus"></span>
+                        </div>
+                        <button class="add-cart" (click)="addToCart(product_details,1)" *ngIf="!load;else loader;" [class.out-of-stock]="product_details?.stock == '2'">{{product_details?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}</button>
+                        <!-- <button class="btn" (click)="addToWishlist(product_details)">                                        
+                            <i class="fa fa-heart" [class.active]="product_details.wishlist == '1'" aria-hidden="true"></i>                        
+                        </button> -->
+                    </div>
+                    <ng-template #loader>
+                        <button class="add-cart cart-loader"> 
+                                <loader></loader>
+                            </button>
+                    </ng-template>
+                    <div class="description mt-4 tabby" *ngIf="tabby_loaded">
+                        <div id="TabbyPromo"></div>
+                    </div>
+                    <!-- <div class="description mt-4 rewards" *ngIf="product_details.reward > 0">
+                            <p>{{LANG.complete_your_order_now_and_earn}} <b>{{product_details.reward}} {{product_details.currency}}</b>  {{LANG.cashback_in_your_bloss_wallet}}</p>
+                            <i class="fa fa-money" aria-hidden="true"></i>
+                        </div> -->
+                    <!-- <div class="category " *ngIf="product_details.category">
+                        <h6>{{LANG.Category}} <span>{{product_details.category}}</span></h6>
+                    </div>
+
+                    <div class="description mt-4" *ngIf="product_details.description">
+                        <h6>{{LANG.Description}}</h6>
+                        <p [innerHTML]="product_details.description"></p>
+                        <ul class="specification">
+                            <li [innerHTML]="product_details.specifications"></li>
+                        </ul>
+                    </div>
+                    <div class="dimension">
+                        <div>
+                            <h5>DIMENSIONS</h5>
+                            <p>Height 12cm, Width 14cm</p>
+                        </div>
+                        <img src="assets/images/icons/dimension.svg" alt="" />
+                    </div> -->
+                    <div class="available-date category" *ngIf="product_details.display_from_date || product_details.display_to_date">
+                        <h6>{{LANG.available_on}} <span>{{product_details.display_from_date}} - {{product_details.display_to_date}}</span></h6>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="no_product && product_loaded">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="mt-5">{{LANG.Sorry_No_Product_found}}</h1>
+                </div>
+            </div>
+        </ng-container>
+
+
+    </div>
+
+    <section class="similar-products" *ngIf="related_products.length > 0">
+        <div class="container home">
+            <div class="best-seller mt-5">
+                <div class="row">
+                    <div class="col-md-12 text-center mb-2 mt-5">
+                        <h4 class="underline-head">{{LANG.SIMILAR_PRODUCTS}}</h4>
+                    </div>
+                </div>
+                <div class="owl-theme partner-carousel mt-2 position-relative">
+                    <owl-carousel-o [options]="bestSeller">
+                        <ng-template carouselSlide *ngFor="let data of related_products;let i=index;">
+                            <div class="item cur-pointer prod text-center">
+                                <a>
+                                    <button class="wishlist" (click)="addToWishlist(data)">
+                                        <i class="fa fa-heart" [class.active]="data.wishlist == '1'" aria-hidden="true"></i>                        
+                                    </button>
+                                </a>
+                                <div class="prod-image" (click)="goToProductDetails(data.id)">
+                                    <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';">
+                                </div>
+                                <div class="prod-name text-center mt-3">
+                                    <p class="m-0">{{data.title}}</p>
+                                    <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
+                                </div>
+                                <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else loader;" [class.out-of-stock]="data?.stock == '2'">
+                                    {{data?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}
+                                </button>
+                                <ng-template #loader>
+                                    <button class="add-cart m-auto cart-loader"> 
+                                        <loader></loader>
+                                    </button>
+                                </ng-template>
+                            </div>
+                        </ng-template>
+
+
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>

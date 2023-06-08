@@ -1,0 +1,374 @@
+.banner-image {
+    position: relative;
+    max-height: 295px;
+    background: url(../../../assets/images/banner.png);
+}
+
+.banner-image img {
+    height: 295px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.banner-image .centered h1 {
+    font-family: 'Playfair Display';
+    font-size: 48px;
+    color: var(--c-white);
+    width: 500px;
+}
+
+
+/* .prod-img img{
+    height: 608px;
+    object-fit: fill;
+    width: 490px;
+    border-radius: 10px;
+    animation: fadeIn linear 2s;
+} */
+
+.thumnails {
+    display: flex;
+    justify-content: space-between;
+}
+
+.prod_det_thumb {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.prod_det_thumb img {
+    width: auto;
+    height: 86px;
+    object-fit: fill;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.bread-crumb-row {
+    justify-content: space-between;
+}
+
+.prod_det_thumb i {
+    font-size: 85px;
+}
+
+.prod-desc h2 {
+    /* font-family: 'Playfair Display'; */
+    font-size: 30px;
+    color: #000000;
+    font-family: 'roobert-reg';
+}
+
+.prod .prod-name span,
+.prod-desc span {
+    font-family: 'roobert-bold';
+}
+
+.prod-desc h4 {
+    font-size: 24px;
+    color: #000000;
+    font-weight: bold;
+}
+
+del {
+    font-size: 18px;
+    font-family: 'roobert-reg';
+    color: #B3B3B3;
+}
+
+.quantity {
+    /* width: 86px; */
+    display: flex;
+    align-items: center;
+    width: 27%;
+}
+
+.prod-quantity {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.quantity span {
+    /* position: absolute;
+    right: 0;
+    height: 50%;
+    width: 35%;
+    border: 1px solid var(--c-filter-check); */
+    cursor: pointer;
+    z-index: 2;
+}
+
+.quantity input {
+    width: 100%;
+    border-radius: 0;
+    border: 0;
+    padding-right: 0;
+    text-align: center;
+    font-size: 29px;
+    color: #000000;
+    font-family: 'roobert-med';
+}
+
+.details button.add-cart {
+    visibility: visible;
+    transform: translateY(0);
+    /* width: 187px; */
+    /* height: 42px; */
+    /* border-radius: 10px; */
+    margin: 0 20px;
+    position: relative;
+}
+
+div.category {
+    border: 1px solid var(--c-filter-check);
+    border-left: none;
+    border-right: none;
+    width: 80%;
+    margin-top: 45px;
+}
+
+div.category h6 {
+    font-family: 'roobert-reg';
+    padding: 10px 0;
+    margin: 0;
+    padding-left: 0;
+    color: #A8A8A8;
+    font-size: 14px;
+}
+
+div.category h6 span {
+    color: var(--c-black);
+}
+
+.description h6 {
+    font-size: 14px;
+    font-family: 'roobert-med';
+    color: #000000;
+}
+
+div.available-date {
+    width: 100%;
+    border: none;
+    margin-bottom: 10px;
+}
+
+div.description {
+    font-family: 'GothaProMed';
+    font-size: 12px;
+    color: var(--t-color);
+    width: 80%;
+}
+
+.dimension {
+    background: #E3E3E3;
+    border-radius: 12px;
+    border: 1px solid #E5E5E5;
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 28px;
+}
+
+.dimension p {
+    font-size: 16px;
+    color: #000000;
+    margin: 0;
+    font-family: 'roobert-reg';
+}
+
+.dimension h5 {
+    font-size: 15px;
+    color: #000000;
+    font-family: 'roobert-semi';
+}
+
+div.description p,
+div.description ul {
+    color: #A8A8A8;
+    font-size: 14px;
+    font-family: 'roobert-reg';
+    margin-bottom: 5px;
+}
+
+div.description ul {
+    list-style: none;
+    padding: 0;
+    line-height: 2;
+}
+
+section.similar-products {
+    background: var(--c-lgrey);
+    min-height: 508px;
+}
+
+.pd-background-1 {
+    position: absolute;
+    right: -17%;
+    top: 25px;
+    transform: rotate(-5deg);
+}
+
+.pd-background-1 img {
+    width: 153px;
+    height: 241px;
+}
+
+.tabby {
+    position: relative;
+}
+
+.rewards {
+    padding: 18px 10px;
+    box-shadow: 0 0 11px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    /* max-width: 335px; */
+    max-width: var(--snippetMaxWidth, 335px);
+    border-radius: 7px;
+    border: 1px solid var( --c-rewBorder);
+}
+
+.rewards p {
+    width: 85%;
+    color: var(--c-reward) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14px;
+}
+
+.rewards i {
+    font-size: 30px;
+    text-align: center;
+    color: var(--c-success);
+}
+
+.video {
+    height: 490px;
+    object-fit: cover;
+    width: 490px;
+}
+
+.video video {
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 1200px) {
+    .product-container {
+        max-width: 1200px;
+        min-height: 650px;
+    }
+    .no-product {
+        height: 220px;
+    }
+}
+
+@media screen and (min-width: 573px) and (max-width: 1199px) {
+    /* .prod-img img{
+        max-width: 100%;
+        margin-bottom: 7px;
+        height: 500px;
+    } */
+    .prod_det_thumb {
+        width: auto;
+    }
+    .prod_det_thumb img {
+        margin: 0 7px;
+    }
+    .details button.add-cart {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 572px) {
+    .banner-image {
+        max-height: 210px;
+        background-position: center;
+    }
+    .banner-image img {
+        height: 210px;
+    }
+    .centered {
+        width: 100%;
+    }
+    .banner-image .centered h1 {
+        font-size: 30px;
+        width: auto;
+    }
+    .prod-img {
+        margin-bottom: 10px;
+        height: 315px;
+    }
+    /* .prod-img img{
+        object-fit: contain;
+    } */
+    .prod_det_thumb {
+        width: auto;
+        margin: 7px;
+    }
+    div.category {
+        width: auto;
+    }
+    div.category h6 {
+        padding: 10px 0;
+    }
+    section.similar-products {
+        min-height: 420px;
+    }
+    div.description {
+        width: 100%;
+    }
+    .pd-background-1 {
+        right: -15px;
+    }
+    .video {
+        width: 100%;
+        height: 315px;
+    }
+    .prod-desc h2 {
+        font-size: 19px;
+    }
+    .prod-desc h4 {
+        font-size: 18px;
+    }
+    del {
+        font-size: 15px;
+    }
+    .site_wrapper {
+        margin-top: 0;
+    }
+    .quantity {
+        width: 45%;
+    }
+    .quantity input {
+        font-size: 17px;
+    }
+    .quantity span img {
+        width: 16px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .banner-image .centered h1 {
+        font-size: 26px;
+    }
+    .quantity,
+    .quantity input {
+        width: 80px;
+    }
+    .details button.add-cart {
+        width: 150px;
+        margin-left: 10px;
+    }
+    .product-container .row .col-md-9 {
+        padding: 0;
+    }
+    div.description {
+        width: 100%;
+    }
+    .prod-img {
+        height: auto;
+    }
+}

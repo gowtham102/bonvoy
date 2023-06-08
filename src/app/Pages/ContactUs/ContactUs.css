@@ -1,0 +1,228 @@
+.background {
+    position: absolute;
+    width: 100%;
+    height: 64vh;
+    background: var(--c-black);
+}
+
+.contact-us {
+    position: relative;
+    margin-bottom: 55px;
+}
+
+.contact-us .image {
+    height: 100%;
+    width: 100%;
+}
+
+.contact-us .image img {
+    width: 100%;
+    height: 100%;
+}
+
+.backgroung-image {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+}
+
+.contact-details {
+    padding: 100px 50px;
+    color: var(--c-contactUs);
+}
+
+.contact-details h1 {
+    font-size: 38px;
+    color: #E3E3E3;
+    font-family: 'roobert-med';
+}
+
+.contact-details p {
+    font-size: 16px;
+    font-family: 'roobert-reg';
+    margin: 15px 0;
+    width: 67%;
+    color: #E3E3E3;
+}
+
+.company-details {
+    margin-top: 38px;
+    margin-bottom: 50px;
+}
+
+.tet {
+    /* height: 10px; */
+    width: 10px;
+}
+
+.company-details .email-details {
+    margin-right: 80px;
+}
+
+.company-details .email-details label {
+    font-family: 'roobert-med';
+    margin: 0;
+    font-size: 14px;
+    /* font-weight: 600; */
+    color: #E3E3E3;
+}
+
+.company-details .email-details p {
+    font-family: 'GothaProReg';
+    margin: 0;
+    font-size: 14px;
+    width: 100%;
+    color: #E3E3E3;
+}
+
+.socail-icons h6 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    color: #E3E3E3;
+    font-family: 'roobert-med';
+}
+
+.socail-icons a {
+    margin-left: 20px;
+    /* font-size: 10px; */
+    cursor: pointer;
+}
+
+.contact-form {
+    padding: 70px 50px;
+}
+
+.contact-form h1 {
+    color: var(--c-black);
+    font-size: 38px;
+    padding-bottom: 17px;
+    font-family: 'roobert-med';
+}
+
+.contact-form form {
+    width: 74%;
+}
+
+span.required {
+    color: var(--c-cart);
+}
+
+.contact-form .input-message {
+    position: relative;
+    margin-top: 16px;
+    /* margin-bottom: 30px; */
+}
+
+.contact-form .input-message input,
+.contact-form .input-message textarea {
+    /* border: none; */
+    border: 1px solid #D6D6D6;
+    width: 100%;
+    font-size: 12px;
+    padding: 13px 13px 13px 26px;
+    display: block;
+    color: #000;
+    height: 54px;
+    border-radius: 27px;
+}
+
+.contact-form .checkout {
+    margin-top: 30px;
+}
+
+input::placeholder {
+    font-size: 14px;
+    columns: #A8A8A8;
+    font-family: 'roobert-med';
+}
+
+
+/* .contact-form .input-message textarea {
+    height: 40px;
+} */
+
+.contact-form .input-message textarea::placeholder {
+    color: var(--c-addons);
+}
+
+.contact-form .input-message input~label,
+.contact-form .input-message textarea~label {
+    color: var(--c-addons);
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.contact-form .input-message input:focus,
+.contact-form .input-message textarea:focus {
+    outline: none;
+}
+
+.contact-form .input-message input:focus+label,
+.contact-form .input-message input:valid+label,
+.contact-form .input-message textarea:focus+label,
+.contact-form .input-message textarea:valid+label {
+    top: -20px;
+    font-size: 12px;
+}
+
+@media screen and (max-width: 572px) {
+    .background {
+        height: 50vh;
+    }
+    .image {
+        display: none;
+    }
+    .contact-details,
+    .contact-form {
+        padding: 30px;
+    }
+    .contact-details h1,
+    .contact-form h1 {
+        font-size: 30px;
+    }
+    .contact-details p {
+        width: 100%;
+    }
+    .company-details .email-details {
+        margin-right: 30px;
+    }
+    .contact-form form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .contact-details,
+    .contact-form {
+        padding: 15px;
+    }
+    .contact-details h1,
+    .contact-form h1 {
+        font-size: 25px;
+    }
+    .contact-form .input-message textarea {
+        height: 40px;
+    }
+    .background {
+        height: 40vh;
+    }
+    .company-details .email-details {
+        margin-right: 15px;
+    }
+    .company-details .email-details label,
+    .company-details .email-details p,
+    .socail-icons h6 {
+        font-size: 12px;
+    }
+    .contact-details p {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,95 @@
+.profile-details {
+    padding: 40px 50px;
+}
+
+.profile-img {
+    width: 109px;
+    height: 109px;
+    /* margin: auto; */
+}
+
+.profile-img img.profile {
+    width: 109px;
+    height: 109px;
+    object-fit: fill;
+    border-radius: 50%;
+}
+
+.profile-details h2 {
+    font-size: 24px;
+    color: #000;
+    font-family: 'roobert-semi';
+    padding-bottom: 51px;
+}
+
+.profile-details label {
+    font-size: 14px;
+    color: #000;
+    font-family: 'roobert-reg';
+    margin-bottom: 2px;
+}
+
+.profile-img img.pencil {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+
+.profile-details h6 {
+    font-family: 'roobert-med';
+    font-size: 14px;
+    color: #000;
+}
+
+.profile-details .form_input input,
+.form-control:focus {
+    border: 1px solid var(--c-filter-check);
+    font-size: 14px;
+    box-shadow: none;
+    padding: 10px;
+    height: 58px;
+}
+
+button.checkout {
+    width: 169px;
+    height: 48px;
+    margin-top: 47px;
+    color: #FCFCFC;
+}
+
+button.cancel {
+    background: var(--c-lgrey);
+    color: var(--c-cart);
+    border-radius: 12px;
+    border: 1px solid var(--c-cart);
+}
+
+.profile-img-wrapper {
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .profile-details {
+        padding: 65px 50px;
+    }
+}
+
+@media screen and (max-width: 572px) {
+    .profile-details {
+        padding: 20px 40px;
+    }
+    .profile-details .col-md-9 {
+        padding: 0 30px;
+    }
+    .update-btn {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .profile-details {
+        padding: 20px 30px;
+    }
+}

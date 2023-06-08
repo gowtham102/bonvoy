@@ -1,0 +1,74 @@
+.thank-you-wrapper{
+    /* padding: 110px 286px 60px 286px; */
+    padding: 8% 21% 5% 21%;
+}
+
+.thank-you-wrapper .thank-you {
+    background: var(--c-white);
+    font-size: 14px;
+}
+
+.thank-you-wrapper .thank-you  img{
+    width: 100%;
+    height: 100%;
+}
+
+.thank-you-wrapper .thank-you .content {
+    padding: 6.3%;
+    padding-left: 0;
+}
+
+.thank-you-wrapper .thank-you .content h1{
+    font-size: 52px;
+    font-family: 'Playfair Display';
+}
+
+button.checkout{
+    width: 90%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px){
+    .thank-you-wrapper{
+        padding: 100px 5%;
+    }
+    button.checkout{
+        width: 50%;
+        min-width: 180px;
+    }
+}
+@media screen and (min-width: 573px) and (max-width: 767px){
+    .thank-you-wrapper .thank-you{
+        text-align: center;
+    }
+}
+
+
+
+@media screen and (max-width: 572px){
+    .thank-you-wrapper{
+        padding: 30px;
+        padding-top: 70px;
+    }
+    .thank-you-wrapper .thank-you{
+        padding: 15px;
+        text-align: center;
+        width: auto;
+        height: auto;
+    }
+    .thank-you-wrapper .thank-you .content {
+        padding-right: 0;
+    }
+    .thank-you-wrapper .thank-you  img{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .thank-you-wrapper .thank-you img{
+        width: 50%;
+        height: 100%;
+    }
+    .thank-you-wrapper .thank-you .content h1{
+        font-size: 42px;
+    }
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="129.856" height="35" viewBox="0 0 129.856 35">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_17816" data-name="Rectangle 17816" width="21.699" height="26.584"/>
+    </clipPath>
+  </defs>
+  <g id="Group_155277" data-name="Group 155277" transform="translate(-149.144 -693)">
+    <g id="Group_155275" data-name="Group 155275" transform="translate(149.144 697.344)">
+      <g id="Group_155263" data-name="Group 155263" transform="translate(0 0)" clip-path="url(#clip-path)">
+        <path id="Path_167289" data-name="Path 167289" d="M7.322,24.557H6.543a4.434,4.434,0,0,1-2.108-1.3A16.778,16.778,0,0,1,.123,14.035a10.691,10.691,0,0,1,.143-4.021,7.172,7.172,0,0,1,3.459-4.8A5.259,5.259,0,0,1,7.648,4.58a18.658,18.658,0,0,1,2.278.775,2.513,2.513,0,0,0,2.034.015c.449-.2.921-.345,1.383-.515a6.647,6.647,0,0,1,6.3.756,4.594,4.594,0,0,1,1.341,1.437,5.569,5.569,0,0,0-2.832,5.427A5.723,5.723,0,0,0,21.7,17.484c-.023.086-.034.136-.05.184a17.051,17.051,0,0,1-3.243,5.511,3.352,3.352,0,0,1-3.641,1.212,16.146,16.146,0,0,1-1.543-.532,4.7,4.7,0,0,0-3.073-.215c-.95.276-1.886.607-2.828.912" transform="translate(0 2.027)"/>
+        <path id="Path_167290" data-name="Path 167290" d="M12.729,0a5.531,5.531,0,0,1-1.142,3.93A5.636,5.636,0,0,1,9.425,5.786a4.049,4.049,0,0,1-2,.326A5.827,5.827,0,0,1,12.729,0" transform="translate(3.417 0)"/>
+      </g>
+    </g>
+    <g id="Group_155276" data-name="Group 155276" transform="translate(-4 -2)">
+      <text id="Download_from" data-name="Download from" transform="translate(189 705)" font-size="10" font-family="Sora-Regular, Sora"><tspan x="0" y="0">Download from</tspan></text>
+      <text id="App_Store" data-name="App Store" transform="translate(189 725)" font-size="18" font-family="Sora-Medium, Sora" font-weight="500"><tspan x="0" y="0">App Store</tspan></text>
+    </g>
+  </g>
+</svg>

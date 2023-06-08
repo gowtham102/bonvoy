@@ -1,0 +1,170 @@
+.reminders {
+    padding: 40px 50px;
+    background: var(--c-white);
+    color: var(--c-black);
+    border-radius: 12px;
+}
+
+.reminders h6 {
+    font-size: 24px;
+    color: #000;
+    margin: 0;
+    font-family: 'roobert-semi';
+}
+
+.reminders .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.preview-card a {
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #000;
+    font-family: 'roobert-semi';
+}
+
+.reminder-list .single-item {
+    border-bottom: 1px solid var(--c-filter-check);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+    padding-bottom: 20px;
+    margin-top: 15px;
+    position: relative;
+    justify-content: space-between;
+}
+
+.reminder-list .single-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.reminder-list .single-item button.reminder-icon {
+    background: transparent;
+    width: 37px;
+    height: 37px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 23px
+}
+
+.reminder-list .single-item button.reminder-icon i {
+    color: white;
+    font-size: 18px;
+}
+
+.reminder-list .single-item .details {
+    padding: 0;
+    /* width: 35%; */
+    font-family: 'roobert-reg';
+    font-size: 14px
+}
+
+.sing-it {
+    display: flex;
+    align-items: center;
+}
+
+.action-btns {
+    font-size: 12px;
+    color: #000;
+    font-family: 'roobert-semi';
+}
+
+.reminder-list .single-item .details p {
+    margin: 0;
+    font-family: 'roobert-med';
+}
+
+.reminder-list .single-item .action-btns a {
+    /* width: 19px; */
+    /* height: 19px; */
+    /* font-size: 12px; */
+    /* font-family: 'GothaProReg'; */
+    text-decoration: underline;
+    margin-right: 48px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.reminder-list .single-item .action-btns a img,
+.reminder-list .single-item .action-btns a i {
+    width: 12px;
+    height: 19px;
+    margin-right: 10px;
+}
+
+.reminder-list .single-item .action-btns a.remove {
+    color: var(--c-black);
+}
+
+.reminder-modal .modal-body {
+    position: relative;
+    padding: 50px 70px;
+}
+
+.reminder-modal .heading i {
+    font-size: 80px;
+    color: var(--c-cart);
+}
+
+.reminder-modal .heading h2 {
+    font-family: 'Playfair Display';
+    margin: 20px 0;
+}
+
+.form-group select,
+.form-group input {
+    height: 48px;
+    border-radius: 27px;
+    border-color: #B4B4B4;
+    padding: 0 17px;
+}
+
+.form-control:focus {
+    border-color: #ced4da;
+    outline: none;
+    box-shadow: none;
+}
+
+button.close {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+}
+
+.content .form-group ::placeholder {
+    color: var(--c-coupon-placeholder);
+}
+
+.content .form-group :-ms-input-placeholder {
+    color: var(--c-coupon-placeholder);
+}
+
+.content .form-group ::-ms-input-placeholder {
+    color: var(--c-coupon-placeholder);
+}
+
+@media screen and (max-width: 572px) {
+    .reminders {
+        padding: 15px 5%;
+    }
+    .reminder-list .single-item .details {
+        width: auto;
+    }
+    .reminder-list .single-item .action-btns {
+        margin-left: 50px;
+    }
+    .reminder-modal .modal-body {
+        padding: 20px;
+    }
+}

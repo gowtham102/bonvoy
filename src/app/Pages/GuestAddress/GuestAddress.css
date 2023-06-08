@@ -1,0 +1,32 @@
+.guest-address{
+    padding: 50px; 
+}
+
+.search-box{
+    padding: 0 50px;
+}
+
+.map{
+    height: 450px;
+}
+
+.map agm-map{
+    height: 100%;
+}
+
+.add-address{
+    width: 30%;
+    margin: auto;
+}
+
+@media screen and (max-width: 572px){
+    .add-address{
+        width: 100%;
+    }
+    .guest-address{
+        padding: 0; 
+    }
+    .search-box{
+        padding: 25px;
+    }
+}

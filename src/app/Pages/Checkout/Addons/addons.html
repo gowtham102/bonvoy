@@ -1,0 +1,102 @@
+<div class="cart-details mb-2" *ngIf="card_design.length > 0">
+    <h6>{{LANG.Select_card_design}}</h6>
+    <div class="cards">
+        <div class="card-design" *ngFor="let data of card_design;let i=index;">
+            <div class="image position-relative" (click)="selectCard(data)">
+                <img src="{{data.image}}" alt="design">
+                <button [class.active]="data.id == cart_design_id">
+                    <i class="fa fa-check-circle"></i>
+                </button>
+            </div>
+            <p>{{data.title}}</p>
+        </div>
+    </div>
+    
+
+</div>
+
+
+<div class="cart-details mb-2">
+    <h6>{{LANG.Card_Message}}</h6>
+    <div class="input-message">
+        <input type="text" required [(ngModel)]="to_text" (change)="inputChange(1)">
+        <label>{{LANG.To}}</label>
+    </div>
+    <div class="input-message">
+        <input type="text" required [(ngModel)]="from_text" (change)="inputChange(2)">
+        <label>{{LANG.From}}</label>
+    </div>
+    <div class="input-message">
+        <input type="text" required [(ngModel)]="message" (change)="inputChange(3)">
+        <label>{{LANG.Message}}</label>
+    </div>
+    <div class="preview-card" *ngIf="cart_design_id">
+        <a (click)="openScrollableContent(longContent)">{{LANG.Preview_card}}</a>
+    </div>
+</div>
+
+<div class="cart-details mb-3" *ngIf="addon_categories?.category?.length > 0">
+    <h6>{{LANG.Select_add_ons}}</h6>
+    <div class="row add-ons m-0" >
+        <div class="col-md-12 col-12 mb-2 add-on-heading">
+            <ng-container *ngFor="let data of addon_categories?.category;">
+                <ng-container *ngIf="data?.ad_ons?.length > 0">
+                    <h6 [class.active]="data.id == addon_category_id" (click)="changeAddonsCategoy(data)">{{data.title}}</h6>
+                </ng-container>
+            </ng-container>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6 p-0" *ngFor="let item of addon_list;">
+            <div class="item prod text-center">
+                <div class="prod-image cur-pointer" [class.active]="item.id == addon_id">
+                    <img src="{{item.image}}" >  
+                </div>
+                <div class="prod-name text-center mt-3">
+                    <p class="m-0">{{item.title}}</p>
+                    <span>{{item.price}} {{item.currency}}</span>
+                </div>
+                <button class="add-cart m-auto" (click)="selectAddons(item)" *ngIf="!item.load;else loader;">
+                    {{LANG.ADD}}
+                </button>
+                <ng-template #loader>
+                    <button class="add-cart m-auto cart-loader"> 
+                        <loader></loader>
+                    </button>
+                </ng-template> 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<ng-template #longContent let-modal>
+    <div class="card-preview-modal">
+        <div class="modal-header">
+            <h2 class="modal-title">{{LANG.Card_Preview}}</h2>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="card-preview">
+                <div class="single-card img">
+                    <img src="{{cart_design_image}}" alt="logo" class="centered" onError="this.src='assets/images/icons/logo-white.svg';this.className='error-class centered'">
+                </div>
+                <div class="single-card details">
+                    <div class="content">
+                        <h4>{{to_text ? to_text : LANG.To}}</h4>
+                        <p>{{message ? message : LANG.Your_Message_Will_be_displayed_here}}</p>
+                        <p>{{from_text ? from_text : LANG.From}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">{{LANG.Okay}}</button>
+        </div>
+
+    </div>
+    
+</ng-template> 

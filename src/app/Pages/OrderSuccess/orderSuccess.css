@@ -1,0 +1,106 @@
+.thank-you-wrapper {
+    /* padding: 110px 286px 60px 286px; */
+    padding: 93px 0 110px;
+}
+
+
+/* .thank-you-wrapper .thank-you {
+    position: relative;
+    width: 793px;
+    height: 303px;
+    background: var(--c-white);
+    font-size: 14px;
+} */
+
+.thank-you {
+    display: flex;
+    align-items: center;
+    grid-column-gap: 72px;
+    justify-content: center;
+}
+
+
+/* .thank-you-wrapper .thank-you  img{
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    width: 316px;
+    height: 398px;
+} */
+
+
+/* .thank-you-wrapper .thank-you .content {
+    padding: 6.3%;
+    padding: 50px;
+    margin-left: 305px;
+} */
+
+.thank-you-wrapper .thank-you .content h1 {
+    font-size: 48px;
+    font-family: 'roobert-med';
+    color: #000;
+}
+
+.thank-you-wrapper .thank-you .content p {
+    font-size: 14px;
+    color: #000000;
+    font-family: 'roobert-reg';
+    margin: 0;
+    padding: 3px 0px 13px;
+}
+
+button.checkout {
+    width: 71%;
+}
+
+@media screen and (min-width: 573px) and (max-width: 1199px) {
+    .thank-you-wrapper {
+        padding: 100px 5%;
+    }
+    .thank-you-wrapper .thank-you .content {
+        padding: 20px;
+        margin-left: 295px;
+    }
+    .thank-you-wrapper .thank-you .content h1 {
+        font-size: 46px;
+    }
+    button.checkout {
+        width: 50%;
+        min-width: 180px;
+    }
+}
+
+@media screen and (max-width: 572px) {
+    .thank-you-wrapper {
+        padding: 30px;
+        padding-top: 70px;
+    }
+    .thank-you-wrapper .thank-you {
+        padding: 15px;
+        text-align: center;
+        width: auto;
+        height: auto;
+    }
+    .thank-you-wrapper .thank-you img {
+        position: relative;
+        bottom: 75px;
+        left: 0;
+        width: 250px;
+        height: 300px;
+    }
+    .thank-you-wrapper .thank-you .content {
+        padding: 0;
+        margin: 0;
+        margin-top: -65px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .thank-you-wrapper .thank-you img {
+        width: 200px;
+        height: 250px;
+    }
+    .thank-you-wrapper .thank-you .content h1 {
+        font-size: 42px;
+    }
+}

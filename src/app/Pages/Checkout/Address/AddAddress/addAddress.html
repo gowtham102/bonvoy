@@ -1,0 +1,65 @@
+<div class="cart-details address mb-2">
+    <h6>Add Address</h6>
+
+    <div class="map">
+        <agm-map [latitude]="latitude" [longitude]="longitude">
+        </agm-map>  
+    </div>
+
+    <div class="address-form">
+        <div class="form_input">
+            <button  class="btn location">
+                <img src="assets/images/icons/location.svg"> Use My Location
+            </button>
+        </div>
+        <div class="form_input">
+            <form autocomplete="off">
+                <textarea 
+                    name="address" 
+                    autocorrect="off" 
+                    autocomplete="off" 
+                    autocapitalize="off" 
+                    spellcheck="off" 
+                    class="form-control" 
+                    placeholder="Address (Building no. / Street)"></textarea>
+            </form>
+        </div>
+        <div class="form_input ">
+            <div class="country-code form_input position-relative">
+                <div class="country">
+                    <input type="text" class="form-control" placeholder="+91">
+                </div>
+                <span></span>
+                <input type="text" placeholder="Mobile Number" class="form-control" name="mobile_number" maxlength="10">
+            </div>
+        </div>
+        <div class="form_input">
+            <input class="form-control" placeholder="Full Name" name="full_name">
+        </div>
+        <div class="form_input pt-2" >
+            <label>Address Type</label>
+            <div class="address-type">
+                <button> 
+                    Home
+                </button>
+                <button>
+                    Office
+                </button>
+                <button class="active">
+                    Other
+                </button>
+            </div>
+        </div>
+        <div class="save-address">
+            <input name="terms" type="checkbox" id="future-address">
+            <label for="future-address">
+                <i class="fa fa-check"></i>
+                Save address for future
+            </label>
+        </div>
+    </div>
+    
+            
+
+        
+</div>

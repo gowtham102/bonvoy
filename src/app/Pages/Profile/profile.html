@@ -1,0 +1,41 @@
+<div class="site_wrapper bg-grey">
+    <div class="container mt-3 mb-5">
+        <div class="row">
+            <div class="col-md-3 bg-white  border-wra">
+                <div class="profile-nav">
+                    <div class="profile-img">
+                        <img src="{{user_profile?.profile_image}}" alt="profile-image">
+                        <h4>{{user_profile?.user_name}}</h4>
+                    </div>
+                    <ul>
+                        <li routerLink="/my-profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                            <a><img src="assets/images/icons/user-1.svg" alt="" /><span>{{LANG.PROFILE}}</span></a>
+                        </li>
+                        <li routerLink="/my-profile/my-orders" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                            <a><img src="assets/images/icons/user-2.svg" alt="" /><span>{{LANG.MY_ORDERS}}</span></a>
+                        </li>
+                        <li routerLink="/my-profile/my-address" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                            <a><img src="assets/images/icons/user-3.svg" alt="" /><span>{{LANG.SAVED_ADDRESS}}</span></a>
+                        </li>
+                        <li routerLink="/my-profile/my-wishlist" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                            <a><img src="assets/images/icons/user-4.svg" alt="" /><span>{{LANG.WISHLIST}}</span></a>
+                        </li>
+                        <!-- <li routerLink="/my-profile/reminders" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a><img src="assets/images/icons/user.svg" alt="user"><span>{{LANG.REMINDER}}</span></a></li> -->
+                        <!-- <li routerLink="/my-profile/my-wallet" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                            <a><img src="assets/images/icons/user-5.svg" alt="" /><span>{{LANG.WALLET}}</span></a>
+                        </li> -->
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-md-9">
+                <div class="profile-wrapper bg-white">
+                    <!-- <div class="profile-bg" *ngIf="show_bg">
+                        <img src="assets/images/profile-bg.svg" alt="profile-bg">
+                    </div> -->
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,419 @@
+<!-- <div class="site-w"></div> -->
+<div class="site_wrapper ">
+    <div class="banner ">
+        <div class=" container">
+            <owl-carousel-o [options]="customOptions">
+                <ng-template carouselSlide *ngFor="let data of home_page?.banner">
+                    <div class="row banner-image">
+                        <div class="col-md-5 col-6">
+                            <h2>Premium Best Smart <span>Watch</span> </h2>
+
+                        </div>
+                        <div class="col-md-7 col-6">
+                            <div class="col-md-8 mx-auto">
+                                <img src="../assets/images/icons/cover1.png" alt="banner-image">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- <div class="centered text-center">
+                    
+              <p>Premium Best Smart Watch</p>
+                </div> -->
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+    </div>
+
+    <div class="position-relative">
+
+        <!-- <div class="background-1">
+            <img src="assets/images/bg1.svg" alt="bg1">
+        </div>
+
+
+        <div class="background-2">
+            <img src="assets/images/bg2.svg" alt="bg1">
+        </div> -->
+
+        <div class="container">
+            <!-- <div class="row services">
+                <div class="col-lg-4 col-md-12 col-12 mb-3">
+                    <div class="row m-0">
+                        <div class="col-md-3 col-3">
+                            <img src="assets/images/icons/van.svg" alt="van">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="38.297" height="31.488" viewBox="0 0 38.297 31.488">
+                  <path id="Path_154638" data-name="Path 154638" d="M2271.953,1073.3c-.753-.991-1.514-2-2.25-2.977q-.943-1.25-1.887-2.5a4.064,4.064,0,0,0-3.4-1.706c-.589,0-1.19,0-1.77,0H2260.9v-.5c0-.334,0-.663,0-.99,0-.725,0-1.411,0-2.108a4.047,4.047,0,0,0-2.825-3.861,5.061,5.061,0,0,0-1.472-.211c-4.921-.014-9.925-.012-14.763-.01h-2.652a4.1,4.1,0,0,0-4.245,3.453,1,1,0,0,1-.055.176v21.138c.056.163.107.327.156.487a5.2,5.2,0,0,0,.408,1.06,4,4,0,0,0,3.592,2.069c.136,0,.272,0,.417,0,.233,0,.474-.005.719.013a.961.961,0,0,1,.758.495,4.087,4.087,0,0,0,3.593,2.55.99.99,0,0,1,.215.046h.038c.1-.017.21-.033.316-.048a5.744,5.744,0,0,0,.685-.126,4.02,4.02,0,0,0,2.714-2.32.934.934,0,0,1,.93-.613h0c2.93.009,5.9.009,8.821,0h0a.936.936,0,0,1,.926.606,4.012,4.012,0,0,0,3.43,2.448,2.315,2.315,0,0,1,.257.045l.039.008h.062c.1-.017.21-.033.315-.048a5.753,5.753,0,0,0,.685-.126,3.969,3.969,0,0,0,2.679-2.255,1.058,1.058,0,0,1,1.069-.68h.018c1.35.012,2.724.01,4.052.009h1.391q0-1.4,0-2.8c0-2.292,0-4.662,0-6.993A5.911,5.911,0,0,0,2271.953,1073.3Zm-25.169,12.552a2.042,2.042,0,0,1-2.021,1.967l-.082,0a2.049,2.049,0,0,1-1.962-2.095,2,2,0,0,1,.641-1.413,2.033,2.033,0,0,1,3.424,1.543Zm12.042-1.7c0,.035,0,.075-.007.122l-.023.475h-2.768c-2.136,0-4.345,0-6.517.006h-.006a1.008,1.008,0,0,1-1.017-.635,3.912,3.912,0,0,0-3.732-2.42h-.01a3.928,3.928,0,0,0-3.74,2.43.973.973,0,0,1-.926.628c-.032,0-.064,0-.1,0-.163-.012-.332-.009-.512-.006s-.337.005-.513,0a2.022,2.022,0,0,1-2-2.089c0-6.707,0-13.454,0-20.055a2.031,2.031,0,0,1,2.126-2.1c.919-.007,1.853-.006,2.756,0h14.744a2.053,2.053,0,0,1,2.184,1.563,2.249,2.249,0,0,1,.061.536q0,10.679,0,21.358C2258.833,1084.033,2258.83,1084.093,2258.826,1084.162Zm2.1-15.971h1.821c.549,0,1.1,0,1.646,0h.01a2.074,2.074,0,0,1,1.719.834q1.861,2.459,3.717,4.921a1.179,1.179,0,0,1,.1.153l.041.073.437.751h-9.486Zm2.015,19.634h0a2.029,2.029,0,1,1,0-4.058h0a2.029,2.029,0,1,1,0,4.058Zm8.159-3.065h-1.6l-.5,0h-.5c-.311,0-.626,0-.938-.013a.972.972,0,0,1-.82-.521,4.124,4.124,0,0,0-5.1-2.33.554.554,0,0,1-.26.014l-.009,0-.443-.05v-4.817h10.17Z" transform="translate(-2234.89 -1058.44)" fill="#fff"/>
+                </svg> 
+                        </div>
+                        <div class="col-md-9 col-9">
+                            <h6>{{LANG.Same_day_delivery_in_our_refrigerated_vans}}</h6>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-md-12 col-12 mb-3">
+                    <div class="row m-0">
+                        <div class="col-md-3 col-3">
+                            <img src="assets/images/icons/home.svg" alt="van">
+                        </div>
+                        <div class="col-md-9 col-9">
+                            <h6>{{LANG.All_Flowers_are_arranged_in_our_workshop}}</h6>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-md-12 col-12 mb-3">
+                    <div class="row m-0">
+                        <div class="col-md-3 col-3">
+                            <img src="assets/images/icons/lotus-icon.svg" alt="van">
+                        </div>
+                        <div class="col-md-9 col-9">
+                            <h6>{{LANG.Quality_flowers_sourced_from_the_best_farms}}</h6>
+                        </div>
+                    </div>
+
+                </div>
+            </div> -->
+
+            <div class="shop_by_category" *ngIf="home_page?.occasions?.length > 0">
+                <div class="">
+                    <div class="col-md-12 text-center mb-2 shop-by-cate">
+                        <h4 class="underline-head">NEW LAUNCHES</h4>
+                        <!-- <button class="btn" >{{LANG.VIEW_ALL}}</button> -->
+                    </div>
+
+                    <div class="shop-by-category two-categories">
+                        <ng-container *ngIf="category_all==false">
+                            <ng-container *ngFor="let data of home_page?.occasions.slice(-6);let i=index;">
+                                <div class="category col-md-4" [class.h-auto]="!data.title" (click)="goToproductList(data.id)">
+                                    <img src="{{data.image}}" alt="flower">
+                                    <h6 *ngIf="data.title">{{data.title}}</h6>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                        <ng-container *ngIf="category_all==true">
+                            <ng-container *ngFor="let data of home_page?.occasions;let i=index;">
+                                <div class="category" [class.h-auto]="!data.title" (click)="goToproductList(data.id)">
+                                    <img src="{{data.image}}" alt="flower">
+                                    <h6 *ngIf="data.title">{{data.title}}</h6>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container home">
+            <div class="best-seller mt-5 mb-5 position-relative" *ngIf="home_page?.best_seller?.length > 0">
+                <!-- <div class="background-3">
+                    <img src="assets/images/bg3.svg" alt="bg3">
+                </div> -->
+                <div class="row">
+                    <div class="col-md-12 text-center mb-2 shop-by-cate">
+                        <h4 class="underline-head">{{LANG.Best_Sellers}}</h4>
+                        <!-- <button class="btn" >{{LANG.VIEW_ALL}}</button> -->
+                    </div>
+                </div>
+                <div class="owl-theme partner-carousel mt-2 position-relative vis-caro">
+                    <owl-carousel-o [options]="bestSeller">
+                        <ng-container *ngIf="best_seller==false">
+                            <ng-template carouselSlide *ngFor="let data of home_page?.best_seller.slice(-4);let i=index;">
+                                <div class="item cur-pointer prod text-center">
+                                    <a (click)="addToWishlist(data)">
+                                        <button class="wishlist">
+                            <i class="fa fa-heart" [class.active]="data.wishlist == '1'" aria-hidden="true"></i>                        
+                          </button>
+                                    </a>
+                                    <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)">
+                                        <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';">
+                                    </div>
+                                    <div class="prod-name text-left  mt-3">
+                                        <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
+                                        <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
+                                    </div>
+                                    <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else loader;" [class.out-of-stock]="data?.stock == '2'">
+                        {{data?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}
+                      </button>
+                                    <ng-template #loader>
+                                        <button class="add-cart m-auto cart-loader"> 
+                            <loader></loader>
+                        </button>
+                                    </ng-template>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+
+                        <ng-container *ngIf="best_seller==true">
+                            <ng-template carouselSlide *ngFor="let data of home_page?.best_seller;let i=index;">
+                                <div class="item cur-pointer prod text-center">
+                                    <a (click)="addToWishlist(data)">
+                                        <button class="wishlist">
+                            <i class="fa fa-heart" [class.active]="data.wishlist == '1'" aria-hidden="true"></i>                        
+                          </button>
+                                    </a>
+                                    <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)">
+                                        <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';">
+                                    </div>
+                                    <div class="prod-name text-left  mt-3">
+                                        <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
+                                        <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
+                                    </div>
+                                    <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else loader;" [class.out-of-stock]="data?.stock == '2'">
+                        {{data?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}
+                      </button>
+                                    <ng-template #loader>
+                                        <button class="add-cart m-auto cart-loader"> 
+                            <loader></loader>
+                        </button>
+                                    </ng-template>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+
+
+
+                    </owl-carousel-o>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- <section class="offer-section">
+        <div class="row m-0">
+          <div class="col-md-5 col-12 p-0">
+              <div class="offer-text">
+                  <h1>{{LANG.Send_A_Subscription}}</h1>
+                  <p>{{LANG.Enjoy_Free_Delivery_And_Savings}}</p>
+                  <a><img src="assets/images/icons/round-arr-red.svg"><span>{{LANG.EXPLORE_SUBSCRIPTION}}</span></a>
+              </div>
+          </div>
+          <div class="col-md-7 col-12 p-0">
+              <div class="offer-banner">
+                <img src="assets/images/offer.png" alt="offer">
+              </div>
+          </div>
+        </div>
+    </section> -->
+
+        <!-- <section class="testimonial">
+        <div class="row m-0">
+          <div class="col-md-12 text-center mb-2 mt-5">
+              <h4 class="underline-head">Testimonials</h4>
+          </div>
+        </div>
+        <owl-carousel-o [options]="testimonials">
+            <ng-template carouselSlide>
+              <div class="item">
+                <p>“Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Cras Posuere Est Non Elementum Lacinia. Etiam Rutrum Faucibus Porttitor.”</p>
+                <a>
+                  <img src="assets/images/icons/user.svg">
+                  <span>JOHN DOE</span>
+                </a>
+                <div class="testimonial-bg1">
+                    <img src="assets/images/bg2.svg" alt="background-1">
+                  </div>
+                  <div class="testimonial-b2">
+                    <img src="assets/images/bg-test1.svg" alt="background-2">
+                </div>
+              </div>
+            </ng-template>
+            <ng-template carouselSlide>
+              <div class="item">
+                <p>“Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Cras Posuere Est Non Elementum Lacinia. Etiam Rutrum Faucibus Porttitor.”</p>
+                <a>
+                  <img src="assets/images/icons/user.svg">
+                  <span>JOHN DOE</span>
+                </a>
+                
+              </div>
+            </ng-template>
+            <ng-template carouselSlide>
+              <div class="item">
+                <p>“Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Cras Posuere Est Non Elementum Lacinia. Etiam Rutrum Faucibus Porttitor.”</p>
+                <a>
+                  <img src="assets/images/icons/user.svg">
+                  <span>JOHN DOE</span>
+                </a>
+              </div>
+            </ng-template>
+            <ng-template carouselSlide>
+              <div class="item">
+                <p>“Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Cras Posuere Est Non Elementum Lacinia. Etiam Rutrum Faucibus Porttitor.”</p>
+                <a>
+                  <img src="assets/images/icons/user.svg">
+                  <span>JOHN DOE</span>
+                </a>
+              </div>
+            </ng-template>
+            <ng-template carouselSlide>
+              <div class="item">
+                <p>“Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Cras Posuere Est Non Elementum Lacinia. Etiam Rutrum Faucibus Porttitor.”</p>
+                <a>
+                  <img src="assets/images/icons/user.svg">
+                  <span>JOHN DOE</span>
+                </a>
+              </div>
+            </ng-template>
+        </owl-carousel-o>
+    </section> -->
+
+        <div class="container  home home-wrap" *ngIf="home_page?.you_may_like?.length > 0">
+            <div class="best-seller you-may-like mt-5">
+                <div class="row">
+                    <div class="col-md-12 text-center mb-2 shop-by-cate">
+                        <h4 class="underline-head">{{LANG.You_May_like}}</h4>
+                        <!-- <button class="btn" >{{LANG.VIEW_ALL}}</button> -->
+                    </div>
+                </div>
+                <div class="mt-2 position-relative vis-caro">
+                    <owl-carousel-o [options]="bestSeller">
+                        <ng-container *ngIf="you_may_like==false">
+                            <ng-template carouselSlide *ngFor="let data of home_page?.you_may_like.slice(-4);let i=index;">
+                                <div class="item cur-pointer prod text-center">
+                                    <a>
+                                        <button class="wishlist" (click)="addToWishlist(data)">
+                                            <i class="fa fa-heart" [class.active]="data.wishlist == '1'" aria-hidden="true"></i>                      
+                                        </button>
+                                    </a>
+                                    <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)">
+                                        <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';">
+                                    </div>
+                                    <div class="prod-name text-left mt-3">
+                                        <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
+                                        <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
+                                    </div>
+                                    <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else slider_loader;" [class.out-of-stock]="data?.stock == '2'">
+                                        {{data?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}
+                                            </button>
+                                    <ng-template #slider_loader>
+                                        <button class="add-cart m-auto cart-loader"> 
+                                        <loader></loader>
+                                    </button>
+                                    </ng-template>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+
+                        <ng-container *ngIf="you_may_like==true">
+                            <ng-template carouselSlide *ngFor="let data of home_page?.you_may_like;let i=index;">
+                                <div class="item cur-pointer prod text-center">
+                                    <a>
+                                        <button class="wishlist" (click)="addToWishlist(data)">
+                                        <i class="fa fa-heart" [class.active]="data.wishlist == '1'" aria-hidden="true"></i>                      
+                                    </button>
+                                    </a>
+                                    <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)">
+                                        <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';">
+                                    </div>
+                                    <div class="prod-name text-left mt-3">
+                                        <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
+                                        <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
+                                    </div>
+                                    <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else slider_loader;" [class.out-of-stock]="data?.stock == '2'">
+                                    {{data?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}
+                                        </button>
+                                    <ng-template #slider_loader>
+                                        <button class="add-cart m-auto cart-loader"> 
+                                    <loader></loader>
+                                </button>
+                                    </ng-template>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+
+                    </owl-carousel-o>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="section3">
+
+            <img src="../assets/images/icons/cover2.png" alt="section3-image">
+            <div class="centered text-center">
+                <!-- <h1>Premium Best Smart Watch</h1> -->
+                <!-- <p>Premium Best Smart Watch</p> -->
+            </div>
+        </div>
+        <div class="section4 container-fluid">
+            <div class="container">
+                <div class="row circle-image">
+                    <div class="col-md-3 col-6 img-block">
+                        <span><img src="../assets/images/icons/wat1.png" ></span>
+                        <p>2. 03" Infinite Display</p>
+                    </div>
+                    <div class="col-md-3 col-6 img-block">
+                        <span><img src="../assets/images/icons/wat2.png" ></span>
+                        <p>Movement data</p>
+                    </div>
+
+                    <div class="col-md-3 col-6 img-block">
+                        <span><img src="../assets/images/icons/wat3.png" ></span>
+                        <p>Multi Sports mode</p>
+                    </div>
+
+                    <div class="col-md-3 col-6 img-block">
+                        <span><img src="../assets/images/icons/wat4.png" ></span>
+                        <p>Music</p>
+                    </div>
+
+
+                    <div class="col-md-3 col-6 img-block">
+                        <span><img src="../assets/images/icons/wat5.png" ></span>
+                        <p>Heart rate Monitoring</p>
+                    </div>
+
+                    <div class="col-md-3 col-6  img-block">
+                        <span><img src="../assets/images/icons/wat6.png" ></span>
+                        <p>Blood oxygen</p>
+                    </div>
+
+                    <div class="col-md-3 col-6 text-center img-block">
+                        <span><img src="../assets/images/icons/wat7.png" ></span>
+                        <p>Blood pressure</p>
+                    </div>
+                    <div class="col-md-3 col-6 text-center img-block">
+                        <span><img src="../assets/images/icons/wat8.png" ></span>
+                        <p>Temperature sensing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section5 container-fluid">
+            <div class="container">
+                <div class="row img-row">
+                    <div class="col-md-6 col-6">
+                        <h3>Enhancing Your Overall <span>Smartwatch Experience.</span></h3>
+                    </div>
+                    <div class="col-md-6 col-6">
+                        <img src="assets/images/watch-sec6.png" class="img-1" alt="" />
+                    </div>
+                    <div class="col-md-6 col-6">
+                        <img src="assets/images/watch-sec6.png" class="img-2" alt="" />
+                    </div>
+                    <div class="col-md-6 col-6 freedom ">
+                        <h3>Enjoy The Freedom Of <span>Hands-Free Calling</span> Wherever You Are.</h3>
+                    </div>
+                    <div class="col-md-6 col-6">
+                        <h3>You Can Gain A Deeper Understanding Of Your <span>Heart's Performance,</span></h3>
+                    </div>
+                    <div class="col-md-6 col-6">
+                        <img src="assets/images/watch-sec6.png" class="img-3" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid section-6">
+        <div class="col-md-5 mx-auto">
+            <img src="assets/images/watch-sec6.png" alt="" />
+        </div>
+        <h5>Style Your Time Your Way</h5>
+        <button class="btn">Buy now</button>
+    </div>
+</div>

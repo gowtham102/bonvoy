@@ -1,0 +1,31 @@
+<div class="cart-details">
+    <h6>{{LANG.MY_WISHLIST}}</h6>
+    <h6 *ngIf="wishlist_length > 0">{{wishlist_length}} {{wishlist_length == 1 ? LANG.Item : LANG.Items }}</h6>
+    <h4 *ngIf="wishlist_length == 0 && wishlistLoaded">{{LANG.Your_Wishlist_is_empty}}</h4>
+    <div class="single-item" *ngFor="let data of wishlist;let i=index;" [class.out-of-stock]="data?.stock == '2'">
+        <div class="img cur-pointer" (click)="goToproductDetails(data)">
+            <img src="{{data.image}}" alt="image">
+        </div>
+        <div class="details">
+            <p class="cur-pointer" (click)="goToproductDetails(data)">{{data.title}}</p>
+            <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>            
+            <p class="mt-2">
+                <a class="remove" (click)="addToWishlist(data,i,true)"><img src="assets/images/icons/remove-cross.svg" alt="remove">{{LANG.Remove}}</a>
+                <a (click)="addToCart(data,i)"><img src="assets/images/icons/shopping-bag.svg" alt="shopping-bag">{{LANG.MOVE_TO_CART}}</a>
+            </p>
+        </div>
+    </div>
+    <!-- <div class="single-item out-of-stock">
+        <div class="img cur-pointer">
+            <img src="assets/images/Image14.png" alt="image">
+        </div>
+        <div class="details">
+            <p>ROSE MIX BLOSS</p>
+            <span>OUT OF STOCK</span>
+            <p class="mt-2">
+                <a class="remove"><img src="assets/images/icons/remove-cross.svg" alt="remove">Remove</a>
+                <a><img src="assets/images/icons/shopping-bag.svg" alt="shopping-bag">ADD TO CART</a>
+            </p>
+        </div>
+    </div> -->
+</div>

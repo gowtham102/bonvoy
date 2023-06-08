@@ -1,0 +1,233 @@
+.cart-details{
+    padding: 25px 50px;
+    background: var(--c-white);
+    color: var(--t-color);
+}
+
+.cart-details h6{
+    font-family: 'GothaProMed';
+    font-size: 12px;
+    color: var(--c-black);
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cards .card-design{
+    padding: 25px 0;
+    border: none;
+    width: 110px;
+    height: auto;
+    text-align: center;
+    margin-right: 15px;
+    align-items: center;
+    border-radius: 12px;
+    font-size: 12px;
+    padding-bottom: 0;
+
+}
+
+.cards .card-design img {
+    width: 93px;
+    height: 80px;
+    /* height: 127px; */
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.cards .card-design .image button {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 30px;
+    color: #fff0;
+    border-radius: 8px;
+}
+
+.cards .card-design .image button.active {
+    background: #3e586985;
+    color: var(--c-white);
+    animation: .5s fadeIn;
+}
+
+.cart-details .input-message{
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.cart-details .input-message input{
+    border: none;
+    border-bottom: 1px solid var(--c-addons);
+    width: 100%;
+    font-size: 12px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+}
+
+.cart-details .input-message input ~ label {
+    color: var(--c-addons);
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+.cart-details .input-message input:focus{
+    outline: none;
+}
+.cart-details .input-message input:focus + label,.cart-details .input-message input:valid + label {
+  top: -20px;
+  font-size: 12px;
+}
+
+.preview-card a{
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--c-cart);
+}
+
+.cart-details .add-on-heading{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cart-details .add-on-heading h6{
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.cart-details .add-on-heading h6.active{
+    text-decoration: underline;
+}
+
+.add-ons .item{
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.add-ons .prod-image.active{
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px;
+    transition: 0.3s ease all;
+}
+.add-ons .prod-image img{
+    width: 125px !important;
+    height: 125px !important;
+    object-fit: fill;
+}
+
+.card-preview-modal .card-preview{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-preview-modal{
+    font-family: 'Playfair Display';
+}
+
+.card-preview-modal .modal-header, .modal-footer{
+    border: none;
+    justify-content: center;
+}
+
+.card-preview-modal .modal-header button{
+    position: absolute;
+    right: 3%;
+    top: 2%;
+}
+
+.card-preview-modal .modal-header button span{
+    font-size: 30px;
+    font-family: 'GothaProMed';
+    color: var(--t-color);
+}
+
+.card-preview-modal .modal-body{
+    padding: 0 1rem 1rem 1rem;
+}
+
+.card-preview-modal .card-preview .single-card {
+    width: 242px;
+    min-height: 330px;
+    height: auto;
+    margin: 0 10px;    
+    position: relative;
+    font-size: 18px;
+}
+
+.card-preview-modal .card-preview .single-card.img{
+    background: var(--c-cardimg);
+}
+
+.card-preview-modal .card-preview .single-card.img img{
+    width: 90%;
+    /* border-radius: 12px; */
+}
+
+
+.card-preview-modal .card-preview .single-card.details{
+    background: var(--c-cardcontent);
+    color: var(--c-carddetails);
+}
+
+.card-preview-modal .card-preview .single-card.details .content{
+    padding: 50px 25px;
+}
+
+.card-preview-modal .modal-footer button{
+    width: 294px;
+    height: 54px;
+    background: #fff;
+    border: 1px solid var(--c-cart);
+    color: var(--c-cart);
+    border-radius: 12px;
+    font-family: 'GothaProBol';
+}
+
+.error-class{
+    width: 50px !important;
+}
+
+@media screen and (max-width: 572px){
+    .cart-details{
+        padding: 20px 25px;
+    }
+
+    .card-preview-modal .card-preview {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card-preview-modal .card-preview .single-card{
+        min-height: 250px;
+        margin: 10px;
+        width: 100%;
+    }
+    
+}
+
+@media screen and (max-width: 320px){
+    .cart-details{
+        padding: 15px 20px;
+    }
+    
+    .cards .card-design{
+        width: auto;
+    }
+    .cards .card-design img{
+        width: 90px;        
+        height: 110px;
+    }
+    
+}

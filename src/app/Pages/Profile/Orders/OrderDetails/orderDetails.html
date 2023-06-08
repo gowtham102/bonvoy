@@ -1,0 +1,160 @@
+<div class="order-wrapper mb-2">
+    <h6>{{LANG.ORDER_DETAILS}}</h6>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="orders">
+                <div class="order-date ">
+                    <p><span>{{LANG.Order_NUMBER}}</span><span> {{order_details.order_number}}</span></p>
+                    <p><span>{{LANG.Date}}</span><span> {{order_details.ordered_date}}</span></p>
+                </div>
+                <div class="order-details">
+                    <p class="items">{{order_details?.order_detail?.length == 1 ? LANG.Item : LANG.Items }}</p>
+                    <div class="single-order" *ngFor="let data of order_details?.order_detail">
+                        <div class="img cur-pointer" (click)="goToproductDetails(data)">
+                            <img src="{{data.product_image}}" alt="image" onError="this.src='assets/images/icons/logo-grey.svg';">
+                        </div>
+                        <div class="details">
+                            <p class="m-0 cur-pointer" (click)="goToproductDetails(data)">{{data.product_title}}</p>
+                            <span>{{data.unit_price}} {{data.currency}}</span>
+                            <span>{{data.quantity}} {{LANG.Qty}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="delivery-address" *ngIf="order_details?.address">
+                    <p class="items">{{LANG.DELIVERY_ADDRESS}}</p>
+                    <div class="address-part">
+                        <p>{{order_details.user_name}}</p>
+                        <p>{{order_details.country_code}} {{order_details.mobile_number}}</p>
+                        <span>{{order_details.address}}</span>
+                    </div>
+                </div>
+                <!-- <div class="delivery-address " *ngIf="order_details?.recievers_number">
+                    <p class="items">{{LANG.DELIVERY_DETAILS}}</p>
+                    <div class="address-part">
+                        <p>{{order_details.recievers_number}}</p>
+                        <span>{{order_details.recievers_address}}</span>
+                    </div>
+                </div>
+                <div class="invoice-download" *ngIf="order_details?.status == '106' && order_details?.order_number">
+                    <a href="https://api.bloss-sa.com/invoice/{{order_details?.order_number}}.pdf" download target="_blank"><i class="fa fa-download" aria-hidden="true"></i>{{LANG.download_invoice}}</a>
+                </div>
+                <div class="order-status mt-5">
+                    <div class="status">
+                        <label>{{LANG.PAYMENT_METHOD}}</label>
+                        <p *ngIf="order_details.payment_type == '1'">{{LANG.Cash}}</p>
+                        <p *ngIf="order_details.payment_type == '2'">{{LANG.Online}}</p>
+                    </div>
+                    <div class="status">
+                        <label>{{LANG.STATUS}}</label>
+                        <p class="text-success">{{order_details.status_title}}</p>
+                    </div>
+                </div> -->
+                <!-- <div class="card" *ngIf="order_details.card_to">
+                    <div class="card-message">
+                        <p class="items mb-3">{{LANG.CARD_MESSAGE}}</p>
+                        <p class="mb-1">{{LANG.TO}} {{order_details.card_to}}</p>
+                        <p class="mb-1">{{LANG.FROM}} {{order_details.card_from}}</p>
+                        <p class="mb-1" *ngIf="order_details?.reciever_number">{{LANG.reciever_phone_number}} {{order_details.reciever_number}}</p>
+                        <span>{{LANG.MESSAGE}} {{order_details.card_message}}</span>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="col-md-5">
+            <!-- <div class="card" *ngIf="order_details.card_to">
+                <div class="card-message">
+                    <p class="items ">{{LANG.CARD_MESSAGE}}</p>
+                    <p class="">{{LANG.TO}} {{order_details.card_to}}</p>
+                    <p class="">{{LANG.FROM}} {{order_details.card_from}}</p>
+                    <p class="" *ngIf="order_details?.reciever_number">{{LANG.reciever_phone_number}} {{order_details.reciever_number}}</p>
+                    <span>{{LANG.MESSAGE}} {{order_details.card_message}}</span>
+                </div>
+            </div> -->
+            <div class="card summary-details">
+                <div class="cart-details summary">
+                    <h6>{{LANG.Summary}}</h6>
+                    <!-- <div class="single-item" *ngFor="let data of order_details?.order_detail;let i=index;">
+                        <div class="img cur-pointer" (click)="goToproductDetails(data)">
+                            <img src="{{data.product_image}}" alt="image" onError="this.src='assets/images/icons/logo-grey.svg';">
+                        </div>
+                        <div class="details">
+                            <p class="cur-pointer" (click)="goToproductDetails(data)">{{data.product_title}}</p>
+                            <p>{{LANG.Qty}} {{data.quantity}}</p>
+                            <span>{{+data.total}} {{data.currency}}</span>
+
+                        </div>
+
+                    </div> -->
+
+                    <ul>
+                        <li>
+                            <span>{{LANG.SUBTOTAL}}</span><span>{{order_details.currency}} {{order_details.sub_total}}</span>
+                        </li>
+                        <li>
+                            <span>{{LANG.VAT}}</span><span>+ {{order_details.currency}} {{order_details.tax}}</span>
+                        </li>
+                        <li *ngIf="+order_details.discount > 0">
+                            <span>{{LANG.Discount}}</span><span class="text-success">- {{order_details.currency}} {{order_details.discount}}</span>
+                        </li>
+                        <li *ngIf="+order_details.bill_value_discount > 0">
+                            <span>{{LANG.Discount_on_Bill}}</span><span class="text-success">- {{order_details.currency}} {{order_details.bill_value_discount}}</span>
+                        </li>
+                        <li *ngIf="+order_details.shipping_charges == 0;else show_shipping">
+                            <span>{{LANG.DELIVERY}}</span><span class="text-success">{{LANG.FREE}}</span>
+                        </li>
+                        <ng-template #show_shipping>
+                            <li>
+                                <span>{{LANG.DELIVERY}}</span><span class="text-debit">+ {{order_details.currency}} {{order_details.shipping_charges}}</span>
+                            </li>
+                        </ng-template>
+                        <li>
+                            <span>{{LANG.Total}}</span><span>{{order_details.currency}} {{order_details.total}}</span>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- <div class="summary-details">
+                    <p class="items mb-3">{{LANG.Summary}}</p>
+                    <ul>
+                        <li> 
+                            <span>{{LANG.SUBTOTAL}}</span><span>{{order_details.currency}} {{order_details.sub_total}}</span>
+                        </li>
+                        <li>
+                            <span>{{LANG.VAT}}</span><span>+ {{order_details.currency}} {{order_details.tax}}</span>
+                        </li>
+                        <li *ngIf="+order_details.discount > 0">
+                            <span>{{LANG.Discount}}</span><span class="text-success">- {{order_details.currency}} {{order_details.discount}}</span>
+                        </li>
+                        <li *ngIf="+order_details.bill_value_discount > 0">
+                            <span>{{LANG.Discount_on_Bill}}</span><span class="text-success">- {{order_details.currency}} {{order_details.bill_value_discount}}</span>
+                        </li>
+                        <li *ngIf="+order_details.shipping_charges == 0;else show_shipping">
+                            <span>{{LANG.DELIVERY}}</span><span class="text-success">{{LANG.FREE}}</span>
+                        </li>
+                        <ng-template #show_shipping>
+                            <li>
+                                <span>{{LANG.DELIVERY}}</span><span class="text-debit">+ {{order_details.currency}} {{order_details.shipping_charges}}</span>
+                            </li>
+                        </ng-template>
+                        <li class="total">
+                            <span>{{LANG.Total}}</span><span>{{order_details.currency}} {{order_details.total}}</span>
+                        </li>
+                    </ul>
+                </div> -->
+            </div>
+            <div class="card summary-details summary-last">
+                <div class="cart-details summary">
+                    <div class="summary-left">
+                        <p>Total Amount</p>
+                        <h5>SR 290</h5>
+                    </div>
+                    <div class="summary-right">
+                        <p>Paid using</p>
+                        <h5><img src="assets/images/icons/apple.svg" alt="" />Apple Pay</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

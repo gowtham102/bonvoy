@@ -1,0 +1,136 @@
+<div class="site_wrapper bg-grey">
+
+    <div class="product-container container ">
+        <div class="breadcrumbs ">
+            <div class="row m-0 ">
+                <p><a routerLink="/">{{LANG.Home}} </a> / <a routerLink="/my-cart">{{LANG.Cart}}</a> / <a class="active">{{LANG.Checkout}}</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mb-3">
+                <div class="cart-details checkout-status">
+                    <div class="row position-relative">
+                        <b class="hr-line">
+                      <span [class.w-50]="half_width" [class.w-100]="full_width"></span>
+                    </b>
+                        <div class="col-4">
+                            <button class="active active-background">1</button>
+                            <p>{{LANG.Cart}}</p>
+                        </div>
+                        <div class="col-4">
+                            <button [class.active]="route_path != ''" [class.active-background]="route_path == 'payment'">2</button>
+                            <p>{{LANG.Address}}</p>
+                        </div>
+                        <div class="col-4">
+                            <button [class.active]="route_path == 'payment'">3</button>
+                            <p>{{LANG.Payment}}</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <ng-container>
+                    <router-outlet></router-outlet>
+                </ng-container>
+
+
+            </div>
+
+            <div class="col-md-4 summary-details">
+                <div class="cart-details summary">
+                    <h6>{{LANG.Summary}}</h6>
+                    <div class="single-item" *ngFor="let data of cartDetails.cart_Detail;let i=index;">
+                        <!-- <a class="remove-cart" (click)="removeCart(data)"><img src="assets/images/icons/close.svg"></a> -->
+                        <div class="img cursor-pointer" (click)="goToproductDetails(data)">
+                            <img src="{{data.image}}" alt="image" onError="this.src='assets/images/icons/logo-grey.svg';">
+                        </div>
+                        <div class="details">
+                            <p class="cur-pointer" (click)="goToproductDetails(data)">{{data.product_title}}</p>
+                            <span><del *ngIf="+data.discount > 0">{{data.unit_price}} {{data.currency}}</del>{{+data.unit_price - +data.discount}} {{data.currency}} </span>
+                            <!-- <div class="quantity">
+                                <span class="plus" (click)="incrementQuantity(data)"><img class="centered" src="assets/images/icons/plus.svg" alt="plus"></span>
+                                <input type="text" name="quantity" [(ngModel)]="data.quantity" disabled>
+                                <span class="minus" (click)="decrementQuantity(data)"><img class="centered" src="assets/images/icons/minus.svg" alt="minus"></span>
+                            </div> -->
+                        </div>
+                        <div class="quantity">
+                            <span class="plus" (click)="decrementQuantity(data)"><img class="" src="assets/images/icons/minus-icon.svg" alt="plus"></span>
+                            <input type="text" name="quantity" [(ngModel)]="data.quantity" disabled>
+                            <span class="minus" (click)="incrementQuantity(data)"><img class="" src="assets/images/icons/plus-icon.svg" alt="minus"></span>
+                        </div>
+                    </div>
+
+                    <ul>
+                        <li>
+                            <span>{{LANG.SUBTOTAL}}</span><span>{{cartDetails.currency}} {{cartDetails.sub_total}}</span>
+                        </li>
+                        <li>
+                            <span>{{LANG.VAT}}</span><span>+ {{cartDetails.currency}} {{cartDetails.vat}}</span>
+                        </li>
+                        <li *ngIf="+cartDetails.shipping_charge == 0;else show_shipping">
+                            <span>{{LANG.DELIVERY}}</span><span class="text-success">{{LANG.FREE}}</span>
+                        </li>
+                        <ng-template #show_shipping>
+                            <li>
+                                <span>{{LANG.DELIVERY}}</span><span class="text-debit">+ {{cartDetails.currency}} {{cartDetails.shipping_charge}}</span>
+                            </li>
+                        </ng-template>
+                        <li *ngIf="+cartDetails.discount_total > 0">
+                            <span>{{LANG.Discount}}</span><span class="text-success">- {{cartDetails.currency}} {{cartDetails.discount_total}}</span>
+                        </li>
+                        <li *ngIf="+cartDetails.bill_value_discount > 0">
+                            <span>{{LANG.Discount_on_Bill}}</span><span class="text-success">- {{cartDetails.currency}} {{cartDetails.bill_value_discount}}</span>
+                        </li>
+                    </ul>
+
+                    <div class="coupon mt-4" *ngIf="!coupon_applied && cart_loaded">
+                        <div class="form_input">
+                            <label>{{LANG.HAVE_A_COUPON_CODE}}</label>
+                            <div class="apply-coupon">
+                                <input class="form-control" type="text" placeholder="{{LANG.Enter_Coupon_Code}}" autocomplete="off" name="coupon_code" [(ngModel)]="coupon_code">
+                                <button class="btn save_btn" (click)="applyCoupon()" *ngIf="!load;else loader;">{{LANG.Apply}}</button>
+                                <ng-template #loader>
+                                    <button class="btn save_btn cart-loader coupon-loader">
+                                <loader></loader>
+                            </button>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ng-container *ngIf="coupon_applied && cart_loaded">
+                        <div class="coupon mt-4 coupon-applied">
+                            <div class="form_input">
+                                <label>
+                            <div class="coupon-applied-text">
+                              <i class="fa fa-check-circle" aria-hidden="true"></i>
+                              <span>{{LANG.Coupon_Applied}}</span>
+                            </div>
+                          </label>
+                                <div class="apply-coupon">
+                                    <input class="form-control" type="text" autocomplete="off" disabled name="coupon_code" [(ngModel)]="coupon_code">
+                                    <button class="btn save_btn" (click)="removeCoupon()" *ngIf="!load;else loader;">{{LANG.Remove}}</button>
+                                    <ng-template #loader>
+                                        <button class="btn save_btn cart-loader coupon-loader">
+                                    <loader></loader>
+                                </button>
+                                    </ng-template>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    <ul class="mt-5">
+                        <li>
+                            <span>{{LANG.Total}}</span><span>{{cartDetails.currency}} {{cartDetails.grand_total | number:'1.2'}}</span>
+                        </li>
+                    </ul>
+
+                    <!-- <button class="checkout " (click)="checkoutNavigations()" *ngIf="route_path != 'payment'">{{LANG.Continue}}</button> -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
