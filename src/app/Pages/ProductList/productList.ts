@@ -9,7 +9,7 @@ import { CartService } from 'src/app/SharedResources/Services/cartWishlist.servi
 import { ToastrManager } from 'ng6-toastr-notifications';
 import { SharedService } from 'src/app/SharedResources/Services/shared.service';
 import { environment } from "src/environments/environment";
-
+declare const $: any;
 
 
 
@@ -331,7 +331,11 @@ export class ProductListComponent implements OnInit {
         this.index=this.index + 1
         this.getProductList(true)
       }
-   
+      
+     
+         filtersec(){
+        	$(".pop").toggleClass("show");	
+        }
 
       
 
