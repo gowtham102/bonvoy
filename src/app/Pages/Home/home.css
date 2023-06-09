@@ -1,11 +1,13 @@
 .banner {
-    background: #ECECEC 0% 0% no-repeat padding-box;
+    background: #ECECEC;
+    height: 486px;
 }
 
 .banner h2 {
-    font-size: 64px;
+    font-size: 52px;
     color: #2A353C;
-    font-family: 'roobert-bold';
+    font-family: 'roobert-med';
+    text-align: left;
 }
 
 .banner h2 span {
@@ -15,6 +17,14 @@
 .banner-image {
     padding-top: 35px;
     align-items: center;
+}
+.banner button{
+    background: #131313;
+    border-radius: 32px;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-family: 'roobert-med';
+    padding: 14px 32px;
 }
 
 
@@ -37,7 +47,7 @@ opacity: 1;
 .banner .centered h2 {
     font-size: 50px;
     font-family: 'roobert-semi';
-    color: #2A353C;
+    color: #FFFFFF;
     text-align: left;
     /* top: 205px;
 left: 84px;
@@ -283,17 +293,142 @@ opacity: 1; */
     font-family: 'roobert-semi';
 }
 
-.section3 img {
-    /* height: 450px; */
-    width: 100%;
-    object-fit: cover;
+.section3  {
+    display: flex;
+    background: url(../../../assets/images/bonvoy/cover2.png) 0 0 no-repeat;
+    height: 694px;
+    background-size: cover;
+}
+.section3-img{
+    width: 50%;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
 }
 
+.section3-img h1{
+  
+    font-size: 36px;
+    color: #96918E;
+    font-family: 'Roobert, med';
+  
+
+}
+.section3-img p{
+    font-size: 24px;
+    color: #BAA293;
+    font-family: 'Roobert, med';
+    text-decoration: underline;
+    
+
+}
+
+
+
+
+
+
+/* 
+.section3-img {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    margin-left: auto;
+    font-size: 36px;
+    color: #96918E;
+    font-family: 'Roobert, Reg;';
+
+}
+.section3 p{
+    display: flex;
+    font-size: 24px;
+    font-family: 'Roobert';
+    color: #BAA293;
+    text-decoration: underline;
+
+} */
+
+.section4{
+    display: flex;
+    background: url(../../../assets/images/bonvoy/cover3.png) 0 0 no-repeat;
+    height: 1227px;
+    background-size: cover;
+}
+
+.section4-img h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* width: 50%; */
+    font-size: 62px;
+    color: #B9ADA6;
+    font-family: 'Roobert, med';
+    margin-top: 500px;
+
+}
+.section4 p{
+ color: #938277;
+}
+.section5{
+    display: flex;
+    background: url(../../../assets/images/bonvoy/cover4.png) 0 0 no-repeat;
+    height: 711px;
+    background-size: cover;
+}
+.section5-img{
+    width: 50%;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.section5-img h1{
+  
+    font-size: 48px;
+    color: #000000;
+    font-family: 'Roobert, med';
+  
+
+}
+.section5-img h1 span{
+    font-size: 48px;
+    color:  #96918E;
+    font-family: 'Roobert, med';
+    
+
+}
+.section5-img p{
+    font-size: 24px;
+    color:  #000000;
+    font-family: 'Roobert, med';
+    text-decoration: underline;
+    
+
+}
+
+.section5 img{
+    width: 100%;
+    object-fit: contain;
+}
+.sec-img{
+    max-height: 55px;
+    padding: 0;
+}
+
+
+/* 
 .section4 {
     background: #F6F6F6;
     width: 100%;
     padding: 86px 0 100px;
-}
+} */
 
 
 /* .section4 img{
@@ -339,6 +474,16 @@ opacity: 1;
     grid-row-gap: 30px;
 }
 
+.circle-image img{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: 25%;
+    /* height: 65px; */
+    object-fit: contain;
+    padding: 20px;
+
+}
 .img-block p {
     display: flex;
     text-align: center;
@@ -351,17 +496,17 @@ opacity: 1;
     margin-bottom: 0;
 }
 
-.section5 h3 {
+/* .section5 h3 {
     font-size: 55px;
     text-align: right;
     color: #000000;
     font-family: 'roobert-reg';
     padding: 0 20px;
-}
+} */
 
-.section5 h3 span {
+/* .section5 h3 span {
     font-family: 'roobert-bold';
-}
+} */
 
 .freedom {
     margin-left: auto;
@@ -387,11 +532,43 @@ opacity: 1;
 }
 
 .section-6 {
+    height: 711px;
+    background: transparent linear-gradient(313deg, #BCBCBC 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box;
     text-align: center;
     padding: 37px 15px 60px;
 }
 
-.section-6 button {
+.section6-img{
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+}
+
+.section6-img h1{
+    font-size: 48px;
+    color: #000000;
+    font-family: 'Roobert, med';
+}
+.section6-img h1 span{
+    font-size: 48px;
+    color:  #96918E;
+    font-family: 'Roobert, med';
+    
+
+}
+.section6-img p{
+    font-size: 24px;
+    color:  #000000;
+    font-family: 'Roobert, med';
+    text-decoration: underline;
+    
+
+}
+
+/* .section-6 button {
     background: #2A353C;
     border-radius: 32px;
     color: #FCFCFC;
@@ -405,15 +582,48 @@ opacity: 1;
     font-family: 'roobert-med';
     font-size: 41px;
     color: #000000;
-}
+} */
 
 .section-6 img {
     width: 100%;
 }
 
-.section5 {
-    background: #B2D6EC;
+.section-7 {
+    text-align: center;
+    padding: 37px 15px 60px;
 }
+.section-7 img {
+    width: 100%;
+}
+
+
+.section-7 h1 {
+    padding: 20px;
+    font-family: 'roobert-med';
+    font-size: 52px;
+    color: #000000;
+}
+.section-7 p{
+    font-size: 24px;
+    color:  #000000;
+    font-family: 'Roobert, med';
+    
+
+}
+
+
+.section-7 button {
+    background: #131313;
+    border-radius: 32px;
+    color: #FCFCFC;
+    font-size: 10px;
+    font-family: 'roobert-med';
+    padding: 12px 38px;
+}
+
+/* .section5 {
+    background: #B2D6EC;
+} */
 
 @media screen and (min-width: 573px) and (max-width: 1199px) {
     .services {
@@ -548,11 +758,11 @@ opacity: 1;
     /* .site_wrapper {
         margin-top: 0;
     } */
-    .section5 h3 {
+    /* .section5 h3 {
         font-size: 20px;
         text-align: left;
         padding: 29px 0;
-    }
+    } */
     .img-1,
     .img-2,
     .img-3 {
@@ -593,4 +803,9 @@ opacity: 1;
     .banner-image {
         padding-top: 0;
     }
+}
+
+.shop-by-cate h4 p{
+    align-items: center;
+    justify-content: space-between;
 }

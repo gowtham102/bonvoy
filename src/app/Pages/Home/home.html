@@ -6,12 +6,14 @@
                 <ng-template carouselSlide *ngFor="let data of home_page?.banner">
                     <div class="row banner-image">
                         <div class="col-md-5 col-6">
-                            <h2>Premium Best Smart <span>Watch</span> </h2>
+                            <h2>Stay Connected Stay fit. With Bonfit 3.0 </h2>
+                            <button class="btn">Buy now</button>
+                            <!-- <span>Watch</span> -->
 
                         </div>
                         <div class="col-md-7 col-6">
-                            <div class="col-md-8 mx-auto">
-                                <img src="../assets/images/icons/cover1.png" alt="banner-image">
+                            <div class="col-md-6 mx-auto">
+                                <img src="../assets/images/bonvoy/cover1.png" alt="banner-image">
                             </div>
                         </div>
 
@@ -77,11 +79,11 @@
                 </div>
             </div> -->
 
-            <div class="shop_by_category" *ngIf="home_page?.occasions?.length > 0">
+            <!-- <div class="shop_by_category" *ngIf="home_page?.occasions?.length > 0">
                 <div class="">
                     <div class="col-md-12 text-center mb-2 shop-by-cate">
                         <h4 class="underline-head">NEW LAUNCHES</h4>
-                        <!-- <button class="btn" >{{LANG.VIEW_ALL}}</button> -->
+                        <button class="btn" >{{LANG.VIEW_ALL}}</button>
                     </div>
 
                     <div class="shop-by-category two-categories">
@@ -104,20 +106,20 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <div class="container home">
+        <!-- <div class="container home">
             <div class="best-seller mt-5 mb-5 position-relative" *ngIf="home_page?.best_seller?.length > 0">
-                <!-- <div class="background-3">
+                <div class="background-3">
                     <img src="assets/images/bg3.svg" alt="bg3">
-                </div> -->
+                </div>
                 <div class="row">
                     <div class="col-md-12 text-center mb-2 shop-by-cate">
                         <h4 class="underline-head">{{LANG.Best_Sellers}}</h4>
-                        <!-- <button class="btn" >{{LANG.VIEW_ALL}}</button> -->
+                        <button class="btn" >{{LANG.VIEW_ALL}}</button>
                     </div>
-                </div>
-                <div class="owl-theme partner-carousel mt-2 position-relative vis-caro">
+                </div> -->
+                <!-- <div class="owl-theme partner-carousel mt-2 position-relative vis-caro">
                     <owl-carousel-o [options]="bestSeller">
                         <ng-container *ngIf="best_seller==false">
                             <ng-template carouselSlide *ngFor="let data of home_page?.best_seller.slice(-4);let i=index;">
@@ -181,7 +183,7 @@
 
             </div>
 
-        </div>
+        </div> -->
 
         <!-- <section class="offer-section">
         <div class="row m-0">
@@ -198,7 +200,7 @@
               </div>
           </div>
         </div>
-    </section> -->
+        </section> -->
 
         <!-- <section class="testimonial">
         <div class="row m-0">
@@ -260,13 +262,14 @@
               </div>
             </ng-template>
         </owl-carousel-o>
-    </section> -->
+        </section> -->
 
         <div class="container  home home-wrap" *ngIf="home_page?.you_may_like?.length > 0">
             <div class="best-seller you-may-like mt-5">
                 <div class="row">
                     <div class="col-md-12 text-center mb-2 shop-by-cate">
-                        <h4 class="underline-head">{{LANG.You_May_like}}</h4>
+                        <p>Choose your next</p>
+                        <h4 class="underline-head">Smart watch</h4>
                         <!-- <button class="btn" >{{LANG.VIEW_ALL}}</button> -->
                     </div>
                 </div>
@@ -281,7 +284,7 @@
                                         </button>
                                     </a>
                                     <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)">
-                                        <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';">
+                                        <img src="../assets/images/bonvoy/watch1.png" onError="this.src='assets/images/icons/logo-grey.svg';">
                                     </div>
                                     <div class="prod-name text-left mt-3">
                                         <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
@@ -331,16 +334,78 @@
                 </div>
 
             </div>
+         </div>
         </div>
-        <div class="section3">
+    </div>
 
-            <img src="../assets/images/icons/cover2.png" alt="section3-image">
-            <div class="centered text-center">
-                <!-- <h1>Premium Best Smart Watch</h1> -->
-                <!-- <p>Premium Best Smart Watch</p> -->
+
+        <div class="section3">
+            <div class="container">
+                <!-- <img src="../assets/images/bonvoy/cover2.png" alt="section3-image"> -->
+                <!-- <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1> -->
+                <div class="section3-img">
+                    <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1>
+
+                    <p>Choose you model</p>
+                    <!-- <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1> -->
+                    <!-- <p>Premium Best Smart Watch</p> -->
+                </div>
             </div>
         </div>
-        <div class="section4 container-fluid">
+
+        <div class="section4">
+            <div class="container">
+                <div class="section4-img">
+                    <h1>Loaded with latest features</h1>
+                </div>
+                <div class="row circle-image">
+                    <div class="col-md-3 col-6">
+                        <span><img src="../assets/images/icons/wat1.png" ></span>
+                        <p>2. 03" Infinite Display</p>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <span><img src="../assets/images/icons/wat2.png" ></span>
+                        <p>Movement data</p>
+                    </div>
+
+                    <div class="col-md-3 col-6">
+                        <span><img src="../assets/images/icons/wat3.png" ></span>
+                        <p>Multi Sports mode</p>
+                    </div>
+
+                    <div class="col-md-3 col-6 ">
+                        <span><img src="../assets/images/icons/wat4.png" ></span>
+                        <p>Music</p>
+                    </div>
+
+
+                    <div class="col-md-3 col-6">
+                        <span><img src="../assets/images/icons/wat5.png" ></span>
+                        <p>Heart rate Monitoring</p>
+                    </div>
+
+                    <div class="col-md-3 col-6">
+                        <span><img src="../assets/images/icons/wat6.png" ></span>
+                        <p>Blood oxygen</p>
+                    </div>
+
+                    <div class="col-md-3 col-6">
+                        <span><img src="../assets/images/icons/wat7.png" ></span>
+                        <p>Blood pressure</p>
+                    </div>
+                    <div class="col-md-3 col-6 text-center ">
+                        <span><img src="../assets/images/icons/wat8.png" ></span>
+                        <p>Temperature sensing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        
+
+        <!-- <div class="section4 container-fluid">
             <div class="container">
                 <div class="row circle-image">
                     <div class="col-md-3 col-6 img-block">
@@ -383,8 +448,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section5 container-fluid">
+        </div> -->
+        <!-- <div class="section5 container-fluid">
             <div class="container">
                 <div class="row img-row">
                     <div class="col-md-6 col-6">
@@ -407,13 +472,61 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+
+    
+
+    <div class="section5">
+        <div class="container">
+            <div class="section5-img">
+                <div class="col-md-3 sec-img">
+                    <img src="../assets/images/icons/logo1.png">
+
+                </div>
+                
+                <h1>Enhancing Your Overall <span>Smartwatch Experience.</span> </h1>
+    
+                <p>Check all available models</p>
+            </div>
         </div>
+
+        
     </div>
-    <div class="container-fluid section-6">
+    <!-- <div class="container-fluid section-6">
         <div class="col-md-5 mx-auto">
             <img src="assets/images/watch-sec6.png" alt="" />
         </div>
         <h5>Style Your Time Your Way</h5>
+        <button class="btn">Buy now</button>
+    </div> -->
+    <div class="section-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-6">
+                    <div class="section6-img">
+                        <h1>Enhancing Your Overall <span>Smartwatch Experience.</span> </h1>
+            
+                        <p>Check all available models</p>
+                    </div>
+
+                </div>
+                <div class="col-md-7 col-6">
+                    <div class="col-md-8">
+                        <img src="../assets/images/bonvoy/cover5.png" alt="banner-image">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+            
+    </div>
+
+    <div class="container-fluid section-7">
+        <div class="col-md-5 mx-auto">
+            <img src="../assets/images/bonvoy/cover6.png" alt="" />
+        </div>
+        <h1>Available in 5 different styles</h1>
+        <p>What are you waiting for? Grab one now</p>
         <button class="btn">Buy now</button>
     </div>
 </div>
