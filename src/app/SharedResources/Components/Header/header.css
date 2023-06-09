@@ -6,6 +6,11 @@ input:focus-visible {
     outline: none;
 }
 
+.menu-btn,
+.close-icon {
+    display: none;
+}
+
 .border-wra {
     grid-column-gap: 37px;
     justify-content: center;
@@ -973,6 +978,61 @@ div.password {
     }
     .site_wrapper {
         margin-top: 0;
+    }
+    .menu-btn,
+    .close-icon {
+        display: block;
+        padding: 0;
+        background-color: transparent;
+        border: 0;
+        font-size: 24px;
+    }
+    .close-icon {
+        position: absolute;
+        top: 40px;
+        right: 50px;
+        z-index: 9999;
+        font-size: 32px;
+    }
+    .logo-head {
+        justify-content: space-between;
+        padding-right: 15px !important;
+    }
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #fff;
+        height: 100%;
+        z-index: 999;
+        transform: translateY(-20%);
+        transition: 0.25s all;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .menu-close.show {
+        transform: translateY(0%);
+        opacity: 1;
+        visibility: visible;
+    }
+    .mob-row,
+    .menu {
+        display: unset !important;
+    }
+    .header-last {
+        display: flex !important;
+        justify-content: center;
+        margin-top: 20px;
+        align-items: cent
+    }
+    .menu a {
+        display: block;
+        width: max-content;
+        max-width: 100%;
+        margin-bottom: 13px;
+    }
+    .header-last button {
+        padding: 0;
     }
     /* =========================arabic=============================== */
     .arabic header .sub_row>* {

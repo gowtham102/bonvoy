@@ -175,6 +175,7 @@ li:focus-visible {
     outline: none;
 }
 
+
 /* .container,
 .container-lg,
 .container-md,
@@ -969,7 +970,7 @@ button.out-of-stock {
 
 @media screen and (max-width: 572px) {
     .site_wrapper {
-        margin-top: 80px
+        margin-top: 0px
     }
     .best-seller .owl-theme .owl-prev,
     .best-seller .owl-theme .owl-next {
