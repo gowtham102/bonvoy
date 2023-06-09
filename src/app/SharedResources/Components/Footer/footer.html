@@ -15,17 +15,17 @@
         </div>
     </div> -->
     <div class="col-md-12">
-        <div class="footer-bg1">
+        <!-- <div class="footer-bg1">
             <img src="assets/images/footer-bg-1.svg" alt="footer-bg1">
         </div>
         <div class="footer-bg2">
             <img src="assets/images/fbg.svg" alt="footer-bg2">
-        </div>
+        </div> -->
         <div class="container">
             <div class="row footer-section">
-                <div class="col-md-3 text-center footer-padding col-12">
+                <div class="col-md-2 text-center footer-padding col-12">
                     <a href="#" class="footer-logo"><img src="../../../../assets/images/icons/logo1.svg" alt="Logo"></a>
-                    <p [innerHTML]="footer_data?.utility?.footer_text"></p>
+                    <!-- <p [innerHTML]="footer_data?.utility?.footer_text"></p> -->
                     <!-- <p [innerHTML]="footer_data?.utility?.footer_text"></p> -->
                     <div class="social-icons">
                         <a href="{{footer_data?.utility?.facebook}}" target="_blank"><img src="assets/images/icons/facebook.svg" alt="facebook"></a>
@@ -74,6 +74,17 @@
                         <li routerLink="/terms-&-condition"><a>{{LANG.Terms_condition}}</a></li>
                     </ul>
                 </div>
+                <div class="col-md-4 footer-padding col-4">
+                  <h6>Enter your E mail</h6>
+                  <ul>
+                      <p>Subscribe to get the latest updates</p>
+                      <span><input type="text"></span>
+
+                      <button class="btn">Subscribe</button>
+
+                      <!-- <li routerLink="/terms-&-condition"><a>{{LANG.Terms_condition}}</a></li> -->
+                  </ul>
+              </div>
                 <!-- <div class="col-md-12 col-12 cards-strip">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="536.177" height="51.541" viewBox="0 0 536.177 51.541">
             <defs>
