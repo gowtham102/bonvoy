@@ -777,6 +777,7 @@ opacity: 1;
         .section3 {
             height: auto;
             padding: 52px 0;
+            background: #000;
         }
         .section3-img h1 {
             font-size: 21px;
