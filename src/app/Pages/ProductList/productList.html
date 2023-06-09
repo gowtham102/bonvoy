@@ -7,37 +7,107 @@
         </div> -->
         </div>
     </div>
-
-    <div class="site_container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="page-width row">
-                    <div class="facets__summary p-2">
-                        <button><span class="facets__open button button--small">
-                          <span>Filter<i class="fa fa-plus" aria-hidden="true"></i></span>
+    <Span class="overlay pop" (click)="filtersec()"></Span>
+    <div class="site_container containe-fluid ">
+        <div class="row w-100 ">
+            <div class="col-md-12 ">
+                <div class="page-width row ">
+                    <div class="facets__summary p-2 ">
+                        <button (click)="filtersec() "><span class="facets__open button button--small " >
+                          <span>Filter<i class="fa fa-plus " aria-hidden="true "></i></span>
                         </span>
                         </button>
-                      </div>
-                      <div class="facets__summary p-2">
+                        <div class="filter-sec pop ">
+                            <table class="table ">
+                                <thead>
+                                    <tr>
+                                        <th>Availability</th>
+                                        <th>Price</th>
+                                        <th>Color</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="first-row ">
+                                        <td><button>Reset</button></td>
+                                        <td><button>Reset</button></td>
+                                        <td><button>Reset</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check ">
+                                                <label class="form-check-label ">
+                                              <input type="checkbox " class="form-check-input " value=" ">In Stock (10)
+                                            </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check ">
+                                                <label class="form-check-label ">
+                                              <input type="checkbox " class="form-check-input " value=" ">In Stock (10)
+                                            </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check ">
+                                                <label class="form-check-label ">
+                                              <input type="checkbox " class="form-check-input " value=" ">In Stock (10)
+                                            </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check ">
+                                                <label class="form-check-label ">
+                                              <input type="checkbox " class="form-check-input " value=" ">In Stock (10)
+                                            </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check ">
+                                                <label class="form-check-label ">
+                                              <input type="checkbox " class="form-check-input " value=" ">In Stock (10)
+                                            </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check ">
+                                                <label class="form-check-label ">
+                                              <input type="checkbox " class="form-check-input " value=" ">In Stock (10)
+                                            </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="last ">
+                                        <td>
+                                            <button class="btn ">Apply</button>
+                                            <button class="btn ">Clear</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="facets__summary p-2 ">
                         <button>
-                        <span class="button button--secondary button--small">Sort by
-                            <i class="fa fa-angle-up" aria-hidden="true"></i></span>
+                        <span class="button button--secondary button--small ">Sort by
+                            <i class="fa fa-angle-up " aria-hidden="true "></i></span>
                             </button>
-                            <!-- <button class="fil_btn row pl-0 m-0 justify-content-between align-center">
+                        <!-- <button class="fil_btn row pl-0 m-0 justify-content-between align-center ">
                                 {{LANG.Sort_By}}
                                 <span>
-                                    <img src="assets/images/icons/arrow-down.svg" alt="arrow-down">
-                                    <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                    <img src="assets/images/icons/arrow-down.svg " alt="arrow-down ">
+                                    <i class="fa fa-angle-up " aria-hidden="true "></i>
                                 </span>
 
                             </button> -->
-                      </div>
+                    </div>
                 </div>
-                <div class="page-width">
-                    
+                <div class="page-width ">
+
 
                 </div>
-               
+
             </div>
 
         </div>
@@ -74,25 +144,25 @@
 
 
 
-        
-        <div class="product-list col-md-12 p-0">
-            <div class="row m-0">
-                <!-- <div class="col-md-3 filter-border   p-0">
-                    <aside class="filters" [class.active]="show_mobile_filter">
-                        <button class="btn p-0 filters-add" (click)="filtersLists()">
-                        <i class="fa fa-times"></i>
+
+        <div class="product-list col-md-12 p-0 ">
+            <div class="row m-0 ">
+                <!-- <div class="col-md-3 filter-border p-0 ">
+                    <aside class="filters " [class.active]="show_mobile_filter ">
+                        <button class="btn p-0 filters-add " (click)="filtersLists() ">
+                        <i class="fa fa-times "></i>
                     </button>
                         <h6>{{LANG.FILTERS}}</h6>
-                        <ngb-accordion #acc="ngbAccordion" [activeIds]="activeIds">
-                            <ngb-panel id="panel-1">
-                                <ng-template ngbPanelTitle let-opened="opened">
-                                    <div class="filter-head p-0">
-                                        <h5 class="mb-0">
-                                            <button class="fil_btn row pl-0 m-0 justify-content-between align-center">
+                        <ngb-accordion #acc="ngbAccordion " [activeIds]="activeIds ">
+                            <ngb-panel id="panel-1 ">
+                                <ng-template ngbPanelTitle let-opened="opened ">
+                                    <div class="filter-head p-0 ">
+                                        <h5 class="mb-0 ">
+                                            <button class="fil_btn row pl-0 m-0 justify-content-between align-center ">
                                     {{LANG.Sort_By}}
                                     <span>
-                                        <img src="assets/images/icons/arrow-down.svg" alt="arrow-down">
-                                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                        <img src="assets/images/icons/arrow-down.svg " alt="arrow-down ">
+                                        <i class="fa fa-angle-up " aria-hidden="true "></i>
                                     </span>
     
                                 </button>
@@ -100,13 +170,13 @@
                                     </div>
                                 </ng-template>
                                 <ng-template ngbPanelContent>
-                                    <div class="filter-body">
-                                        <div class="p-0">
+                                    <div class="filter-body ">
+                                        <div class="p-0 ">
                                             <ul>
-                                                <li *ngFor="let data of sort_list;let i=index">
-                                                    <input type="checkbox" name="checkbox" id="sort{{i}}" value="text" (change)="sortProducts(data.id)" [checked]="data.id == sort">
-                                                    <label class="text" for="sort{{i}}">
-                                    <i class="fa fa-check"></i>
+                                                <li *ngFor="let data of sort_list;let i=index ">
+                                                    <input type="checkbox " name="checkbox " id="sort{{i}} " value="text " (change)="sortProducts(data.id) " [checked]="data.id==s ort ">
+                                                    <label class="text " for="sort{{i}} ">
+                                    <i class="fa fa-check "></i>
                                         {{data.title}}
                                     </label>
                                                 </li>
@@ -116,43 +186,43 @@
                                 </ng-template>
                             </ngb-panel>
 
-                            <ngb-panel id="panel-2">
-                                <ng-template ngbPanelTitle let-opened="opened">
-                                    <div class="filter-head p-0">
-                                        <h5 class="mb-0">
-                                            <button class="fil_btn row pl-0 m-0 justify-content-between align-center">
+                            <ngb-panel id="panel-2 ">
+                                <ng-template ngbPanelTitle let-opened="opened ">
+                                    <div class="filter-head p-0 ">
+                                        <h5 class="mb-0 ">
+                                            <button class="fil_btn row pl-0 m-0 justify-content-between align-center ">
                                     {{LANG.OCCASION}}
                                     <span>
-                                        <img src="assets/images/icons/arrow-down.svg" alt="arrow-down">
+                                        <img src="assets/images/icons/arrow-down.svg " alt="arrow-down ">
                                     </span>
-                                    <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                    <i class="fa fa-angle-up " aria-hidden="true "></i>
     
                                 </button>
                                         </h5>
                                     </div>
                                 </ng-template>
-                                <ng-template ngbPanelContent *ngIf="filter_list?.occasions?.length > 0">
-                                    <div class="filter-body">
-                                        <div class="p-0">
-                                            <ul>
-                                                <li *ngFor="let data of filter_list?.occasions;let i=index">
-                                                    <input type="checkbox" name="checkbox" id="occasion{{i}}" value="text" (change)="selectOccasions(data)" [checked]="data.isChecked || data.id == occasion_id">
-                                                    <label class="text" for="occasion{{i}}">
+                                <ng-template ngbPanelContent *ngIf="filter_list?.occasions?.length> 0">
+    <div class="filter-body">
+        <div class="p-0">
+            <ul>
+                <li *ngFor="let data of filter_list?.occasions;let i=index">
+                    <input type="checkbox" name="checkbox" id="occasion{{i}}" value="text" (change)="selectOccasions(data)" [checked]="data.isChecked || data.id == occasion_id">
+                    <label class="text" for="occasion{{i}}">
                                     <i class="fa fa-check"></i>
                                         {{data.title}}
                                     </label>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </ng-template>
-                            </ngb-panel>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </ng-template>
+    </ngb-panel>
 
-                            <ngb-panel id="panel-3">
-                                <ng-template ngbPanelTitle let-opened="opened">
-                                    <div class="filter-head p-0">
-                                        <h5 class="mb-0">
-                                            <button class="fil_btn row pl-0 m-0 justify-content-between align-center">
+    <ngb-panel id="panel-3">
+        <ng-template ngbPanelTitle let-opened="opened">
+            <div class="filter-head p-0">
+                <h5 class="mb-0">
+                    <button class="fil_btn row pl-0 m-0 justify-content-between align-center">
                                     {{LANG.Price}}
                                     <span>
                                         <img src="assets/images/icons/arrow-down.svg" alt="arrow-down">
@@ -160,27 +230,27 @@
                                     <i class="fa fa-angle-up" aria-hidden="true"></i>
     
                                 </button>
-                                        </h5>
-                                    </div>
-                                </ng-template>
-                                <ng-template ngbPanelContent>
-                                    <div class="filter-body">
-                                        <div class="p-0">
-                                            <ul>
-                                                <li>
-                                                    <ngx-slider *ngIf="showSlider" [(value)]="min_price" [(highValue)]="max_price" [options]="options" (userChangeEnd)="valueChanged($event)"></ngx-slider>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </ng-template>
-                            </ngb-panel>
+                </h5>
+            </div>
+        </ng-template>
+        <ng-template ngbPanelContent>
+            <div class="filter-body">
+                <div class="p-0">
+                    <ul>
+                        <li>
+                            <ngx-slider *ngIf="showSlider" [(value)]="min_price" [(highValue)]="max_price" [options]="options" (userChangeEnd)="valueChanged($event)"></ngx-slider>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </ng-template>
+    </ngb-panel>
 
-                            <ngb-panel id="panel-4" *ngIf="filter_list?.color?.length > 0">
-                                <ng-template ngbPanelTitle let-opened="opened">
-                                    <div class="filter-head p-0">
-                                        <h5 class="mb-0">
-                                            <button class="fil_btn row pl-0 m-0 justify-content-between align-center">
+    <ngb-panel id="panel-4" *ngIf="filter_list?.color?.length > 0">
+        <ng-template ngbPanelTitle let-opened="opened">
+            <div class="filter-head p-0">
+                <h5 class="mb-0">
+                    <button class="fil_btn row pl-0 m-0 justify-content-between align-center">
                                     {{LANG.Color}}
                                     <span>
                                         <img src="assets/images/icons/arrow-down.svg" alt="arrow-down">
@@ -188,41 +258,41 @@
                                     <i class="fa fa-angle-up" aria-hidden="true"></i>
     
                                 </button>
-                                        </h5>
-                                    </div>
-                                </ng-template>
-                                <ng-template ngbPanelContent>
-                                    <div class="filter-body">
-                                        <div class="p-0">
-                                            <ul>
-                                                <ng-container *ngFor="let data of filter_list?.color;let i=index">
-                                                    <li *ngIf="i < filter_list?.color.show">
-                                                        <input type="checkbox" name="checkbox" id="color{{i}}" value="text" (change)="selectColor(data)" [checked]="data.isChecked">
-                                                        <label class="text" for="color{{i}}">
+                </h5>
+            </div>
+        </ng-template>
+        <ng-template ngbPanelContent>
+            <div class="filter-body">
+                <div class="p-0">
+                    <ul>
+                        <ng-container *ngFor="let data of filter_list?.color;let i=index">
+                            <li *ngIf="i < filter_list?.color.show">
+                                <input type="checkbox" name="checkbox" id="color{{i}}" value="text" (change)="selectColor(data)" [checked]="data.isChecked">
+                                <label class="text" for="color{{i}}">
                                                 <i class="fa fa-check"></i>
                                                 <i class="fa fa-circle mr-2 ml-2" [style.color]="data.color"></i> {{data.title}}
                                             </label>
-                                                    </li>
-                                                </ng-container>
-                                            </ul>
-                                            <div class="load-more-txt" *ngIf="filter_list?.color?.remaining > 0">
-                                                <a (click)="showMoreFilters()">
+                            </li>
+                        </ng-container>
+                    </ul>
+                    <div class="load-more-txt" *ngIf="filter_list?.color?.remaining > 0">
+                        <a (click)="showMoreFilters()">
                                         + {{filter_list.color.remaining}} {{LANG.More}}
                                     </a>
-                                            </div>
-                                            <div class="load-more-txt" *ngIf="filter_list?.color?.show_less">
-                                                <a (click)="showLess()">
+                    </div>
+                    <div class="load-more-txt" *ngIf="filter_list?.color?.show_less">
+                        <a (click)="showLess()">
                                         {{LANG.Show_Less}}
                                     </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ng-template>
-                            </ngb-panel>
-                        </ngb-accordion>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </ngb-panel>
+    </ngb-accordion>
 
-                    </aside>
-                </div> -->
+    </aside>
+</div> -->
 
 
 
