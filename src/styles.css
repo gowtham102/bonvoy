@@ -175,13 +175,13 @@ li:focus-visible {
     outline: none;
 }
 
-.container,
+/* .container,
 .container-lg,
 .container-md,
 .container-sm,
 .container-xl {
     max-width: 1300px !important;
-}
+} */
 
 .site_wrapper {
     /* margin-top: 95px; */
