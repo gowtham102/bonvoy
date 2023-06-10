@@ -63,7 +63,8 @@ export class ProductListComponent implements OnInit {
     constructor(@Inject(DOCUMENT) private document: Document,private productService:ProductService,private route:ActivatedRoute,private shared:SharedService,private router:Router,private cartService:CartService,private toast:ToastrManager){
       this.subscriptions.push(this.shared.currentUserStatus.subscribe(user=>this.logged_in=user));      
       this.subscriptions.push(this.shared.countryChanged.subscribe((country_id:string) => {
-        this.getFilters();
+        // this.getFilters();
+        this.getProductList()
         this.resetData();
       }))  
       this.activeIds = ['panel-1', 'panel-2','panel-3','panel-4'];
@@ -74,16 +75,18 @@ export class ProductListComponent implements OnInit {
                 if(params['category_id']){
                   this.category_id = atob(atob(params['category_id']));
                 }
-                if(params['occasion_id']){
-                  this.occasion_id = atob(atob(params['occasion_id']));
-                  this.selected_occasions.push({id:this.occasion_id})
-                }
-                this.getFilters();
+                // if(params['occasion_id']){
+                //   this.occasion_id = atob(atob(params['occasion_id']));
+                //   this.selected_occasions.push({id:this.occasion_id})
+                // }
+                // this.getFilters();
+                this.getProductList()
               }
         ))
         this.subscriptions.push(this.shared.languageChange.subscribe((path:any)=>{
           this.changeLanguage();
-          this.getFilters();
+          // this.getFilters();
+          this.getProductList()
         }))
         if(localStorage.getItem('logged_in') != undefined){
           this.logged_in=true;
@@ -174,12 +177,12 @@ export class ProductListComponent implements OnInit {
       const data={
           "index": this.index.toString(),
           "size": this.size.toString(),
-          "occasions_id": this.arrayToString(this.selected_occasions), 
-          "category_id": this.category_id,
-          "color_id": this.arrayToString(this.selected_colors),
-          "sort_by": this.sort,
-          "min_price":this.min_price.toString(),
-          "max_price":this.max_price.toString(),
+          // "occasions_id": this.arrayToString(this.selected_occasions), 
+          // "category_id": this.category_id,
+          // "color_id": this.arrayToString(this.selected_colors),
+          // "sort_by": this.sort,
+          // "min_price":this.min_price.toString(),
+          // "max_price":this.max_price.toString(),
       }
       this.subscriptions.push(this.productService.getProducts(data).subscribe((result:any)=>{
         if(result.status){

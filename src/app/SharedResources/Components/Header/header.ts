@@ -434,8 +434,8 @@ otpFromPhp(mobile_number:string,type?:number){
 
 sendOTP(){
     this.err=false;
-    this.resetError();
-    this.errorHandler();
+    // this.resetError();
+    // this.errorHandler();
     if(!this.err){
         this.load=true;
         if(this.show_password){

@@ -83,8 +83,39 @@
                             <div class="col-3"></div>
                             <div class="col-5 header-last">
                                 <button class="btn"><img src="assets/images/icons/search.png" alt=""></button>
-                                <a href="#"><img src="assets/images/icons/user.svg" alt="" /></a>
-                                <a href="#"><img src="assets/images/icons/shopping-bag.svg" alt="" /></a>
+                                <div class="btn-group language" ngbDropdown role="group" display="dynamic" [placement]="arabic ? 'bottom-left' : 'bottom-right'">
+                                    <button class="action-btn profile" ngbDropdownToggle>
+                        <img src="assets/images/icons/user.svg" alt="cart btn" height="20px" width="18px">
+                      </button>
+                                    <div class="dropdown-menu sml dropdown-menu-right" ngbDropdownMenu>
+                                        <button class="dropdown-item" type="button" ngbDropdownItem (click)="openLoginModal(loginModal,1)" *ngIf="!logged_in">
+                          <i class="fa fa-sign-in" aria-hidden="true"></i> {{LANG.Login_Register}}
+                        </button>
+                                        <ng-container *ngIf="logged_in">
+                                            <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile">
+                            <img src="assets/images/icons/user.svg" alt="cart btn" height="20px" width="18px">
+                            {{LANG.My_Account}}
+                          </button>
+                                            <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile/my-orders">
+                            <i class="fa fa-archive" aria-hidden="true"></i> {{LANG.My_Orders}}
+                          </button>
+                                            <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile/my-address">
+                            <i class="fa fa-address-book-o" aria-hidden="true"></i> {{LANG.My_Addresses}}
+                          </button>
+                                            <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile/my-wishlist">
+                            <img src="assets/images/icons/wishlist.svg" alt="cart btn" height="20px" width="18px">
+                            {{LANG.My_Wishlist}}
+                          </button>
+                                            <button class="dropdown-item" type="button" ngbDropdownItem (click)="logout()">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i> {{LANG.Logout}}
+                          </button>
+                                        </ng-container>
+                                    </div>
+                                </div>                                
+                                <a routerLink="/my-cart"><img src="assets/images/icons/shopping-bag.svg" alt="" />
+                                    <span class="count">{{cart_count}}</span>
+
+                                </a>
                             </div>
                         </div>
                     </div>

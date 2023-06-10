@@ -12,7 +12,7 @@ export class ProductService{
 	constructor(private api : apiServiceComponent){
     }
 
-    getProducts(data:Object){
+    getProducts(data:object){
         this.url="product_list";
         return this.api.post(this.url,data);
     }

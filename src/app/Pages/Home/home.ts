@@ -240,8 +240,8 @@ export class HomeComponent implements OnInit {
     }))
   }
 
-  goToproductList(occasion_id:string){
-    this.router.navigate(['/products'],{ queryParams: { occasion_id: btoa(btoa(occasion_id))}});
+  goToproductList(){
+    this.router.navigate(['/products']);
   }
 
   goToProductDetails(product_id:string){
