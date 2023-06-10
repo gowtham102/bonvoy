@@ -5,13 +5,13 @@
             <owl-carousel-o [options]="customOptions">
                 <ng-template carouselSlide *ngFor="let data of home_page?.banner">
                     <div class="row banner-image">
-                        <div class="col-md-5 col-6">
+                        <div class="col-md-6 col-6">
                             <h2>{{home_page?.banner[0]?.TITLE}} </h2>
                             <button class="btn">Buy now</button>
                             <!-- <span>Watch</span> -->
 
                         </div>
-                        <div class="col-md-7 col-6">
+                        <div class="col-md-6 col-6">
                             <div class="col-md-6 mx-auto">
                                 <img src="{{home_page?.banner[0]?.image}}" alt="banner-image">
                             </div>
@@ -108,7 +108,7 @@
             </div>
         </div> -->
 
-        <!-- <div class="container home">
+            <!-- <div class="container home">
             <div class="best-seller mt-5 mb-5 position-relative" *ngIf="home_page?.best_seller?.length > 0">
                 <div class="background-3">
                     <img src="assets/images/bg3.svg" alt="bg3">
@@ -119,7 +119,7 @@
                         <button class="btn" >{{LANG.VIEW_ALL}}</button>
                     </div>
                 </div> -->
-                <!-- <div class="owl-theme partner-carousel mt-2 position-relative vis-caro">
+            <!-- <div class="owl-theme partner-carousel mt-2 position-relative vis-caro">
                     <owl-carousel-o [options]="bestSeller">
                         <ng-container *ngIf="best_seller==false">
                             <ng-template carouselSlide *ngFor="let data of home_page?.best_seller.slice(-4);let i=index;">
@@ -185,7 +185,7 @@
 
         </div> -->
 
-        <!-- <section class="offer-section">
+            <!-- <section class="offer-section">
         <div class="row m-0">
           <div class="col-md-5 col-12 p-0">
               <div class="offer-text">
@@ -202,7 +202,7 @@
         </div>
         </section> -->
 
-        <!-- <section class="testimonial">
+            <!-- <section class="testimonial">
         <div class="row m-0">
           <div class="col-md-12 text-center mb-2 mt-5">
               <h4 class="underline-head">Testimonials</h4>
@@ -265,7 +265,7 @@
         </section> -->
 
         <div class="container  home home-wrap" *ngIf="home_page?.best_seller?.length > 0">
-            <div class="best-seller you-may-like mt-5">
+            <div class="best-seller you-may-like">
                 <div class="row">
                     <div class="col-md-12 text-center mb-2 shop-by-cate">
                         <p>Choose your next</p>
@@ -282,25 +282,25 @@
                                         <button class="wishlist" (click)="addToWishlist(data)">
                                             <i class="fa fa-heart" [class.active]="data.wishlist == '1'" aria-hidden="true"></i>                      
                                         </button>
-                                    </a>
-                                    <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)">
-                                        <img src="../assets/images/bonvoy/watch1.png" onError="this.src='assets/images/icons/logo-grey.svg';">
-                                    </div>
-                                    <div class="prod-name text-left mt-3">
-                                        <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
-                                        <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
-                                    </div>
-                                    <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else slider_loader;" [class.out-of-stock]="data?.stock == '2'">
+                                        </a>
+                                        <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)">
+                                            <img src="../assets/images/bonvoy/watch1.png" onError="this.src='assets/images/icons/logo-grey.svg';">
+                                        </div>
+                                        <div class="prod-name text-left mt-3">
+                                            <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
+                                            <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
+                                        </div>
+                                        <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else slider_loader;" [class.out-of-stock]="data?.stock == '2'">
                                         {{data?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}
                                             </button>
-                                    <ng-template #slider_loader>
-                                        <button class="add-cart m-auto cart-loader"> 
+                                        <ng-template #slider_loader>
+                                            <button class="add-cart m-auto cart-loader"> 
                                         <loader></loader>
                                     </button>
-                                    </ng-template>
-                                </div>
-                            </ng-template>
-                        </ng-container>
+                                        </ng-template>
+                                    </div>
+                                </ng-template>
+                            </ng-container>
 
                         <ng-container *ngIf="you_may_like==true">
                             <ng-template carouselSlide *ngFor="let data of home_page?.best_seller;let i=index;">
@@ -309,32 +309,32 @@
                                         <button class="wishlist" (click)="addToWishlist(data)">
                                         <i class="fa fa-heart" [class.active]="data.wishlist == '1'" aria-hidden="true"></i>                      
                                     </button>
-                                    </a>
-                                    <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)">
-                                        <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';">
-                                    </div>
-                                    <div class="prod-name text-left mt-3">
-                                        <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
-                                        <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
-                                    </div>
-                                    <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else slider_loader;" [class.out-of-stock]="data?.stock == '2'">
+                                        </a>
+                                        <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)">
+                                            <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';">
+                                        </div>
+                                        <div class="prod-name text-left mt-3">
+                                            <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
+                                            <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
+                                        </div>
+                                        <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else slider_loader;" [class.out-of-stock]="data?.stock == '2'">
                                     {{data?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}
                                         </button>
-                                    <ng-template #slider_loader>
-                                        <button class="add-cart m-auto cart-loader"> 
+                                        <ng-template #slider_loader>
+                                            <button class="add-cart m-auto cart-loader"> 
                                     <loader></loader>
                                 </button>
-                                    </ng-template>
-                                </div>
-                            </ng-template>
-                        </ng-container>
+                                        </ng-template>
+                                    </div>
+                                </ng-template>
+                            </ng-container>
 
-                    </owl-carousel-o>
+                        </owl-carousel-o>
+
+                    </div>
 
                 </div>
-
             </div>
-         </div>
         </div>
     </div>
 
@@ -352,6 +352,7 @@
                 </div>
             </div>
         </div>
+    </div>
 
         <div class="section4">
             <div class="container">
@@ -367,45 +368,58 @@
                         <span><img src="../assets/images/icons/wat2.png" ></span>
                         <p>Movement data</p>
                     </div>
+                </div>
 
-                    <div class="col-md-3 col-6">
-                        <span><img src="../assets/images/icons/wat3.png" ></span>
+                <div class="col-md-4 col-6">
+                    <div class="wat-sec">
+                        <img src="../assets/images/icons/wat3.png">
                         <p>Multi Sports mode</p>
                     </div>
+                </div>
 
-                    <div class="col-md-3 col-6 ">
-                        <span><img src="../assets/images/icons/wat4.png" ></span>
+                <div class="col-md-4 col-6 ">
+                    <div class="wat-sec">
+                        <img src="../assets/images/icons/wat4.png">
                         <p>Music</p>
                     </div>
+                </div>
 
 
-                    <div class="col-md-3 col-6">
-                        <span><img src="../assets/images/icons/wat5.png" ></span>
+                <div class="col-md-4 col-6">
+                    <div class="wat-sec">
+                        <img src="../assets/images/icons/wat5.png">
                         <p>Heart rate Monitoring</p>
                     </div>
+                </div>
 
-                    <div class="col-md-3 col-6">
-                        <span><img src="../assets/images/icons/wat6.png" ></span>
+                <div class="col-md-4 col-6">
+                    <div class="wat-sec">
+                        <img src="../assets/images/icons/wat6.png">
                         <p>Blood oxygen</p>
                     </div>
+                </div>
 
-                    <div class="col-md-3 col-6">
-                        <span><img src="../assets/images/icons/wat7.png" ></span>
+                <div class="col-md-4 col-6">
+                    <div class="wat-sec">
+                        <img src="../assets/images/icons/wat7.png">
                         <p>Blood pressure</p>
                     </div>
-                    <div class="col-md-3 col-6 text-center ">
-                        <span><img src="../assets/images/icons/wat8.png" ></span>
+                </div>
+                <div class="col-md-4 col-6 text-center ">
+                    <div class="wat-sec">
+                        <img src="../assets/images/icons/wat8.png">
                         <p>Temperature sensing</p>
                     </div> -->
                 </div>
             </div>
         </div>
+    
 
 
 
-        
 
-        <!-- <div class="section4 container-fluid">
+
+    <!-- <div class="section4 container-fluid">
             <div class="container">
                 <div class="row circle-image">
                     <div class="col-md-3 col-6 img-block">
@@ -449,7 +463,7 @@
                 </div>
             </div>
         </div> -->
-        <!-- <div class="section5 container-fluid">
+    <!-- <div class="section5 container-fluid">
             <div class="container">
                 <div class="row img-row">
                     <div class="col-md-6 col-6">
@@ -474,7 +488,7 @@
             </div>
         </div> -->
 
-    
+
 
     <div class="section5">
         <div class="container">
@@ -490,7 +504,7 @@
             </div>
         </div>
 
-        
+
     </div>
     <!-- <div class="container-fluid section-6">
         <div class="col-md-5 mx-auto">
@@ -502,7 +516,7 @@
     <div class="section-6">
         <div class="container">
             <div class="row">
-                <div class="col-md-5 col-6">
+                <div class="col-md-6 ">
                     <div class="section6-img">
                         <h1>{{home_page?.section_6?.TITLE}} </h1>
             
@@ -510,7 +524,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-7 col-6">
+                <div class="col-md-6 col-6">
                     <div class="col-md-8">
                         <img src="{{home_page?.section_6?.image}}" alt="banner-image">
                     </div>
@@ -518,7 +532,7 @@
 
             </div>
         </div>
-            
+
     </div>
 
     <div class="container-fluid section-7">
@@ -529,4 +543,3 @@
         <p>{{home_page?.section_7?.TITLE2}}</p>
         <button class="btn">Buy now</button>
     </div>
-</div>

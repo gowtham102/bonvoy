@@ -18,6 +18,7 @@ import { errorHandlerService } from '../../Services/errorHandler.service';
 import { registration_data } from '../../Models/registration.model'
 import { CartService } from '../../Services/cartWishlist.service';
 import { filter } from 'rxjs/operators';
+declare const $: any;
 
 
 
@@ -1195,4 +1196,10 @@ downloadApp(){
 }
 
 
+  menu_slider:boolean=false
+  menu(){
+
+        $(".menu-close").toggleClass("show");
+      
+  }
 } 

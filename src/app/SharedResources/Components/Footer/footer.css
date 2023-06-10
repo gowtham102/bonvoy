@@ -1,6 +1,6 @@
 footer {
     width: 100%;
-    background: var(--c-black);
+    background: #95918E;
     /* color: var(--c-footer); */
     color: var(--c-white);
     position: relative;
@@ -66,18 +66,19 @@ footer {
 }
 
 footer .footer-section {
-    padding: 80px 0 35px;
+    padding: 163px 0;
     font-family: 'roobert-reg';
     font-size: 16px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
-footer .footer-section img {
+
+/* footer .footer-section img {
     width: 100%;
-    /* height: 93px;
-    margin-bottom: 15px; */
+    height: 93px;
+    margin-bottom: 15px;
     object-fit: contain;
-}
+} */
 
 .footer-logo {
     display: block;
@@ -101,12 +102,13 @@ footer .footer-section .social-icons img {
     filter: brightness(0) invert(1);
 }
 
-footer .footer-section h6 {
+
+/* footer .footer-section h6 {
     margin-bottom: 22px;
     font-family: 'roobert-semi';
     font-size: 16px;
     text-align: left;
-}
+} */
 
 .social-icons {
     display: flex;
@@ -114,12 +116,12 @@ footer .footer-section h6 {
 }
 
 .footer-padding a {
-    font-size: 14px;
+    font-size: 16px;
     color: #FFFFFF;
     display: block;
     width: max-content;
     max-width: 100%;
-    font-family: 'roobert-light';
+    font-family: 'roobert-reg';
     margin-bottom: 17px;
 }
 
@@ -129,7 +131,7 @@ footer .footer-section ul {
 }
 
 footer .footer-section ul li {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 footer .footer-section ul li a {
@@ -206,7 +208,95 @@ footer .cards-strip svg rect {
     }
 }
 
-@media screen and (max-width: 572px) {
+.footer-padding:first-child {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+/* 
+.footer-padding button{
+    text-align: center;
+    border: none;
+    padding: 10px 17px;
+    color: #2A353C;
+    font-size: 12px;
+    background: #FFFFFF;
+    font-family: 'roobert-reg';
+    border-radius: 19px;
+   
+   
+} */
+
+.footer-padding p {
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+footer .footer-section h6 {
+    color: #FFFFFF;
+    margin-bottom: 19px;
+    font-family: 'roobert-reg';
+    font-size: 16px;
+    text-align: left;
+}
+
+footer .footer-section img {
+    width: 100%;
+    object-fit: contain;
+}
+
+footer .footer-section input {
+    width: 100%;
+    border: none;
+    color: #fff;
+    border-radius: 19px;
+    padding: 7px 15px;
+    font-size: 12px;
+    border: 1px solid #FFFFFF;
+    background: transparent;
+    padding-right: 123px;
+}
+
+footer .footer-section .footer-content {
+    position: relative;
+}
+
+footer .footer-section .footer-content button {
+    height: 100%;
+    ;
+    right: 0;
+    top: 0;
+    position: absolute;
+    border: none;
+    padding: 7px 37px;
+    color: #95918E;
+    font-size: 10px;
+    background: #FFFFFF;
+    font-family: 'roobert-reg';
+    border-radius: 19px;
+}
+
+footer .footer-section .footer-padding p {
+    margin-top: 47px;
+    font-size: 12px;
+    font-family: 'roobert-reg';
+    color: #FFFFFF;
+}
+
+.footer-padding:first-child h6 {
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+::placeholder {
+    color: #FFFFFF;
+    font-size: 12px;
+    font-family: 'roobert-med';
+}
+
+@media screen and (max-width: 576px) {
     .footer-row1 h2 {
         font-size: 24px;
     }
@@ -227,12 +317,17 @@ footer .cards-strip svg rect {
         padding: 30px 0;
     }
     footer .footer-section {
-        padding: 0;
+        padding: 30px 0;
+    }
+    footer .footer-section input {
+        padding: 7px 16px;
+        /* padding-right: 123px; */
     }
     footer .footer-section p {
         font-size: 10px;
         margin-bottom: 18px;
         padding-right: 0;
+        margin-top: 10px !important;
     }
     footer .footer-section h6 {
         margin-bottom: 9px;
@@ -253,7 +348,7 @@ footer .cards-strip svg rect {
         display: none;
     }
     footer .footer-section img {
-        height: 51px;
+        height: 42px;
         margin-bottom: 5px;
     }
     footer .copy-right .col-md-12 {
@@ -272,43 +367,4 @@ footer .cards-strip svg rect {
     .float-whatsapp img {
         width: 125px;
     }
-}
-
-
-
-.footer-padding:first-child{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    
-}
-
-
-.footer-padding button{
-    text-align: center;
-    border: none;
-    padding: 10px 17px;
-    color: #2A353C;
-    font-size: 12px;
-    background: #FFFFFF;
-    font-family: 'roobert-reg';
-    border-radius: 19px;
-   
-   
-}
-
-.footer-padding input{
-    border: none;
-    color: #FFFFFF;
-    border-radius: 19px;
-    background: #292929;
-    margin-right: 10px;
-    padding: 7px 10px;
-    /* height: 100%; */
-}
-
-.footer-padding p{
-    color: #FFFFFF;
-    font-size: 12px;
-
 }

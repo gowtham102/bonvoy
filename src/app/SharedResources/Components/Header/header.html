@@ -3,10 +3,10 @@
 </div> -->
 <!-- <div id="recaptcha-container" style="display: none;"></div> -->
 <div id="header" [class.arabic]="arabic">
-    <div class="only-riyadh-mobile" *ngIf="isMobile">
+    <!-- <div class="only-riyadh-mobile" *ngIf="isMobile">
         <p class="m-0">{{LANG.Delivery_is_only_inside_Riyadh}}</p>
-    </div>
-    <div class="download-option" *ngIf="isMobile">
+    </div> -->
+    <!-- <div class="download-option" *ngIf="isMobile">
         <div class="download-logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="50.687" height="70" viewBox="0 0 50.687 70">
                 <g id="Group_143029" data-name="Group 143029" transform="translate(-313.962 -89.76)">
@@ -32,35 +32,41 @@
             <button (click)="downloadApp()">Open</button>
         </div>
 
-    </div>
+    </div> -->
     <header [class.header-padding]="!isCollapsed" [class.shrink]="sticky_header">
         <div class="container">
             <div class="row justify-content-between align-center">
                 <div class="col-md-12 logo-head p-0">
-                    <div class="logo col-2 mob-nav">
+                    <div class="logo col-md-2 col-4 mob-nav">
                         <a routerLink="/">
                             <img src="../../../../assets/images/icons/logo1.svg" alt="Logo img" height="66px">
                         </a>
                     </div>
-                    <div class="logo  col-4 menu d-flex align-center border-wra">
-                        <a href="#">All</a>
-                        <a href="#">Watches</a>
-                        <a href="#">Accessories</a>
-                        <div class="btn-group language" *ngIf="isMobile" ngbDropdown role="group" [placement]="arabic ? 'bottom-right' : 'bottom-left'">
-                            <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
+                    <button class="menu-btn" (click)="menu()">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>
+                    <div class="mobile-menu col-md-10 menu-close">
+                        <button class="close-icon btn" (click)="menu()"><i class="fa fa-times" aria-hidden="true"></i></button>
+                        <div class="row mob-row">
+                            <div class="logo  col-4 menu d-flex align-center border-wra">
+                                <a href="#">All</a>
+                                <a href="#">Watches</a>
+                                <a href="#">Accessories</a>
+                                <div class="btn-group language" *ngIf="isMobile" ngbDropdown role="group" [placement]="arabic ? 'bottom-right' : 'bottom-left'">
+                                    <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
                                 {{selected_language}}
                             </button>
-                            <!-- <div class="dropdown-menu sml dropdown-menu-right" ngbDropdownMenu>
+                                    <!-- <div class="dropdown-menu sml dropdown-menu-right" ngbDropdownMenu>
                                 <button class="dropdown-item" type="button" ngbDropdownItem (click)="changeLanguage()" (click)="openMenu()">
                   {{optional_language}}
                 </button>
                             </div> -->
-                        </div>
-                        <!-- <div class="only-riyadh" *ngIf="!isMobile">
+                                </div>
+                                <!-- <div class="only-riyadh" *ngIf="!isMobile">
                             <p class="m-0" style="text-transform: uppercase;">{{LANG.Delivery_is_only_inside_Riyadh}}</p>
                         </div> -->
 
-                        <!-- <a *ngIf="!isMobile" class="country-list">
+                                <!-- <a *ngIf="!isMobile" class="country-list">
             <span class="pr-3">{{LANG.Ship_to}}</span>
             <div class="btn-group country" ngbDropdown role="group" *ngIf="!isMobile" display="dynamic" placement="bottom-right">
                 <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
@@ -73,12 +79,14 @@
                 </div>
             </div>
           </a> -->
-                    </div>
-                    <div class="col-3"></div>
-                    <div class="col-3 header-last">
-                        <button class="btn"><img src="assets/images/icons/search.png" alt=""></button>
-                        <a href="#"><img src="assets/images/icons/user.svg" alt="" /></a>
-                        <a href="#"><img src="assets/images/icons/shopping-bag.svg" alt="" /></a>
+                            </div>
+                            <div class="col-3"></div>
+                            <div class="col-5 header-last">
+                                <button class="btn"><img src="assets/images/icons/search.png" alt=""></button>
+                                <a href="#"><img src="assets/images/icons/user.svg" alt="" /></a>
+                                <a href="#"><img src="assets/images/icons/shopping-bag.svg" alt="" /></a>
+                            </div>
+                        </div>
                     </div>
 
 
