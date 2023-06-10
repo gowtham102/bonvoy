@@ -6,14 +6,14 @@
                 <ng-template carouselSlide *ngFor="let data of home_page?.banner">
                     <div class="row banner-image">
                         <div class="col-md-5 col-6">
-                            <h2>Stay Connected Stay fit. With Bonfit 3.0 </h2>
+                            <h2>{{home_page?.banner[0]?.TITLE}} </h2>
                             <button class="btn">Buy now</button>
                             <!-- <span>Watch</span> -->
 
                         </div>
                         <div class="col-md-7 col-6">
                             <div class="col-md-6 mx-auto">
-                                <img src="../assets/images/bonvoy/cover1.png" alt="banner-image">
+                                <img src="{{home_page?.banner[0]?.image}}" alt="banner-image">
                             </div>
                         </div>
 
@@ -264,7 +264,7 @@
         </owl-carousel-o>
         </section> -->
 
-        <div class="container  home home-wrap" *ngIf="home_page?.you_may_like?.length > 0">
+        <div class="container  home home-wrap" *ngIf="home_page?.best_seller?.length > 0">
             <div class="best-seller you-may-like mt-5">
                 <div class="row">
                     <div class="col-md-12 text-center mb-2 shop-by-cate">
@@ -276,7 +276,7 @@
                 <div class="mt-2 position-relative vis-caro">
                     <owl-carousel-o [options]="bestSeller">
                         <ng-container *ngIf="you_may_like==false">
-                            <ng-template carouselSlide *ngFor="let data of home_page?.you_may_like.slice(-4);let i=index;">
+                            <ng-template carouselSlide *ngFor="let data of home_page?.best_seller.slice(-4);let i=index;">
                                 <div class="item cur-pointer prod text-center">
                                     <a>
                                         <button class="wishlist" (click)="addToWishlist(data)">
@@ -303,7 +303,7 @@
                         </ng-container>
 
                         <ng-container *ngIf="you_may_like==true">
-                            <ng-template carouselSlide *ngFor="let data of home_page?.you_may_like;let i=index;">
+                            <ng-template carouselSlide *ngFor="let data of home_page?.best_seller;let i=index;">
                                 <div class="item cur-pointer prod text-center">
                                     <a>
                                         <button class="wishlist" (click)="addToWishlist(data)">
@@ -344,9 +344,9 @@
                 <!-- <img src="../assets/images/bonvoy/cover2.png" alt="section3-image"> -->
                 <!-- <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1> -->
                 <div class="section3-img">
-                    <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1>
+                    <h1>{{home_page?.section_3?.TITLE}}</h1>
 
-                    <p>Choose you model</p>
+                    <p>{{home_page?.section_3?.TITLE2}}</p>
                     <!-- <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1> -->
                     <!-- <p>Premium Best Smart Watch</p> -->
                 </div>
@@ -359,11 +359,11 @@
                     <h1>Loaded with latest features</h1>
                 </div>
                 <div class="row circle-image">
-                    <div class="col-md-3 col-6">
-                        <span><img src="../assets/images/icons/wat1.png" ></span>
-                        <p>2. 03" Infinite Display</p>
+                    <div class="col-md-3 col-6" *ngFor="let item of home_page?.section_4">
+                        <span><img src="{{item?.image}}" ></span>
+                        <p>{{item?.TITLE}}</p>
                     </div>
-                    <div class="col-md-3 col-6">
+                    <!-- <div class="col-md-3 col-6">
                         <span><img src="../assets/images/icons/wat2.png" ></span>
                         <p>Movement data</p>
                     </div>
@@ -396,7 +396,7 @@
                     <div class="col-md-3 col-6 text-center ">
                         <span><img src="../assets/images/icons/wat8.png" ></span>
                         <p>Temperature sensing</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -484,9 +484,9 @@
 
                 </div>
                 
-                <h1>Enhancing Your Overall <span>Smartwatch Experience.</span> </h1>
+                <h1>{{home_page?.section_5?.TITLE}}</h1>
     
-                <p>Check all available models</p>
+                <p>{{home_page?.section_5?.TITLE2}}</p>
             </div>
         </div>
 
@@ -504,15 +504,15 @@
             <div class="row">
                 <div class="col-md-5 col-6">
                     <div class="section6-img">
-                        <h1>Enhancing Your Overall <span>Smartwatch Experience.</span> </h1>
+                        <h1>{{home_page?.section_6?.TITLE}} </h1>
             
-                        <p>Check all available models</p>
+                        <p>{{home_page?.section_6?.TITLE2}}</p>
                     </div>
 
                 </div>
                 <div class="col-md-7 col-6">
                     <div class="col-md-8">
-                        <img src="../assets/images/bonvoy/cover5.png" alt="banner-image">
+                        <img src="{{home_page?.section_6?.image}}" alt="banner-image">
                     </div>
                 </div>
 
@@ -523,10 +523,10 @@
 
     <div class="container-fluid section-7">
         <div class="col-md-5 mx-auto">
-            <img src="../assets/images/bonvoy/cover6.png" alt="" />
+            <img src="{{home_page?.section_7?.image}}" alt="" />
         </div>
-        <h1>Available in 5 different styles</h1>
-        <p>What are you waiting for? Grab one now</p>
+        <h1>{{home_page?.section_7?.TITLE}}</h1>
+        <p>{{home_page?.section_7?.TITLE2}}</p>
         <button class="btn">Buy now</button>
     </div>
 </div>

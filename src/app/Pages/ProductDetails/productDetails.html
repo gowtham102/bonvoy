@@ -61,25 +61,25 @@
                             <i class="fa fa-heart" [class.active]="product_details.wishlist == '1'" aria-hidden="true"></i>                        
                         </button> -->
                     </div>
-                    <h6 class="tooltip-color">Color-<span>Black</span></h6>
+                    <h6 class="tooltip-color">Color-<span>{{product_details?.product_variation[0]?.value}}</span></h6>
                     <div class="tooltip-sec">
-                        <div class="color-sec">
+                        <div class="color-sec" *ngFor="let item of product_details?.variation1">
+                            <img src="{{item?.image}}" alt="">
+                            <span class="tooltip">{{item?.value}}</span>
+                        </div>
+                        <!-- <div class="color-sec">
                             <img src="../../../assets/images/flower1.png" alt="">
                             <span class="tooltip">Black</span>
-                        </div>
-                        <div class="color-sec">
-                            <img src="../../../assets/images/flower1.png" alt="">
-                            <span class="tooltip">Black</span>
-                        </div>
+                        </div> -->
                     </div>
                     <ng-template #loader>
                         <button class="add-cart cart-loader"> 
                                 <loader></loader>
                             </button>
                     </ng-template>
-                    <div class="description mt-4 tabby" *ngIf="tabby_loaded">
+                    <!-- <div class="description mt-4 tabby" *ngIf="tabby_loaded">
                         <div id="TabbyPromo"></div>
-                    </div>
+                    </div> -->
                     <!-- <div class="description mt-4 rewards" *ngIf="product_details.reward > 0">
                             <p>{{LANG.complete_your_order_now_and_earn}} <b>{{product_details.reward}} {{product_details.currency}}</b>  {{LANG.cashback_in_your_bloss_wallet}}</p>
                             <i class="fa fa-money" aria-hidden="true"></i>
@@ -102,9 +102,9 @@
                         </div>
                         <img src="assets/images/icons/dimension.svg" alt="" />
                     </div> -->
-                    <div class="available-date category" *ngIf="product_details.display_from_date || product_details.display_to_date">
+                    <!-- <div class="available-date category" *ngIf="product_details.display_from_date || product_details.display_to_date">
                         <h6>{{LANG.available_on}} <span>{{product_details.display_from_date}} - {{product_details.display_to_date}}</span></h6>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </ng-container>

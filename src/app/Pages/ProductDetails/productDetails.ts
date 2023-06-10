@@ -244,10 +244,10 @@ export class ProductDetailsComponent implements OnInit {
     if(value == ""){
       return
     }
-    const date=value.split(" ")[0]
-    const day=date.split("-")[2]
-    const month=date.split("-")[1]
-    const year=date.split("-")[0]
+    const date=value?.split(" ")[0]
+    const day=date?.split("-")[2]
+    const month=date?.split("-")[1]
+    const year=date?.split("-")[0]
     return `${this.getMonth(month)} ${day},${year}`
   }
 
