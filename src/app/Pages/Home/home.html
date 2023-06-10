@@ -264,22 +264,22 @@
         </owl-carousel-o>
         </section> -->
 
-        <div class="container  home home-wrap" *ngIf="home_page?.best_seller?.length > 0">
-            <div class="best-seller you-may-like">
-                <div class="row">
-                    <div class="col-md-12 text-center mb-2 shop-by-cate">
-                        <p>Choose your next</p>
-                        <h4 class="underline-head">Smart watch</h4>
-                        <button class="btn" (click)="goToproductList()">{{LANG.VIEW_ALL}}</button>
+            <div class="container  home home-wrap" *ngIf="home_page?.best_seller?.length > 0">
+                <div class="best-seller you-may-like">
+                    <div class="row">
+                        <div class="col-md-12 text-center mb-2 shop-by-cate">
+                            <p>Choose your next</p>
+                            <h4 class="underline-head">Smart watch</h4>
+                            <button class="btn" (click)="goToproductList()">{{LANG.VIEW_ALL}}</button>
+                        </div>
                     </div>
-                </div>
-                <div class="mt-2 position-relative vis-caro">
-                    <owl-carousel-o [options]="bestSeller">
-                        <ng-container *ngIf="you_may_like==false">
-                            <ng-template carouselSlide *ngFor="let data of home_page?.best_seller.slice(-4);let i=index;">
-                                <div class="item cur-pointer prod text-center">
-                                    <a>
-                                        <button class="wishlist" (click)="addToWishlist(data)">
+                    <div class="mt-2 position-relative vis-caro">
+                        <owl-carousel-o [options]="bestSeller">
+                            <ng-container *ngIf="you_may_like==false">
+                                <ng-template carouselSlide *ngFor="let data of home_page?.best_seller.slice(-4);let i=index;">
+                                    <div class="item cur-pointer prod text-center">
+                                        <a>
+                                            <button class="wishlist" (click)="addToWishlist(data)">
                                             <i class="fa fa-heart" [class.active]="data.wishlist == '1'" aria-hidden="true"></i>                      
                                         </button>
                                         </a>
@@ -302,11 +302,11 @@
                                 </ng-template>
                             </ng-container>
 
-                        <ng-container *ngIf="you_may_like==true">
-                            <ng-template carouselSlide *ngFor="let data of home_page?.best_seller;let i=index;">
-                                <div class="item cur-pointer prod text-center">
-                                    <a>
-                                        <button class="wishlist" (click)="addToWishlist(data)">
+                            <ng-container *ngIf="you_may_like==true">
+                                <ng-template carouselSlide *ngFor="let data of home_page?.best_seller;let i=index;">
+                                    <div class="item cur-pointer prod text-center">
+                                        <a>
+                                            <button class="wishlist" (click)="addToWishlist(data)">
                                         <i class="fa fa-heart" [class.active]="data.wishlist == '1'" aria-hidden="true"></i>                      
                                     </button>
                                         </a>
@@ -339,32 +339,34 @@
     </div>
 
 
-        <div class="section3">
-            <div class="container">
-                <!-- <img src="../assets/images/bonvoy/cover2.png" alt="section3-image"> -->
-                <!-- <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1> -->
-                <div class="section3-img">
-                    <h1>{{home_page?.section_3?.TITLE}}</h1>
+    <div class="section3" style="background: url(assets/images/bonvoy/cover2.png) 0 0 no-repeat;
+    background-size: cover;">
+        <div class="container">
+            <!-- <img src="../assets/images/bonvoy/cover2.png" alt="section3-image"> -->
+            <!-- <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1> -->
+            <div class="section3-img">
+                <h1>{{home_page?.section_3?.TITLE}}</h1>
 
-                    <p>{{home_page?.section_3?.TITLE2}}</p>
-                    <!-- <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1> -->
-                    <!-- <p>Premium Best Smart Watch</p> -->
-                </div>
+                <p>{{home_page?.section_3?.TITLE2}}</p>
+                <!-- <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1> -->
+                <!-- <p>Premium Best Smart Watch</p> -->
             </div>
         </div>
     </div>
+</div>
 
-        <div class="section4">
-            <div class="container">
-                <div class="section4-img">
-                    <h1>Loaded with latest features</h1>
-                </div>
-                <div class="row circle-image">
-                    <div class="col-md-3 col-6" *ngFor="let item of home_page?.section_4">
-                        <span><img src="{{item?.image}}" ></span>
-                        <p>{{item?.TITLE}}</p>
-                    </div>
-                    <!-- <div class="col-md-3 col-6">
+<div class="section4" style="background: url(assets/images/bonvoy/cover3.png) 0 0 no-repeat;
+background-size: cover;">
+    <div class="container">
+        <div class="section4-img">
+            <h1>Loaded with latest features</h1>
+        </div>
+        <div class="row circle-image">
+            <div class="col-md-3 col-6" *ngFor="let item of home_page?.section_4">
+                <span><img src="{{item?.image}}" ></span>
+                <p>{{item?.TITLE}}</p>
+            </div>
+            <!-- <div class="col-md-3 col-6">
                         <span><img src="../assets/images/icons/wat2.png" ></span>
                         <p>Movement data</p>
                     </div>
@@ -410,16 +412,16 @@
                         <img src="../assets/images/icons/wat8.png">
                         <p>Temperature sensing</p>
                     </div> -->
-                </div>
-            </div>
         </div>
-    
+    </div>
+</div>
 
 
 
 
 
-    <!-- <div class="section4 container-fluid">
+
+<!-- <div class="section4 container-fluid">
             <div class="container">
                 <div class="row circle-image">
                     <div class="col-md-3 col-6 img-block">
@@ -463,7 +465,7 @@
                 </div>
             </div>
         </div> -->
-    <!-- <div class="section5 container-fluid">
+<!-- <div class="section5 container-fluid">
             <div class="container">
                 <div class="row img-row">
                     <div class="col-md-6 col-6">
@@ -490,56 +492,57 @@
 
 
 
-    <div class="section5">
-        <div class="container">
-            <div class="section5-img">
-                <div class="col-md-3 sec-img">
-                    <img src="../assets/images/icons/logo1.png">
+<div class="section5" style="background: url(assets/images/bonvoy/cover4.png) 0 0 no-repeat;
+background-size: cover;">
+    <div class="container">
+        <div class="section5-img">
+            <div class="col-md-3 sec-img">
+                <img src="../assets/images/icons/logo1.png">
 
-                </div>
-                
-                <h1>{{home_page?.section_5?.TITLE}}</h1>
-    
-                <p>{{home_page?.section_5?.TITLE2}}</p>
             </div>
+
+            <h1>{{home_page?.section_5?.TITLE}}</h1>
+
+            <p>{{home_page?.section_5?.TITLE2}}</p>
         </div>
-
-
     </div>
-    <!-- <div class="container-fluid section-6">
+
+
+</div>
+<!-- <div class="container-fluid section-6">
         <div class="col-md-5 mx-auto">
             <img src="assets/images/watch-sec6.png" alt="" />
         </div>
         <h5>Style Your Time Your Way</h5>
         <button class="btn">Buy now</button>
     </div> -->
-    <div class="section-6">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 ">
-                    <div class="section6-img">
-                        <h1>{{home_page?.section_6?.TITLE}} </h1>
-            
-                        <p>{{home_page?.section_6?.TITLE2}}</p>
-                    </div>
+<div class="section-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 ">
+                <div class="section6-img">
+                    <h1>{{home_page?.section_6?.TITLE}} </h1>
 
-                </div>
-                <div class="col-md-6 col-6">
-                    <div class="col-md-8">
-                        <img src="{{home_page?.section_6?.image}}" alt="banner-image">
-                    </div>
+                    <p>{{home_page?.section_6?.TITLE2}}</p>
                 </div>
 
             </div>
-        </div>
+            <div class="col-md-6 col-6">
+                <div class="col-md-8">
+                    <img src="{{home_page?.section_6?.image}}" alt="banner-image">
+                </div>
+            </div>
 
+        </div>
     </div>
 
-    <div class="container-fluid section-7">
-        <div class="col-md-5 mx-auto">
-            <img src="{{home_page?.section_7?.image}}" alt="" />
-        </div>
-        <h1>{{home_page?.section_7?.TITLE}}</h1>
-        <p>{{home_page?.section_7?.TITLE2}}</p>
-        <button class="btn">Buy now</button>
+</div>
+
+<div class="container-fluid section-7">
+    <div class="col-md-5 mx-auto">
+        <img src="{{home_page?.section_7?.image}}" alt="" />
     </div>
+    <h1>{{home_page?.section_7?.TITLE}}</h1>
+    <p>{{home_page?.section_7?.TITLE2}}</p>
+    <button class="btn">Buy now</button>
+</div>

@@ -297,9 +297,8 @@ opacity: 1; */
     
     .section3 {
         display: flex;
-        background: url(../../../assets/images/bonvoy/cover2.png) 0 0 no-repeat;
+        /* background: url(../../../assets/images/bonvoy/cover2.png) 0 0 no-repeat; */
         height: 694px;
-        background-size: cover;
     }
     
     .section3-img {
@@ -349,8 +348,8 @@ opacity: 1; */
     
     .section4 {
         display: flex;
-        background: url(../../../assets/images/bonvoy/cover3.png) 0 0 no-repeat;
-        background-size: cover;
+        /* background: url(../../../assets/images/bonvoy/cover3.png) 0 0 no-repeat; */
+        /* background-size: cover; */
         padding-bottom: 164px;
         padding-top: 39%;
     }
@@ -378,9 +377,9 @@ opacity: 1; */
     
     .section5 {
         display: flex;
-        background: url(../../../assets/images/bonvoy/cover4.png) 0 0 no-repeat;
+        /* background: url(../../../assets/images/bonvoy/cover4.png) 0 0 no-repeat; */
         height: 711px;
-        background-size: cover;
+        /* background-size: cover; */
     }
     
     .section5-img {
