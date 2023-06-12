@@ -565,7 +565,7 @@ button.cart-loader.coupon-loader .lds-dual-ring:after {
 
 .prod-img .ngxImageZoomContainer img {
     height: 490px;
-    object-fit: cover;
+    object-fit: contain;
     width: 490px;
     border-radius: 10px;
     animation: fadeIn linear 1s;

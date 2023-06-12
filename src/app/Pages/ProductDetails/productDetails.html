@@ -55,7 +55,7 @@
                                     {{product_details.currency}}</del></h4>
                         </span>
                         <p [innerHTML]="product_details.description">
-                            
+
                         </p>
                     </div>
                     <div class="prod-quantity ">
@@ -86,15 +86,15 @@
 
                     <div class="shipping">
                         <div class="row">
-                            <div class="col-md-4 text-center">
+                            <div class="col-md-4 col-4 text-center">
                                 <img src="../../../assets/images/bonvoy/Free_shipping.gif" alt="">
                                 <p>Free Shipping</p>
                             </div>
-                            <div class="col-md-4 text-center">
+                            <div class="col-md-4 col-4 text-center">
                                 <img src="../../../assets/images/bonvoy/Warranty.gif" alt="">
                                 <p>1 Year Replacement Guarantee</p>
                             </div>
-                            <div class="col-md-4 text-center">
+                            <div class="col-md-4 col-4 text-center">
                                 <img src="../../../assets/images/bonvoy/Secure_Checkout.gif" alt="">
                                 <p>Secure Checkout</p>
                             </div>
@@ -147,24 +147,24 @@
 
 
     </div>
-    <nav class="navbar navbar-expand-sm scroll-nav">
-        <ul class="navbar-nav">
+    <div class="navbar navbar-expand-sm scroll-nav">
+        <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
-                <a class="nav-link" href="#overview">Overview</a>
+                <a class="nav-link active" href="#overview" role="tab" data-toggle="tab">Overview</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#specification">Specification</a>
+                <a class="nav-link" href="#specification" role="tab" data-toggle="tab">Specification</a>
             </li>
 
         </ul>
-    </nav>
-    <div class="scrool-spy-sec">
+    </div>
+    <div class="scrool-spy-sec tab-content">
 
-        <div id="overview" class=" ">
+        <div id="overview" role="tabpanel" class="tab-pane  active ">
             <img src="../../../assets/images/banner1.jpg" class="w-100" alt="" />
             <img src="../../../assets/images/banner1.jpg" class="w-100" alt="" />
         </div>
-        <div id="specification" class="specification container-fluid">
+        <div id="specification" class="specification container-fluid tab-pane fade" role="tabpanel">
             <h4>Specifications</h4>
             <div id="accordion" class="accordion">
                 <div class="card mb-0">
@@ -178,12 +178,12 @@
                             <li><span>Inside the Box:</span> Pebble Nano Pods Ear Buds, charging Cable, User manual, Warranty Card</li>
                         </ul>
                     </div> -->
-                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                    <div class="card-header " data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
                         <a class="card-title">  Specification </a>
                     </div>
-                    <div id="collapseTwo" class="card-body collapse" data-parent="#accordion">
+                    <div id="collapseTwo" class="card-body collapse show  " data-parent="#accordion">
                         <ul>
-                           <li [innerHTML]="product_details.specifications"></li>
+                            <li [innerHTML]="product_details.specifications"></li>
                         </ul>
                     </div>
                 </div>

@@ -228,9 +228,14 @@ button.checkout {
     }
     .prod-image img {
         width: 95%;
+        height: 200px;
     }
     button.checkout {
         width: 50%;
+    }
+    .prod-image {
+        padding-top: 0;
+        padding-bottom: 20px;
     }
     button.wishlist {
         transform: translateY(0);
