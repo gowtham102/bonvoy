@@ -147,6 +147,30 @@ export class ProductDetailsComponent implements OnInit {
           this.img_error=true;
       }))
   }
+    getProductDetails2(event:any){
+      this.subscriptions.push(this.productService.getProductDetails(event).subscribe((result:any)=>{
+          if(result.response.length == 0){
+              this.no_product=true;
+              this.product_loaded=true;
+              return
+          }
+          this.product_details=result.response;
+          this.product_details.quantity="1";
+          this.product_details.display_from_date=this.formatDate(this.product_details.delivery_from);
+          this.product_details.display_to_date=this.formatDate(this.product_details.delivery_to);
+          this.addPromoCode()
+
+          this.no_product=false;
+          this.product_loaded=true;
+          this.getRelatedProducts(result.response.parent_sku)
+          if(this.product_details.images.length > 0){
+            this.main_image=this.product_details.images[0].image;
+            return
+          }
+          this.main_image="assets/images/icons/logo-grey.svg";
+          this.img_error=true;
+      }))
+  }
   getRelatedProducts(parent_sku:string){
     this.subscriptions.push(this.productService.getRelatedProducts(parent_sku).subscribe((result:any)=>{
       if(result.status){

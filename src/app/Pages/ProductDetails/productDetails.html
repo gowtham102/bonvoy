@@ -54,6 +54,9 @@
                                     *ngIf="+product_details.discount > 0">{{product_details.price}}
                                     {{product_details.currency}}</del></h4>
                         </span>
+                        <p [innerHTML]="product_details.description">
+                            
+                        </p>
                     </div>
                     <div class="prod-quantity ">
                         <div class="quantity position-relative">
@@ -71,7 +74,7 @@
                     </div>
                     <h6 class="tooltip-color">Color-<span>{{product_details?.product_variation[0]?.value}}</span></h6>
                     <div class="tooltip-sec">
-                        <div class="color-sec" *ngFor="let item of product_details?.variation1">
+                        <div class="color-sec" *ngFor="let item of product_details?.variation1" (click)="getProductDetails2(item.id)">
                             <img src="{{item?.image}}" alt="">
                             <span class="tooltip">{{item?.value}}</span>
                         </div>
@@ -165,7 +168,7 @@
             <h4>Specifications</h4>
             <div id="accordion" class="accordion">
                 <div class="card mb-0">
-                    <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+                    <!-- <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
                         <a class="card-title">
                             Sales Package
                         </a>
@@ -174,17 +177,13 @@
                         <ul>
                             <li><span>Inside the Box:</span> Pebble Nano Pods Ear Buds, charging Cable, User manual, Warranty Card</li>
                         </ul>
-                    </div>
+                    </div> -->
                     <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
                         <a class="card-title">  Specification </a>
                     </div>
                     <div id="collapseTwo" class="card-body collapse" data-parent="#accordion">
                         <ul>
-                            <li><span>Model Name:</span> Nano Pods</li>
-                            <li><span>Color:</span>Black, Blue, White, Peach</li>
-                            <li><span>Headphone Type:</span>True Wireless</li>
-                            <li><span>Connectivity:</span>Bluetooth 5.0</li>
-                            <li><span>Headphone Design:</span>Earbud</li>
+                           <li [innerHTML]="product_details.specifications"></li>
                         </ul>
                     </div>
                 </div>
