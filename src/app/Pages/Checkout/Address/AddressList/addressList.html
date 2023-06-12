@@ -25,16 +25,17 @@
                     <span class="location">{{data.address}}</span>
                 </div>
                 <div class="select">
-                    <button class="select-btn"><span>o</span></button>
+                    <button class="select-btn" (click)="send_address_id(data.id)"><span>o</span></button>
                 </div>
             </div>
         </div>
     </div>
     <!-- <button class="btn send-address">SEND TO NEW ADDRESS</button> -->
-    <div class="preview-card btn send-address">
-        <a (click)="openLg(address_modal,1)"><i class="fa fa-plus-square m-1" aria-hidden="true"></i>
-            {{LANG.Add_address}}</a>
-    </div>
+    
+</div>
+<div class="preview-card btn send-address">
+    <a (click)="openLg(address_modal,1)"><i class="fa fa-plus-square m-1" aria-hidden="true"></i>
+        {{LANG.Add_address}}</a>
 </div>
 
 <div class="cart-details mb-2">
@@ -42,10 +43,10 @@
     <div class="input-message">
         <!-- <input type="text" required [(ngModel)]="reciever_address" (change)="inputChange(4)">
         <label>{{LANG.Address}}</label> -->
-        <!-- <div class="preview-card">
+        <div class="preview-card">
             <a (click)="openLg(address_modal,1)"><i class="fa fa-plus-square m-1" aria-hidden="true"></i>
                 {{LANG.Add_address}}</a>
-        </div> -->
+        </div>
     </div>
     <div class="country-input">
     <div class="country">

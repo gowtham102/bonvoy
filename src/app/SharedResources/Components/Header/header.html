@@ -50,8 +50,7 @@
                         <div class="row mob-row">
                             <div class="logo  col-4 menu d-flex align-center border-wra">
                                 <a href="#">All</a>
-                                <a href="#">Watches</a>
-                                <a href="#">Accessories</a>
+                                <a (click)="goToproductList(data,1)" *ngFor="let data of categories;let i=index;"><span>{{data.title}}</span></a>
                                 <div class="btn-group language" *ngIf="isMobile" ngbDropdown role="group" [placement]="arabic ? 'bottom-right' : 'bottom-left'">
                                     <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
                                 {{selected_language}}

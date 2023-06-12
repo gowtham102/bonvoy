@@ -11,6 +11,7 @@ import { address_data } from 'src/app/SharedResources/Models/address.model';
 import { ProfileService } from 'src/app/SharedResources/Services/profile.service';
 import { errorHandlerService } from 'src/app/SharedResources/Services/errorHandler.service';
 import { isBuffer } from 'util';
+import { log } from 'console';
 
 
 
@@ -332,6 +333,13 @@ export class AddressListComponent implements OnInit {
         }))
     }
 
+
+    send_address_id(event:any){
+        localStorage.setItem(btoa(btoa("delivery_address_id")),btoa(btoa(event)));
+        console.log(event);
+        
+    }
+
     changeSelectedAddress(data:address_data){
         if(data.id == this.delivery_address_id){
             return
@@ -438,7 +446,7 @@ export class AddressListComponent implements OnInit {
             "pincode":"",
             "landmark": "",
             "address_type": "1",
-            "country_id": this.country_id,
+            "country_id": "0",
             "city_id": "",
             "state_id": "",
             "action":"1"
@@ -540,7 +548,7 @@ export class AddressListComponent implements OnInit {
             this.address_error.mobile_number=true;	
             this.err=true;
         }
-        if(this.country_code == "+91"){
+        if(this.country_code == "+966"){
             const re=/^([0]{1}[5]{1}[0-9]*)$/
             const re1=/^([5]{1}[0-9]*)$/
     

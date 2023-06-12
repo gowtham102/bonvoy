@@ -45,6 +45,8 @@ export class PaymentComponent implements OnInit {
     show_payment:boolean=true;
 
     constructor(private shared:SharedService,private profileService:ProfileService,private modalService: NgbModal,private orderService:OrderService,private toast:ToastrManager,private router:Router){
+        
+
         this.subscriptions.push(this.shared.currentWalletAmount.subscribe((wallet:any)=>this.wallet=wallet));                
         this.subscriptions.push(this.shared.show_payment.subscribe((status:boolean)=>this.show_payment=status));                
         const cart_design=btoa(btoa("card_design"));
@@ -98,6 +100,9 @@ export class PaymentComponent implements OnInit {
     ngOnInit(){
         // this.getDefaultAddress();
         this.changeLanguage();
+        this.delivery_address_id=atob(atob(localStorage.getItem("delivery_address_id") || ""));
+        console.log(this.delivery_address_id);
+        
     }
 
     changeLanguage(){
@@ -127,8 +132,13 @@ export class PaymentComponent implements OnInit {
     }
 
     submitOrder(){
+        this.ngOnInit()
         if(!this.terms){
             this.toast.warningToastr(this.LANG.Please_accept_terms_and_conditions,"",{position:'top-right',toastTimeout:3000,maxShown:1,newestOnTop:false,animate:'null'});
+            return
+        }
+        if(this.delivery_address_id== ""){
+            this.toast.warningToastr("Please Select the Address","",{position:'top-right',toastTimeout:3000,maxShown:1,newestOnTop:false,animate:'null'});
             return
         }
         this.load=true;

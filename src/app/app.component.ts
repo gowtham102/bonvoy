@@ -11,7 +11,7 @@ declare let ga: Function;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Bloss';
+  title = 'Bonvoy';
   show_header:boolean=true;
   loader:boolean= false
 
