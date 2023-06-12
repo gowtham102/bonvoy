@@ -275,7 +275,7 @@ h4.underline-head {
 
 .prod-name p {
     color: var(--c-black);
-    font-size: 18px;
+    font-size: 21px;
     padding-bottom: 1px;
     font-family: 'roobert-reg';
 }
@@ -411,7 +411,7 @@ input:-webkit-autofill:active {
 .prod-desc span {
     /* color: var(--c-cart); */
     /* color: var(--c-crimson); */
-    font-size: 20px;
+    font-size: 24px;
     color: var(--c-black);
     font-family: 'roobert-med';
 }

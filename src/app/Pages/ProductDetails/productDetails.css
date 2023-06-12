@@ -44,6 +44,12 @@
     object-fit: fill;
     border-radius: 10px;
     margin-bottom: 30px;
+    margin-top: 57px;
+}
+
+.product-det-img {
+    display: flex;
+    grid-column-gap: 20px;
 }
 
 .bread-crumb-row {
@@ -418,6 +424,109 @@ section.similar-products {
 
 .color-sec img {
     width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.shipping {
+    padding-top: 40px;
+}
+
+.site_wrapper {
+    overflow: unset;
+}
+
+.scroll-nav {
+    position: sticky;
+    top: 0px;
+    left: 0;
+    background: #fafafa;
+    padding-bottom: 0;
+}
+
+.scroll-nav li a {
+    padding: 12px 0;
+    color: #002d46;
+    font-size: 18px;
+    position: relative;
+}
+
+.scroll-nav li a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: #00b9aa;
+    right: 0;
+    transition: 0.25s ease;
+}
+
+.accordion .card-header:after {
+    font-family: 'FontAwesome';
+    content: "\f106";
+    float: right;
+    transition: 0.25s ease-in-out;
+}
+
+.card-header {
+    background: transparent;
+    border: 0;
+    color: #00b9aa;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.card-body ul {
+    padding: 15px;
+    background: #f0f3f4;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    list-style: none;
+    color: #919291;
+}
+
+.card-body ul li span {
+    min-width: 180px;
+}
+
+.card {
+    border: 0;
+}
+
+.specification h4 {
+    font-size: 38px;
+    color: #000;
+    font-family: 'roobert-med';
+    padding-top: 40px;
+}
+
+.accordion .card-header.collapsed:after {
+    /* symbol for "collapsed" panels */
+    transform: rotate(180deg);
+}
+
+.scroll-nav li a.active::after {
+    width: 100%;
+    left: 0;
+}
+
+.scroll-nav ul {
+    justify-content: space-around;
+    width: 100%;
+}
+
+.shipping img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.shipping p {
+    font-size: 14px;
+    color: #002d46;
+    margin-top: 6px;
 }
 
 .color-sec .tooltip:after {

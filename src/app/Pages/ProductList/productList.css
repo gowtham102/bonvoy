@@ -16,13 +16,18 @@ button.wishlist {
 
 .prod-image img {
     width: 100%;
-    height: 237px;
+    height: 300px;
     transition: transform 1s ease;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .prod-image img:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
+}
+
+.prod-image {
+    padding-top: 24px;
+    padding-bottom: 55px;
 }
 
 .ngx-slider .ngx-slider-bubble {
@@ -59,9 +64,10 @@ aside.filters .fil_btn {
     text-transform: uppercase;
 }
 
-.prod .prod-name {
-    margin-top: 30px;
-}
+
+/* .prod .prod-name {
+    margin-top: 55px;
+} */
 
 
 /* .prod-list .prod:hover button.add-cart {

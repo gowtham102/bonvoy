@@ -59,8 +59,9 @@ export class HomeComponent implements OnInit {
       // loop: true,
       margin:20,
       dots: false,
+      nav:false,
       navSpeed: 700,
-      navText:["<img src='assets/images/icons/round-prev.png'/>","<img src='assets/images/icons/round-next.svg'/>"],
+      // navText:["<img src='assets/images/icons/round-prev.png'/>","<img src='assets/images/icons/round-next.svg'/>"],
       animateOut: 'fadeOut',
       animateIn: 'fadeIn',
       slideBy:'page',
@@ -82,7 +83,7 @@ export class HomeComponent implements OnInit {
           margin:20,
         }
       },
-      nav: true
+      // nav: true
   }
 
   // testimonials: OwlOptions = {

@@ -170,7 +170,7 @@ footer .cards-strip svg rect {
 .float-whatsapp {
     position: fixed;
     bottom: 50px;
-    left: 50px;
+    right: 50px;
     z-index: 99;
     display: none;
     -webkit-animation: action 1s infinite alternate;
@@ -361,7 +361,7 @@ footer .footer-section .footer-padding p {
         width: 70%;
     }
     .float-whatsapp {
-        left: 0;
+        right: 0;
         bottom: 0;
     }
     .float-whatsapp img {
