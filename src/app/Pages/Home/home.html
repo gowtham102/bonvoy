@@ -12,7 +12,7 @@
 
                         </div>
                         <div class="col-md-6 col-6">
-                            <div class="col-md-6 mx-auto">
+                            <div class="col-md-8 mx-auto">
                                 <img src="{{home_page?.banner[0]?.image}}" alt="banner-image">
                             </div>
                         </div>
@@ -270,10 +270,10 @@
                         <div class="col-md-12 text-center mb-2 shop-by-cate">
                             <p>Choose your next</p>
                             <h4 class="underline-head">Smart watch</h4>
-                            <button class="btn" (click)="goToproductList()">{{LANG.VIEW_ALL}}</button>
+                            <button class="btn product-list-btn" (click)="goToproductList()">{{LANG.VIEW_ALL}}</button>
                         </div>
                     </div>
-                    <div class="mt-2 position-relative vis-caro">
+                    <div class=" position-relative vis-caro">
                         <owl-carousel-o [options]="bestSeller">
                             <ng-container *ngIf="you_may_like==false">
                                 <ng-template carouselSlide *ngFor="let data of home_page?.best_seller.slice(-4);let i=index;">
@@ -284,9 +284,9 @@
                                         </button>
                                         </a>
                                         <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)">
-                                            <img src="../assets/images/bonvoy/watch1.png" onError="this.src='assets/images/icons/logo-grey.svg';">
+                                            <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';">
                                         </div>
-                                        <div class="prod-name text-left mt-3">
+                                        <div class="prod-name text-left ">
                                             <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
                                             <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
                                         </div>
@@ -313,7 +313,7 @@
                                         <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)">
                                             <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';">
                                         </div>
-                                        <div class="prod-name text-left mt-3">
+                                        <div class="prod-name text-left ">
                                             <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
                                             <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
                                         </div>
@@ -339,8 +339,7 @@
     </div>
 
 
-    <div class="section3" style="background: url(assets/images/bonvoy/cover2.png) 0 0 no-repeat;
-    background-size: cover;">
+    <div class="section3" style="background: url({{home_page?.section_3?.image}}) 0 0 no-repeat;">
         <div class="container">
             <!-- <img src="../assets/images/bonvoy/cover2.png" alt="section3-image"> -->
             <!-- <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1> -->
@@ -362,9 +361,11 @@ background-size: cover;">
             <h1>Loaded with latest features</h1>
         </div>
         <div class="row circle-image">
-            <div class="col-md-3 col-6" *ngFor="let item of home_page?.section_4">
-                <span><img src="{{item?.image}}" ></span>
-                <p>{{item?.TITLE}}</p>
+            <div class="col-md-4 col-6" *ngFor="let item of home_page?.section_4 ">
+                <div class="wat-sec">
+                    <span><img src="{{item?.image}}" ></span>
+                    <p>{{item?.TITLE}}</p>
+                </div>
             </div>
             <!-- <div class="col-md-3 col-6">
                         <span><img src="../assets/images/icons/wat2.png" ></span>

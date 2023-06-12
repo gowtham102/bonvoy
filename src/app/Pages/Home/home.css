@@ -299,6 +299,12 @@ opacity: 1; */
         display: flex;
         /* background: url(../../../assets/images/bonvoy/cover2.png) 0 0 no-repeat; */
         height: 694px;
+        background-size: cover !important;
+    }
+    
+    .product-list-btn {
+        margin-left: auto;
+        display: block;
     }
     
     .section3-img {
@@ -366,7 +372,7 @@ opacity: 1; */
         color: #938277;
         font-size: 26px;
         font-family: 'roobert-reg';
-        width: 167px;
+        width: 174px;
     }
     
     .wat-sec {
@@ -635,6 +641,17 @@ opacity: 1;
         font-size: 24px;
         color: #2A353C;
         margin-bottom: 0;
+    }
+    
+    .prod .prod-name {
+        margin-top: 55px;
+    }
+    
+    .prod-image img {
+        width: 177px;
+        height: 193px;
+        object-fit: cover;
+        margin: auto;
     }
     
     @media screen and (max-width: 576px) {
