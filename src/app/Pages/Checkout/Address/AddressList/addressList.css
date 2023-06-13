@@ -711,3 +711,159 @@
     .country-input .input-message{
         width: 100%;
     }
+
+
+    /* payment */
+
+
+    .cart-details {
+        padding: 25px 50px;
+        background: var(--c-white);
+        color: var(--t-color);
+    }
+    
+    .cart-details h6 {
+        font-family: 'roobert-med';
+        font-size: 12px;
+        margin-bottom: 22px;
+        color: #000;
+    }
+    
+    .payment-mode .single-option {
+        margin: 15px 0;
+    }
+    
+    .payment-mode label {
+        padding: 0 40px;
+        font-family: 'GothaProMed';
+        font-size: 14px;
+        display: block;
+        cursor: pointer;
+        margin: 0;
+        color: #000;
+    }
+    
+    .payment-mode label img {
+        width: 70%;
+    }
+    
+    .payment-mode .select {
+        position: absolute;
+        top: -5px;
+        left: 0;
+        height: 17px;
+    }
+    
+    .payment-mode button.select-btn {
+        padding: 0;
+        border: 1px solid #C7C7C7;
+        border-radius: 50%;
+        transition: .5s ease-in-out;
+        background: 0 0;
+        width: 22px;
+        height: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .payment-mode button.select-btn.active {
+        border: 1px solid var(--c-black);
+    }
+    
+    .payment-mode button.select-btn span {
+        font-size: 1px;
+        width: 15px;
+        height: 15px;
+        display: block;
+        transition: .5s ease-in-out;
+        border-radius: 50%;
+    }
+    
+    .payment-mode button.select-btn.active span {
+        background: #000;
+        border: 2px solid #fff;
+    }
+    
+    button.pay-btn {
+        margin-left: 40px;
+        width: 62%;
+    }
+    
+    div.pay-section {
+        position: relative;
+        animation: pwd-input 1s;
+    }
+    
+    div.terms-conditions {
+        display: flex;
+        align-items: center;
+        /* margin: 0 40px; */
+    }
+    
+    div.terms-conditions input {
+        width: 15px;
+        height: 15px;
+        margin-right: 20px;
+    }
+    
+    div.terms-conditions p {
+        margin: 0;
+        font-family: 'roobert-reg';
+        color: #000;
+    }
+    
+    div.terms-conditions p span {
+        color: #000;
+        cursor: pointer;
+        font-family: 'roobert-semi';
+    }
+    
+    .wallet {
+        /* padding: 0 40px; */
+        display: flex;
+        align-items: center;
+    }
+    
+    .wallet input {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .wallet label {
+        padding: 0 20px;
+    }
+    
+    @keyframes pwd-input {
+        from {
+            top: -50px;
+        }
+        to {
+            top: 0px;
+        }
+    }
+    
+    @media screen and (max-width: 572px) {
+        .cart-details {
+            padding: 20px 25px;
+        }
+        button.pay-btn {
+            width: 70%;
+        }
+        .payment-mode label img {
+            width: 100%;
+        }
+        .wallet {
+            padding: 0;
+        }
+    }
+    
+    @media screen and (max-width: 320px) {
+        .cart-details {
+            padding: 15px 20px;
+        }
+        button.pay-btn {
+            width: 75%;
+            height: 40px;
+        }
+    }

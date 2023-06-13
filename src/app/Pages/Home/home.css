@@ -303,7 +303,7 @@ opacity: 1; */
     }
     
     .product-list-btn {
-        margin-left: auto;
+        margin: auto;
         display: block;
     }
     
@@ -385,7 +385,7 @@ opacity: 1; */
         display: flex;
         /* background: url(../../../assets/images/bonvoy/cover4.png) 0 0 no-repeat; */
         height: 711px;
-        /* background-size: cover; */
+        background-size: cover !important;
     }
     
     .section5-img {

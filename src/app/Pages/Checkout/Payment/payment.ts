@@ -132,7 +132,6 @@ export class PaymentComponent implements OnInit {
     }
 
     submitOrder(){
-        this.ngOnInit()
         if(!this.terms){
             this.toast.warningToastr(this.LANG.Please_accept_terms_and_conditions,"",{position:'top-right',toastTimeout:3000,maxShown:1,newestOnTop:false,animate:'null'});
             return

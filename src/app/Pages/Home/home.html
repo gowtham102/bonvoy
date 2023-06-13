@@ -270,12 +270,11 @@
                         <div class="col-md-12 text-center mb-2 shop-by-cate">
                             <p>Choose your next</p>
                             <h4 class="underline-head">Smart watch</h4>
-                            <button class="btn product-list-btn" (click)="goToproductList()">{{LANG.VIEW_ALL}}</button>
                         </div>
                     </div>
                     <div class=" position-relative vis-caro">
-                        <owl-carousel-o [options]="bestSeller">
-                            <ng-container *ngIf="you_may_like==false">
+                        <owl-carousel-o >
+                            <!-- <ng-container *ngIf="you_may_like==false">
                                 <ng-template carouselSlide *ngFor="let data of home_page?.best_seller.slice(-4);let i=index;">
                                     <div class="item cur-pointer prod text-center">
                                         <a>
@@ -300,9 +299,9 @@
                                         </ng-template>
                                     </div>
                                 </ng-template>
-                            </ng-container>
+                            </ng-container> -->
 
-                            <ng-container *ngIf="you_may_like==true">
+                            <!-- <ng-container *ngIf="you_may_like==true">
                                 <ng-template carouselSlide *ngFor="let data of home_page?.best_seller;let i=index;">
                                     <div class="item cur-pointer prod text-center">
                                         <a>
@@ -327,9 +326,41 @@
                                         </ng-template>
                                     </div>
                                 </ng-template>
-                            </ng-container>
+                            </ng-container> -->
 
                         </owl-carousel-o>
+
+                        <div class="row">
+                            <ng-container *ngIf="you_may_like==false">
+                                <ng-container  *ngFor="let data of home_page?.best_seller.slice(-4);let i=index;">
+                                    <div class="item cur-pointer prod text-center col-md-3 col-6">
+                                        <a>
+                                            <button class="wishlist" (click)="addToWishlist(data)">
+                                            <i class="fa fa-heart" [class.active]="data.wishlist == '1'" aria-hidden="true"></i>                      
+                                        </button>
+                                        </a>
+                                        <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)">
+                                            <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';">
+                                        </div>
+                                        <div class="prod-name text-left ">
+                                            <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
+                                            <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
+                                        </div>
+                                        <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else slider_loader;" [class.out-of-stock]="data?.stock == '2'">
+                                        {{data?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}
+                                            </button>
+                                        <ng-template #slider_loader>
+                                            <button class="add-cart m-auto cart-loader"> 
+                                        <loader></loader>
+                                    </button>
+                                        </ng-template>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+                            <button class="btn product-list-btn center" (click)="goToproductList()">{{LANG.VIEW_ALL}}</button>
+
+                        </div>
+
 
                     </div>
 
@@ -493,8 +524,7 @@ background-size: cover;">
 
 
 
-<div class="section5" style="background: url(assets/images/bonvoy/cover4.png) 0 0 no-repeat;
-background-size: cover;">
+<div class="section5" style="background: url({{home_page?.section_5?.image}}) 0 0 no-repeat;">
     <div class="container">
         <div class="section5-img">
             <div class="col-md-3 sec-img">
