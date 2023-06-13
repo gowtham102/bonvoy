@@ -32,7 +32,7 @@
 }
 
 .prod_det_thumb {
-    width: 100%;
+    /* width: 100%; */
     text-align: center;
     padding-bottom: 10px;
     cursor: pointer;
@@ -50,6 +50,8 @@
 .product-det-img {
     display: flex;
     grid-column-gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .bread-crumb-row {
@@ -364,18 +366,40 @@ section.similar-products {
     background: transparent;
     border: 0;
     color: #00b9aa;
+}
+
+.card-header h6,
+.card-header a {
     font-size: 18px;
+    margin-bottom: 0;
+}
+
+.card-header a {
     cursor: pointer;
 }
 
+#faq {
+    padding-top: 20px;
+}
+
+.card-spec {
+    padding-top: 0;
+}
+
 .card-body ul {
-    padding: 15px;
-    background: #f0f3f4;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    padding: 0px;
+    /* background: #f0f3f4; */
+    /* border-radius: 8px; */
+    margin-bottom: 0px;
     font-size: 16px;
     list-style: none;
     color: #919291;
+}
+
+.faq.card-body ul {
+    background: #f0f3f4;
+    border-radius: 8px;
+    padding: 15px;
 }
 
 .card-body ul li span {
@@ -394,7 +418,6 @@ section.similar-products {
 }
 
 .accordion .card-header.collapsed:after {
-    /* symbol for "collapsed" panels */
     transform: rotate(180deg);
 }
 
@@ -472,6 +495,9 @@ section.similar-products {
 }
 
 @media screen and (max-width: 576px) {
+    .product-det-img {
+        grid-row-gap: 20px;
+    }
     .banner-image {
         max-height: 210px;
         background-position: center;
@@ -495,7 +521,8 @@ section.similar-products {
     } */
     .prod_det_thumb {
         width: auto;
-        margin: 7px;
+        margin: 0;
+        padding-bottom: 25px;
     }
     div.category {
         width: auto;
@@ -544,7 +571,7 @@ section.similar-products {
     }
     .prod_det_thumb img {
         height: 56px;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
         margin-top: 0px;
     }
     .prod-desc p {
@@ -569,12 +596,16 @@ section.similar-products {
         padding-top: 17px;
         margin: 0;
     }
-    .card-header {
+    .card-header h6 {
         font-size: 13px;
+        padding-bottom: 20px;
     }
     .card-body li {
         list-style: none;
         font-size: 12px;
+    }
+    .card-body {
+        padding: 0 20px 20px;
     }
 }
 
