@@ -832,7 +832,10 @@ div.password {
     }
 }
 
-@media screen and (max-width: 572px) {
+@media screen and (max-width: 576px) {
+    .language {
+        display: none;
+    }
     header {
         padding: 9px 0;
         top: 100px;

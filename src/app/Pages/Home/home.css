@@ -305,6 +305,7 @@ opacity: 1; */
     .product-list-btn {
         margin: auto;
         display: block;
+        text-decoration: underline;
     }
     
     .section3-img {
@@ -857,5 +858,19 @@ opacity: 1;
         .section-7 button,
         .banner button {
             padding: 8px 29px;
+        }
+        .prod-image img {
+            object-fit: contain;
+            width: 95%;
+            height: 200px;
+        }
+        .prod-row {
+            grid-row-gap: 47px;
+        }
+        .prod .prod-name {
+            margin-top: 20px;
+        }
+        .home-wrap {
+            margin-bottom: 30px;
         }
     }

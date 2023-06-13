@@ -273,7 +273,7 @@
                         </div>
                     </div>
                     <div class=" position-relative vis-caro">
-                        <owl-carousel-o >
+                        <owl-carousel-o>
                             <!-- <ng-container *ngIf="you_may_like==false">
                                 <ng-template carouselSlide *ngFor="let data of home_page?.best_seller.slice(-4);let i=index;">
                                     <div class="item cur-pointer prod text-center">
@@ -330,10 +330,10 @@
 
                         </owl-carousel-o>
 
-                        <div class="row">
+                        <div class="row prod-row">
                             <ng-container *ngIf="you_may_like==false">
-                                <ng-container  *ngFor="let data of home_page?.best_seller.slice(-4);let i=index;">
-                                    <div class="item cur-pointer prod text-center col-md-3 col-6">
+                                <ng-container *ngFor="let data of home_page?.best_seller.slice(-4);let i=index;">
+                                    <div class="item cur-pointer prod text-center col-md-3 col-6 ">
                                         <a>
                                             <button class="wishlist" (click)="addToWishlist(data)">
                                             <i class="fa fa-heart" [class.active]="data.wishlist == '1'" aria-hidden="true"></i>                      
@@ -392,7 +392,7 @@ background-size: cover;">
             <h1>Loaded with latest features</h1>
         </div>
         <div class="row circle-image">
-            <div class="col-md-4 col-6" *ngFor="let item of home_page?.section_4 ">
+            <div class="col-md-4 col-6 wow animated fadeInUp" *ngFor="let item of home_page?.section_4 ">
                 <div class="wat-sec">
                     <span><img src="{{item?.image}}" ></span>
                     <p>{{item?.TITLE}}</p>
