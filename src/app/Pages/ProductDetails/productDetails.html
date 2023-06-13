@@ -87,15 +87,15 @@
                     <div class="shipping">
                         <div class="row">
                             <div class="col-md-4 col-4 text-center">
-                                <img src="../../../assets/images/bonvoy/Free_shipping.gif" alt="">
+                                <img src="assets/images/bonvoy/Free_shipping.gif" alt="">
                                 <p>Free Shipping</p>
                             </div>
                             <div class="col-md-4 col-4 text-center">
-                                <img src="../../../assets/images/bonvoy/Warranty.gif" alt="">
+                                <img src="assets/images/bonvoy/Warranty.gif" alt="">
                                 <p>1 Year Replacement Guarantee</p>
                             </div>
                             <div class="col-md-4 col-4 text-center">
-                                <img src="../../../assets/images/bonvoy/Secure_Checkout.gif" alt="">
+                                <img src="assets/images/bonvoy/Secure_Checkout.gif" alt="">
                                 <p>Secure Checkout</p>
                             </div>
                         </div>
@@ -163,8 +163,11 @@
     </div>
     <div class="scrool-spy-sec tab-content">
 
-        <div id="overview" role="tabpanel" class="tab-pane  active " *ngFor="let item of product_details?.overview">
-            <img src="{{item.image}}" class="w-100" alt="" />
+        <div id="overview" role="tabpanel" class="tab-pane  active " >
+            <ng-container *ngFor="let item of product_details?.overview">
+                <img src="{{item.image}}" class="w-100" alt="" />
+            </ng-container>
+            
         </div>
         <div id="specification" class="specification container-fluid tab-pane fade" role="tabpanel">
             <h4>Specifications</h4>
@@ -192,7 +195,7 @@
             </div>
         </div>
         <div id="faq" class="container-fluid tab-pane fade">
-            <div id="accordion" class="accordion">
+            <div id="accordion" class="accordion" *ngFor="let item of product_details?.faq">
                 <div class="card ">
                     <!-- <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
                         <a class="card-title">
@@ -205,11 +208,11 @@
                         </ul>
                     </div> -->
                     <div class="card-header " data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                        <a class="card-title">  FAQ1 </a>
+                        <a class="card-title">  {{item.question}} </a>
                     </div>
                     <div id="collapseTwo" class="card-body collapse show  faq  " data-parent="#accordion">
                         <ul>
-                            <li>Lorem ipsum dolorLorem ipsum dolorLorem ipsum dolor</li>
+                            <li>{{item.answer}}</li>
                         </ul>
                     </div>
                 </div>

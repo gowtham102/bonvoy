@@ -30,8 +30,8 @@ import { order_data } from 'src/app/SharedResources/Models/order.model';
 
 export class AddressListComponent implements OnInit {
     address_clicked:boolean=true;
-    latitude = 24.774265;
-    longitude = 46.738586;
+    latitude = 28.644800;
+    longitude = 77.216721;
     icon: string="assets/images/icons/map_icon.svg";
     modalReference:any;
     order_timings:any=[];
@@ -665,8 +665,8 @@ export class AddressListComponent implements OnInit {
         this.mobile_number="";
         this.address="";
         this.address_clicked=false;
-        this.latitude = 24.774265;
-        this.longitude = 46.738586;
+        this.latitude = 28.644800;
+        this.longitude = 	77.216721;
         this.lat=null;
         this.long=null;
         this.address_type="1";

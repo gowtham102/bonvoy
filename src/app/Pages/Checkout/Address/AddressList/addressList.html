@@ -11,9 +11,13 @@
         </a>
     </div>
 </div> -->
-<div class="cart-details mb-2" *ngIf="address_list.length > 0">
-    <h6>{{LANG.Saved_Address}}</h6>
-    <div class="address-list row">
+<div class="cart-details mb-2" >
+    <div class="preview-card btn send-address">
+        <a class="position-fix"  (click)="openLg(address_modal,1)"><i class="fa fa-plus-square m-1" aria-hidden="true"></i>
+            {{LANG.Add_address}}</a>
+    </div>
+    <h6 *ngIf="address_list.length > 0">{{LANG.Saved_Address}}</h6>
+    <div class="address-list row" *ngIf="address_list.length > 0">
         <div class="  col-md-6 single-address" *ngFor="let data of address_list;let i=index;" (click)="changeSelectedAddress(data)" [class.active]="data.id == delivery_address_id">
             <div class=" cur-pointer single-address1">
                 <span class="overlay" *ngIf="data.load">
@@ -33,10 +37,7 @@
     <!-- <button class="btn send-address">SEND TO NEW ADDRESS</button> -->
     
 </div>
-<div class="preview-card btn send-address">
-    <a (click)="openLg(address_modal,1)"><i class="fa fa-plus-square m-1" aria-hidden="true"></i>
-        {{LANG.Add_address}}</a>
-</div>
+
 
 <!-- <div class="cart-details mb-2">
     <h6>{{LANG.reciever_details}}</h6>
@@ -246,7 +247,7 @@
             </div>
 
             <!-- <div class="cart-details mb-2"> -->
-                <div class="payment-mode position-relative">
+                <div class="payment-mode position-relative position-payment">
                     <div (click)="changePaymentType(1)">
                         <label>{{LANG.Cash_On_Delivery}}</label>
                         <div class="select">

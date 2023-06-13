@@ -53,6 +53,12 @@ button.checkout {
     width: 71%;
 }
 
+
+.thank-you img{
+    height: 100% !important;
+    width: 50% !important;
+}
+
 @media screen and (min-width: 573px) and (max-width: 1199px) {
     .thank-you-wrapper {
         padding: 100px 5%;
@@ -68,6 +74,7 @@ button.checkout {
         width: 50%;
         min-width: 180px;
     }
+
 }
 
 @media screen and (max-width: 572px) {
@@ -88,6 +95,7 @@ button.checkout {
         width: 250px;
         height: 300px;
     }
+
     .thank-you-wrapper .thank-you .content {
         padding: 0;
         margin: 0;

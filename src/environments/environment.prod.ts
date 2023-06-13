@@ -54,7 +54,7 @@ export const environment = {
     "Your_cart_is_empty":"Your cart is empty",
     "Summary":"SUMMARY",
     "SUBTOTAL":"SUBTOTAL",
-    "VAT":"VAT (15%)",
+    "VAT":"TAX",
     "DELIVERY":"DELIVERY",
     "FREE":"FREE",
     "Shipping_Charges":"Shipping Charges",

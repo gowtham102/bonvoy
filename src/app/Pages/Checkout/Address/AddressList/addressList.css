@@ -29,6 +29,17 @@
         margin: 10px 0px 0px 0px;
         height: 100%;
     }
+
+    .position-payment{
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .position-fix{
+        position: sticky;
+        left: 55%;
+        /* top: 43%; */
+    }
     
     .send-address {
         padding: 0;
