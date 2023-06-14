@@ -116,10 +116,10 @@
 
                     <ul>
                         <li>
-                            <span>{{LANG.SUBTOTAL}}</span><span>{{cartDetails.currency}} {{cartDetails.sub_total}}</span>
+                            <span>{{LANG.SUBTOTAL}}</span><span> {{cartDetails.sub_total}} {{cartDetails.currency}}</span>
                         </li>
                         <li>
-                            <span>{{LANG.VAT}}</span><span>+ {{cartDetails.currency}} {{cartDetails.vat}}</span>
+                            <span>{{LANG.VAT}}</span><span>+  {{cartDetails.vat}} {{cartDetails.currency}}</span>
                         </li>
                         <li *ngIf="+cartDetails.shipping_charge == 0;else show_shipping">
                             <span>{{LANG.DELIVERY}}</span><span class="text-success">{{LANG.FREE}}</span>
@@ -176,7 +176,7 @@
 
                     <ul class="mt-5 total-wrap">
                         <li>
-                            <span>{{LANG.Total}}</span><span>{{cartDetails.currency}} {{cartDetails.grand_total}}</span>
+                            <span>{{LANG.Total}}</span><span> {{cartDetails.grand_total}} {{cartDetails.currency}}</span>
                         </li>
                     </ul>
 

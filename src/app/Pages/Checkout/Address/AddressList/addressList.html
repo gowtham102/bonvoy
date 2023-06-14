@@ -266,7 +266,7 @@
         </div>
 
 
-        <div class="pay-section" *ngIf="payment_type == 2">
+        <div class="pay-section" *ngIf="payment_type == 2 && address_list.length > 0">
             <button class="checkout mt-3 pay-btn" (click)="submitOrder()" *ngIf="!load;else loader">{{show_payment ? LANG.PAY_NOW : LANG.PLACE_ORDER}}</button>
             <ng-template #loader>
                 <button class="checkout mt-2 pay-btn cart-loader">
@@ -274,7 +274,7 @@
                 </button>
             </ng-template>
         </div>
-        <div class="pay-section" *ngIf="payment_type == 1">
+        <div class="pay-section" *ngIf="payment_type == 1 && address_list.length > 0">
             <button class="checkout mt-2 pay-btn" (click)="submitOrder()" *ngIf="!load;else loader">{{LANG.PLACE_ORDER}}</button>      
             <ng-template #loader>
                 <button class="checkout mt-2 pay-btn cart-loader">

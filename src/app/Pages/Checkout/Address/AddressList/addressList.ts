@@ -204,6 +204,8 @@ export class AddressListComponent implements OnInit {
         if(localStorage.getItem(order_day)){
             this.order_date=atob(atob(localStorage.getItem(order_day) || ""));
         }
+
+        
         
 
     }
@@ -333,6 +335,9 @@ export class AddressListComponent implements OnInit {
 
     getAddressList(){
         this.subscriptions.push(this.profileService.getAddressList().subscribe((result:any)=>{
+            if(result.response.length==0){
+                this.openLg(this.address_modal,1)
+            }
             if(result.status){
                 this.address_list=result.response;
                 this.shared.changeAddressList(result.response)

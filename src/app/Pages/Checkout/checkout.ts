@@ -176,7 +176,11 @@ export class CheckoutComponent implements OnInit {
 
     getCart(){ 
         this.subscriptions.push(this.cartService.getCartDetails().subscribe((result:any)=>{
+            if(result.response.cart_count==0){
+                this.router.navigate(['/'])
+            }
             if(result.response.id != ''){
+              
                 this.cartDetails=result.response;
                 this.cart_length=result.response.cart_Detail.length;
                 this.setCoupon(this.cartDetails.coupon_code);

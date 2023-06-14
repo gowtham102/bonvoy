@@ -151,7 +151,7 @@ export class HeaderComponent implements OnInit {
       this.renderer.listen('window', 'click',(e:Event)=>{
         const target = e.target as HTMLElement;
         const parent = target?.parentElement?.parentNode;
-        if(parent !== this.search_menu.nativeElement && parent !== this.search_btn.nativeElement && parent !== this.search_result?.nativeElement && target !== this.search_input?.nativeElement){
+        if(parent !== this.search_menu?.nativeElement && parent !== this.search_btn?.nativeElement && parent !== this.search_result?.nativeElement && target !== this.search_input?.nativeElement){
           this.isCollapsed=true;
           this.result_tab=false;
           this.search_keyword="";

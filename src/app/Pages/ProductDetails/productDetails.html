@@ -183,9 +183,9 @@
                             <li><span>Inside the Box:</span> Pebble Nano Pods Ear Buds, charging Cable, User manual, Warranty Card</li>
                         </ul>
                     </div> -->
-                    <div class="card-header pb-0">
+                    <!-- <div class="card-header pb-0">
                         <h6 class="card-title"> Specification </h6>
-                    </div>
+                    </div> -->
                     <div class="card-body card-spec ">
                         <ul>
                             <li [innerHTML]="product_details.specifications"></li>
@@ -195,7 +195,7 @@
             </div>
         </div>
         <div id="faq" class="container-fluid tab-pane fade">
-            <div id="accordion" class="accordion" *ngFor="let item of product_details?.faq">
+            <div [attr.id]="'accordion'+i" class="accordion" *ngFor="let item of product_details?.faq let i=index">
                 <div class="card ">
                     <!-- <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
                         <a class="card-title">
@@ -207,10 +207,10 @@
                             <li><span>Inside the Box:</span> Pebble Nano Pods Ear Buds, charging Cable, User manual, Warranty Card</li>
                         </ul>
                     </div> -->
-                    <div class="card-header " data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                    <div class="card-header " data-toggle="collapse" data-parent="#accordion" [attr.href]="'#collapseTwo'+i">
                         <a class="card-title">  {{item.question}} </a>
                     </div>
-                    <div id="collapseTwo" class="card-body collapse show  faq  " data-parent="#accordion">
+                    <div [attr.id]="'collapseTwo'+i" class="card-body collapse show  faq  " data-parent="#accordion">
                         <ul>
                             <li>{{item.answer}}</li>
                         </ul>

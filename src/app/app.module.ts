@@ -49,7 +49,8 @@ import { AboutUsModule } from './about-us/about-us.module';
     LoaderModule,
     FormsModule,
     AngularFireStorageModule,
-    AboutUsModule
+    AboutUsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
