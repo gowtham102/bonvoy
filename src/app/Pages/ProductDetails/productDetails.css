@@ -85,7 +85,11 @@
     /* font-family: 'Playfair Display'; */
     font-size: 30px;
     color: #000000;
-    font-family: 'roobert-reg';
+    font-family: 'roobert-med';
+}
+
+.prod-desc p {
+    color: #919291;
 }
 
 .prod .prod-name span,

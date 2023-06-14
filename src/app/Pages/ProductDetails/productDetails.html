@@ -49,14 +49,14 @@
                     </div> -->
                     <div class="prod-desc mb-4">
                         <h2>{{product_details.title}}</h2>
+                        <p [innerHTML]="product_details.description"></p>
                         <span>
                             <h4>{{+product_details.price - +product_details.discount}} {{product_details.currency}} <del
                                     *ngIf="+product_details.discount > 0">{{product_details.price}}
                                     {{product_details.currency}}</del></h4>
                         </span>
-                        <p [innerHTML]="product_details.description">
 
-                        </p>
+
                     </div>
                     <div class="prod-quantity ">
                         <div class="quantity position-relative">
@@ -170,9 +170,9 @@
 
         </div>
         <div id="specification" class="specification container-fluid tab-pane fade" role="tabpanel">
-            <h4>Specifications</h4>
+            <!-- <h4>Specifications</h4> -->
             <div class="">
-                <div class="card mb-0">
+                <div class="card mb-0 pt-3">
                     <!-- <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
                         <a class="card-title">
                             Sales Package
@@ -207,10 +207,10 @@
                             <li><span>Inside the Box:</span> Pebble Nano Pods Ear Buds, charging Cable, User manual, Warranty Card</li>
                         </ul>
                     </div> -->
-                    <div class="card-header " data-toggle="collapse" data-parent="#accordion" [attr.href]="'#collapseTwo'+i">
+                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" [attr.href]="'#collapseTwo'+i">
                         <a class="card-title">  {{item.question}} </a>
                     </div>
-                    <div [attr.id]="'collapseTwo'+i" class="card-body collapse show  faq  " data-parent="#accordion">
+                    <div [attr.id]="'collapseTwo'+i" class="card-body collapse  faq  " data-parent="#accordion">
                         <ul>
                             <li>{{item.answer}}</li>
                         </ul>
