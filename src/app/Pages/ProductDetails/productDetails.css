@@ -577,10 +577,10 @@ section.similar-products {
     .prod-desc p {
         font-size: 11px !important;
     }
-    .color-sec {
+    /* .color-sec {
         width: 50px;
         height: 50px;
-    }
+    } */
     .shipping p {
         font-size: 10px;
     }
@@ -606,6 +606,12 @@ section.similar-products {
     }
     .card-body {
         padding: 0 20px 20px;
+    }
+    /* .color-sec:hover {
+        border: 1px solid #00b8a9
+    } */
+    .color-sec .tooltip {
+        display: none;
     }
 }
 

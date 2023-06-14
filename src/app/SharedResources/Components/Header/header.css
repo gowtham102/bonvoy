@@ -316,7 +316,7 @@ button.action-btn.profile img {
 }
 
 .padding-login {
-    padding: 42px 94px 59px 15px;
+    padding: 42px 74px 59px 30px;
 }
 
 
@@ -387,7 +387,7 @@ button.action-btn.profile img {
     margin-bottom: 15px;
     display: flex;
     width: 100%;
-    grid-column-gap: 15px;
+    grid-column-gap: 3px;
 }
 
 .form-control,
@@ -834,9 +834,9 @@ div.password {
 }
 
 @media screen and (max-width: 576px) {
-    .language {
+    /* .language {
         display: none;
-    }
+    } */
     header {
         padding: 9px 0;
         top: 100px;
@@ -859,6 +859,10 @@ div.password {
     .mob-nav {
         width: 85px;
         text-align: left;
+        margin: 15px 0;
+    }
+    .logo img {
+        height: 40px;
     }
     .user-prof {
         margin: 10px;
@@ -961,21 +965,32 @@ div.password {
     .login-modal .country-code span {
         width: 5%;
         left: 25%;
+        display: none;
     }
     .login-modal .country-code input {
-        margin-left: 35%;
-        width: 65%;
+        margin-left: 0%;
+        width: 100%;
+    }
+    .padding-login {
+        padding: 15px;
     }
     span.error.f-name {
         margin-left: 35%;
+    }
+    .login-bg-img img {
+        height: 200px;
     }
     .login-modal .country input {
         width: 100%;
         margin: 0;
     }
+    .login-modal button.checkout {
+        margin: 0 auto;
+    }
     .login-modal .otp-field input {
         width: 100%;
         height: 50px;
+        margin: 0 5px 30px;
     }
     .search-bar-input input {
         padding: 15px;
@@ -1019,21 +1034,19 @@ div.password {
         opacity: 1;
         visibility: visible;
     }
-    .mob-row,
-    .menu {
+    .mob-row {
         display: unset !important;
     }
     .header-last {
         display: flex !important;
         justify-content: center;
-        margin-top: 20px;
-        align-items: cent
+        /* margin-top: 20px; */
     }
     .menu a {
         display: block;
         width: max-content;
         max-width: 100%;
-        margin-bottom: 13px;
+        /* margin-bottom: 13px; */
     }
     .header-last button {
         padding: 0;

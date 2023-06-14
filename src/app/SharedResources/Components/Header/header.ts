@@ -1196,10 +1196,10 @@ downloadApp(){
 }
 
 
-  menu_slider:boolean=false
-  menu(){
+  // menu_slider:boolean=false
+  // menu(){
 
-        $(".menu-close").toggleClass("show");
+  //       $(".menu-close").toggleClass("show");
       
-  }
+  // }
 } 

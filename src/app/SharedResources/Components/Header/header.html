@@ -35,37 +35,37 @@
     </div> -->
     <header [class.header-padding]="!isCollapsed" [class.shrink]="sticky_header">
         <div class="container">
-            <div class="row justify-content-between align-center">
-                <div class="col-md-12 logo-head p-0">
-                    <div class="logo col-md-2 col-4 mob-nav">
-                        <a routerLink="/">
-                            <img src="assets/images/icons/logo1.svg" alt="Logo img" height="66px">
-                        </a>
-                    </div>
-                    <button class="menu-btn" (click)="menu()">
+            <!-- <div class="row justify-content-between align-center"> -->
+            <div class="row logo-head ">
+                <div class="logo col-md-2 col-12 mob-nav">
+                    <a routerLink="/">
+                        <img src="assets/images/icons/logo1.svg" alt="Logo img" height="66px">
+                    </a>
+                </div>
+                <!-- <button class="menu-btn" (click)="menu()">
                         <i class="fa fa-bars" aria-hidden="true"></i>
-                    </button>
-                    <div class="mobile-menu col-md-10 menu-close">
-                        <button class="close-icon btn" (click)="menu()"><i class="fa fa-times" aria-hidden="true"></i></button>
-                        <div class="row mob-row">
-                            <div class="logo  col-4 menu d-flex align-center border-wra">
-                                <a routerLink="/products">All</a>
-                                <a (click)="goToproductList(data,1)" *ngFor="let data of categories;let i=index;"><span>{{data.title}}</span></a>
-                                <div class="btn-group language" *ngIf="isMobile" ngbDropdown role="group" [placement]="arabic ? 'bottom-right' : 'bottom-left'">
-                                    <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
+                    </button> -->
+                <!-- <div class=" col-md-10 "> -->
+                <!-- <button class="close-icon btn" (click)="menu()"><i class="fa fa-times" aria-hidden="true"></i></button> -->
+                <!-- <div class="row mob-row"> -->
+                <div class="logo  col-md-4 col-6 menu d-flex align-center border-wra">
+                    <a routerLink="/products">All</a>
+                    <a (click)="goToproductList(data,1)" *ngFor="let data of categories;let i=index;"><span>{{data.title}}</span></a>
+                    <!-- <div class="btn-group language" *ngIf="isMobile" ngbDropdown role="group" [placement]="arabic ? 'bottom-right' : 'bottom-left'">
+                        <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
                                 {{selected_language}}
                             </button>
-                                    <!-- <div class="dropdown-menu sml dropdown-menu-right" ngbDropdownMenu>
+                      <div class="dropdown-menu sml dropdown-menu-right" ngbDropdownMenu>
                                 <button class="dropdown-item" type="button" ngbDropdownItem (click)="changeLanguage()" (click)="openMenu()">
                   {{optional_language}}
                 </button>
-                            </div> -->
-                                </div>
-                                <!-- <div class="only-riyadh" *ngIf="!isMobile">
+                            </div>
+                    </div> -->
+                    <!-- <div class="only-riyadh" *ngIf="!isMobile">
                             <p class="m-0" style="text-transform: uppercase;">{{LANG.Delivery_is_only_inside_Riyadh}}</p>
                         </div> -->
 
-                                <!-- <a *ngIf="!isMobile" class="country-list">
+                    <!-- <a *ngIf="!isMobile" class="country-list">
             <span class="pr-3">{{LANG.Ship_to}}</span>
             <div class="btn-group country" ngbDropdown role="group" *ngIf="!isMobile" display="dynamic" placement="bottom-right">
                 <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
@@ -78,70 +78,71 @@
                 </div>
             </div>
           </a> -->
-                            </div>
-                            <div class="col-3"></div>
-                            <div class="col-5 header-last">
-                                <!-- <input type="search" placeholder="Search In Bloss" (input)="search($event)" [(ngModel)]="search_keyword"> -->
+                </div>
+                <!-- <div class="col-3"></div> -->
+                <div class="col-md-6 col-6  header-last">
 
-                                <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="search mt-3" #search_menu>
-                                    <div class="search-input" #search_input>
-                                        <img src="assets/images/icons/search.svg" alt="search">
-                                        <input type="text" placeholder="{{LANG.Search}}" name="search" id="search" (input)="search($event)" [(ngModel)]="search_keyword" autocomplete="off">
-                                    </div>
-                                    <div class="result_tab" *ngIf="result_tab" id="search-area" #search_result>
-                                        <ul *ngIf="search_results.length > 0">
-                                            <div class="search-result-item" *ngFor="let result of search_results">
-                                                <li (click)="onSearchClick(result)">{{result.title}}</li>
-                                            </div>
-                                        </ul>
-                                        <ul *ngIf="no_result">
-                                            <li id="no_result" style="width:100%">{{LANG.No_results_found}}</li>
-                                        </ul>
-                                    </div>
+                    <!-- <input type="search" placeholder="Search In Bloss" (input)="search($event)" [(ngModel)]="search_keyword"> -->
+
+                    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="search mt-3" #search_menu>
+                        <div class="search-input" #search_input>
+                            <img src="assets/images/icons/search.svg" alt="search">
+                            <input type="text" placeholder="{{LANG.Search}}" name="search" id="search" (input)="search($event)" [(ngModel)]="search_keyword" autocomplete="off">
+                        </div>
+                        <div class="result_tab" *ngIf="result_tab" id="search-area" #search_result>
+                            <ul *ngIf="search_results.length > 0">
+                                <div class="search-result-item" *ngFor="let result of search_results">
+                                    <li (click)="onSearchClick(result)">{{result.title}}</li>
                                 </div>
-                                <div class="btn-group language" ngbDropdown role="group" display="dynamic" [placement]="arabic ? 'bottom-left' : 'bottom-right'">
-                                    <button class="action-btn profile" ngbDropdownToggle>
+                            </ul>
+                            <ul *ngIf="no_result">
+                                <li id="no_result" style="width:100%">{{LANG.No_results_found}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="btn-group language" ngbDropdown role="group" display="dynamic" [placement]="arabic ? 'bottom-left' : 'bottom-right'">
+                        <button class="action-btn profile" ngbDropdownToggle>
                         <img src="assets/images/icons/user.svg" alt="cart btn" height="20px" width="18px">
                       </button>
-                                    <div class="dropdown-menu sml dropdown-menu-right" ngbDropdownMenu>
-                                        <button class="dropdown-item" type="button" ngbDropdownItem (click)="openLoginModal(loginModal,1)" *ngIf="!logged_in">
+                        <div class="dropdown-menu sml dropdown-menu-right" ngbDropdownMenu>
+                            <button class="dropdown-item" type="button" ngbDropdownItem (click)="openLoginModal(loginModal,1)" *ngIf="!logged_in">
                           <i class="fa fa-sign-in" aria-hidden="true"></i> {{LANG.Login_Register}}
                         </button>
-                                        <ng-container *ngIf="logged_in">
-                                            <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile">
+                            <ng-container *ngIf="logged_in">
+                                <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile">
                             <img src="assets/images/icons/user.svg" alt="cart btn" height="20px" width="18px">
                             {{LANG.My_Account}}
                           </button>
-                                            <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile/my-orders">
+                                <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile/my-orders">
                             <i class="fa fa-archive" aria-hidden="true"></i> {{LANG.My_Orders}}
                           </button>
-                                            <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile/my-address">
+                                <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile/my-address">
                             <i class="fa fa-address-book-o" aria-hidden="true"></i> {{LANG.My_Addresses}}
                           </button>
-                                            <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile/my-wishlist">
+                                <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile/my-wishlist">
                             <img src="assets/images/icons/wishlist.svg" alt="cart btn" height="20px" width="18px">
                             {{LANG.My_Wishlist}}
                           </button>
-                                            <button class="dropdown-item" type="button" ngbDropdownItem (click)="logout()">
+                                <button class="dropdown-item" type="button" ngbDropdownItem (click)="logout()">
                             <i class="fa fa-sign-out" aria-hidden="true"></i> {{LANG.Logout}}
                           </button>
-                                        </ng-container>
-                                    </div>
-                                </div>
-                                <a routerLink="/my-cart" class="position-relative"><img src="assets/images/icons/shopping-bag.svg" alt="" />
-                                    <span class="count">{{cart_count}}</span>
-
-                                </a>
-                            </div>
+                            </ng-container>
                         </div>
                     </div>
+                    <a routerLink="/my-cart" class="position-relative"><img src="assets/images/icons/shopping-bag.svg" alt="" />
+                        <span class="count">{{cart_count}}</span>
 
-
+                    </a>
                 </div>
-
-
             </div>
         </div>
+
+
+        <!-- </div> -->
+
+
+        <!-- </div> -->
+        <!-- </div> -->
 
         <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="search mt-3" #search_menu>
             <div class="search-input" #search_input>
@@ -284,7 +285,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <span></span>
+                                            <!-- <span></span> -->
                                             <input type="text" placeholder="{{LANG.Mobile_Number}}" class="form-control" name="mobile_number" maxlength="10" [(ngModel)]="mobile_number" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)">
                                         </div>
                                         <span class="error" *ngIf="login_error.mobile_number">{{LANG.This_field_is_required}}</span>
