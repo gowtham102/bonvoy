@@ -980,6 +980,10 @@ div.password {
     .login-bg-img img {
         height: 200px;
     }
+    .border-wra {
+        justify-content: flex-start;
+        grid-column-gap: 20px;
+    }
     .login-modal .country input {
         width: 100%;
         margin: 0;
@@ -1039,7 +1043,8 @@ div.password {
     }
     .header-last {
         display: flex !important;
-        justify-content: center;
+        grid-column-gap: 27px;
+        /* justify-content: center; */
         /* margin-top: 20px; */
     }
     .menu a {

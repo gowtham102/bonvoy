@@ -10,7 +10,7 @@
     <div class="product-container container mt-3" [class.no-product]="no_product">
         <ng-container *ngIf="!no_product && product_loaded">
             <div class="breadcrumbs mb-4">
-                <div class="row m-0 px-4">
+                <div class="row m-0 px-4 breadcrum-padding">
                     <p><a routerLink="/">{{LANG.Home}} </a> / <a (click)="goToproductList()" class="cur-pointer">{{product_details.category}}</a> / <a class="active">{{product_details.title}}</a> </p>
                 </div>
             </div>
@@ -163,11 +163,11 @@
     </div>
     <div class="scrool-spy-sec tab-content">
 
-        <div id="overview" role="tabpanel" class="tab-pane  active " >
+        <div id="overview" role="tabpanel" class="tab-pane  active ">
             <ng-container *ngFor="let item of product_details?.overview">
                 <img src="{{item.image}}" class="w-100" alt="" />
             </ng-container>
-            
+
         </div>
         <div id="specification" class="specification container-fluid tab-pane fade" role="tabpanel">
             <h4>Specifications</h4>
