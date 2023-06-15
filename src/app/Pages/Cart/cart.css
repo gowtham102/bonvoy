@@ -451,11 +451,11 @@
         flex-wrap: wrap;
     }
     .cart-details .single-item .details {
-        width: 70%;
+        width: 60%;
     }
     .cart-details .single-item .quantity.detail {
         margin: auto;
-        margin-left: 90px;
+        margin-left: calc(100% - 55%);
         /* margin-left: 50%;
         transform: translateX(-40%);
         margin-top: -8%; */
@@ -479,6 +479,10 @@
         background: transparent;
         -webkit-text-fill-color: rgb(0, 0, 0);
         -webkit-opacity: 1;
+        margin: 0 10px;
+    }
+    .cart-product {
+        width: 37%;
     }
 }
 

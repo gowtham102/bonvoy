@@ -297,6 +297,9 @@ footer .footer-section .footer-padding p {
 }
 
 @media screen and (max-width: 576px) {
+    .mob-footer {
+        padding-left: 35px;
+    }
     .footer-row1 h2 {
         font-size: 24px;
     }
