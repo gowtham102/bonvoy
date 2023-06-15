@@ -1156,7 +1156,3 @@ a:hover {
     transform: scale(2);
     object-fit: cover;
 } */
-
-.quantity input {
-    color: #000 !important;
-}
