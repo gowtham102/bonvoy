@@ -140,6 +140,8 @@ del {
     font-size: 29px;
     color: #000000;
     font-family: 'roobert-bold';
+    -webkit-text-fill-color: rgb(0, 0, 0);
+    -webkit-opacity: 1;
 }
 
 .details button.add-cart {
