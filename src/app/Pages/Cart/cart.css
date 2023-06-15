@@ -472,6 +472,10 @@
     .cart-details .single-item .available-date p.label {
         width: 70%;
     }
+    .quantity input {
+        width: 20%;
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 320px) {
