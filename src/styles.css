@@ -90,7 +90,7 @@
 
 body {
     font-family: 'GothaProReg';
-    color: var(--t-color);
+    color: #000;
 }
 
 form {
