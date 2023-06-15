@@ -107,6 +107,7 @@ export class ProductDetailsComponent implements OnInit {
 
 
     ngOnInit(){
+      this.onActivate()
       this.changeLanguage();
     }
 
@@ -149,11 +150,13 @@ export class ProductDetailsComponent implements OnInit {
   }
     getProductDetails2(event:any){
       this.subscriptions.push(this.productService.getProductDetails(event).subscribe((result:any)=>{
+
           if(result.response.length == 0){
               this.no_product=true;
               this.product_loaded=true;
               return
           }
+          this.onActivate()
           this.product_details=result.response;
           this.product_details.quantity="1";
           this.product_details.display_from_date=this.formatDate(this.product_details.delivery_from);
@@ -171,6 +174,20 @@ export class ProductDetailsComponent implements OnInit {
           this.img_error=true;
       }))
   }
+
+
+  onActivate() {
+    // window.scroll(0,0);
+ 
+    window.scroll({ 
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth' 
+     });
+ 
+     //or document.body.scrollTop = 0;
+     //or document.querySelector('body').scrollTo(0,0)
+ }
   getRelatedProducts(parent_sku:string){
     this.subscriptions.push(this.productService.getRelatedProducts(parent_sku).subscribe((result:any)=>{
       if(result.status){
