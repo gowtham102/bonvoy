@@ -35,10 +35,7 @@
                     </div>
 
                     <div class="single-item align-centered" *ngFor="let data of cartDetails.cart_Detail;let i=index;">
-                        <div class="img cur-pointer" (click)="goToproductDetails(data)" *ngIf="data?.available_quantity>0">
-                            <img src="{{data.image}}" alt="image" onError="this.src='assets/images/icons/logo-grey.svg';">
-                        </div>
-                        <div class="img cur-pointer out-of-stock" (click)="goToproductDetails(data)" *ngIf="data?.available_quantity==0">
+                        <div class="img cur-pointer" (click)="goToproductDetails(data)">
                             <img src="{{data.image}}" alt="image" onError="this.src='assets/images/icons/logo-grey.svg';">
                         </div>
                         <div class="details">

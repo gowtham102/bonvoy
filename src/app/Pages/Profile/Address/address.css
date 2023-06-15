@@ -383,8 +383,9 @@ span.overlay {
         left: 25%;
     }
     .address .country-code input {
-        margin-left: 35%;
-        width: 65%;
+        margin-left: 0;
+        width: 100%;
+        padding-left: 9px;
     }
     .address .country input {
         width: 100%;
@@ -394,6 +395,7 @@ span.overlay {
         width: 80px;
         height: 35px;
         margin: 10px 10px 0 0;
+        padding: 0;
     }
     .add-address-modal .address {
         padding: 20px;

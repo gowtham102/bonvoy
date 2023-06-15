@@ -627,8 +627,9 @@
             left: 25%;
         }
         .address .country-code input {
-            margin-left: 35%;
-            width: 65%;
+            margin-left: 0;
+            width: 100%;
+            padding-left: 9px;
         }
         .address .country input {
             width: 100%;

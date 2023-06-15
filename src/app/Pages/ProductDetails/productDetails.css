@@ -527,9 +527,9 @@ section.similar-products {
 }
 
 @media screen and (max-width: 576px) {
-    .prod-quantity {
+    /* .prod-quantity {
         justify-content: space-between;
-    }
+    } */
     .product-det-img {
         grid-row-gap: 20px;
     }
