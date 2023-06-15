@@ -53,8 +53,7 @@ button.checkout {
     width: 71%;
 }
 
-
-.thank-you img{
+.thank-you img {
     height: 100% !important;
     width: 50% !important;
 }
@@ -74,32 +73,33 @@ button.checkout {
         width: 50%;
         min-width: 180px;
     }
-
 }
 
 @media screen and (max-width: 572px) {
     .thank-you-wrapper {
-        padding: 30px;
-        padding-top: 70px;
+        padding: 10px 20px 30px;
     }
     .thank-you-wrapper .thank-you {
         padding: 15px;
         text-align: center;
         width: auto;
         height: auto;
+        flex-wrap: wrap;
     }
-    .thank-you-wrapper .thank-you img {
+    /* .thank-you-wrapper .thank-you img {
         position: relative;
         bottom: 75px;
         left: 0;
         width: 250px;
         height: 300px;
-    }
-
+    } */
     .thank-you-wrapper .thank-you .content {
         padding: 0;
         margin: 0;
-        margin-top: -65px;
+        /* margin-top: -65px; */
+    }
+    .thank-you-wrapper .thank-you .content h1 {
+        font-size: 36px;
     }
 }
 
