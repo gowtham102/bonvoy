@@ -475,8 +475,10 @@
     .quantity input {
         width: 20%;
         text-align: center;
-        color: grey;
+        color: #000;
         background: transparent;
+        -webkit-text-fill-color: rgb(0, 0, 0);
+        -webkit-opacity: 1;
     }
 }
 
