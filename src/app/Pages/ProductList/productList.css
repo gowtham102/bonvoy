@@ -159,6 +159,14 @@ button.checkout {
     width: 52% !important;
 }
 
+.smart-watch {
+    font-size: 38px;
+    padding-top: 36px;
+    text-align: center;
+    color: #000;
+    font-family: 'roobert-med';
+}
+
 @media screen and (min-width: 573px) and (max-width: 1199px) {
     /* .prod-image img{
         width: 100%;
@@ -169,7 +177,12 @@ button.checkout {
     } */
 }
 
-@media screen and (max-width: 572px) {
+@media screen and (max-width: 576px) {
+    .smart-watch {
+        font-size: 26px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
     .site_wrapper {
         overflow: hidden;
     }

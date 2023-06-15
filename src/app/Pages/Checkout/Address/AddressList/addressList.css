@@ -29,13 +29,13 @@
         margin: 10px 0px 0px 0px;
         height: 100%;
     }
-
-    .position-payment{
+    
+    .position-payment {
         margin-top: 20px;
         margin-bottom: 10px;
     }
-
-    .position-fix{
+    
+    .position-fix {
         position: sticky;
         left: 55%;
         /* top: 43%; */
@@ -47,7 +47,7 @@
         font-size: 12px;
         color: #000;
         font-family: 'roobert-med';
-        text-decoration: underline;
+        /* text-decoration: underline; */
     }
     /* .address-list .single-address.active {
     background: var(--c-cart);
@@ -216,6 +216,7 @@
     .preview-card {
         display: flex;
         justify-content: space-between;
+        margin: 0;
     }
     
     .cart-details:last-child {
@@ -715,18 +716,17 @@
     .form-address {
         display: block !important;
     }
-    .country-input{
+    
+    .country-input {
         display: flex;
         align-items: center;
     }
-    .country-input .input-message{
+    
+    .country-input .input-message {
         width: 100%;
     }
-
-
     /* payment */
-
-
+    
     .cart-details {
         padding: 25px 50px;
         background: var(--c-white);
@@ -736,7 +736,7 @@
     .cart-details h6 {
         font-family: 'roobert-med';
         font-size: 12px;
-        margin-bottom: 22px;
+        margin-bottom: 0;
         color: #000;
     }
     
