@@ -80,6 +80,13 @@
 .prod_det_thumb i {
     font-size: 85px;
 }
+.available-quantity{
+    margin-top: 20px;
+    font-family: 'roobert-med';
+    font-size: 19px;
+}
+
+
 
 .prod-desc h2 {
     /* font-family: 'Playfair Display'; */

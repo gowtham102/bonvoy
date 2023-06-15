@@ -41,19 +41,23 @@
                     <h6>{{LANG.Summary}}</h6>
                     <div class="single-item" *ngFor="let data of cartDetails.cart_Detail;let i=index;">
                         <!-- <a class="remove-cart" (click)="removeCart(data)"><img src="assets/images/icons/close.svg"></a> -->
-                        <div class="img cursor-pointer" (click)="goToproductDetails(data)">
+                        <div class="img cursor-pointer out-of-stock" (click)="goToproductDetails(data)" *ngIf="data.available_quantity==0">
+                            <img src="{{data.image}}" alt="image" onError="this.src='assets/images/icons/logo-grey.svg';">
+                        </div>
+                        <div class="img cursor-pointer" (click)="goToproductDetails(data)" *ngIf="data.available_quantity>0">
                             <img src="{{data.image}}" alt="image" onError="this.src='assets/images/icons/logo-grey.svg';">
                         </div>
                         <div class="details">
                             <p class="cur-pointer" (click)="goToproductDetails(data)">{{data.product_title}}</p>
-                            <span><del *ngIf="+data.discount > 0">{{data.unit_price}} {{data.currency}}</del>{{+data.unit_price - +data.discount}} {{data.currency}} </span>
+                            <p  >Out Of Stock</p>
+                            <span *ngIf="data?.available_quantity>0"><del *ngIf="+data.discount > 0">{{data.unit_price}} {{data.currency}}</del>{{+data.unit_price - +data.discount}} {{data.currency}} </span>
                             <!-- <div class="quantity">
                                 <span class="plus" (click)="incrementQuantity(data)"><img class="centered" src="assets/images/icons/plus.svg" alt="plus"></span>
                                 <input type="text" name="quantity" [(ngModel)]="data.quantity" disabled>
                                 <span class="minus" (click)="decrementQuantity(data)"><img class="centered" src="assets/images/icons/minus.svg" alt="minus"></span>
                             </div> -->
                         </div>
-                        <div class="quantity">
+                        <div class="quantity" *ngIf="data?.available_quantity>0">
                             <span class="plus" (click)="decrementQuantity(data)"><img class="" src="assets/images/icons/minus-icon.svg" alt="plus"></span>
                             <input type="text" name="quantity" [(ngModel)]="data.quantity" disabled>
                             <span class="minus" (click)="incrementQuantity(data)"><img class="" src="assets/images/icons/plus-icon.svg" alt="minus"></span>

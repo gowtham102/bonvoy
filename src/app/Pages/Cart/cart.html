@@ -35,12 +35,16 @@
                     </div>
 
                     <div class="single-item align-centered" *ngFor="let data of cartDetails.cart_Detail;let i=index;">
-                        <div class="img cur-pointer" (click)="goToproductDetails(data)">
+                        <div class="img cur-pointer" (click)="goToproductDetails(data)" *ngIf="data?.available_quantity>0">
+                            <img src="{{data.image}}" alt="image" onError="this.src='assets/images/icons/logo-grey.svg';">
+                        </div>
+                        <div class="img cur-pointer out-of-stock" (click)="goToproductDetails(data)" *ngIf="data?.available_quantity==0">
                             <img src="{{data.image}}" alt="image" onError="this.src='assets/images/icons/logo-grey.svg';">
                         </div>
                         <div class="details">
                             <p class="cur-pointer" (click)="goToproductDetails(data)">{{data.product_title}}</p>
-                            <span><del *ngIf="+data.discount > 0">{{data.unit_price}} {{data.currency}}</del>{{+data.unit_price - +data.discount}} {{data.currency}} </span>
+                            <p class="" >Out Of Stock</p>
+                            <span *ngIf="data?.available_quantity>0"><del *ngIf="+data.discount > 0">{{data.unit_price}} {{data.currency}}</del>{{+data.unit_price - +data.discount}} {{data.currency}} </span>
                             <p class="p-0">
                                 <a class="remove" (click)="removeCart(data)"><img src="assets/images/icons/remove-cross.svg" alt="remove">
                                     <!-- {{LANG.Remove}} -->
@@ -49,7 +53,7 @@
                             </p>
                         </div>
                         <div class="d-flex align-centered quant-date">
-                            <div class="quantity detail">
+                            <div class="quantity detail" *ngIf="data?.available_quantity>0">
                                 <span class="minus" (click)="decrementQuantity(data)"><img class="" src="assets/images/icons/minus-icon.svg" alt="minus"></span>
                                 <input type="text" name="quantity" [(ngModel)]="data.quantity" disabled>
                                 <span class="plus" (click)="incrementQuantity(data)"><img class="" src="assets/images/icons/plus-icon.svg" alt="plus"></span>
@@ -180,7 +184,7 @@
                         </li>
                     </ul>
 
-                    <button class="checkout mt-4" routerLink="/checkout/address">{{LANG.Checkout}}</button>
+                    <button class="checkout mt-4" routerLink="/checkout/address" [disabled]="">{{LANG.Checkout}}</button>
 
 
                 </div>
