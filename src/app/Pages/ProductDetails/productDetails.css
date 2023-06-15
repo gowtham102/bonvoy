@@ -139,7 +139,7 @@ del {
     text-align: center;
     font-size: 29px;
     color: #000000;
-    font-family: 'roobert-med';
+    font-family: 'roobert-bold';
 }
 
 .details button.add-cart {
@@ -518,6 +518,9 @@ section.similar-products {
 }
 
 @media screen and (max-width: 576px) {
+    .prod-quantity {
+        justify-content: space-between;
+    }
     .product-det-img {
         grid-row-gap: 20px;
     }
@@ -647,7 +650,7 @@ section.similar-products {
     }
     .quantity,
     .quantity input {
-        width: 80px;
+        width: 67px;
     }
     .details button.add-cart {
         width: 150px;
