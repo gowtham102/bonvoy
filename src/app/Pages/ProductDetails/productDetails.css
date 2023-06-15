@@ -651,6 +651,8 @@ section.similar-products {
     .quantity,
     .quantity input {
         width: 67px;
+        -webkit-text-fill-color: rgb(0, 0, 0);
+        -webkit-opacity: 1;
     }
     .details button.add-cart {
         width: 150px;

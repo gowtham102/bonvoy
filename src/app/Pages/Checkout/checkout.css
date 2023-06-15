@@ -137,6 +137,8 @@ del {
     font-size: 20px;
     font-family: 'roobert-bold';
     color: #000;
+    -webkit-text-fill-color: rgb(0, 0, 0);
+    -webkit-opacity: 1;
 }
 
 
