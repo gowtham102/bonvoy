@@ -663,6 +663,12 @@ opacity: 1;
         height: 300px;
         object-fit: scale-down;
     } */
+    .section-6-row{
+        flex-direction: row-reverse;
+    }
+    .section6-img-right{
+        padding: 0;
+    }
         .section3,
         .section5-img {
             display: none;
