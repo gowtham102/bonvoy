@@ -63,10 +63,10 @@
                             <span class="minus" (click)="decrementQuantity()"><img class=""
                                     src="assets/images/icons/minus-icon.svg" alt="minus"></span>
                             <input type="text" [ngModel]="product_details.quantity" disabled>
-                            <span class="plus" (click)="incrementQuantity()"><img class=""
+                            <span class="plus" (click)="incrementQuantity()" *ngIf="product_details.available_quantity>product_details.quantity"><img class=""
                                     src="assets/images/icons/plus-icon.svg" alt="plus"></span>
                         </div>
-                        <button class="add-cart" (click)="addToCart(product_details,1)" *ngIf="!load;else loader;" [class.out-of-stock]="product_details?.stock == '2'">{{product_details?.stock == '2' ?
+                        <button class="add-cart" (click)="addToCart(product_details,1)" [disabled]="product_details.available_quantity==0" *ngIf="!load;else loader;" [class.out-of-stock]="product_details?.stock == '2'">{{product_details?.stock == '2' ?
                             LANG.out_of_stock : LANG.ADD_TO_CART}}</button>
                         <!-- <button class="btn" (click)="addToWishlist(product_details)">                                        
                             <i class="fa fa-heart" [class.active]="product_details.wishlist == '1'" aria-hidden="true"></i>                        
@@ -83,6 +83,7 @@
                             <span class="tooltip">Black</span>
                         </div> -->
                     </div>
+                    <p class="available-quantity"><span>Available Quantity : </span>{{product_details.available_quantity}}</p>
 
                     <div class="shipping">
                         <div class="row">

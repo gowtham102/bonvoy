@@ -195,7 +195,9 @@ li:focus-visible {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
+button:disabled {
+    background: #91a6a6 !important;
+}
 ngb-datepicker {
     transform: translate(-50%, -50%) !important;
     left: 50% !important;

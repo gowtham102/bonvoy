@@ -12,6 +12,11 @@
     padding-bottom: 30px;
 }
 
+.out-of-stock{
+    background: #ccc;
+    opacity: 0.5;
+}
+
 .cart-details {
     background: var(--c-white);
     padding: 25px 15%;
