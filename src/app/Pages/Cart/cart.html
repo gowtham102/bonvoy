@@ -35,12 +35,15 @@
                     </div>
 
                     <div class="single-item align-centered" *ngFor="let data of cartDetails.cart_Detail;let i=index;">
-                        <div class="img cur-pointer" (click)="goToproductDetails(data)">
+                        <div class="img cur-pointer cart-product" (click)="goToproductDetails(data)" *ngIf="data.available_quantity>0">
                             <img src="{{data.image}}" alt="image" onError="this.src='assets/images/icons/logo-grey.svg';">
+                        </div>
+                        <div class="img cur-pointer cart-product" (click)="goToproductDetails(data)" *ngIf="data.available_quantity==0">
+                            <img class="out-of-stock" src="{{data.image}}" alt="image" onError="this.src='assets/images/icons/logo-grey.svg';">
                         </div>
                         <div class="details">
                             <p class="cur-pointer" (click)="goToproductDetails(data)">{{data.product_title}}</p>
-                            <p class="" >Out Of Stock</p>
+                            <p  *ngIf="data.available_quantity==0">Out Of Stock</p>
                             <span *ngIf="data?.available_quantity>0"><del *ngIf="+data.discount > 0">{{data.unit_price}} {{data.currency}}</del>{{+data.unit_price - +data.discount}} {{data.currency}} </span>
                             <p class="p-0">
                                 <a class="remove" (click)="removeCart(data)"><img src="assets/images/icons/remove-cross.svg" alt="remove">

@@ -189,6 +189,16 @@ li:focus-visible {
     overflow: hidden;
 }
 
+.out-of-stock{
+    background: #ccc;
+    opacity: 0.5;
+}
+
+.out-of-stock-div{
+    opacity: 0.4 !important;
+    cursor: no-drop !important
+}
+
 .centered {
     position: absolute;
     top: 50%;

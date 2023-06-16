@@ -339,16 +339,27 @@
                                             <i class="fa fa-heart" [class.active]="data.wishlist == '1'" aria-hidden="true"></i>                      
                                         </button>
                                         </a>
-                                        <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)">
+                                        <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)" *ngIf="data.available_quantity>0">
+                                            <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';">
+                                        </div>
+                                        <div class="prod-image cur-pointer out-of-stock-div" (click)="goToProductDetails(data.id)" *ngIf="data.available_quantity==0">
                                             <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';">
                                         </div>
                                         <div class="prod-name text-left ">
                                             <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
                                             <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
                                         </div>
-                                        <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else slider_loader;" [class.out-of-stock]="data?.stock == '2'">
-                                        {{data?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}
-                                            </button>
+                                        <ng-container *ngIf="data.available_quantity>0">
+                                            <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else slider_loader;" [class.out-of-stock]="data?.stock == '2'">
+                                                {{data?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}
+                                                    </button>
+                                        </ng-container>
+                                        <ng-container *ngIf="data.available_quantity==0">
+                                            <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else slider_loader;" [class.out-of-stock]="data?.stock == '2'" disabled>
+                                                Out Of Stock
+                                                    </button>
+                                        </ng-container>
+                                        
                                         <ng-template #slider_loader>
                                             <button class="add-cart m-auto cart-loader"> 
                                         <loader></loader>
