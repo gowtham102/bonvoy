@@ -285,7 +285,7 @@ button.checkout {
 
 .facets__summary>span {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     min-width: auto;
     padding-inline-end: 3.5rem;
     line-height: calc(1 + 0.3 / var(--font-body-scale));

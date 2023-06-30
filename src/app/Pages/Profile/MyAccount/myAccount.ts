@@ -4,7 +4,8 @@ import { ProfileService } from 'src/app/SharedResources/Services/profile.service
 import { ToastrManager } from 'ng6-toastr-notifications';
 import { SharedService } from 'src/app/SharedResources/Services/shared.service';
 import { profile_data } from 'src/app/SharedResources/Models/profile.model'
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
+import * as firebase from 'firebase/app';
 import { environment } from "src/environments/environment";
 import { LoginService } from 'src/app/SharedResources/Services/login.service';
 

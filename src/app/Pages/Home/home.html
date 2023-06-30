@@ -1,23 +1,24 @@
 <!-- <div class="site-w"></div> -->
+
 <div class="site_wrapper ">
-    <div class="banner ">
+    <div (click)="goToproductList(home_page?.banner[0],1)" class="banner " style="background-image: url({{home_page?.banner[0]?.image}}); background-size: 100%; ">
         <div class=" container">
             <owl-carousel-o [options]="customOptions">
                 <ng-template carouselSlide *ngFor="let data of home_page?.banner">
-                    <div class="row banner-image">
+                    <!-- <div class="row banner-image">
                         <div class="col-md-6 col-6">
                             <h2>{{home_page?.banner[0]?.TITLE}} </h2>
                             <button class="btn">Buy now</button>
-                            <!-- <span>Watch</span> -->
+                            <span>Watch</span>
 
-                        </div>
-                        <div class="col-md-6 col-6">
+                        </div> -->
+                        <!-- <div class="col-md-6 col-6">
                             <div class="col-md-8 mx-auto">
                                 <img src="{{home_page?.banner[0]?.image}}" alt="banner-image">
                             </div>
-                        </div>
+                        </div> 
 
-                    </div>
+                    </div> -->
 
                     <!-- <div class="centered text-center">
                     
@@ -539,7 +540,7 @@ background-size: cover;">
     <div class="container">
         <div class="section5-img">
             <div class="col-md-3 sec-img">
-                <img src="assets/images/icons/logo1.png">
+                <img src="assets/images/icons/newlogoBonvoy.png">
 
             </div>
 

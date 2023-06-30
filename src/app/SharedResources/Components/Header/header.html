@@ -34,12 +34,12 @@
 
     </div> -->
     <header [class.header-padding]="!isCollapsed" [class.shrink]="sticky_header">
-        <div class="container">
+        <div class="contain-wrap">
             <!-- <div class="row justify-content-between align-center"> -->
             <div class="row logo-head ">
                 <div class="logo col-md-2 col-12 mob-nav">
                     <a routerLink="/">
-                        <img src="assets/images/icons/logo1.svg" alt="Logo img" height="66px">
+                        <img src="assets/images/bonvoy/logoBonvoy2.png" alt="Logo img" >
                     </a>
                 </div>
                 <!-- <button class="menu-btn" (click)="menu()">
@@ -48,7 +48,7 @@
                 <!-- <div class=" col-md-10 "> -->
                 <!-- <button class="close-icon btn" (click)="menu()"><i class="fa fa-times" aria-hidden="true"></i></button> -->
                 <!-- <div class="row mob-row"> -->
-                <div class="logo  col-md-4 col-6 menu d-flex align-center border-wra">
+                <div class="logo  col-md-8 col-6 menu d-flex align-center border-wra">
                     <a routerLink="/products">All</a>
                     <a (click)="goToproductList(data,1)" *ngFor="let data of categories;let i=index;"><span>{{data.title}}</span></a>
                     <!-- <div class="btn-group language" *ngIf="isMobile" ngbDropdown role="group" [placement]="arabic ? 'bottom-right' : 'bottom-left'">
@@ -80,9 +80,12 @@
           </a> -->
                 </div>
                 <!-- <div class="col-3"></div> -->
-                <div class="col-md-6 col-6  header-last">
+                <div class="col-md-2 col-6  header-last">
 
                     <!-- <input type="search" placeholder="Search In Bloss" (input)="search($event)" [(ngModel)]="search_keyword"> -->
+                <div class="searchbar">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
 
                     <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="search mt-3" #search_menu>
                         <div class="search-input" #search_input>

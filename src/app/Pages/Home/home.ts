@@ -241,7 +241,12 @@ export class HomeComponent implements OnInit {
     }))
   }
 
-  goToproductList(){
+  goToproductList(data?:any,type?:number){
+    if(type === 1){
+      this.router.navigate(['/products'],{ queryParams: { category_id: btoa(btoa(data.id))}});
+      // this.openMenu();
+      return
+    }
     this.router.navigate(['/products']);
   }
 

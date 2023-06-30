@@ -1,6 +1,6 @@
     .banner {
-        background: #ECECEC;
-        height: 486px;
+        /* background: #ECECEC; */
+        height: 930px;
     }
     
     .banner h2 {
@@ -582,7 +582,9 @@ opacity: 1;
     /* .section5 {
     background: #B2D6EC;
 } */
-    
+    /* .banner{
+        background: url(assests/images/bonvoy/);
+    } */
     @media screen and (min-width: 573px) and (max-width: 1199px) {
         .services {
             height: auto;

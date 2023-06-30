@@ -12,14 +12,24 @@ input:focus-visible {
 }
 
 .border-wra {
-    grid-column-gap: 37px;
-    justify-content: center;
+    grid-column-gap: 50px;
+    /* justify-content: center; */
+    padding-left: 100px;
 }
+
+.searchbar i{
+    font-size: 20px;
+    padding-top: 5px;
+}
+
+
+
+
 
 .menu a {
     padding: 0;
     color: #000000;
-    font-size: 14px;
+    font-size: 20px;
     font-family: 'roobert-med';
     cursor: pointer;
 }
@@ -820,6 +830,9 @@ div.password {
     border-radius: 18px;
     border: none;
     color: var(--c-white);
+}
+.contain-wrap{
+    margin: 0px 80px;
 }
 
 @media screen and (min-width: 1200px) {

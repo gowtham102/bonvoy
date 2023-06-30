@@ -5,7 +5,8 @@ import { SharedService } from '../../Services/shared.service';
 import { Subscription, timer } from 'rxjs';
 import { HeaderService } from '../../Services/header.service';
 import { NavigationEnd, Router } from '@angular/router';
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
+import * as firebase from 'firebase/app';
 import { WindowService } from 'src/app/SharedResources/Services/window.service';
 import { login_data } from '../../Models/login.model'
 
@@ -32,6 +33,7 @@ declare const $: any;
 })
 
 export class HeaderComponent implements OnInit {
+  
     isMobile:boolean=true;
     logged_in:boolean=true;
     show_menu:boolean=true;
