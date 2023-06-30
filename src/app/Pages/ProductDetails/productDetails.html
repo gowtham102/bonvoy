@@ -233,7 +233,7 @@
                 <div class="owl-theme partner-carousel mt-2 position-relative">
                     <owl-carousel-o [options]="bestSeller">
                         <ng-template carouselSlide *ngFor="let data of related_products;let i=index;">
-                            <div class="item cur-pointer prod text-center">
+                            <div class="item cur-pointer prod text-center" [class.out-of-stock]="data?.stock == '2'">
                                 <a>
                                     <button class="wishlist" (click)="addToWishlist(data)">
                                         <i class="fa fa-heart" [class.active]="data.wishlist == '1'"
@@ -248,7 +248,7 @@
                                     <span>{{+data.price - +data.discount}} {{data.currency}} <del
                                             *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
                                 </div>
-                                <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else loader;" [class.out-of-stock]="data?.stock == '2'">
+                                <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else loader;">
                                     {{data?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}
                                 </button>
                                 <ng-template #loader>

@@ -39,7 +39,7 @@
             <div class="row logo-head ">
                 <div class="logo col-md-2 col-12 mob-nav">
                     <a routerLink="/">
-                        <img src="assets/images/bonvoy/logoBonvoy2.png" alt="Logo img" >
+                        <img src="assets/images/bonvoy/logoBonvoy2.png" alt="Logo img">
                     </a>
                 </div>
                 <!-- <button class="menu-btn" (click)="menu()">
@@ -83,9 +83,9 @@
                 <div class="col-md-2 col-6  header-last">
 
                     <!-- <input type="search" placeholder="Search In Bloss" (input)="search($event)" [(ngModel)]="search_keyword"> -->
-                <div class="searchbar">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </div>
+                    <div class="searchbar">
+                        <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </div>
 
                     <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="search mt-3" #search_menu>
                         <div class="search-input" #search_input>
@@ -132,7 +132,7 @@
                             </ng-container>
                         </div>
                     </div>
-                    <a routerLink="/my-cart" class="position-relative"><img src="assets/images/icons/shopping-bag.svg" alt="" />
+                    <a routerLink="/my-cart" class="position-relative shop-bag"><img src="assets/images/icons/shopping-bag.svg" alt="" />
                         <span class="count">{{cart_count}}</span>
 
                     </a>
@@ -206,7 +206,7 @@
         </div>
 
         <span id="menu_Overlay"></span>
-        <div class="side-nav" >
+        <div class="side-nav">
             <div class="container">
                 <nav class="navigation">
                     <ul>

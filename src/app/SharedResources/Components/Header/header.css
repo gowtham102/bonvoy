@@ -17,18 +17,14 @@ input:focus-visible {
     padding-left: 100px;
 }
 
-.searchbar i{
+.searchbar i {
     font-size: 20px;
     padding-top: 5px;
 }
 
-
-
-
-
 .menu a {
     padding: 0;
-    color: #000000;
+    color: #fff;
     font-size: 20px;
     font-family: 'roobert-med';
     cursor: pointer;
@@ -44,22 +40,24 @@ input:focus-visible {
 header {
     /* position: fixed; */
     width: 100%;
-    padding: 13px 0 15px;
+    padding: 25px 0;
     transition: .5s ease-in-out;
     /* top: 0; */
     /* left: 0; */
-    background: var(--c-white);
+    /* background: var(--c-white); */
     z-index: 999;
-    border-bottom: 1px solid var(--c-filter);
+    /* border-bottom: 1px solid var(--c-filter); */
     /* overflow: hidden; */
 }
 
+
+/* 
 header.shrink {
     padding-top: 5px;
     background: var(--c-white);
     animation: .8s fadeInDown;
-    /* box-shadow: 0 2px 4px 2px var(--c-lightgrey); */
-}
+    box-shadow: 0 2px 4px 2px var(--c-lightgrey);
+} */
 
 .header-padding {
     padding-top: 18px;
@@ -823,6 +821,26 @@ div.password {
     margin: 0;
 }
 
+.searchbar button {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: #fff;
+}
+
+.action-btn img,
+.shop-bag img {
+    filter: invert(1);
+}
+
+#header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+}
+
 .download-option .button button {
     background: var(--c-donwloadBtn);
     width: 70px;
@@ -831,8 +849,10 @@ div.password {
     border: none;
     color: var(--c-white);
 }
-.contain-wrap{
-    margin: 0px 80px;
+
+.contain-wrap {
+    margin: 0 auto;
+    width: 90%;
 }
 
 @media screen and (min-width: 1200px) {
@@ -993,10 +1013,10 @@ div.password {
     .login-bg-img img {
         height: 200px;
     }
-    .border-wra {
+    /* .border-wra {
         justify-content: flex-start;
         grid-column-gap: 20px;
-    }
+    } */
     .login-modal .country input {
         width: 100%;
         margin: 0;
@@ -1197,10 +1217,10 @@ div.password {
 .count {
     width: 20px;
     height: 20px;
-    background: #000;
+    background: #fff;
     border-radius: 50%;
     font-size: 12px;
-    color: #ffff;
+    color: #000;
     position: absolute;
     top: -2px;
     right: -15px;

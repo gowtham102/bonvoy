@@ -5,7 +5,6 @@
 
 
     <script>
-        
     </script>
 
 
@@ -34,18 +33,47 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://checkout.tabby.ai/tabby-promo.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    
+
     <script>
         new WOW().init();
     </script>
 
+
+
+
+
     <script>
-        
+        var lastScrollTop = 0;
+        $(window).scroll(function(event) {
+            var st = $(this).scrollTop();
+            // var header1 = document.getElementById("header");
+
+            if (st > lastScrollTop) {
+                $('body').removeClass('scrolling_up');
+            } else {
+                $('body').addClass('scrolling_up');
+            }
+            // if (window.pageYOffset > sticky) {
+            //     header1.classList.add("sticky-1");
+            // } else {
+            //     header1.classList.remove("sticky-1");
+            // }
+            lastScrollTop = st;
+        });
+
+        $(function() {
+            var header = $("body");
+
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                if (scroll <= 0) {
+                    header.removeClass("scrolling_up");
+
+                }
+            });
+
+        });
     </script>
-
-
-
-
 
 
 </body>

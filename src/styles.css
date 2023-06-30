@@ -185,16 +185,16 @@ li:focus-visible {
 } */
 
 .site_wrapper {
-    /* margin-top: 95px; */
+    margin-top: 95px;
     overflow: hidden;
 }
 
-.out-of-stock{
+.out-of-stock {
     background: #ccc;
     opacity: 0.5;
 }
 
-.out-of-stock-div{
+.out-of-stock-div {
     opacity: 0.4 !important;
     cursor: no-drop !important
 }
@@ -205,9 +205,11 @@ li:focus-visible {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 button:disabled {
     background: #91a6a6 !important;
 }
+
 ngb-datepicker {
     transform: translate(-50%, -50%) !important;
     left: 50% !important;
@@ -1168,3 +1170,26 @@ a:hover {
     transform: scale(2);
     object-fit: cover;
 } */
+
+.scrolling_up header {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    animation: slide-down 0.25s;
+}
+
+.scrolling_up .menu a,
+.scrolling_up .searchbar button {
+    color: #000 !important;
+}
+
+.scrolling_up .count {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+.scrolling_up .action-btn img,
+.scrolling_up .shop-bag img {
+    filter: unset !important;
+}
