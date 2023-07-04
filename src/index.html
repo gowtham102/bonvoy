@@ -46,18 +46,14 @@
         var lastScrollTop = 0;
         $(window).scroll(function(event) {
             var st = $(this).scrollTop();
-            // var header1 = document.getElementById("header");
+
 
             if (st > lastScrollTop) {
                 $('body').removeClass('scrolling_up');
             } else {
                 $('body').addClass('scrolling_up');
             }
-            // if (window.pageYOffset > sticky) {
-            //     header1.classList.add("sticky-1");
-            // } else {
-            //     header1.classList.remove("sticky-1");
-            // }
+
             lastScrollTop = st;
         });
 
