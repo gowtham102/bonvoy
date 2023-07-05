@@ -782,7 +782,7 @@ opacity: 1;
         justify-content: center;
     }
     
-    .star i {
+    .star span {
         color: #ffe67f;
     }
     

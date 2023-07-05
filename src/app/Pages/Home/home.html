@@ -375,9 +375,11 @@
                                                                                             <p>{{data.reviews}} Reviews</p>
 
                                             </div> -->
-                                            <ngb-rating [max]=5 [(rate)]="data.rating" [readonly]="true"></ngb-rating>
+                                            <div class="star">
+                                                <ngb-rating [max]=5 [(rate)]="data.rating" [readonly]="true"></ngb-rating>
 
-                                            <p>{{data.reviews}} Reviews</p>
+                                                <p>{{data.reviews}} Reviews</p>
+                                            </div>
 
 
                                             <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
@@ -412,7 +414,7 @@
             </div>
         </div>
     </div>
-    <section class="container-fluid achievement">
+    <!-- <section class="container-fluid achievement">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-4" *ngFor="let item of home_page?.achievement">
@@ -423,7 +425,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
     <div class="section3" style="background: url({{home_page?.section_3?.image}}) 0 0 no-repeat;">
