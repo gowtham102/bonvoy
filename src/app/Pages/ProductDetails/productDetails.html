@@ -66,7 +66,7 @@
                             <span class="plus" (click)="incrementQuantity()" *ngIf="product_details.available_quantity>product_details.quantity"><img class=""
                                     src="assets/images/icons/plus-icon.svg" alt="plus"></span>
                         </div>
-                        <button class="add-cart" (click)="addToCart(product_details,1)" [disabled]="product_details.available_quantity==0" *ngIf="!load;else loader;" [class.out-of-stock]="product_details?.stock == '2'">{{product_details?.stock == '2' ?
+                        <button class="add-cart" (click)="guestLogin(product_details,1)" [disabled]="product_details.available_quantity==0" *ngIf="!load;else loader;" [class.out-of-stock]="product_details?.stock == '2'">{{product_details?.stock == '2' ?
                             LANG.out_of_stock : LANG.ADD_TO_CART}}</button>
                         <button class="add-cart" (click)="BuyNow(product_details,1)" [disabled]="product_details.available_quantity==0" *ngIf="!load;else loader;" [class.out-of-stock]="product_details?.stock == '2'">{{product_details?.stock == '2' ?
                             LANG.out_of_stock : LANG.Buy_now}}</button>
@@ -250,7 +250,7 @@
                                     <span>{{+data.price - +data.discount}} {{data.currency}} <del
                                             *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
                                 </div>
-                                <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else loader;">
+                                <button class="add-cart m-auto" (click)="guestLogin(data)" *ngIf="!data.load;else loader;">
                                     {{data?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}
                                 </button>
                                 <ng-template #loader>

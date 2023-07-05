@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
@@ -23,6 +23,7 @@ import { HomeComponent } from './Pages/Home/home';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoaderModule } from './SharedResources/Components/Loader/loader.module';
 import { AboutUsModule } from './about-us/about-us.module';
+import {RatingModule} from 'ngx-bootstrap/rating'
 // import { ThankyouComponent } from './thankyou/thankyou.component';
 
 
@@ -50,6 +51,7 @@ import { AboutUsModule } from './about-us/about-us.module';
     FormsModule,
     AngularFireStorageModule,
     AboutUsModule,
+    RatingModule.forRoot()
 
   ],
   providers: [],

@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { ToastrManager } from 'ng6-toastr-notifications';
 import { CartService } from 'src/app/SharedResources/Services/cartWishlist.service';
 import { environment } from 'src/environments/environment';
+import { ProductService } from 'src/app/SharedResources/Services/product.service';
 // import 'owl.carousel';
 declare const $: any;
 
@@ -127,7 +128,7 @@ export class HomeComponent implements OnInit {
 
 
 
-    constructor(private shared:SharedService,private router:Router,private homeService:HomeService,private error:errorHandlerService,private toast:ToastrManager,private cartService:CartService){
+    constructor(private shared:SharedService,private router:Router,private homeService:HomeService,private error:errorHandlerService,private toast:ToastrManager,private cartService:CartService, public productService:ProductService){
       this.subscriptions.push(this.shared.currentUserStatus.subscribe(user=>this.logged_in=user));
       this.subscriptions.push(this.shared.languageChange.subscribe((path:any)=>{
         this.changeLanguage();
@@ -236,14 +237,35 @@ export class HomeComponent implements OnInit {
           this.toast.warningToastr(result.reponse.message,"",{position:"top-right",toastTimeout:3000}) 
     }))
   }
+  guestLoginUser:any = false
+
+  guestLogin(data:any,type?:number){
+    if(!this.logged_in){
+      this.guestLoginUser = true
+
+      this.productService.guestLogin().subscribe((res:any)=>{
+        localStorage.clear()
+        localStorage.setItem("logged_in", btoa("1"));
+        localStorage.setItem("token", res.response.token); 
+        localStorage.setItem("guest_login",this.guestLoginUser)
+
+        this.logged_in= true
+        this.addToCart(data)
+        return
+      })
+
+    }
+    else if(this.logged_in){
+      this.addToCart(data)
+    }
+  }
 
   addToCart(data:any){
     if(data.stock == "2"){
       return
     }
     if(!this.logged_in){
-      this.shared.emitModalOpen({id:data.id,type:2})
-      return
+   
     }
     data.load=true;
     const post_data={
