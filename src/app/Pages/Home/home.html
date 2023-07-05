@@ -406,6 +406,18 @@
             </div>
         </div>
     </div>
+    <section class="container-fluid achievement">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-4" *ngFor="let item of home_page?.achievement">
+                    <div class="ach-wra">
+                        <img src="{{item.image}}" alt="" />
+                        <p>{{item.TITLE}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <div class="section3" style="background: url({{home_page?.section_3?.image}}) 0 0 no-repeat;">
