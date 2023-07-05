@@ -309,7 +309,7 @@ opacity: 1; */
     }
     
     .section3 {
-        display: flex;
+        /* display: flex; */
         /* background: url(../../../assets/images/bonvoy/cover2.png) 0 0 no-repeat; */
         height: 694px;
         background-size: cover !important;
@@ -396,8 +396,8 @@ opacity: 1; */
     }
     
     .section3-img {
-        width: 50%;
-        margin-left: auto;
+        /* width: 50%; */
+        /* margin-left: auto; */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -412,11 +412,13 @@ opacity: 1; */
         padding-bottom: 72px;
     }
     
-    .section3-img p {
+    .section3-img a {
         font-size: 24px;
         color: #BAA293;
         font-family: 'Roobert-reg';
         text-decoration: underline;
+        width: max-content;
+        max-width: 100%
     }
     /* 
 .section3-img {
@@ -777,7 +779,6 @@ opacity: 1;
         .section6-img-right {
             padding: 0;
         }
-        .section3,
         .section5-img {
             display: none;
         }
@@ -916,6 +917,7 @@ opacity: 1;
         }
         .section3-img {
             width: 100%;
+            height: auto;
         }
         .section3 {
             height: auto;
