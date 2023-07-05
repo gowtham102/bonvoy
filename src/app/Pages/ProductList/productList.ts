@@ -284,15 +284,31 @@ export class ProductListComponent implements OnInit {
             this.toast.warningToastr(result.reponse.message,"",{position:"top-right",toastTimeout:3000}) 
       }))
     }
+    guestLoginUser:any = false
+    guestLogin(data:any,type?:number){
+      if(!this.logged_in){
+        this.guestLoginUser = true
+        this.productService.guestLogin().subscribe((res:any)=>{
+          localStorage.clear()
+          localStorage.setItem("logged_in", btoa("1"));
+          localStorage.setItem("token", res.response.token); 
+          this.logged_in= true
+          localStorage.setItem("guest_login",this.guestLoginUser)
+          this.addToCart(data)
+          return
+        })
+  
+      }
+      else if(this.logged_in){
+        this.addToCart(data)
+      }
+    }
 
     addToCart(data:any){
       if(data.stock == "2"){
         return
       }
-      if(!this.logged_in){
-        this.shared.emitModalOpen({id:data.id,type:2})
-        return
-     }
+      
       data.load=true;
       const post_data={
           "product_id": data.id,

@@ -448,6 +448,8 @@ sendOTP(){
     }
 }
 
+guestLogin:any= false
+
 loginUser(){
     const data:login_data={
         "device_type":"1",             
@@ -470,6 +472,7 @@ loginUser(){
             this.user_data=result.response;
             localStorage.setItem("logged_in", btoa("1"));
             localStorage.setItem("token", result.response.token);
+            localStorage.setItem("guest_login",this.guestLogin)
             localStorage.setItem(btoa(btoa(("user_info"))), btoa(btoa(unescape(encodeURIComponent(JSON.stringify(result.response))))));
             this.shared.changeCount(result.count || "0");
             this.shared.changeUserStatus(true);
@@ -510,6 +513,8 @@ loginWithOtp(data:any){
         this.user_data=result.response;
         localStorage.setItem("logged_in", btoa("1"));
         localStorage.setItem("token", result.response.token);
+        localStorage.setItem("guest_login",this.guestLogin)
+
         localStorage.setItem(btoa(btoa(("user_info"))), btoa(btoa(unescape(encodeURIComponent(JSON.stringify(result.response))))));
         this.shared.changeCount(result.count || "0");
         this.shared.changeUserStatus(true);
@@ -969,6 +974,8 @@ registerUser(){
           this.user_data=result.response;
           localStorage.setItem("logged_in", btoa("1"));
           localStorage.setItem("token", result.response.token);
+          localStorage.setItem("guest_login",this.guestLogin)
+
           localStorage.setItem(btoa(btoa(("user_info"))), btoa(btoa(unescape(encodeURIComponent(JSON.stringify(result.response))))));
           this.shared.changeCount(result.count || "0");
           this.shared.changeUserStatus(true);

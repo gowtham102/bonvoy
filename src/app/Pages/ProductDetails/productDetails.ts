@@ -234,15 +234,34 @@ export class ProductDetailsComponent implements OnInit {
     this.product_details.quantity=(parseInt(this.product_details.quantity)-1).toString()
   }
 
+  guestLoginUser:any = false
+
+  guestLogin(data:any,type?:number){
+    if(!this.logged_in){
+      this.guestLoginUser = true
+
+      this.productService.guestLogin().subscribe((res:any)=>{
+        localStorage.clear()
+        localStorage.setItem("logged_in", btoa("1"));
+        localStorage.setItem("token", res.response.token);   
+        localStorage.setItem("guest_login",this.guestLoginUser)
+
+      })
+        this.addToCart(data,type)
+        this.logged_in= true
+        return
+
+    }
+    else if(this.logged_in){
+      this.addToCart(data,type)
+    }
+  }
+
   addToCart(data:any,type?:number){
     if(data.stock == "2"){
       return
     }
-    if(!this.logged_in){
-      this.productService.guestLogin().subscribe((res:any)=>{
-        localStorage.setItem("token",res.response.token)
-      })
-    }
+    
     const post_data={
         "product_id": data.id,
         "quantity":"1"
@@ -259,6 +278,8 @@ export class ProductDetailsComponent implements OnInit {
             this.shared.changeCount(result.response.extra);
             data.load=false;
             this.toast.successToastr(this.LANG.Product_added_to_Cart,"",{position:"top-right",toastTimeout:3000});
+            this.router.navigate(['/my-cart']);
+
             if(type == 1){
               setTimeout(() => {
                   this.router.navigate(['/my-cart']);
@@ -273,10 +294,10 @@ export class ProductDetailsComponent implements OnInit {
     if(data.stock == "2"){
       return
     }
-    if(!this.logged_in){
-      this.shared.emitModalOpen({id:data.id,type:2})
-      return
-    }
+    // if(!this.logged_in){
+    //   this.shared.emitModalOpen({id:data.id,type:2})
+    //   return
+    // }
     const post_data={
         "product_id": data.id,
         "quantity":"1"
