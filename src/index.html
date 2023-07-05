@@ -17,6 +17,8 @@
     <link rel="icon" type="image/x-icon" href="assets/images/icons/logo1.svg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
     <link rel="stylesheet" href="assets/css/animate.min.css" />
 
 </head>
@@ -33,6 +35,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://checkout.tabby.ai/tabby-promo.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
 
     <script>
         new WOW().init();
@@ -46,18 +49,14 @@
         var lastScrollTop = 0;
         $(window).scroll(function(event) {
             var st = $(this).scrollTop();
-            // var header1 = document.getElementById("header");
+
 
             if (st > lastScrollTop) {
                 $('body').removeClass('scrolling_up');
             } else {
                 $('body').addClass('scrolling_up');
             }
-            // if (window.pageYOffset > sticky) {
-            //     header1.classList.add("sticky-1");
-            // } else {
-            //     header1.classList.remove("sticky-1");
-            // }
+
             lastScrollTop = st;
         });
 

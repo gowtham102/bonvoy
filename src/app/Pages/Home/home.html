@@ -1,7 +1,7 @@
 <!-- <div class="site-w"></div> -->
 
 <div class="site_wrapper ">
-    <div (click)="goToproductList(home_page?.banner[0],1)" class="banner " style="background-image: url({{home_page?.banner[0]?.image}}); background-size: 100%; ">
+    <div (click)="goToproductList(home_page?.banner[0],1)" class="banner " style="background-image: url({{home_page?.banner[0]?.image}}); background-size: 100%;height: 100vh; ">
         <div class=" container">
             <owl-carousel-o [options]="customOptions">
                 <ng-template carouselSlide *ngFor="let data of home_page?.banner">
@@ -12,7 +12,7 @@
                             <span>Watch</span>
 
                         </div> -->
-                        <!-- <div class="col-md-6 col-6">
+                    <!-- <div class="col-md-6 col-6">
                             <div class="col-md-8 mx-auto">
                                 <img src="{{home_page?.banner[0]?.image}}" alt="banner-image">
                             </div>
@@ -26,6 +26,14 @@
                 </div> -->
                 </ng-template>
             </owl-carousel-o>
+        </div>
+    </div>
+    <div class="owl-carousel owl-theme container-fluid" id="slider">
+        <div class="item">
+            <p> Free Shipping pan India</p>
+        </div>
+        <div class="item">
+            <p> Free Shipping pan India</p>
         </div>
     </div>
 
@@ -265,7 +273,7 @@
         </owl-carousel-o>
         </section> -->
 
-            <div class="container  home home-wrap" *ngIf="home_page?.best_seller?.length > 0">
+            <div class="  home home-wrap" *ngIf="home_page?.best_seller?.length > 0">
                 <div class="best-seller you-may-like">
                     <div class="row">
                         <div class="col-md-12 text-center mb-2 shop-by-cate">
@@ -348,6 +356,16 @@
                                         </div>
                                         <div class="prod-name text-left ">
                                             <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
+                                            <div class="star">
+                                                <div>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
+                                                <p>16 Reviews</p>
+                                            </div>
                                             <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
                                         </div>
                                         <ng-container *ngIf="data.available_quantity>0">
@@ -360,7 +378,7 @@
                                                 Out Of Stock
                                                     </button>
                                         </ng-container>
-                                        
+
                                         <ng-template #slider_loader>
                                             <button class="add-cart m-auto cart-loader"> 
                                         <loader></loader>
@@ -369,7 +387,7 @@
                                     </div>
                                 </ng-container>
                             </ng-container>
-                            <button class="btn product-list-btn center" (click)="goToproductList()">{{LANG.VIEW_ALL}}</button>
+                            <!-- <button class="btn product-list-btn center" (click)="goToproductList()">{{LANG.VIEW_ALL}}</button> -->
 
                         </div>
 
@@ -382,22 +400,22 @@
     </div>
 
 
-    <div class="section3" style="background: url({{home_page?.section_3?.image}}) 0 0 no-repeat;">
+    <!-- <div class="section3" style="background: url({{home_page?.section_3?.image}}) 0 0 no-repeat;">
         <div class="container">
-            <!-- <img src="../assets/images/bonvoy/cover2.png" alt="section3-image"> -->
-            <!-- <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1> -->
+            <img src="../assets/images/bonvoy/cover2.png" alt="section3-image">
+            <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1>
             <div class="section3-img">
                 <h1>{{home_page?.section_3?.TITLE}}</h1>
 
                 <p routerLink="/products">{{home_page?.section_3?.TITLE2}}</p>
-                <!-- <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1> -->
-                <!-- <p>Premium Best Smart Watch</p> -->
+                <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1>
+                <p>Premium Best Smart Watch</p>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
-<div class="section4" style="background: url(assets/images/bonvoy/cover3.png) 0 0 no-repeat;
+<!-- <div class="section4" style="background: url(assets/images/bonvoy/cover3.png) 0 0 no-repeat;
 background-size: cover;">
     <div class="container">
         <div class="section4-img">
@@ -410,55 +428,55 @@ background-size: cover;">
                     <p>{{item?.TITLE}}</p>
                 </div>
             </div>
-            <!-- <div class="col-md-3 col-6">
-                        <span><img src="../assets/images/icons/wat2.png" ></span>
-                        <p>Movement data</p>
-                    </div>
-                </div>
+            <div class="col-md-3 col-6">
+                <span><img src="../assets/images/icons/wat2.png" ></span>
+                <p>Movement data</p>
+            </div>
+        </div>
 
-                <div class="col-md-4 col-6">
-                    <div class="wat-sec">
-                        <img src="../assets/images/icons/wat3.png">
-                        <p>Multi Sports mode</p>
-                    </div>
-                </div>
+        <div class="col-md-4 col-6">
+            <div class="wat-sec">
+                <img src="../assets/images/icons/wat3.png">
+                <p>Multi Sports mode</p>
+            </div>
+        </div>
 
-                <div class="col-md-4 col-6 ">
-                    <div class="wat-sec">
-                        <img src="../assets/images/icons/wat4.png">
-                        <p>Music</p>
-                    </div>
-                </div>
+        <div class="col-md-4 col-6 ">
+            <div class="wat-sec">
+                <img src="../assets/images/icons/wat4.png">
+                <p>Music</p>
+            </div>
+        </div>
 
 
-                <div class="col-md-4 col-6">
-                    <div class="wat-sec">
-                        <img src="../assets/images/icons/wat5.png">
-                        <p>Heart rate Monitoring</p>
-                    </div>
-                </div>
+        <div class="col-md-4 col-6">
+            <div class="wat-sec">
+                <img src="../assets/images/icons/wat5.png">
+                <p>Heart rate Monitoring</p>
+            </div>
+        </div>
 
-                <div class="col-md-4 col-6">
-                    <div class="wat-sec">
-                        <img src="../assets/images/icons/wat6.png">
-                        <p>Blood oxygen</p>
-                    </div>
-                </div>
+        <div class="col-md-4 col-6">
+            <div class="wat-sec">
+                <img src="../assets/images/icons/wat6.png">
+                <p>Blood oxygen</p>
+            </div>
+        </div>
 
-                <div class="col-md-4 col-6">
-                    <div class="wat-sec">
-                        <img src="../assets/images/icons/wat7.png">
-                        <p>Blood pressure</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-6 text-center ">
-                    <div class="wat-sec">
-                        <img src="../assets/images/icons/wat8.png">
-                        <p>Temperature sensing</p>
-                    </div> -->
+        <div class="col-md-4 col-6">
+            <div class="wat-sec">
+                <img src="../assets/images/icons/wat7.png">
+                <p>Blood pressure</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-6 text-center ">
+            <div class="wat-sec">
+                <img src="../assets/images/icons/wat8.png">
+                <p>Temperature sensing</p>
+            </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 
