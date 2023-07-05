@@ -148,12 +148,10 @@
     border-radius: 0;
 }
 
-.out-of-stock{
+.out-of-stock {
     background: #ccc;
     opacity: 0.5;
 }
-
-
 
 .quantity input {
     border: 0;
@@ -276,11 +274,16 @@
     font-family: 'roobert-med';
 }
 
-.coupon .form_input input {
+.coupon .form_input input,
+.cart-note input {
     height: 46px;
     font-size: 12px;
     border-color: #DEE4E8;
     padding-right: 65px;
+}
+
+.cart-note input {
+    margin-top: 20px;
 }
 
 .total-wrap {

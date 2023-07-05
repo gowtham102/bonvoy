@@ -43,7 +43,7 @@
                         </div>
                         <div class="details">
                             <p class="cur-pointer" (click)="goToproductDetails(data)">{{data.product_title}}</p>
-                            <p  *ngIf="data.available_quantity==0">Out Of Stock</p>
+                            <p *ngIf="data.available_quantity==0">Out Of Stock</p>
                             <span *ngIf="data?.available_quantity>0"><del *ngIf="+data.discount > 0">{{data.unit_price}} {{data.currency}}</del>{{+data.unit_price - +data.discount}} {{data.currency}} </span>
                             <p class="p-0">
                                 <a class="remove" (click)="removeCart(data)"><img src="assets/images/icons/remove-cross.svg" alt="remove">
@@ -177,7 +177,10 @@
                             </div>
                         </div>
                     </ng-container>
-
+                    <div class="cart-note apply-coupon">
+                        <input type="text" class="form-control" placeholder="Enter Notes">
+                        <button class="btn save_btn">Apply</button>
+                    </div>
                     <ul class="mt-5 total-wrap">
                         <li>
                             <span>{{LANG.Total}}</span><span> {{cartDetails.grand_total}} {{cartDetails.currency}}</span>

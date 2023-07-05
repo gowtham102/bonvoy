@@ -39,7 +39,7 @@
             <div class="row logo-head ">
                 <div class="logo col-md-2 col-12 mob-nav">
                     <a routerLink="/">
-                        <img src="assets/images/bonvoy/logoBonvoy2.png" alt="Logo img">
+                        <img src="assets/images/bonvoy/logoBonvoy3.png" alt="Logo img">
                     </a>
                 </div>
                 <!-- <button class="menu-btn" (click)="menu()">
@@ -50,6 +50,7 @@
                 <!-- <div class="row mob-row"> -->
                 <div class="logo  col-md-8 col-6 menu d-flex align-center border-wra">
                     <a routerLink="/products">All</a>
+
                     <a (click)="goToproductList(data,1)" *ngFor="let data of categories;let i=index;"><span>{{data.title}}</span></a>
                     <!-- <div class="btn-group language" *ngIf="isMobile" ngbDropdown role="group" [placement]="arabic ? 'bottom-right' : 'bottom-left'">
                         <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
