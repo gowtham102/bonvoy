@@ -313,6 +313,7 @@ opacity: 1; */
         /* background: url(../../../assets/images/bonvoy/cover2.png) 0 0 no-repeat; */
         height: 694px;
         background-size: cover !important;
+        margin-bottom: 30px;
     }
     
     .experience {
