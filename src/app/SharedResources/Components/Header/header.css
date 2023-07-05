@@ -1212,6 +1212,8 @@ div.password {
 
 .logo img {
     width: 100%;
+    height: 46px;
+    object-fit: contain;
 }
 
 .count {

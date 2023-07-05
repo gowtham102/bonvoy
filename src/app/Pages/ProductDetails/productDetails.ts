@@ -110,22 +110,13 @@ export class ProductDetailsComponent implements OnInit {
     ngOnInit(){
       this.onActivate()
       this.changeLanguage();
-      var header = $('.sticky-bottom');
-  // var menu = $('#menu');
-  var hieghtThreshold = $(".scrool-spy-sec").offset().top;
-  var hieghtThreshold_end = $(".scrool-spy-sec").offset().top + $(".scrool-spy-sec").height();
-
-  $(window).scroll(function() {
-    var scroll = $(window).scrollTop();
-
-    if (scroll >= hieghtThreshold && scroll <= hieghtThreshold_end) {
-      header.addClass('dark');
-      // menu.addClass('dark');
-    } else {
-      header.removeClass('dark');
-      // menu.removeClass('dark');
-    }
-  });
+      // $('.rating').on('click', '.ratings_stars', function() {
+        const star = $(".ratings_stars");
+        star.addClass('selected');
+        star.prevAll().addClass('selected');
+        star.nextAll().removeClass('selected');
+        $('#rating').val(star.data('rating'));
+      // });
     }
 
     changeLanguage(){

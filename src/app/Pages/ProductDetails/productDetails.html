@@ -51,10 +51,17 @@
                         <h2>{{product_details.title}}</h2>
                         <p [innerHTML]="product_details.description"></p>
                         <span>
-                            <h4>{{+product_details.price - +product_details.discount}} {{product_details.currency}} <del
-                                    *ngIf="+product_details.discount > 0">{{product_details.price}}
-                                    {{product_details.currency}}</del></h4>
+                            <h4>{{product_details.currency}} {{+product_details.price - +product_details.discount}}  <del
+                                    *ngIf="+product_details.discount > 0"> {{product_details.currency}} {{product_details.price}}
+                                   </del></h4>
                         </span>
+                        <p class="tax">Inclusive of all taxes <a href="#">Shipping</a> calculated at checkout.</p>
+                        <div class="star">
+                            <ngb-rating [max]=5 [(rate)]="product_details.rating" [readonly]="true"></ngb-rating>
+
+
+                            <p>{{product_details.reviews}} Reviews</p>
+                        </div>
 
 
                     </div>
@@ -66,10 +73,7 @@
                             <span class="plus" (click)="incrementQuantity()" *ngIf="product_details.available_quantity>product_details.quantity"><img class=""
                                     src="assets/images/icons/plus-icon.svg" alt="plus"></span>
                         </div>
-                        <button class="add-cart" (click)="guestLogin(product_details,1)" [disabled]="product_details.available_quantity==0" *ngIf="!load;else loader;" [class.out-of-stock]="product_details?.stock == '2'">{{product_details?.stock == '2' ?
-                            LANG.out_of_stock : LANG.ADD_TO_CART}}</button>
-                        <button class="add-cart" (click)="BuyNow(product_details,1)" [disabled]="product_details.available_quantity==0" *ngIf="!load;else loader;" [class.out-of-stock]="product_details?.stock == '2'">{{product_details?.stock == '2' ?
-                            LANG.out_of_stock : LANG.Buy_now}}</button>
+
                         <!-- <button class="btn" (click)="addToWishlist(product_details)">                                        
                             <i class="fa fa-heart" [class.active]="product_details.wishlist == '1'" aria-hidden="true"></i>                        
                         </button> -->
@@ -86,7 +90,12 @@
                         </div> -->
                     </div>
                     <p class="available-quantity"><span>Available Quantity : </span>{{product_details.available_quantity}}</p>
-
+                    <div class="cart-1">
+                        <button class="add-cart" (click)="guestLogin(product_details,1)" [disabled]="product_details.available_quantity==0" *ngIf="!load;else loader;" [class.out-of-stock]="product_details?.stock == '2'">{{product_details?.stock == '2' ?
+                            LANG.out_of_stock : LANG.ADD_TO_CART}}</button>
+                        <button class="add-cart" (click)="BuyNow(product_details,1)" [disabled]="product_details.available_quantity==0" *ngIf="!load;else loader;" [class.out-of-stock]="product_details?.stock == '2'">{{product_details?.stock == '2' ?
+                            LANG.out_of_stock : LANG.Buy_now}}</button>
+                    </div>
                     <div class="shipping">
                         <div class="row">
                             <div class="col-md-4 col-4 text-center">
@@ -161,6 +170,9 @@
             <li>
                 <a class="nav-link" href="#faq" role="tab" data-toggle="tab">FAQ</a>
             </li>
+            <li>
+                <a class="nav-link" href="#review" role="tab" data-toggle="tab">Reviews</a>
+            </li>
 
         </ul>
     </div>
@@ -222,14 +234,23 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid sticky-bottom">
-        <div class="sticky-row">
-            <div class="sticky-left">
-                <img src="../../../assets/images/banner.png" alt="">
+        <div id="review" class="container-fluid tab-pane fade">
+            <button type="button" class="btn review-btn" data-toggle="modal" data-target="#review-modal">
+                Write a review
+              </button>
+            <div class="review-row">
+                <div class="review-wrapper">
+                    <div class="review-sec">
+                        <div class="star">
+                            <ngb-rating [max]=5 [(rate)]="product_details.rating" [readonly]="true"></ngb-rating>
+                        </div>
+                        <p>I totally loved with this watch, this is very premium looking watch with all the latest features </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 
 
     <section class="similar-products" *ngIf="related_products.length > 0">
@@ -277,4 +298,27 @@
 
     </section>
 
+</div>
+
+
+<div class="modal" id="review-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+
+            <div class="modal-body">
+                <h6>How would you rate this item?</h6>
+                <input type="hidden" id="rating" name="rating" value="-1">
+                <div class="rating">
+                    <i class="ratings_stars fa fa-star" data-rating="1"></i>
+                    <i class="ratings_stars fa fa-star" data-rating="2"></i>
+                    <i class="ratings_stars fa fa-star" data-rating="3"></i>
+                    <i class="ratings_stars fa fa-star" data-rating="4"></i>
+                    <i class="ratings_stars fa fa-star" data-rating="5"></i>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
 </div>

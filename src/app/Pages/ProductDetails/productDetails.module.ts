@@ -7,6 +7,7 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
 
 import { ProductDetailsComponent } from './productDetails';
 import { LoaderModule } from 'src/app/SharedResources/Components/Loader/loader.module';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -34,7 +35,8 @@ const ChildRoutes: Routes = [
     CommonModule,
     CarouselModule,
     LoaderModule,
-    NgxImageZoomModule
+    NgxImageZoomModule,
+    NgbRatingModule
   ],
   declarations:[
     ProductDetailsComponent,
