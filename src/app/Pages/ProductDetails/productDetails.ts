@@ -222,6 +222,41 @@ export class ProductDetailsComponent implements OnInit {
       return
     }
     if(!this.logged_in){
+      this.productService.guestLogin().subscribe((res:any)=>{
+        localStorage.setItem("token",res.response.token)
+      })
+    }
+    const post_data={
+        "product_id": data.id,
+        "quantity":"1"
+    }
+    if(type == 1){
+      post_data.quantity=data.quantity;
+      this.load=true;
+    }else{
+      data.load=true;
+    }
+    this.subscriptions.push(this.cartService.addCart(post_data).subscribe((result:any)=>{
+        this.load=false;
+        if(result.status){
+            this.shared.changeCount(result.response.extra);
+            data.load=false;
+            this.toast.successToastr(this.LANG.Product_added_to_Cart,"",{position:"top-right",toastTimeout:3000});
+            if(type == 1){
+              setTimeout(() => {
+                  this.router.navigate(['/my-cart']);
+              }, 100);
+            }
+            return
+        }
+        this.toast.warningToastr(result.response.message,"",{position:"top-right",toastTimeout:3000})
+    }))
+  }
+  BuyNow(data:any,type?:number){
+    if(data.stock == "2"){
+      return
+    }
+    if(!this.logged_in){
       this.shared.emitModalOpen({id:data.id,type:2})
       return
     }
@@ -243,7 +278,7 @@ export class ProductDetailsComponent implements OnInit {
             this.toast.successToastr(this.LANG.Product_added_to_Cart,"",{position:"top-right",toastTimeout:3000});
             if(type == 1){
               setTimeout(() => {
-                  this.router.navigate(['/my-cart']);
+                  this.router.navigate(['/checkout']);
               }, 100);
             }
             return

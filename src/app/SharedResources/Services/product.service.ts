@@ -12,6 +12,11 @@ export class ProductService{
 	constructor(private api : apiServiceComponent){
     }
 
+    guestLogin(){
+        this.url = "guest_login"
+        return this.api.get(this.url,"")
+    }
+
     getProducts(data:object){
         this.url="product_list";
         return this.api.post(this.url,data);

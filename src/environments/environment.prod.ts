@@ -261,7 +261,8 @@ export const environment = {
     "Bloss_About":"Bloss is a Saudi brand Owned by Banan Arabia Trading Com",
     "Bloss_About2":"Specializing in roses and its products, serving its customers through several electronic channels",
     "OUR_APPLICATION":"OUR APPLICATION",
-    "CONNECT_WITH_US":"Connect with us"
+    "CONNECT_WITH_US":"Connect with us",
+    "Buy_now":"Buy Now"
 
 
 
