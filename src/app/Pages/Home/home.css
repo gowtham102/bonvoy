@@ -20,6 +20,7 @@
         background: #002d46;
         color: #fff;
         padding: 13px 15px;
+        margin-bottom: 40px;
     }
     
     .banner h2 span {
@@ -312,6 +313,80 @@ opacity: 1; */
         /* background: url(../../../assets/images/bonvoy/cover2.png) 0 0 no-repeat; */
         height: 694px;
         background-size: cover !important;
+    }
+    
+    .experience {
+        padding: 0 50px 50px;
+    }
+    
+    .partner-image .exp-row {
+        justify-content: flex-start;
+    }
+    
+    .category-wrapper {
+        background: #fafafa;
+        border-radius: 15px;
+        text-align: center;
+        padding: 34px 25px;
+        height: 100%;
+        cursor: pointer;
+    }
+    
+    .category-wrapper h6 {
+        font-size: 20px;
+        margin-top: 10px;
+        color: #212326;
+        font-family: 'roobert-med';
+        margin-bottom: 0;
+    }
+    
+    .partner-back {
+        background-color: #fafafa;
+        padding: 15px;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+    
+    .partner-image .exp-sec img {
+        max-width: 100%;
+    }
+    
+    .sec-exp {
+        padding: 0 50px;
+    }
+    
+    .experience h2,
+    .collection,
+    .you-may-like h4 {
+        font-size: 40px;
+        color: #131313;
+        font-family: 'roobert-med';
+        padding-bottom: 24px;
+        margin: 0;
+    }
+    
+    .exp-sec {
+        text-align: center;
+    }
+    
+    .exp-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        grid-column-gap: 10px;
+    }
+    
+    .exp-sec img {
+        max-width: 80px;
+        height: 80px;
+        object-fit: contain;
+        width: 100%;
+    }
+    
+    .exp-sec p {
+        color: #919291;
+        font-size: 18px;
+        margin-top: 6px;
     }
     
     .product-list-btn {
@@ -667,7 +742,7 @@ opacity: 1;
     
     .prod-image img {
         width: 100%;
-        min-height: 390px;
+        max-height: 340px;
         object-fit: contain;
         margin: auto;
     }
@@ -822,8 +897,12 @@ opacity: 1;
             min-height: 160px;
         }
         .banner {
-            height: auto;
+            height: 390px !important;
             padding: 30px 0;
+        }
+        .sec-exp,
+        .experience {
+            padding: 0 15px;
         }
         .best-seller {
             padding-top: 20px;
@@ -915,5 +994,38 @@ opacity: 1;
         }
         .home-wrap {
             margin-bottom: 30px;
+        }
+        .exp-row {
+            flex-wrap: wrap;
+            row-gap: 10px;
+            grid-column-gap: 0;
+            justify-content: flex-start;
+        }
+        .coll-row {
+            grid-row-gap: 30px;
+        }
+        .category-wrapper {
+            padding: 16px 16px;
+        }
+        .category-wrapper h6 {
+            font-size: 14px;
+            margin-top: 7px;
+        }
+        .experience h2,
+        .collection,
+        .you-may-like h4 {
+            font-size: 23px !important;
+            padding-bottom: 20px;
+        }
+        .exp-sec {
+            width: 33.33%;
+            padding: 0 15px;
+        }
+        .exp-sec img {
+            max-width: 40px;
+            height: 40px;
+        }
+        .exp-sec p {
+            font-size: 11px;
         }
     }
