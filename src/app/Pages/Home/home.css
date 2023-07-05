@@ -11,6 +11,17 @@
         margin-bottom: 54px;
     }
     
+    #slider p {
+        text-align: center;
+        margin: 0;
+    }
+    
+    #slider {
+        background: #002d46;
+        color: #fff;
+        padding: 13px 15px;
+    }
+    
     .banner h2 span {
         font-family: 'roobert-reg';
     }
@@ -289,7 +300,7 @@ opacity: 1; */
     }
     
     .you-may-like h4 {
-        text-align: center;
+        /* text-align: center; */
         font-size: 62px;
         color: #131313;
         font-family: 'roobert-med';
@@ -389,8 +400,6 @@ opacity: 1; */
         height: 711px;
         background-size: cover !important;
     }
-
-   
     
     .section5-img {
         width: 50%;
@@ -585,6 +594,7 @@ opacity: 1;
     /* .banner{
         background: url(assests/images/bonvoy/);
     } */
+    
     @media screen and (min-width: 573px) and (max-width: 1199px) {
         .services {
             height: auto;
@@ -647,17 +657,38 @@ opacity: 1;
         font-size: 24px;
         color: #2A353C;
         margin-bottom: 0;
+        text-align: left;
     }
     
     .prod .prod-name {
         margin-top: 55px;
+        /* text-align: left !important; */
     }
     
     .prod-image img {
-        width: 177px;
-        height: 193px;
-        object-fit: cover;
+        width: 100%;
+        min-height: 390px;
+        object-fit: contain;
         margin: auto;
+    }
+    
+    .star {
+        display: flex;
+        align-items: center;
+        margin: 3px 0;
+        justify-content: center;
+    }
+    
+    .star i {
+        color: #ffe67f;
+    }
+    
+    .star p {
+        margin-bottom: 0;
+        font-size: 14px;
+        margin-left: 10px;
+        color: #919291;
+        font-weight: 500;
     }
     
     @media screen and (max-width: 576px) {
@@ -665,12 +696,12 @@ opacity: 1;
         height: 300px;
         object-fit: scale-down;
     } */
-    .section-6-row{
-        flex-direction: row-reverse;
-    }
-    .section6-img-right{
-        padding: 0;
-    }
+        .section-6-row {
+            flex-direction: row-reverse;
+        }
+        .section6-img-right {
+            padding: 0;
+        }
         .section3,
         .section5-img {
             display: none;

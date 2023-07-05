@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import { ToastrManager } from 'ng6-toastr-notifications';
 import { CartService } from 'src/app/SharedResources/Services/cartWishlist.service';
 import { environment } from 'src/environments/environment';
+// import 'owl.carousel';
+declare const $: any;
 
 
 
@@ -145,6 +147,27 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(){
       this.getHomePage();
+      $('#slider').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav:false,
+        dots:false,
+        responsiveClass: true,
+        autoplay:true,
+        autoplayTimeout:3000,
+        slideSpeed: 1000,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 1,
+          },
+          1000: {
+            items: 1,
+          }
+        }
+      });
     }
     
     @HostListener('window:resize', ['$event'])
@@ -272,10 +295,6 @@ export class HomeComponent implements OnInit {
   ngOnDestroy(): void {
     this.subscriptions.map(s => s.unsubscribe());
   }
-    
-
-      
-
 
 
 } 
