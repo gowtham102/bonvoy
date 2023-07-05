@@ -1,7 +1,7 @@
 <!-- <div class="site-w"></div> -->
 
 <div class="site_wrapper ">
-    <div (click)="goToproductList(home_page?.banner[0],1)" class="banner " style="background-image: url({{home_page?.banner[0]?.image}}); background-size: cover;height: 100vh;background-repeat: no-repeat; ">
+    <div (click)="goToproductList(home_page?.banner[0],2)" class="banner " style="background-image: url({{home_page?.banner[0]?.image}}); background-size: cover;height: 100vh;background-repeat: no-repeat; ">
         <div class=" container">
             <owl-carousel-o [options]="customOptions">
                 <ng-template carouselSlide *ngFor="let data of home_page?.banner">
@@ -50,8 +50,8 @@
         <div class="container-fluid sec-exp">
             <h2 class="collection">Explore Collections</h2>
             <div class="row coll-row">
-                <div class="col-md-3 col-6" *ngFor="let item of home_page?.category">
-                    <div class="category-wrapper">
+                <div class="col-md-3 col-6" *ngFor="let item of home_page?.category.slice(-4)">
+                    <div class="category-wrapper" (click)="goToproductList(item,1)">
                         <img src="{{item.image}}" class="w-100" alt="">
                         <h6>{{item.title}}</h6>
                     </div>

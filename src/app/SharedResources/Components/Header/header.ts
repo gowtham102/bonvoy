@@ -229,8 +229,11 @@ export class HeaderComponent implements OnInit {
     } 
 
     openRegistrationModal(content:any) {
-      this.modalService.dismissAll();
-      this.modalService.open(content,{ centered: true , windowClass: 'login-modal' });
+    
+        this.modalService.dismissAll();
+        this.modalService.open(content,{ centered: true , windowClass: 'login-modal' });
+      
+      
     } 
 
     showLoginPassword(){
@@ -449,13 +452,16 @@ sendOTP(){
 }
 
 guestLogin:any= false
+token:any
 
 loginUser(){
+  this.token=localStorage.getItem("token")
     const data:login_data={
         "device_type":"1",             
         "mobile_number": this.mobile_number,      
         "password": this.loginService.encryptPassword(this.password), 
-        "country_code": this.country_code
+        "country_code": this.country_code,
+        "token":this.token
     }
     if(!this.show_password){
         const otp=this.otp1+this.otp2+this.otp3+this.otp4+this.otp5+this.otp6;
@@ -463,6 +469,8 @@ loginUser(){
           "mobile_number": this.mobile_number,      
           "country_code": this.country_code,
           "otp": otp, 
+          "token":this.token
+
         }
         this.loginWithOtp(post_data);
         return
