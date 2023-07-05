@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
     load:boolean=false;
     logged_in:boolean=false;
     LANG:any;
+    // max:any=5
 
     customOptions: OwlOptions = {
         loop: true,

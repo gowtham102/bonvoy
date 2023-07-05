@@ -23,8 +23,8 @@ import { HomeComponent } from './Pages/Home/home';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoaderModule } from './SharedResources/Components/Loader/loader.module';
 import { AboutUsModule } from './about-us/about-us.module';
-import {RatingModule} from 'ngx-bootstrap/rating'
 // import { ThankyouComponent } from './thankyou/thankyou.component';
+
 
 
 @NgModule({
@@ -51,8 +51,7 @@ import {RatingModule} from 'ngx-bootstrap/rating'
     FormsModule,
     AngularFireStorageModule,
     AboutUsModule,
-    RatingModule.forRoot()
-
+    NgbRatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

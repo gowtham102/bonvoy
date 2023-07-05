@@ -364,7 +364,7 @@
                                         </div>
                                         <div class="prod-name text-left ">
                                             <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
-                                            <div class="star">
+                                            <!-- <div class="star">
                                                 <div>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -372,8 +372,14 @@
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                 </div>
-                                                <p>{{data.reviews}} Reviews</p>
-                                            </div>
+                                                                                            <p>{{data.reviews}} Reviews</p>
+
+                                            </div> -->
+                                            <ngb-rating [max]=5 [(rate)]="data.rating" [readonly]="true"></ngb-rating>
+
+                                            <p>{{data.reviews}} Reviews</p>
+
+
                                             <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
                                         </div>
                                         <ng-container *ngIf="data.available_quantity>0">
