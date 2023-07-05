@@ -3,4 +3,5 @@ export interface login_data {
     mobile_number: string,
     password: string,
     country_code: string
+    token:string
 }

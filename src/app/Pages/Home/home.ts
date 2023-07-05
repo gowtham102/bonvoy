@@ -319,6 +319,17 @@ export class HomeComponent implements OnInit {
       // this.openMenu();
       return
     }
+    if(type==2){
+      if(data.product_id==0){
+        this.router.navigate(['/products'],{ queryParams: { category_id: btoa(btoa(data.category_id))}});
+        return
+      }
+      else if(data.category_id==0){
+        this.router.navigate(['/product-details'],{ queryParams: { product_id: btoa(btoa(data.product_id))}});
+        return
+      }
+      
+    }
     this.router.navigate(['/products']);
   }
 
