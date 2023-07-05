@@ -28,13 +28,12 @@
             </owl-carousel-o>
         </div>
     </div>
-    <div class="owl-carousel owl-theme container-fluid" id="slider">
-        <div class="item">
-            <p> Free Shipping pan India</p>
-        </div>
-        <div class="item">
-            <p> Free Shipping pan India</p>
-        </div>
+    <div id="slider">
+        <owl-carousel-o [options]="customOptions1">
+            <ng-template carouselSlide *ngFor="let data of home_page?.top_bar">
+                <p>{{data.TITLE}}</p>
+            </ng-template>
+        </owl-carousel-o>
     </div>
 
     <div class="position-relative">
@@ -373,7 +372,7 @@
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                 </div>
-                                                <p>16 Reviews</p>
+                                                <p>{{data.reviews}} Reviews</p>
                                             </div>
                                             <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
                                         </div>
@@ -407,21 +406,37 @@
             </div>
         </div>
     </div>
-
-
-    <!-- <div class="section3" style="background: url({{home_page?.section_3?.image}}) 0 0 no-repeat;">
+    <section class="container-fluid achievement">
         <div class="container">
-            <img src="../assets/images/bonvoy/cover2.png" alt="section3-image">
-            <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1>
-            <div class="section3-img">
-                <h1>{{home_page?.section_3?.TITLE}}</h1>
-
-                <p routerLink="/products">{{home_page?.section_3?.TITLE2}}</p>
-                <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1>
-                <p>Premium Best Smart Watch</p>
+            <div class="row">
+                <div class="col-md-4 col-4" *ngFor="let item of home_page?.achievement">
+                    <div class="ach-wra">
+                        <img src="{{item.image}}" alt="" />
+                        <p>{{item.TITLE}}</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div> -->
+    </section>
+
+
+    <div class="section3" style="background: url({{home_page?.section_3?.image}}) 0 0 no-repeat;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- <img src="../assets/images/bonvoy/cover2.png" class="w-100" alt="section3-image"> -->
+                </div>
+                <div class="col-md-6">
+                    <h1>Stay Connected On Your Wrist Make Calls Effortlessly With Our Smartwatch.</h1>
+                    <div class="section3-img">
+                        <h1>{{home_page?.section_3?.TITLE}}</h1>
+
+                        <a routerLink="/products">{{home_page?.section_3?.TITLE2}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- <div class="section4" style="background: url(assets/images/bonvoy/cover3.png) 0 0 no-repeat;

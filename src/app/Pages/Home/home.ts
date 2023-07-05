@@ -57,6 +57,31 @@ export class HomeComponent implements OnInit {
           }
         },
     }
+    customOptions1: OwlOptions = {
+      loop: true,
+      margin:0,
+      dots: false,
+      navSpeed: 700,
+      nav:false,
+      autoplay:true,
+      autoplayTimeout:4000,
+      autoplaySpeed:500,
+      // navText:["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+      responsive: {
+        0: {
+          items: 1,
+        },
+        400: {
+          items: 1
+        },
+        740: {
+          items: 1
+        },
+        940: {
+          items: 1
+        }
+      },
+  }
 
   bestSeller: OwlOptions = {
       // loop: true,
@@ -196,6 +221,7 @@ export class HomeComponent implements OnInit {
         if(result.status){
           this.home_page=result.response;
           this.customOptions.rtl=this.slider_direction_rtl;
+          this.customOptions1.rtl=this.slider_direction_rtl;
           this.bestSeller.rtl=this.slider_direction_rtl;   
           return
         }
