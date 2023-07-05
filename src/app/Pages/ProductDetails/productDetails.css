@@ -80,13 +80,12 @@
 .prod_det_thumb i {
     font-size: 85px;
 }
-.available-quantity{
+
+.available-quantity {
     margin-top: 20px;
     font-family: 'roobert-med';
     font-size: 19px;
 }
-
-
 
 .prod-desc h2 {
     /* font-family: 'Playfair Display'; */
@@ -377,6 +376,13 @@ section.similar-products {
     background: #00b9aa;
     right: 0;
     transition: 0.25s ease;
+}
+
+.sticky-red {
+    background-color: red;
+    height: 100px;
+    position: sticky;
+    bottom: 0;
 }
 
 .accordion .card-header:after {

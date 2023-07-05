@@ -7,6 +7,7 @@ import { CartService } from 'src/app/SharedResources/Services/cartWishlist.servi
 import { ToastrManager } from 'ng6-toastr-notifications';
 import { SharedService } from 'src/app/SharedResources/Services/shared.service';
 import { environment } from "src/environments/environment";
+declare const $: any;
 
 declare const TabbyPromo:any;
 
@@ -109,6 +110,22 @@ export class ProductDetailsComponent implements OnInit {
     ngOnInit(){
       this.onActivate()
       this.changeLanguage();
+      var header = $('.sticky-bottom');
+  // var menu = $('#menu');
+  var hieghtThreshold = $(".scrool-spy-sec").offset().top;
+  var hieghtThreshold_end = $(".scrool-spy-sec").offset().top + $(".scrool-spy-sec").height();
+
+  $(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= hieghtThreshold && scroll <= hieghtThreshold_end) {
+      header.addClass('dark');
+      // menu.addClass('dark');
+    } else {
+      header.removeClass('dark');
+      // menu.removeClass('dark');
+    }
+  });
     }
 
     changeLanguage(){
