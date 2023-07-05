@@ -308,14 +308,12 @@
 
             <div class="modal-body">
                 <h6>How would you rate this item?</h6>
-                <input type="hidden" id="rating" name="rating" value="-1">
-                <div class="rating">
-                    <i class="ratings_stars fa fa-star" data-rating="1"></i>
-                    <i class="ratings_stars fa fa-star" data-rating="2"></i>
-                    <i class="ratings_stars fa fa-star" data-rating="3"></i>
-                    <i class="ratings_stars fa fa-star" data-rating="4"></i>
-                    <i class="ratings_stars fa fa-star" data-rating="5"></i>
+                <ngb-rating [max]=5 [(rate)]="product_details.rating" [readonly]="false"></ngb-rating>
+                <div class="text-area-input">
+                    <textarea class="form-control" placeholder="Tellus"></textarea>
+                    <button class="btn">Submit </button>
                 </div>
+
             </div>
 
 

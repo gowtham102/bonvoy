@@ -419,18 +419,47 @@ section.similar-products {
     font-size: 16px;
     border-radius: 8px;
     transition: 0.25s all;
+    display: block;
+    margin-left: auto;
+    margin-top: 16px;
 }
 
-.fa-star {
-    color: rgba(112, 111, 111, 0.856);
+#review-modal .modal-content {
+    border-radius: 8px;
+    padding: 40px;
 }
 
-.fa-star:hover {
-    color: #e2334c;
+#review-modal .modal-body button {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 38px;
+    text-align: center;
+    display: block;
+    margin: 22px auto 0;
+    background: #000;
+    color: #fff;
+    font-size: 20px;
 }
 
-.fa-star.selected {
-    color: #001628;
+#review-modal .modal-body h6 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 39px;
+}
+
+#review-modal ngb-rating {
+    justify-content: center;
+    width: 100%;
+    grid-column-gap: 6px;
+    font-size: 40px;
+    color: #ffe67f;
+}
+
+textarea {
+    height: 126px;
+    border-radius: 10px;
+    margin-top: 25px;
+    padding: 10px 15px;
 }
 
 .review-btn:hover {
