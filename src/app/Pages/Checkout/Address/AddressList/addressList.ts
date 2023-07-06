@@ -39,7 +39,7 @@ export class AddressListComponent implements OnInit {
     to_time:string="";
     order_day:number=0;
     address_list:any=[];
-    delivery_address_id!:string;
+    delivery_address_id:any="";
     load: boolean = false;
     err: boolean = false;
     country_id: string="";
@@ -86,6 +86,7 @@ export class AddressListComponent implements OnInit {
     payment_mode:number=1;
     terms:boolean=false;
     cart_design_id:string="";
+    billing_address_type:boolean = false
 
     
 
@@ -93,6 +94,7 @@ export class AddressListComponent implements OnInit {
 
 
     constructor(@Inject(DOCUMENT) private document: Document,private modalService: NgbModal,private orderService:OrderService,private shared:SharedService,private mapsAPILoader: MapsAPILoader, private ngZone: NgZone,private toast:ToastrManager,private profileService:ProfileService,private error:errorHandlerService,private config: NgbDatepickerConfig, public router:Router){
+        this.notes= localStorage.getItem('notes')
         this.subscriptions.push(this.shared.currentWalletAmount.subscribe((wallet:any)=>this.wallet=wallet));                
         this.subscriptions.push(this.shared.show_payment.subscribe((status:boolean)=>this.show_payment=status));      
         this.tomorrow=this.tomorrow.setDate(this.tomorrow.getDate() + 1);
@@ -188,10 +190,10 @@ export class AddressListComponent implements OnInit {
         if(localStorage.getItem(reciever_address)){
             localStorage.removeItem(reciever_address);
         }
-        const delivery_address_id=btoa(btoa("delivery_address_id"))
-        if(localStorage.getItem(delivery_address_id)){
-            localStorage.removeItem(delivery_address_id);
-        }
+        // const delivery_address_id=btoa(btoa("delivery_address_id"))
+        // if(localStorage.getItem(delivery_address_id)){
+        //     localStorage.removeItem(delivery_address_id);
+        // }
         if(localStorage.getItem('country_id') != undefined){
             this.country_id=atob(atob(localStorage.getItem('country_id') || "")) ;
         }
@@ -211,6 +213,7 @@ export class AddressListComponent implements OnInit {
     }
 
     order_date:any
+    notes:any
 
 
     ngOnInit(){
@@ -611,6 +614,7 @@ export class AddressListComponent implements OnInit {
 
     changeCountryCode(country_code:string){
         this.country_code=country_code;
+        this.biling_code= country_code
         this.address_error.mobile_number_valid=false;
     }
 
@@ -809,6 +813,11 @@ export class AddressListComponent implements OnInit {
     }
 
     use_wallet:boolean=false;
+    billing_name:any
+    biling_code:any
+    billing_email:any
+    billing_number:any
+    billing_address:any
     useWallet(){
         this.shared.emitWalletUsed(this.use_wallet)
     }
@@ -823,7 +832,7 @@ export class AddressListComponent implements OnInit {
             return
         }
         this.load=true;
-        const data:order_data={
+        const data={
             "address_id":this.delivery_address_id,
             "payment_type":this.payment_type.toString(),
             "payment_mode":this.payment_mode.toString(),
@@ -838,6 +847,14 @@ export class AddressListComponent implements OnInit {
             "card_message":this.message,
             "recievers_number":this.reciever_number,
             "recievers_address":this.reciever_address,
+            "notes":this.notes,
+            "billing_address":{
+                "full_name":this.billing_name,
+                "country_code":this.biling_code,
+                "email_id":this.billing_email,
+                "phone_number":this.billing_number,
+                "address":this.billing_address
+            }
         }
         this.orderService.orderSubmit(data).subscribe((result:any)=>{
           this.load=false
@@ -896,6 +913,22 @@ export class AddressListComponent implements OnInit {
         const delivery_address_id=btoa(btoa("delivery_address_id"))
         if(localStorage.getItem(delivery_address_id)){
             localStorage.removeItem(delivery_address_id);
+        }
+    }
+
+    onbilladdress(){
+        if(this.billing_address_type==false){
+            this.billing_address_type= true
+            this.billing_address=""
+            this.billing_name=""
+            this.billing_email=""
+            this.billing_number=""
+            this.biling_code=""
+            return
+        }
+        if(this.billing_address_type==true){
+            this.billing_address_type=false
+            return
         }
     }
 

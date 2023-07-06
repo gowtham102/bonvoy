@@ -32,6 +32,8 @@ export class CartComponent implements OnInit {
     addon_id:string="";
     addon_category_id:string="";
     logged_in:boolean=true
+    notes:any
+
 
     constructor(private cartService:CartService,private toast:ToastrManager,private shared:SharedService,private router:Router){
         this.subscriptions.push(this.shared.currentUserStatus.subscribe(user=>this.logged_in=user));
@@ -270,16 +272,11 @@ export class CartComponent implements OnInit {
 
     guestLogin:any
     checkout(){
+        localStorage.setItem('notes',this.notes)
         const data = 'login-modal'
        this.guestLogin= localStorage.getItem("guest_login")
        if(this.guestLogin=="true"){
-        // localStorage.clear()
-        this.logged_in= false
         
-        // this.router.navigate(['/checkout']);
-        this.shared.emitModalOpen({id:data,type:1})
-
-        // this.router.navigate(['/checkout/address']);
 
         return
 

@@ -43,10 +43,12 @@ export class PaymentComponent implements OnInit {
     terms:boolean=false;
     use_wallet:boolean=false;
     show_payment:boolean=true;
+    notes:any
+
 
     constructor(private shared:SharedService,private profileService:ProfileService,private modalService: NgbModal,private orderService:OrderService,private toast:ToastrManager,private router:Router){
         
-
+        this.notes= localStorage.getItem('notes')
         this.subscriptions.push(this.shared.currentWalletAmount.subscribe((wallet:any)=>this.wallet=wallet));                
         this.subscriptions.push(this.shared.show_payment.subscribe((status:boolean)=>this.show_payment=status));                
         const cart_design=btoa(btoa("card_design"));
@@ -156,6 +158,7 @@ export class PaymentComponent implements OnInit {
             "card_message":this.message,
             "recievers_number":this.reciever_number,
             "recievers_address":this.reciever_address,
+            "notes":this.notes
         }
         this.orderService.orderSubmit(data).subscribe((result:any)=>{
           this.load=false
