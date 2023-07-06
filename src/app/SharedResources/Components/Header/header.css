@@ -22,14 +22,6 @@ input:focus-visible {
     padding-top: 5px;
 }
 
-.menu a {
-    padding: 0;
-    color: #fff;
-    font-size: 20px;
-    font-family: 'roobert-med';
-    cursor: pointer;
-}
-
 .header-last {
     display: flex;
     grid-column-gap: 33px;
@@ -414,11 +406,6 @@ button.action-btn.profile img {
 
 .goto-register a {
     font-family: 'roobert-reg';
-}
-
-.login-modal .country-code input {
-    /* margin-left: 25%; */
-    /* width: 75%; */
 }
 
 span.error.f-name {
