@@ -12,5 +12,6 @@ export interface order_data {
     card_from: string,
     card_message: string,
     recievers_number: string,
-    recievers_address:string
+    recievers_address:string,
+    notes:string
 }
