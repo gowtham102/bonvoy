@@ -23,6 +23,7 @@ import { HomeComponent } from './Pages/Home/home';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoaderModule } from './SharedResources/Components/Loader/loader.module';
 import { AboutUsModule } from './about-us/about-us.module';
+import { Header2Component } from './header2/header2.component';
 // import { ThankyouComponent } from './thankyou/thankyou.component';
 
 
@@ -33,6 +34,7 @@ import { AboutUsModule } from './about-us/about-us.module';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    Header2Component,
     // ThankyouComponent
   ],
   imports: [

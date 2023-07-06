@@ -1,0 +1,485 @@
+<!-- <div class="preloader" *ngIf="load">
+    <loader></loader>
+</div> -->
+<!-- <div id="recaptcha-container" style="display: none;"></div> -->
+<div id="header" [class.arabic]="arabic">
+    <!-- <div class="only-riyadh-mobile" *ngIf="isMobile">
+        <p class="m-0">{{LANG.Delivery_is_only_inside_Riyadh}}</p>
+    </div> -->
+    <!-- <div class="download-option" *ngIf="isMobile">
+        <div class="download-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50.687" height="70" viewBox="0 0 50.687 70">
+                <g id="Group_143029" data-name="Group 143029" transform="translate(-313.962 -89.76)">
+                    <g id="Group_713" data-name="Group 713" transform="translate(314.462 89.76)">
+                        <g id="Group_712" data-name="Group 712" transform="translate(0)">
+                            <path id="Path_900" data-name="Path 900"
+                                d="M360.671,101.947a24.834,24.834,0,1,0-27.85,36.6v19.684h9.4a10.546,10.546,0,0,0,8.215-3.612,10.782,10.782,0,0,0,2.731-7.319,10.414,10.414,0,0,0-3.16-7.518,10.265,10.265,0,0,0-3.348-2.318,6.054,6.054,0,0,0,.843-.749,6.523,6.523,0,0,0,1.99-4.8,6.755,6.755,0,0,0-6.789-6.79h-9.88v11.5a22.912,22.912,0,1,1,25.143-8.534l1.48,1.068a24.894,24.894,0,0,0,1.227-27.213Zm-9.262,45.483a8.924,8.924,0,0,1-5.069,8.044l.1-.089a9.573,9.573,0,0,0-.012-13.5,15.716,15.716,0,0,0-5.008-3.321c-.05-.022-.1-.048-.147-.069h1.081c.023,0,.045,0,.067,0s.04,0,.06,0A8.932,8.932,0,0,1,351.409,147.43Zm-16.715-15.775a4.688,4.688,0,0,1,4.674-4.674h3.552a4.688,4.688,0,0,1,4.674,4.674v.3a4.688,4.688,0,0,1-4.674,4.674h-3.552a4.688,4.688,0,0,1-4.674-4.674Zm0,20.15V138.5a18.165,18.165,0,0,1,3.99.854,14.752,14.752,0,0,1,2.263.9,14.207,14.207,0,0,1,4.219,2.9,7.811,7.811,0,0,1-3.25,12.963,5.662,5.662,0,0,1-.709.152,8.758,8.758,0,0,1-1.369.1h-.847a4.3,4.3,0,0,1-4.3-4.3Z"
+                                transform="translate(-314.462 -89.76)" fill="#fff" />
+                        </g>
+                    </g>
+
+                </g>
+            </svg>
+
+        </div>
+
+        <div class="heading">
+            <h5>Bloss Flowers & Gift</h5>
+            <p>Open in Bloss app</p>
+        </div>
+
+        <div class="button">
+            <button (click)="downloadApp()">Open</button>
+        </div>
+
+    </div> -->
+    <header [class.header-padding]="!isCollapsed" [class.shrink]="sticky_header">
+        <div class="contain-wrap">
+            <!-- <div class="row justify-content-between align-center"> -->
+            <div class="row logo-head ">
+                <div class="logo col-md-2 col-12 mob-nav">
+                    <a routerLink="/">
+                        <img src="assets/images/bonvoy/logoBonvoy3.png" alt="Logo img">
+                    </a>
+                </div>
+                <!-- <button class="menu-btn" (click)="menu()">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button> -->
+                <!-- <div class=" col-md-10 "> -->
+                <!-- <button class="close-icon btn" (click)="menu()"><i class="fa fa-times" aria-hidden="true"></i></button> -->
+                <!-- <div class="row mob-row"> -->
+                <div class="logo  col-md-8 col-6 menu d-flex align-center border-wra">
+                    <a routerLink="/products">All</a>
+
+                    <a (click)="goToproductList(data,1)" *ngFor="let data of categories;let i=index;"><span>{{data.title}}</span></a>
+                    <!-- <div class="btn-group language" *ngIf="isMobile" ngbDropdown role="group" [placement]="arabic ? 'bottom-right' : 'bottom-left'">
+                        <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
+                                {{selected_language}}
+                            </button>
+                      <div class="dropdown-menu sml dropdown-menu-right" ngbDropdownMenu>
+                                <button class="dropdown-item" type="button" ngbDropdownItem (click)="changeLanguage()" (click)="openMenu()">
+                  {{optional_language}}
+                </button>
+                            </div>
+                    </div> -->
+                    <!-- <div class="only-riyadh" *ngIf="!isMobile">
+                            <p class="m-0" style="text-transform: uppercase;">{{LANG.Delivery_is_only_inside_Riyadh}}</p>
+                        </div> -->
+
+                    <!-- <a *ngIf="!isMobile" class="country-list">
+            <span class="pr-3">{{LANG.Ship_to}}</span>
+            <div class="btn-group country" ngbDropdown role="group" *ngIf="!isMobile" display="dynamic" placement="bottom-right">
+                <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
+                  {{city_data.city_title}}
+                </button>
+                <div class="dropdown-menu dropdown-menu-right sml" ngbDropdownMenu>
+                  <button class="dropdown-item" type="button" ngbDropdownItem *ngFor="let data of city_list;let i=index;" (click)="updateCity(data)">
+                      {{data.name}}
+                  </button>
+                </div>
+            </div>
+          </a> -->
+                </div>
+                <!-- <div class="col-3"></div> -->
+                <div class="col-md-2 col-6  header-last">
+
+                    <!-- <input type="search" placeholder="Search In Bloss" (input)="search($event)" [(ngModel)]="search_keyword"> -->
+                    <div class="searchbar">
+                        <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </div>
+
+                    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="search mt-3" #search_menu>
+                        <div class="search-input" #search_input>
+                            <img src="assets/images/icons/search.svg" alt="search">
+                            <input type="text" placeholder="{{LANG.Search}}" name="search" id="search" (input)="search($event)" [(ngModel)]="search_keyword" autocomplete="off">
+                        </div>
+                        <div class="result_tab" *ngIf="result_tab" id="search-area" #search_result>
+                            <ul *ngIf="search_results.length > 0">
+                                <div class="search-result-item" *ngFor="let result of search_results">
+                                    <li (click)="onSearchClick(result)">{{result.title}}</li>
+                                </div>
+                            </ul>
+                            <ul *ngIf="no_result">
+                                <li id="no_result" style="width:100%">{{LANG.No_results_found}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="btn-group language" ngbDropdown role="group" display="dynamic" [placement]="arabic ? 'bottom-left' : 'bottom-right'">
+                        <button class="action-btn profile" ngbDropdownToggle>
+                        <img src="assets/images/icons/user.svg" alt="cart btn" height="20px" width="18px">
+                      </button>
+                        <div class="dropdown-menu sml dropdown-menu-right" ngbDropdownMenu>
+                            <button class="dropdown-item" type="button" ngbDropdownItem (click)="openLoginModal(loginModal,1)" *ngIf="!logged_in">
+                          <i class="fa fa-sign-in" aria-hidden="true"></i> {{LANG.Login_Register}}
+                        </button>
+                            <ng-container *ngIf="logged_in">
+                                <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile">
+                            <img src="assets/images/icons/user.svg" alt="cart btn" height="20px" width="18px">
+                            {{LANG.My_Account}}
+                          </button>
+                                <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile/my-orders">
+                            <i class="fa fa-archive" aria-hidden="true"></i> {{LANG.My_Orders}}
+                          </button>
+                                <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile/my-address">
+                            <i class="fa fa-address-book-o" aria-hidden="true"></i> {{LANG.My_Addresses}}
+                          </button>
+                                <button class="dropdown-item" type="button" ngbDropdownItem routerLink="/my-profile/my-wishlist">
+                            <img src="assets/images/icons/wishlist.svg" alt="cart btn" height="20px" width="18px">
+                            {{LANG.My_Wishlist}}
+                          </button>
+                                <button class="dropdown-item" type="button" ngbDropdownItem (click)="logout()">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i> {{LANG.Logout}}
+                          </button>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <a routerLink="/my-cart" class="position-relative shop-bag"><img src="assets/images/icons/shopping-bag.svg" alt="" />
+                        <span class="count">{{cart_count}}</span>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- </div> -->
+
+
+        <!-- </div> -->
+        <!-- </div> -->
+
+        <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="search mt-3" #search_menu>
+            <div class="search-input" #search_input>
+                <img src="assets/images/icons/search.svg" alt="search">
+                <input type="text" placeholder="{{LANG.Search}}" name="search" id="search" (input)="search($event)" [(ngModel)]="search_keyword" autocomplete="off">
+            </div>
+            <div class="result_tab" *ngIf="result_tab" id="search-area" #search_result>
+                <ul *ngIf="search_results.length > 0">
+                    <div class="search-result-item" *ngFor="let result of search_results">
+                        <li (click)="onSearchClick(result)">{{result.title}}</li>
+                    </div>
+                </ul>
+                <ul *ngIf="no_result">
+                    <li id="no_result" style="width:100%">{{LANG.No_results_found}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="overlay-menu open" [class.open]="show_menu">
+            <!-- <b class="screen-overlay" [class.show]="show_menu" (click)="openMenu()"></b> -->
+            <div class="container">
+                <div class="menu row m-0">
+                    <!-- <div class="menu-items col-md-12">
+                        <a (click)="goToproductList(data,1)" *ngFor="let data of categories;let i=index;"><img src="{{data.image}}" alt="menu"><span>{{data.title}}</span></a>
+                    </div> -->
+                    <!-- <div class="menu-items col-md-2 pt-2">
+                        <div class="menu-links" *ngIf="menu_data?.occation?.length > 0">
+                    <ul>
+                      <li *ngFor="let data of menu_data?.occation;"><a>{{data.title}}</a></li>
+                    </ul>
+                </div>
+                        <div class="menu-links">
+                            <ul>
+                                <li routerLink="/contact-us"><a>{{LANG.Contact_Us}}</a></li>
+                                <li><a>{{LANG.Help_Support}}</a></li>
+                                <li routerLink="/my-profile/my-orders" (click)="openMenu()"><a>{{LANG.Orders}}</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="menu-links">
+                            <ul class="text-center">
+                                <li>
+                                    <a><img src="assets/images/icons/facebook.svg" alt="facebook"></a>
+                                </li>
+                                <li>
+                                    <a><img src="assets/images/icons/instagram.svg" alt="instagram"></a>
+                                </li>
+                                <li>
+                                    <a><img src="assets/images/icons/twitter.svg" alt="twitter"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> -->
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <span id="menu_Overlay"></span>
+        <div class="side-nav">
+            <div class="container">
+                <nav class="navigation">
+                    <ul>
+                        <!-- <li routerLink="/products" (click)="openMenu()"><a>All Flowers</a></li> -->
+                        <li (click)="goToproductList(data,1)" *ngFor="let data of categories;let i=index;">
+                            <a>
+                                <!-- <img src="{{data.image}}" alt="menu" class="cat"> -->
+                                <span>{{data.title}}</span>
+                            </a>
+                        </li>
+                        <li (click)="goToproductList(data)" *ngFor="let data of menu_data?.occation;let i=index;">
+                            <a>
+                                <!-- <img src="{{data.image}}" alt="menu" class="cat"> -->
+                                <span>{{data.title}}</span>
+                            </a>
+                        </li>
+                        <!-- <li><a><img src="assets/images/flower1.png" alt="menu" class="cat"><span>Flowers & Chocolates</span></a></li> -->
+                        <!-- <li><a><img src="assets/images/flower2.png" alt="menu" class="cat"><span>Flowers & Gift Basket</span></a></li> -->
+
+                        <!-- <li>
+                  <a>
+                    <div class="btn-group country" ngbDropdown role="group" [placement]="arabic ? 'bottom-right' : 'bottom-left'">
+                        <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
+                          <img src="assets/images/icons/saudi.svg" alt="flag img" height="26px" width="22px"> {{city_data.city_title}}
+                        </button>
+                        <div class="dropdown-menu sml dropdown-menu-right" ngbDropdownMenu>
+                            <button class="dropdown-item" type="button" ngbDropdownItem *ngFor="let data of city_list;let i=index;" (click)="updateCity(data)">
+                              <img src="assets/images/icons/saudi.svg" alt="flag img" height="26px" width="22px"> {{data.name}}
+                            </button>
+                        </div>
+                    </div>
+                  </a>
+                </li> -->
+                        <!-- <li><a class="only-text"><span>{{LANG.Contact_Us}}</span></a></li> -->
+
+                        <li><a routerLink="/my-profile/my-orders"><span>{{LANG.Orders}}</span></a></li>
+                        <li><a><span>{{LANG.Help_Support}}</span></a></li>
+                        <li routerLink="/contact-us"><a><span>{{LANG.Contact_Us}}</span></a></li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </header>
+</div>
+
+
+<ng-template #loginModal let-modal>
+    <div class="login-modal" [class.arabic]="arabic">
+        <div class="modal-body col-md-12" [class.otp-pad]="show_otp">
+            <div class="row justify-content-between">
+                <div class="col-md-6 login-bg-img p-0">
+                    <img src="assets/images/bonvoy/login.png" class="w-100" alt="" />
+                </div>
+                <!-- <div class="login-bg">
+                <img src="assets/images/login-bg.svg" alt="login-bg" [class.w-80]="!show_password">
+            </div> -->
+                <div class="col-md-6 padding-login">
+                    <ng-container *ngIf="!show_otp">
+                        <div class="heading text-center">
+                            <h2>{{LANG.Login_Account}}</h2>
+                        </div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form_input">
+                                        <div class="country-code form_input position-relative">
+                                            <div class="country">
+
+                                                <div class="btn-group country-code form-control" ngbDropdown role="group" display="dynamic" placement="bottom-left">
+                                                    <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
+                                                        {{country_code}}
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-right sml" ngbDropdownMenu>
+                                                        <button *ngFor="let data of country_list;" class="dropdown-item" type="button" ngbDropdownItem (click)="changeCountryCode(data.country_code)">
+                                                            {{data.country_code}}
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <span></span> -->
+                                            <input type="text" placeholder="{{LANG.Mobile_Number}}" class="form-control" name="mobile_number" maxlength="10" [(ngModel)]="mobile_number" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)">
+                                        </div>
+                                        <span class="error" *ngIf="login_error.mobile_number">{{LANG.This_field_is_required}}</span>
+                                        <span class="error" *ngIf="login_error.mobile_number_valid && country_code == '+91'">{{LANG.Enter_Valid_Number}}
+                                            (Ex:
+                                            0551234567 or 551235678)</span>
+                                        <span class="error" *ngIf="login_error.mobile_number_valid && country_code != '+91'">{{LANG.Enter_Valid_Number}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12 password" *ngIf="show_password">
+                                    <div class="form_input">
+                                        <input class="form-control" type="password" placeholder="{{LANG.Password}}" name="password" [(ngModel)]="password">
+                                        <span class="error" *ngIf="login_error.password">{{LANG.This_field_is_required}}</span>
+                                        <span class="error" *ngIf="login_error.password_valid">{{LANG.Password_must_be_characters_or_more}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <button class="checkout" (click)="sendOTP()" *ngIf="!load;else loader;">
+                                        {{show_password ? LANG.LOGIN_ACCOUNT : LANG.SEND_OTP}}
+                                    </button>
+                                    <ng-template #loader>
+                                        <button class="checkout cart-loader">
+                                            <loader></loader>
+                                        </button>
+                                    </ng-template>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="login-otp">
+                                        <a (click)="showLoginPassword()">{{show_password ? LANG.LOGIN_WITH_OTP :
+                                            LANG.LOGIN_WITH_PASSWORD}}</a>
+                                    </div>
+                                </div>
+                                <!-- <div class="login-social col-md-12 text-center">
+                                    <h5>Login with social</h5>
+                                    <div class="social-icon">
+                                        <a href="#"><img src="assets/images/google.svg" alt="" /></a>
+                                        <a href="#"><img src="assets/images/apple-icon.svg" alt="" /></a>
+                                    </div>
+                                    <p>Don’t Have An Account? <a href="#">Sign Up</a></p>
+                                </div> -->
+                                <div class="col-md-12">
+                                    <div class="goto-register mb-0">
+                                        <a>Don’t have an account? <span
+                                                (click)="openRegistrationModal(registrationModal)">Register</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ng-container>
+
+                    <ng-container *ngIf="show_otp">
+                        <div class="heading  text-center">
+                            <h2>{{LANG.Verify_OTP}}</h2>
+                            <span>{{LANG.A_verification_code_has_been_sent_to}}
+                                <p *ngIf="mobile_number">{{country_code}} {{mobile_number}}</p>
+                            </span>
+                        </div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-12 p-0">
+                                    <div class="otp-field">
+                                        <input type="tel" name="o1" id="codeBox1" maxlength="1" [(ngModel)]="otp1" #codeBox1 (keyup)="onKeyUpEvent(1,$event)" (onfocus)="onFocusEvent(1)" (keypress)="keyPressed($event,1)" autocomplete="off">
+                                        <input type="tel" name="o2" id="codeBox2" maxlength="1" [(ngModel)]="otp2" #codeBox2 (keyup)="onKeyUpEvent(2,$event)" (onfocus)="onFocusEvent(2)" (keypress)="keyPressed($event,2)" autocomplete="off">
+                                        <input type="tel" name="o3" id="codeBox3" maxlength="1" [(ngModel)]="otp3" #codeBox3 (keyup)="onKeyUpEvent(3,$event)" (onfocus)="onFocusEvent(3)" (keypress)="keyPressed($event,3)" autocomplete="off">
+                                        <input type="tel" name="o4" id="codeBox4" maxlength="1" [(ngModel)]="otp4" #codeBox4 (keyup)="onKeyUpEvent(4,$event)" (onfocus)="onFocusEvent(4)" (keypress)="keyPressed($event,4)" autocomplete="off">
+                                        <input type="tel" name="o5" id="codeBox5" maxlength="1" [(ngModel)]="otp5" #codeBox5 (keyup)="onKeyUpEvent(5,$event)" (onfocus)="onFocusEvent(5)" (keypress)="keyPressed($event,5)" autocomplete="off">
+                                        <input type="tel" name="o6" id="codeBox6" maxlength="1" [(ngModel)]="otp6" #codeBox6 (keyup)="onKeyUpEvent(6,$event)" (onfocus)="onFocusEvent(6)" (keypress)="keyPressed($event,6)" autocomplete="off">
+                                    </div>
+                                    <div class="otp-error">
+                                        <span class="error" *ngIf="login_error.otp">{{LANG.Please_Enter_valid_OTP}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <button class="checkout" (click)="verifyOtp()" *ngIf="!load;else otp_loader;">{{LANG.Verify_Otp}}</button>
+                                    <ng-template #otp_loader>
+                                        <button class="checkout cart-loader">
+                                            <loader></loader>
+                                        </button>
+                                    </ng-template>
+                                </div>
+                                <!-- <div class="col-md-12">
+                <div class="login-otp">
+                  <a (click)="showLoginPassword()">LOGIN WITH PASSWORD</a>
+                </div>
+              </div> -->
+                                <div class="col-md-12">
+                                    <div class="resend mb-0 text-center">
+                                        <a id="countdown"></a>
+                                        <a *ngIf="showResend" (click)="resendAgain()">{{LANG.Resend_OTP}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ng-container>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-template #registrationModal let-modal>
+    <div class="login-modal" [class.arabic]="arabic">
+        <div class="modal-body col-md-12">
+            <div class="row m-0">
+                <div class="col-md-5 login-bg-img p-0 ">
+                    <img src="assets/images/bonvoy/login.png" alt="" class="w-100">
+                </div>
+
+                <!-- <div class="login-bg">
+                <img src="assets/images/login-bg.svg" alt="login-bg">
+            </div> -->
+                <div class="col-md-7 login-bg-right">
+                    <div class="heading text-center">
+                        <h2>{{LANG.Create_An_Account}}</h2>
+                    </div>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form_input">
+                                    <div class="country-code form_input position-relative mb-0">
+                                        <!-- <div class="country image-upload">
+                                            <div class="profile-img position-relative mb-3">
+                                                <input style="display: none" type="file" (change)="changeProfileImage($event)" #fileInput1>
+                                                <img class="profile cur-pointer" src="{{profileImage}}" alt="profile-image" (click)="showFileInput(fileInput1)">
+                                                <img class="pencil cur-pointer" src="assets/images/icons/pencil-white.svg" alt="profile-image" (click)="showFileInput(fileInput1)">
+                                                <ng-container *ngIf="progress && progress !== 100">
+                                                    <div class="img-uploader">
+                                                        <progress max="100" [value]="progress"></progress>
+                                                    </div>
+                                                </ng-container>
+                                            </div>
+                                        </div> -->
+                                        <input type="text" placeholder="{{LANG.Full_Name}}" class="form-control" name="full_name" [(ngModel)]="full_name">
+                                    </div>
+                                    <span class="error f-name" *ngIf="registration_error.full_name">{{LANG.This_field_is_required}}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12" [class.mt-1]="progress && progress !== 100">
+                                <div class="form_input">
+                                    <div class="country-code form_input position-relative">
+                                        <div class="country">
+                                            <input type="text" class="form-control" [(ngModel)]="country_code" disabled name="country_code">
+                                        </div>
+                                        <span></span>
+                                        <input type="text" placeholder="{{LANG.Mobile_Number}}" class="form-control" name="mobile_number" maxlength="10" [(ngModel)]="mobile_number" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-12">
+                                <div class="form_input">
+                                    <input class="form-control" type="text" placeholder="{{LANG.Email_ID}} {{LANG.optional}}" name="Email" [(ngModel)]="email">
+                                    <span class="error" *ngIf="registration_error.email_id">{{LANG.This_field_is_required}}</span>
+                                    <span class="error" *ngIf="registration_error.email_id_valid">{{LANG.Please_enter_valid_Email}}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-12">
+                                <div class="form_input">
+                                    <input class="form-control" type="password" placeholder="{{LANG.Password}} {{LANG.optional}}" name="password" [(ngModel)]="new_password">
+                                    <span class="error" *ngIf="registration_error.new_password">{{LANG.This_field_is_required}}</span>
+                                    <span class="error" *ngIf="registration_error.new_password_valid">{{LANG.Password_must_be_characters_or_more}}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-12">
+                                <div class="form_input">
+                                    <input class="form-control" type="password" placeholder="{{LANG.Confirm_Password}} {{LANG.optional}}" name="confirm_password" [(ngModel)]="confirm_password">
+                                    <span class="error" *ngIf="registration_error.confirm_password">{{LANG.This_field_is_required}}</span>
+                                    <span class="error" *ngIf="registration_error.password_match">{{LANG.Password_does_not_matched}}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="checkout" (click)="register()" *ngIf="!load;else register_loader;">{{LANG.CREATE_ACCOUNT}}</button>
+                                <ng-template #register_loader>
+                                    <button class="checkout cart-loader">
+                                        <loader></loader>
+                                    </button>
+                                </ng-template>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="goto-register mb-0">
+                                    <a>{{LANG.Already_have_an_account}}<span
+                                            (click)="openLoginModal(loginModal,1)">{{LANG.Login}}</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</ng-template>
