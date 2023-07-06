@@ -38,6 +38,8 @@ export class ProductDetailsComponent implements OnInit {
     tabby_loaded:boolean=false;
     tabby_lang:string="en";
     is_video:string="";
+    rating:any
+
     bestSeller: OwlOptions = {
         loop: true,
         margin:20,
@@ -374,6 +376,23 @@ export class ProductDetailsComponent implements OnInit {
       api_key: api_key
     });
     this.tabby_loaded=true;
+  }
+  review:any
+  insertRating(){
+    if(this.rating!=0){
+      let data=  {"order_detail_id":this.product_id,"rating":this.rating,"comment":this.review}
+      this.productService.insert_review(data).subscribe((res:any)=>{
+        if(res.status==true){
+          this.toast.successToastr(res.response.message)
+        }
+        if(res.status==false){
+          this.toast.warningToastr(res.response.message)
+        }
+      })
+    }
+  
+
+  
   }
    
 

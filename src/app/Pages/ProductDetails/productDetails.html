@@ -308,10 +308,10 @@
 
             <div class="modal-body">
                 <h6>How would you rate this item?</h6>
-                <ngb-rating [max]=5 [(rate)]="product_details.rating" [readonly]="false"></ngb-rating>
+                <ngb-rating [max]=5 [(rate)]="rating" [readonly]="false"></ngb-rating>
                 <div class="text-area-input">
-                    <textarea class="form-control" placeholder="Tellus"></textarea>
-                    <button class="btn">Submit </button>
+                    <textarea class="form-control" placeholder="Tellus" [(ngModel)]="review"></textarea>
+                    <button class="btn" (click)="insertRating()">Submit </button>
                 </div>
 
             </div>

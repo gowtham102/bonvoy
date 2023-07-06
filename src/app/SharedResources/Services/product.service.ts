@@ -41,7 +41,10 @@ export class ProductService{
     }
 
 
-    
+    insert_review(data:any){
+        this.url="insert_review"
+        return this.api.post(this.url,data)
+    }
 
    
 
