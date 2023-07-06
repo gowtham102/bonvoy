@@ -49,7 +49,20 @@
                 <!-- <button class="close-icon btn" (click)="menu()"><i class="fa fa-times" aria-hidden="true"></i></button> -->
                 <!-- <div class="row mob-row"> -->
                 <div class="logo  col-md-8 col-6 menu d-flex align-center border-wra">
-                    <a routerLink="/products">All</a>
+                    <div class="dropdown">
+                        <a routerLink="/products" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
 
                     <a (click)="goToproductList(data,1)" *ngFor="let data of categories;let i=index;"><span>{{data.title}}</span></a>
                     <!-- <div class="btn-group language" *ngIf="isMobile" ngbDropdown role="group" [placement]="arabic ? 'bottom-right' : 'bottom-left'">

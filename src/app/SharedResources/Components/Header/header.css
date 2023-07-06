@@ -1230,3 +1230,40 @@ div.password {
     justify-content: center;
     align-items: center;
 }
+
+.logo .dropdown-menu {
+    transition: 0.25s all;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.logo .dropdown-menu a {
+    color: #000;
+}
+
+.logo .dropdown:hover>.dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    background: transparent;
+}
+
+.logo .dropdown-toggle::after {
+    display: none;
+}
+
+.logo .dropdown-menu::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #fff;
+    transition: height 0.25s ease;
+}
+
+.logo .dropdown:hover>.dropdown-menu::before {
+    height: 100%;
+}

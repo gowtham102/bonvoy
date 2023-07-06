@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { OrderService } from 'src/app/SharedResources/Services/order.service';
 import { environment } from "src/environments/environment";
 import { SharedService } from 'src/app/SharedResources/Services/shared.service';
+import { ProductService } from 'src/app/SharedResources/Services/product.service';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 
 
@@ -23,8 +25,10 @@ export class OrderDetailsComponent implements OnInit {
     cancel_loader:boolean=false;
     subscriptions:Subscription[]=[];
     LANG:any;
+    product_id:string="";
+    rating:any
     
-    constructor(private route:ActivatedRoute,private router:Router,private orderService:OrderService,private shared:SharedService){
+    constructor(private route:ActivatedRoute,private router:Router,private orderService:OrderService,private shared:SharedService,private toast:ToastrManager, public productService:ProductService){
         this.subscriptions.push(this.route.queryParams
         .subscribe(
             (params: Params) => {
@@ -79,7 +83,23 @@ export class OrderDetailsComponent implements OnInit {
         return months[index-1]
     }
    
-
+    review:any
+    insertRating(){
+      if(this.rating!=0){
+        let data=  {"order_detail_id":this.product_id,"rating":this.rating,"comment":this.review}
+        this.productService.insert_review(data).subscribe((res:any)=>{
+          if(res.status==true){
+            this.toast.successToastr(res.response.message)
+          }
+          if(res.status==false){
+            this.toast.warningToastr(res.response.message)
+          }
+        })
+      }
+    
+  
+    
+    }
       
 
 

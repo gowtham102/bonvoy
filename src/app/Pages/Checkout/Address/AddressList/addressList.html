@@ -38,6 +38,85 @@
     <!-- <button class="btn send-address">SEND TO NEW ADDRESS</button> -->
 
 </div>
+<div class="cart-details mb-2">
+    <div class="col-md-12 col-12 p-0">
+
+        <div class="modal-body address p-0">
+            <div class="header preview-card  send-address">
+                <h6 class="modal-title">Billing Address</h6>
+
+            </div>
+            <div class="address-form">
+
+                <div class="form_input">
+                    <form autocomplete="off">
+                        <textarea name="address" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="off" class="form-control" placeholder="{{LANG.Address_building_no}}" id="search_field" [(ngModel)]="address" (change)="clearSelectedAddress()"></textarea>
+                    </form>
+                    <span class="error" *ngIf="address_error.address">{{LANG.This_field_is_required}}</span>
+                    <span class="error" *ngIf="address_error.address_valid">{{LANG.Please_Select_valid_address}}</span>
+                </div>
+                <div class="form_input ">
+                    <div class="country-code form_input position-relative m-0">
+                        <div class="country">
+                            <div class="btn-group country-code form-control" ngbDropdown role="group" display="dynamic" placement="bottom-left">
+                                <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
+                                    {{country_code}}
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right sml" ngbDropdownMenu>
+                                    <button *ngFor="let data of country_list;" class="dropdown-item" type="button" ngbDropdownItem (click)="changeCountryCode(data.country_code)">
+                                        {{data.country_code}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <span></span>
+                        <input type="text" placeholder="{{LANG.Mobile_Number}}" class="form-control" name="mobile_number" maxlength="10" [(ngModel)]="mobile_number" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)">
+                    </div>
+                    <span class="error" *ngIf="address_error.mobile_number">{{LANG.This_field_is_required}}</span>
+                    <span class="error" *ngIf="address_error.mobile_number_valid && country_code == '+91'">{{LANG.Enter_Valid_Number}}
+                        (Ex: 0551234567 or 551235678)</span>
+                    <span class="error" *ngIf="address_error.mobile_number_valid && country_code != '+91'">{{LANG.Enter_Valid_Number}}</span>
+                </div>
+                <div class="form_input">
+                    <input class="form-control" placeholder="{{LANG.Full_Name}}" name="full_name" [(ngModel)]="full_name">
+                    <span class="error f-name" *ngIf="address_error.full_name">{{LANG.This_field_is_required}}</span>
+                </div>
+                <div class="form_input">
+                    <input class="form-control" placeholder="{{LANG.Email_ID}}" name="email_id" [(ngModel)]="email_id">
+                    <!-- <span class="error" *ngIf="address_error.email_id">{{LANG.This_field_is_required}}</span> -->
+                    <span class="error" *ngIf="address_error.email_id_valid">{{LANG.Please_enter_valid_Email}}</span>
+                </div>
+                <div class="form_input form-address">
+                    <label>{{LANG.Address_Type}}</label>
+                    <div class="address-type">
+                        <button [class.active]="address_type == '1'" (click)="changeAddressType('1')">
+                            {{LANG.Home}}
+                        </button>
+                        <button [class.active]="address_type == '2'" (click)="changeAddressType('2')">
+                            {{LANG.Office}}
+                        </button>
+                        <button [class.active]="address_type == '3'" (click)="changeAddressType('3')">
+                            {{LANG.Other}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="save-btn">
+                <button class="checkout mt-2" (click)="addAddress()" *ngIf="!load;else loader">{{address_id ?
+                    LANG.Update_Address : LANG.Add_address}}</button>
+                <ng-template #loader>
+                    <button class="checkout cart-loader">
+                        <loader></loader>
+                    </button>
+                </ng-template>
+                <!-- <button class="cancel mt-2" (click)="modal.dismiss('Cross click')" [disabled]="load">{{LANG.Cancel}}</button> -->
+            </div>
+
+        </div>
+    </div>
+
+</div>
 
 
 <!-- <div class="cart-details mb-2">

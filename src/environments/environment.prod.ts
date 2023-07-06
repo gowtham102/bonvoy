@@ -262,7 +262,9 @@ export const environment = {
     "Bloss_About2":"Specializing in roses and its products, serving its customers through several electronic channels",
     "OUR_APPLICATION":"OUR APPLICATION",
     "CONNECT_WITH_US":"Connect with us",
-    "Buy_now":"Buy Now"
+    "Buy_now":"Buy Now",
+    "Billing_Addres": "Billing Address"
+
 
 
 

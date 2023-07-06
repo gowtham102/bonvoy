@@ -794,6 +794,49 @@ opacity: 1;
         font-weight: 500;
     }
     
+    #review-modal .modal-content {
+        border-radius: 8px;
+        padding: 40px;
+    }
+    
+    #review-modal .modal-body button {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px 38px;
+        text-align: center;
+        display: block;
+        margin: 22px auto 0;
+        background: #000;
+        color: #fff;
+        font-size: 20px;
+    }
+    
+    #review-modal .modal-body h6 {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 39px;
+    }
+    
+    #review-modal ngb-rating {
+        justify-content: center;
+        width: 100%;
+        grid-column-gap: 6px;
+        font-size: 40px;
+        color: #ffe67f;
+    }
+    
+    textarea {
+        height: 126px;
+        border-radius: 10px;
+        margin-top: 25px;
+        padding: 10px 15px;
+    }
+    
+    #review-modal.show {
+        /* display: block; */
+        background: #0000004d;
+    }
+    
     @media screen and (max-width: 576px) {
         /* .banner img {
         height: 300px;
