@@ -13,6 +13,7 @@
     padding-bottom: 12px;
 }
 
+
 .orders .order-date {
     display: flex;
     flex-wrap: wrap;
@@ -359,4 +360,8 @@ textarea {
     border-radius: 10px;
     margin-top: 25px;
     padding: 10px 15px;
+}
+#review-modal.show{
+    display: block;
+    background: #00000063;
 }

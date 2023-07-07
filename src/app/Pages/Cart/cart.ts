@@ -1,10 +1,13 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,Inject,OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CartService } from 'src/app/SharedResources/Services/cartWishlist.service';
 import { ToastrManager } from 'ng6-toastr-notifications';
 import { SharedService } from 'src/app/SharedResources/Services/shared.service';
 import { Router } from '@angular/router';
 import { environment } from "src/environments/environment";
+import { DOCUMENT } from '@angular/common';
+import { LoginService } from 'src/app/SharedResources/Services/login.service';
+declare const $: any;
 
 
 
@@ -33,10 +36,11 @@ export class CartComponent implements OnInit {
     addon_category_id:string="";
     logged_in:boolean=true
     notes:any
+    country_list:any
 
-
-    constructor(private cartService:CartService,private toast:ToastrManager,private shared:SharedService,private router:Router){
+    constructor(@Inject(DOCUMENT) private document: Document,private cartService:CartService,private toast:ToastrManager,private shared:SharedService,private router:Router, public loginService:LoginService){
         this.subscriptions.push(this.shared.currentUserStatus.subscribe(user=>this.logged_in=user));
+        this.subscriptions.push(this.shared.currentCountryList.subscribe((data:any) =>this.country_list=data));
         this.subscriptions.push(this.shared.countryChanged.subscribe((country_id:string) => {
             this.getCart();
         })) 
@@ -276,10 +280,10 @@ export class CartComponent implements OnInit {
         const data = 'login-modal'
        this.guestLogin= localStorage.getItem("guest_login")
        if(this.guestLogin=="true"){
+        this.openmodal()
+
         
-
         return
-
        }
        this.router.navigate(['/checkout/address']);
 
@@ -287,7 +291,237 @@ export class CartComponent implements OnInit {
 
     }
    
+    guest_number:any
+    guest_code:any
+    otp1:any
+    otp2:any
+    otp3:any
+    otp4:any
+    otp5:any
+    otp6:any
+    show_otp:boolean= false
+    token:any
 
+
+    changeCountryCode(){
+        console.log(this.guest_code);
+        
+        // this.login_error.mobile_number_valid=false;
+      }
+
+      onlyNumbers(event:any){
+        var keycode = (event.which) ? event.which : event.keyCode;
+        if ((keycode < 48 || keycode > 57) && keycode !== 13 || keycode == 46) {
+          event.preventDefault();
+          return false;
+        } 
+        return   
+      }
+
+      restrictAlphabets(e:any) {
+        if (e.type == "paste") {
+        var clipboardData = e.clipboardData;
+        var pastedData = clipboardData.getData('Text');
+        if (isNaN(pastedData)) {
+            e.preventDefault();
+        } else {
+            return;
+        }
+        }
+        var x = e.which || e.keycode;
+        if ((x >= 48 && x <= 57))
+            return true;
+        else
+            return false;
+      } 
+
+      getOtpReference(id:any){
+        return this.document.getElementById(id) as HTMLInputElement
+      }
+      
+      getCodeBoxElement(index:number) {
+        if(index===1){
+          return this.getOtpReference("codeBox1")
+        }
+        if(index===2){
+          return this.getOtpReference("codeBox2")
+        }
+        if(index===3){
+          return this.getOtpReference("codeBox3")
+        }
+        if(index===4){
+          return this.getOtpReference("codeBox4")
+        }
+        if(index===5){
+          return this.getOtpReference("codeBox5")
+        }
+        if(index===6){
+          return this.getOtpReference("codeBox6")
+        }
+        return
+      }
+       onKeyUpEvent(index:number, event:any) {
+        const eventCode = event.which || event.keyCode;
+        const id=`codeBox${index}`
+        if (this.getOtpReference(id)!.value.length === 1) {
+          if (index !== 6) {
+            const next_id=`codeBox${index+1}`
+            this.getOtpReference(next_id)!.focus();
+          } else {
+            if(index == 6){
+              return
+            }
+            this.getOtpReference(id)!.blur();
+          }
+        }
+        if(eventCode === 8 && index !== 1) {
+          const prev_id=`codeBox${index-1}`
+          this.getOtpReference(prev_id).focus();
+        }
+      }
+      
+      onFocusEvent(index:number) {
+        for (let item = 1; item < index; item++) {
+          const id=`codeBox${item}`
+          const currentElement = this.getOtpReference(id);
+          if (currentElement) {
+              currentElement.focus();
+              break;
+          }
+        }
+      }
+      
+      keyPressed(event:any,index:number){
+        let keycode = (event.which) ? event.which : event.keyCode;
+        if ((keycode < 48 || keycode > 57) && keycode !== 13 || keycode == 46) {
+            event.preventDefault();
+            return false;
+        } 
+        if(this.getOtpReference('codeBox1').value.length===1 && index==1) {
+          return false;
+        }
+        if(this.getOtpReference('codeBox2').value.length===1 && index==2) {
+          return false;
+        }
+        if(this.getOtpReference('codeBox3').value.length===1 && index==3) {
+          return false;
+        }
+        if(this.getOtpReference('codeBox4').value.length===1 && index==4) {
+          return false;
+        }
+        if(this.getOtpReference('codeBox5').value.length===1 && index==5) {
+          return false;
+        }
+        if(this.getOtpReference('codeBox6').value.length===1 && index==6) {
+          return false;
+        }
+        return
+      }
+      
+      
+    sendOTP(){
+
+        let data = {
+            country_code: this.guest_code,
+            mobile_number: this.guest_number
+        }
+        this.loginService.sendOtp(data).subscribe((res:any)=>{
+            if(res.status==true){
+                this.toast.successToastr("OTP Has Sent to registre Mobile Number")
+                this.show_otp= true
+                
+            }
+        })
+    }
+
+    checkmobile(){
+        let data={"mobile_number":this.guest_number,"country_code":this.guest_code}
+
+        this.loginService.checkMobile(data).subscribe((res:any)=>{
+            if(res.status==true){
+                this.loginUser()
+            }
+            if(res.status==false){
+                this.registerUser()
+            }
+        })
+
+    }
+
+    loginUser(){
+        this.token=localStorage.getItem('token')
+        const otp=this.otp1+this.otp2+this.otp3+this.otp4+this.otp5+this.otp6;
+        const data={
+          "mobile_number": this.guest_number,      
+          "country_code": this.guest_code,
+          "otp": otp, 
+          "token":this.token
+
+        }
+        this.loginService.userLogin(data).subscribe((res:any)=>{
+            if(res.status==true){
+                this.toast.successToastr(res.response.message)
+                localStorage.setItem('token',res.response.token)
+
+                this.router.navigate(['/checkout/address']);
+
+            }
+            else{
+                this.toast.warningToastr(res.response.message)
+            }
+        })
+    }
+
+    registerUser(){
+        this.token=localStorage.getItem('token')
+        const otp=this.otp1+this.otp2+this.otp3+this.otp4+this.otp5+this.otp6;
+        const data={
+          "mobile_number": this.guest_number,      
+          "country_code": this.guest_code,
+          "otp": otp, 
+          "token":this.token
+
+        }
+        this.loginService.register(data).subscribe((res:any)=>{
+            if(res.status==true){
+                this.toast.successToastr(res.response.message)
+                localStorage.setItem('token',res.response.token)
+                this.router.navigate(['/checkout/address']);
+            }
+            else{
+                this.toast.warningToastr(res.response.message)
+            }
+        })
+    }
+
+    verifyOtp(){
+        const otp = this.otp1+this.otp2+this.otp3+this.otp4+this.otp5+this.otp6
+        let data = {
+            "mobile_number": this.guest_number,
+            "country_code": this.guest_code,
+            "otp": otp
+
+        }
+
+        this.loginService.verifyOtp(data).subscribe((res:any)=>{
+            if(res.status==true){
+                this.toast.successToastr("Successfully Logedin")
+                this.checkmobile()
+                
+            }
+
+            if(res.status==false){
+                this.toast.warningToastr("Please Enter Proper OTP")
+
+            }
+            
+        })
+    }
+
+
+    openmodal(){
+        $("#loginModal").addClass("show");
+      }
       
 
 

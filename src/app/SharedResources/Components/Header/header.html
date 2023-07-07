@@ -63,8 +63,17 @@
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </div>
+                    <div *ngFor="let data of categories;let i=index;">
+                        <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="goToproductList(data,1)" (mouseover)="i"><span>{{data.title}}</span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let item of data[i]?.subcategory">
+                                <a class="dropdown-item" >{{item.title}}</a>
+                                
 
-                    <a (click)="goToproductList(data,1)" *ngFor="let data of categories;let i=index;"><span>{{data.title}}</span></a>
+                            </div>
+                        
+                        
+                    </div>
+
                     <!-- <div class="btn-group language" *ngIf="isMobile" ngbDropdown role="group" [placement]="arabic ? 'bottom-right' : 'bottom-left'">
                         <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
                                 {{selected_language}}
@@ -413,9 +422,7 @@
                     <img src="assets/images/bonvoy/login.png" alt="" class="w-100">
                 </div>
 
-                <!-- <div class="login-bg">
-                <img src="assets/images/login-bg.svg" alt="login-bg">
-            </div> -->
+                
                 <div class="col-md-7 login-bg-right">
                     <div class="heading text-center">
                         <h2>{{LANG.Create_An_Account}}</h2>
@@ -425,18 +432,7 @@
                             <div class="col-md-12">
                                 <div class="form_input">
                                     <div class="country-code form_input position-relative mb-0">
-                                        <!-- <div class="country image-upload">
-                                            <div class="profile-img position-relative mb-3">
-                                                <input style="display: none" type="file" (change)="changeProfileImage($event)" #fileInput1>
-                                                <img class="profile cur-pointer" src="{{profileImage}}" alt="profile-image" (click)="showFileInput(fileInput1)">
-                                                <img class="pencil cur-pointer" src="assets/images/icons/pencil-white.svg" alt="profile-image" (click)="showFileInput(fileInput1)">
-                                                <ng-container *ngIf="progress && progress !== 100">
-                                                    <div class="img-uploader">
-                                                        <progress max="100" [value]="progress"></progress>
-                                                    </div>
-                                                </ng-container>
-                                            </div>
-                                        </div> -->
+                                        
                                         <input type="text" placeholder="{{LANG.Full_Name}}" class="form-control" name="full_name" [(ngModel)]="full_name">
                                     </div>
                                     <span class="error f-name" *ngIf="registration_error.full_name">{{LANG.This_field_is_required}}</span>

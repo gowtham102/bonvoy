@@ -385,5 +385,8 @@ export class HomeComponent implements OnInit {
     this.subscriptions.map(s => s.unsubscribe());
   }
 
+  closemodal(){
+    $("#review-modal").removeClass("show");
+  }
 
 } 

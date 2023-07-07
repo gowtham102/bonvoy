@@ -195,3 +195,142 @@
         </div>
     </div>
 </div>
+
+
+<!-- <ng-template  let-modal> -->
+    <div class="login-modal modal fade" id="loginModal" >
+        <div class="modal-body col-md-12" >
+            <div class="row justify-content-between">
+                <div class="col-md-6 login-bg-img p-0">
+                    <img src="assets/images/bonvoy/login.png" class="w-100" alt="" />
+                </div>
+                <!-- <div class="login-bg">
+                <img src="assets/images/login-bg.svg" alt="login-bg" [class.w-80]="!show_password">
+            </div> -->
+                <div class="col-md-6 padding-login">
+                    <ng-container >
+                        <div class="heading text-center">
+                            <h2>{{LANG.Login_Account}}</h2>
+                        </div>
+                        
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form_input">
+                                        <div class="country-code form_input position-relative">
+                                            <div class="country">
+
+                                                <div class="btn-group country-code form-control" ngbDropdown role="group" display="dynamic" placement="bottom-left">
+                                                    <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
+                                                        {{guest_code}}
+                                                    </button>
+                                                    <!-- <div class="dropdown-menu dropdown-menu-right sml" ngbDropdownMenu>
+                                                        <select *ngFor="let data of country_list;" class="dropdown-item" type="button" ngbDropdownItem (click)="changeCountryCode(data.country_code)">
+                                                            {{data.country_code}}
+                                                        </button>
+                                                    </div> -->
+                                                    <select name="" id="" [(ngModel)]="guest_code" (change)="changeCountryCode()">
+                                                        <option value="{{data.country_code}}" *ngFor="let data of country_list;">{{data.country_code}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- <span></span> -->
+                                            <input type="text" placeholder="{{LANG.Mobile_Number}}" class="form-control" name="mobile_number" maxlength="10" [(ngModel)]="guest_number" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)">
+                                        </div>
+                                        <!-- <span class="error" *ngIf="login_error.mobile_number">{{LANG.This_field_is_required}}</span>
+                                        <span class="error" *ngIf="login_error.mobile_number_valid && country_code == '+91'">{{LANG.Enter_Valid_Number}}
+                                            (Ex:
+                                            0551234567 or 551235678)</span>
+                                        <span class="error" *ngIf="login_error.mobile_number_valid && country_code != '+91'">{{LANG.Enter_Valid_Number}}</span> -->
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-12 col-12 password" *ngIf="show_password">
+                                    <div class="form_input">
+                                        <input class="form-control" type="password" placeholder="{{LANG.Password}}" name="password" [(ngModel)]="password">
+                                        <span class="error" *ngIf="login_error.password">{{LANG.This_field_is_required}}</span>
+                                        <span class="error" *ngIf="login_error.password_valid">{{LANG.Password_must_be_characters_or_more}}</span>
+                                    </div>
+                                </div> -->
+                                <div class="col-md-12">
+                                    <button class="checkout" (click)="sendOTP()" *ngIf="!load;else loader;">
+                                        <!-- {{show_password ? LANG.LOGIN_ACCOUNT : LANG.SEND_OTP}} -->Send Otp
+                                    </button>
+                                    <ng-template #loader>
+                                        <button class="checkout cart-loader">
+                                            <loader></loader>
+                                        </button>
+                                    </ng-template>
+                                </div>
+                                <!-- <div class="col-md-12">
+                                    <div class="login-otp">
+                                        <a (click)="showLoginPassword()">{{show_password ? LANG.LOGIN_WITH_OTP :
+                                            LANG.LOGIN_WITH_PASSWORD}}</a>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="login-social col-md-12 text-center">
+                                    <h5>Login with social</h5>
+                                    <div class="social-icon">
+                                        <a href="#"><img src="assets/images/google.svg" alt="" /></a>
+                                        <a href="#"><img src="assets/images/apple-icon.svg" alt="" /></a>
+                                    </div>
+                                    <p>Don’t Have An Account? <a href="#">Sign Up</a></p>
+                                </div> -->
+                                <!-- <div class="col-md-12">
+                                    <div class="goto-register mb-0">
+                                        <a>Don’t have an account? <span
+                                                (click)="openRegistrationModal(registrationModal)">Register</span></a>
+                                    </div>
+                                </div> -->
+                            </div>
+                        
+                    </ng-container>
+
+                    <ng-container *ngIf="show_otp">
+                        <div class="heading  text-center">
+                            <h2>{{LANG.Verify_OTP}}</h2>
+                            <span>{{LANG.A_verification_code_has_been_sent_to}}
+                                <p >{{guest_code}} {{guest_number}}</p>
+                            </span>
+                        </div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-12 p-0">
+                                    <div class="otp-field">
+                                        <input type="tel" name="o1" id="codeBox1" maxlength="1" [(ngModel)]="otp1" #codeBox1 (keyup)="onKeyUpEvent(1,$event)" (onfocus)="onFocusEvent(1)" (keypress)="keyPressed($event,1)" autocomplete="off">
+                                        <input type="tel" name="o2" id="codeBox2" maxlength="1" [(ngModel)]="otp2" #codeBox2 (keyup)="onKeyUpEvent(2,$event)" (onfocus)="onFocusEvent(2)" (keypress)="keyPressed($event,2)" autocomplete="off">
+                                        <input type="tel" name="o3" id="codeBox3" maxlength="1" [(ngModel)]="otp3" #codeBox3 (keyup)="onKeyUpEvent(3,$event)" (onfocus)="onFocusEvent(3)" (keypress)="keyPressed($event,3)" autocomplete="off">
+                                        <input type="tel" name="o4" id="codeBox4" maxlength="1" [(ngModel)]="otp4" #codeBox4 (keyup)="onKeyUpEvent(4,$event)" (onfocus)="onFocusEvent(4)" (keypress)="keyPressed($event,4)" autocomplete="off">
+                                        <input type="tel" name="o5" id="codeBox5" maxlength="1" [(ngModel)]="otp5" #codeBox5 (keyup)="onKeyUpEvent(5,$event)" (onfocus)="onFocusEvent(5)" (keypress)="keyPressed($event,5)" autocomplete="off">
+                                        <input type="tel" name="o6" id="codeBox6" maxlength="1" [(ngModel)]="otp6" #codeBox6 (keyup)="onKeyUpEvent(6,$event)" (onfocus)="onFocusEvent(6)" (keypress)="keyPressed($event,6)" autocomplete="off">
+                                    </div>
+                                    <!-- <div class="otp-error">
+                                        <span class="error" *ngIf="login_error.otp">{{LANG.Please_Enter_valid_OTP}}</span>
+                                    </div> -->
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <button class="checkout" (click)="verifyOtp()" *ngIf="!load;else otp_loader;">{{LANG.Verify_Otp}}</button>
+                                    <ng-template #otp_loader>
+                                        <button class="checkout cart-loader">
+                                            <loader></loader>
+                                        </button>
+                                    </ng-template>
+                                </div>
+                                <!-- <div class="col-md-12">
+                <div class="login-otp">
+                  <a (click)="showLoginPassword()">LOGIN WITH PASSWORD</a>
+                </div>
+              </div> -->
+                                <div class="col-md-12">
+                                    <!-- <div class="resend mb-0 text-center">
+                                        <a id="countdown"></a>
+                                        <a *ngIf="showResend" (click)="resendAgain()">{{LANG.Resend_OTP}}</a>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </form>
+                    </ng-container>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<!-- </ng-template> -->

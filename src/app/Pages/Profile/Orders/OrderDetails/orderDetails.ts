@@ -6,8 +6,7 @@ import { environment } from "src/environments/environment";
 import { SharedService } from 'src/app/SharedResources/Services/shared.service';
 import { ProductService } from 'src/app/SharedResources/Services/product.service';
 import { ToastrManager } from 'ng6-toastr-notifications';
-
-
+declare const $: any;
 
 @Component({
     templateUrl: './orderDetails.html',
@@ -68,6 +67,11 @@ export class OrderDetailsComponent implements OnInit {
         this.router.navigate(['/product-details'],{ queryParams: { product_id: btoa(btoa(product.product_id))}})
     }
     
+order_id_rate:any
+    ratemodal(event:any){
+        this.order_id_rate= event
+        $('#review-modal').addClass('show');
+    }
 
     formatDate(value:any){
         const date=value.split(" ")[0]
@@ -86,13 +90,15 @@ export class OrderDetailsComponent implements OnInit {
     review:any
     insertRating(){
       if(this.rating!=0){
-        let data=  {"order_detail_id":this.product_id,"rating":this.rating,"comment":this.review}
+        let data=  {"order_detail_id":this.order_id_rate,"rating":this.rating,"comment":this.review}
         this.productService.insert_review(data).subscribe((res:any)=>{
           if(res.status==true){
             this.toast.successToastr(res.response.message)
+            $('#review-modal').addClass('close');
           }
           if(res.status==false){
             this.toast.warningToastr(res.response.message)
+            $('#review-modal').addClass('close');
           }
         })
       }
