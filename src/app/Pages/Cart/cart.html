@@ -198,8 +198,9 @@
 
 
 <!-- <ng-template  let-modal> -->
-    <div class="login-modal modal fade" id="loginModal" >
-        <div class="modal-body col-md-12" >
+<div class="login-modal modal fade" id="loginModal">
+    <div class="modal-dialog">
+        <div class="modal-body ">
             <div class="row justify-content-between">
                 <div class="col-md-6 login-bg-img p-0">
                     <img src="assets/images/bonvoy/login.png" class="w-100" alt="" />
@@ -208,65 +209,68 @@
                 <img src="assets/images/login-bg.svg" alt="login-bg" [class.w-80]="!show_password">
             </div> -->
                 <div class="col-md-6 padding-login">
-                    <ng-container >
+                    <ng-container>
                         <div class="heading text-center">
                             <h2>{{LANG.Login_Account}}</h2>
                         </div>
-                        
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form_input">
-                                        <div class="country-code form_input position-relative">
-                                            <div class="country">
 
-                                                <div class="btn-group country-code form-control" ngbDropdown role="group" display="dynamic" placement="bottom-left">
-                                                    <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form_input">
+                                    <!-- <div class="country-code form_input position-relative"> -->
+                                    <!-- <div class="country"> -->
+
+                                    <div class="btn-group country-code form_input position-relative " ngbDropdown role="group" display="dynamic" placement="bottom-left">
+                                        <!-- <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
                                                         {{guest_code}}
-                                                    </button>
-                                                    <!-- <div class="dropdown-menu dropdown-menu-right sml" ngbDropdownMenu>
+                                                    </button> -->
+                                        <!-- <div class="dropdown-menu dropdown-menu-right sml" ngbDropdownMenu>
                                                         <select *ngFor="let data of country_list;" class="dropdown-item" type="button" ngbDropdownItem (click)="changeCountryCode(data.country_code)">
                                                             {{data.country_code}}
                                                         </button>
                                                     </div> -->
-                                                    <select name="" id="" [(ngModel)]="guest_code" (change)="changeCountryCode()">
+                                        <div class="country">
+                                            <select name="" id="" [(ngModel)]="guest_code" (change)="changeCountryCode()">
                                                         <option value="{{data.country_code}}" *ngFor="let data of country_list;">{{data.country_code}}</option>
                                                     </select>
-                                                </div>
-                                            </div>
-                                            <!-- <span></span> -->
-                                            <input type="text" placeholder="{{LANG.Mobile_Number}}" class="form-control" name="mobile_number" maxlength="10" [(ngModel)]="guest_number" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)">
                                         </div>
-                                        <!-- <span class="error" *ngIf="login_error.mobile_number">{{LANG.This_field_is_required}}</span>
+                                        <input type="text" placeholder="{{LANG.Mobile_Number}}" class="form-control" name="mobile_number" maxlength="10" [(ngModel)]="guest_number" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)">
+
+                                    </div>
+                                    <!-- </div> -->
+                                    <!-- <span></span> -->
+                                    <!-- </div> -->
+                                    <!-- <span class="error" *ngIf="login_error.mobile_number">{{LANG.This_field_is_required}}</span>
                                         <span class="error" *ngIf="login_error.mobile_number_valid && country_code == '+91'">{{LANG.Enter_Valid_Number}}
                                             (Ex:
                                             0551234567 or 551235678)</span>
                                         <span class="error" *ngIf="login_error.mobile_number_valid && country_code != '+91'">{{LANG.Enter_Valid_Number}}</span> -->
-                                    </div>
                                 </div>
-                                <!-- <div class="col-md-12 col-12 password" *ngIf="show_password">
+                            </div>
+                            <!-- <div class="col-md-12 col-12 password" *ngIf="show_password">
                                     <div class="form_input">
                                         <input class="form-control" type="password" placeholder="{{LANG.Password}}" name="password" [(ngModel)]="password">
                                         <span class="error" *ngIf="login_error.password">{{LANG.This_field_is_required}}</span>
                                         <span class="error" *ngIf="login_error.password_valid">{{LANG.Password_must_be_characters_or_more}}</span>
                                     </div>
                                 </div> -->
-                                <div class="col-md-12">
-                                    <button class="checkout" (click)="sendOTP()" *ngIf="!load;else loader;">
+                            <div class="col-md-12">
+                                <button class="checkout" (click)="sendOTP()" *ngIf="!load;else loader;">
                                         <!-- {{show_password ? LANG.LOGIN_ACCOUNT : LANG.SEND_OTP}} -->Send Otp
                                     </button>
-                                    <ng-template #loader>
-                                        <button class="checkout cart-loader">
+                                <ng-template #loader>
+                                    <button class="checkout cart-loader">
                                             <loader></loader>
                                         </button>
-                                    </ng-template>
-                                </div>
-                                <!-- <div class="col-md-12">
+                                </ng-template>
+                            </div>
+                            <!-- <div class="col-md-12">
                                     <div class="login-otp">
                                         <a (click)="showLoginPassword()">{{show_password ? LANG.LOGIN_WITH_OTP :
                                             LANG.LOGIN_WITH_PASSWORD}}</a>
                                     </div>
                                 </div> -->
-                                <!-- <div class="login-social col-md-12 text-center">
+                            <!-- <div class="login-social col-md-12 text-center">
                                     <h5>Login with social</h5>
                                     <div class="social-icon">
                                         <a href="#"><img src="assets/images/google.svg" alt="" /></a>
@@ -274,14 +278,14 @@
                                     </div>
                                     <p>Don’t Have An Account? <a href="#">Sign Up</a></p>
                                 </div> -->
-                                <!-- <div class="col-md-12">
+                            <!-- <div class="col-md-12">
                                     <div class="goto-register mb-0">
                                         <a>Don’t have an account? <span
                                                 (click)="openRegistrationModal(registrationModal)">Register</span></a>
                                     </div>
                                 </div> -->
-                            </div>
-                        
+                        </div>
+
                     </ng-container>
 
                     <ng-container *ngIf="show_otp">
@@ -333,4 +337,5 @@
 
         </div>
     </div>
+</div>
 <!-- </ng-template> -->
