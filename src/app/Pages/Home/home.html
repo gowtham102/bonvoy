@@ -1,7 +1,7 @@
 <!-- <div class="site-w"></div> -->
 
 <div class="site_wrapper ">
-    <div (click)="goToproductList(home_page?.banner[0],2)" class="banner " style="background-image: url({{home_page?.banner[0]?.image}}); background-size: cover;height: 100vh;background-repeat: no-repeat; ">
+    <div (click)="goToproductList(home_page?.banner[0],2)" class="banner " style="background-image: url({{home_page?.banner[0]?.image}}); background-size: cover;height: calc(100vh - 50px);background-repeat: no-repeat; ">
         <div class=" container">
             <owl-carousel-o [options]="customOptions">
                 <ng-template carouselSlide *ngFor="let data of home_page?.banner">
@@ -375,7 +375,7 @@
                                                                                             <p>{{data.reviews}} Reviews</p>
 
                                             </div> -->
-                                            <div class="star" >
+                                            <div class="star">
                                                 <ngb-rating *ngIf="data.rating!=''" [max]=5 [(rate)]="data.rating" [readonly]="true"></ngb-rating>
 
                                                 <p *ngIf="data.reviews!=0">{{data.reviews}} Reviews</p>
