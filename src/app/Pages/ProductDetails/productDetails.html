@@ -51,9 +51,8 @@
                         <h2>{{product_details.title}}</h2>
                         <p [innerHTML]="product_details.description"></p>
                         <span>
-                            <h4>{{product_details.currency}} {{+product_details.price - +product_details.discount}}  <del
-                                    *ngIf="+product_details.discount > 0"> {{product_details.currency}} {{product_details.price}}
-                                   </del></h4>
+                            <h4>{{product_details.currency}} {{+product_details.price - +product_details.discount}} <span class="mrp">M.R.P. :</span> <del *ngIf="+product_details.discount > 0"> {{product_details.currency}} {{product_details.price}}
+                                   </del><span class="dis-per">({{product_details.discount_percent}}% Off)</span></h4>
                         </span>
                         <p class="tax">Inclusive of all taxes <a href="#">Shipping</a> calculated at checkout.</p>
                         <div class="star">
@@ -89,7 +88,7 @@
                             <span class="tooltip">Black</span>
                         </div> -->
                     </div>
-                    <p class="available-quantity"><span>Available Quantity : </span>{{product_details.available_quantity}}</p>
+                    <p class="available-quantity">Only <span>{{product_details.available_quantity}}</span> Items Left In Stock!</p>
                     <div class="cart-1">
                         <button class="add-cart" (click)="guestLogin(product_details,1)" [disabled]="product_details.available_quantity==0" *ngIf="!load;else loader;" [class.out-of-stock]="product_details?.stock == '2'">{{product_details?.stock == '2' ?
                             LANG.out_of_stock : LANG.ADD_TO_CART}}</button>
@@ -189,24 +188,64 @@
             <!-- <h4>Specifications</h4> -->
             <div class="">
                 <div class="card mb-0 pt-3">
-                    <!-- <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+                    <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
                         <a class="card-title">
-                            Sales Package
+                            PRODUCT INFORMATION
                         </a>
                     </div>
-                    <div id="collapseOne" class="card-body " data-parent="#accordion">
-                        <ul>
-                            <li><span>Inside the Box:</span> Pebble Nano Pods Ear Buds, charging Cable, User manual, Warranty Card</li>
-                        </ul>
-                    </div> -->
-                    <!-- <div class="card-header pb-0">
-                        <h6 class="card-title"> Specification </h6>
-                    </div> -->
-                    <div class="card-body card-spec ">
+                    <div id="collapseOne" class="card-body card-spec collapse" data-parent="#accordion">
                         <ul>
                             <li [innerHTML]="product_details.specifications"></li>
                         </ul>
                     </div>
+                    <!-- <div class="card-header pb-0">
+                        <h6 class="card-title"> Specification </h6>
+                    </div> -->
+                    <!-- <div class="card-body card-spec ">
+                        <ul>
+                            <li [innerHTML]="product_details.specifications"></li>
+                        </ul>
+                    </div> -->
+                </div>
+                <div class="card mb-0 pt-3">
+                    <div class="card-header collapsed" data-toggle="collapse" href="#collapseTwo">
+                        <a class="card-title">
+                            SALES PACKAGE
+                        </a>
+                    </div>
+                    <div id="collapseTwo" class="card-body card-spec collapse" data-parent="#accordion">
+                        <ul>
+                            <li [innerHTML]="product_details.sales_package"></li>
+                        </ul>
+                    </div>
+                    <!-- <div class="card-header pb-0">
+                        <h6 class="card-title"> Specification </h6>
+                    </div> -->
+                    <!-- <div class="card-body card-spec ">
+                        <ul>
+                            <li [innerHTML]="product_details.specifications"></li>
+                        </ul>
+                    </div> -->
+                </div>
+                <div class="card mb-0 pt-3">
+                    <div class="card-header collapsed" data-toggle="collapse" href="#collapseThree">
+                        <a class="card-title">
+                            WARRANTY
+                        </a>
+                    </div>
+                    <div id="collapseThree" class="card-body card-spec collapse" data-parent="#accordion">
+                        <ul>
+                            <li [innerHTML]="product_details.product_warranty"></li>
+                        </ul>
+                    </div>
+                    <!-- <div class="card-header pb-0">
+                        <h6 class="card-title"> Specification </h6>
+                    </div> -->
+                    <!-- <div class="card-body card-spec ">
+                        <ul>
+                            <li [innerHTML]="product_details.specifications"></li>
+                        </ul>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -461,4 +500,8 @@
 
         </div>
     </div>
+</div>
+
+<div class="prod-bottom">
+    fdfghj
 </div>

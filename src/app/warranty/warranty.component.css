@@ -29,6 +29,12 @@
 .warranty select {
     background-color: #f6f6f6;
     margin-bottom: 30px;
+    outline: none;
+    box-shadow: none;
+}
+
+.warranty select {
+    cursor: pointer;
 }
 
 .warranty button {
@@ -40,4 +46,22 @@
     font-size: 18px;
     font-family: 'roobert-med';
     padding: 13px;
+}
+
+.mobile-wra {
+    display: flex;
+    border: 1px solid #ced4da;
+    margin-bottom: 30px;
+}
+
+.mobile-wra select {
+    border: 0;
+    margin: 0;
+    appearance: none;
+    padding: 0 20px;
+}
+
+.mobile-wra input {
+    margin: 0;
+    border: 0;
 }

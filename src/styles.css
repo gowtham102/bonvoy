@@ -1199,3 +1199,27 @@ a:hover {
 .star span {
     color: #ffe67f !important;
 }
+
+.card-body ul li p {
+    font-weight: 500;
+    color: #002d46;
+}
+
+.card-body ul {
+    list-style: none;
+}
+
+.card-body ul ul {
+    padding-left: 0;
+}
+
+.card-body ul li p strong {
+    font-weight: 400;
+    color: #919291;
+    min-width: 180px;
+    display: inline-block;
+}
+
+.dark .prod-bottom {
+    display: block;
+}

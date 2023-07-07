@@ -74,7 +74,20 @@
 
         });
     </script>
+    <script>
+        $(function() {
+            var header = $('body');
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
 
+                if (scroll >= $('.tab-content').offset().top) { // check the offset top
+                    header.addClass('dark');
+                } else if (scroll >= $('.tab-content').offset().top + $('.tab-content').height()) { // check the scrollHeight
+                    header.removeClass('dark');
+                }
+            });
+        });
+    </script>
 
 </body>
 

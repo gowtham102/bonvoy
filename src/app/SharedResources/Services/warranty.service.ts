@@ -14,4 +14,5 @@ export class WarrantyService {
     this.url="product_list?type_all=1"
     return this.api.get(this.url,'')
   }
+
 }
