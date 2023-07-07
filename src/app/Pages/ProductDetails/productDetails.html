@@ -93,7 +93,7 @@
                     <div class="cart-1">
                         <button class="add-cart" (click)="guestLogin(product_details,1)" [disabled]="product_details.available_quantity==0" *ngIf="!load;else loader;" [class.out-of-stock]="product_details?.stock == '2'">{{product_details?.stock == '2' ?
                             LANG.out_of_stock : LANG.ADD_TO_CART}}</button>
-                        <button class="add-cart" (click)="checkout(product_details,1)" [disabled]="product_details.available_quantity==0" *ngIf="!load;else loader;" [class.out-of-stock]="product_details?.stock == '2'">{{product_details?.stock == '2' ?
+                        <button class="add-cart" (click)="BuyNow(product_details,2)" [disabled]="product_details.available_quantity==0" *ngIf="!load;else loader;" [class.out-of-stock]="product_details?.stock == '2'">{{product_details?.stock == '2' ?
                             LANG.out_of_stock : LANG.Buy_now}}</button>
                     </div>
                     <div class="shipping">
