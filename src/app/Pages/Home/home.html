@@ -1,10 +1,11 @@
 <!-- <div class="site-w"></div> -->
 
 <div class="site_wrapper ">
-    <div (click)="goToproductList(home_page?.banner[0],2)" class="banner " style="background-image: url({{home_page?.banner[0]?.image}}); background-size: cover;height: calc(100vh - 50px);background-repeat: no-repeat; ">
-        <div class=" container">
+    <div (click)="goToproductList(home_page?.banner[0],2)" class="banner " style=" height: calc(100vh - 50px);background-repeat: no-repeat; ">
+        <div class=" ">
             <owl-carousel-o [options]="customOptions">
                 <ng-template carouselSlide *ngFor="let data of home_page?.banner">
+                    <img src="{{data.image}}" alt="">
                     <!-- <div class="row banner-image">
                         <div class="col-md-6 col-6">
                             <h2>{{home_page?.banner[0]?.TITLE}} </h2>
@@ -672,11 +673,25 @@ background-size: cover;">
             <button type="button" class="close" (click)="closemodal()">&times;</button>
 
             <div class="modal-body">
-                <h6>How would you rate this item?</h6>
-                <ngb-rating [max]=5 [(rate)]="rating" [readonly]="false"></ngb-rating>
-                <div class="text-area-input">
-                    <textarea class="form-control" placeholder="Tellus" [(ngModel)]="review"></textarea>
-                    <button class="btn" (click)="insertRating()">Submit </button>
+                <div class="owl-carousel owl-theme" id="modal-slider">
+                    <div class="item">
+                        <h6>How would you rate this item?</h6>
+                        <img src="../../../assets/images/bonvoy/Free_shipping.gif" alt="" />
+                        <ngb-rating [max]=5 [(rate)]="rating" [readonly]="false"></ngb-rating>
+                        <div class="text-area-input">
+                            <textarea class="form-control" placeholder="Tellus" [(ngModel)]="review"></textarea>
+                            <button class="btn" (click)="insertRating()">Submit </button>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <h6>How would you rate this item?</h6>
+                        <img src="../../../assets/images/bonvoy/Free_shipping.gif" alt="" />
+                        <ngb-rating [max]=5 [(rate)]="rating" [readonly]="false"></ngb-rating>
+                        <div class="text-area-input">
+                            <textarea class="form-control" placeholder="Tellus" [(ngModel)]="review"></textarea>
+                            <button class="btn" (click)="insertRating()">Submit </button>
+                        </div>
+                    </div>
                 </div>
 
             </div>

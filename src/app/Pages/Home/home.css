@@ -833,7 +833,7 @@ opacity: 1;
     }
     
     #review-modal.show {
-        /* display: block; */
+        display: block;
         background: #0000004d;
     }
     

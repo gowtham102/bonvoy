@@ -58,6 +58,9 @@ export class HomeComponent implements OnInit {
       },
       940: {
         items: 1
+      },
+      1200: {
+        items:1
       }
     },
   }
@@ -150,6 +153,7 @@ export class HomeComponent implements OnInit {
   //   },
   //   nav: true
   // }
+  
 
   isMobile: boolean = false;
   home_page: any = {};
@@ -179,6 +183,30 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getHomePage();
     this.openmodal();
+    $('#modal-slider').owlCarousel({
+      loop:true,
+      autoPlay:false,
+      margin:10,
+      nav:true,
+      dots:false,
+      navText: ["<span>Back</span>","<span>Next</span>"],
+      responsiveClass:true,
+      responsive:{
+          0:{
+              items:1,
+              nav:true
+          },
+          600:{
+              items:3,
+              nav:false
+          },
+          1000:{
+              items:1,
+              nav:true,
+              loop:false
+          }
+      }
+  })
     $('#slider').owlCarousel({
       loop: true,
       margin: 10,
