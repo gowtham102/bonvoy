@@ -60,15 +60,15 @@
 
                     <div *ngFor="let data of categories;let i=index;">
                         <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="goToproductList(data,1)" (mouseover)="i"><span>{{data.title}}</span></a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let item of categories[i]?.subcategory">
-                                <a class="dropdown-item" >{{item.title}}</a>
-                                
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let item of categories[i]?.subcategory">
+                            <a class="dropdown-item">{{item.title}}</a>
 
-                            </div>
-                        
-                        
-                    </div>  
-                    <button routerLink="warranty">warranty</button>
+
+                        </div>
+
+
+                    </div>
+                    <a routerLink="warranty">warranty</a>
                     <!-- <div class="btn-group language" *ngIf="isMobile" ngbDropdown role="group" [placement]="arabic ? 'bottom-right' : 'bottom-left'">
                         <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
                                 {{selected_language}}
