@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Pages/Home/home';
 import { authGuard } from './SharedResources/Services/authGuard.service';
 import { ThankyouComponent } from './thankyou/thankyou.component';
+import { WarrantyComponent } from './warranty/warranty.component';
 
 
 
@@ -71,6 +72,10 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo:'/'
+  },
+  {
+    path: '',
+    loadChildren: () => import('../app/warranty/warranty.module').then(m => m.WarrantyModule),
   },
 ];
 

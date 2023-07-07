@@ -24,6 +24,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoaderModule } from './SharedResources/Components/Loader/loader.module';
 import { AboutUsModule } from './about-us/about-us.module';
 import { Header2Component } from './header2/header2.component';
+import { WarrantyComponent } from './warranty/warranty.component';
+import { WarrantyModule } from './warranty/warranty.module';
 // import { ThankyouComponent } from './thankyou/thankyou.component';
 
 
@@ -35,6 +37,7 @@ import { Header2Component } from './header2/header2.component';
     FooterComponent,
     HomeComponent,
     Header2Component,
+    // WarrantyComponent,
     // ThankyouComponent
   ],
   imports: [
@@ -53,7 +56,8 @@ import { Header2Component } from './header2/header2.component';
     FormsModule,
     AngularFireStorageModule,
     AboutUsModule,
-    NgbRatingModule
+    NgbRatingModule,
+    WarrantyModule
   ],
   providers: [],
   bootstrap: [AppComponent]
