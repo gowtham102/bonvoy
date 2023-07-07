@@ -375,10 +375,10 @@
                                                                                             <p>{{data.reviews}} Reviews</p>
 
                                             </div> -->
-                                            <div class="star">
-                                                <ngb-rating [max]=5 [(rate)]="data.rating" [readonly]="true"></ngb-rating>
+                                            <div class="star" >
+                                                <ngb-rating *ngIf="data.rating!=''" [max]=5 [(rate)]="data.rating" [readonly]="true"></ngb-rating>
 
-                                                <p>{{data.reviews}} Reviews</p>
+                                                <p *ngIf="data.reviews!=0">{{data.reviews}} Reviews</p>
                                             </div>
 
 

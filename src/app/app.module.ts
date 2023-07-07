@@ -25,7 +25,7 @@ import { LoaderModule } from './SharedResources/Components/Loader/loader.module'
 import { AboutUsModule } from './about-us/about-us.module';
 import { Header2Component } from './header2/header2.component';
 import { WarrantyComponent } from './warranty/warranty.component';
-import { WarrantyModule } from './warranty/warranty.module';
+// import { WarrantyModule } from './warranty/warranty.module';
 // import { ThankyouComponent } from './thankyou/thankyou.component';
 
 
@@ -57,7 +57,7 @@ import { WarrantyModule } from './warranty/warranty.module';
     AngularFireStorageModule,
     AboutUsModule,
     NgbRatingModule,
-    WarrantyModule
+    // WarrantyModule
   ],
   providers: [],
   bootstrap: [AppComponent]

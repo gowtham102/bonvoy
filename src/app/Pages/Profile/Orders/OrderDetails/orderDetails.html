@@ -19,9 +19,11 @@
                                 <span>{{data.unit_price}} {{data.currency}}</span>
                                 <span>{{data.quantity}} {{LANG.Qty}}</span>
                             </div>
+                            <ngb-rating *ngIf="data.reviewed!=''" [max]=5 [(rate)]="data.reviewed" [readonly]="true"></ngb-rating>
+
                         </div>
                         <div>
-                            <button class="btn"  (click)="ratemodal(data.id)">Rate Us</button>
+                            <button class="btn" *ngIf="data.reviewed==''"  (click)="ratemodal(data.id)">Rate Us</button>
 
                         </div>
                     </div>

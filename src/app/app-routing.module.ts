@@ -73,10 +73,7 @@ const routes: Routes = [
     path: '**',
     redirectTo:'/'
   },
-  {
-    path: '',
-    loadChildren: () => import('../app/warranty/warranty.module').then(m => m.WarrantyModule),
-  },
+  
 ];
 
 @NgModule({

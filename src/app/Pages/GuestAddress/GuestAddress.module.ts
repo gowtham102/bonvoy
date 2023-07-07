@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { GuestAddressComponent } from './GuestAddress';
 import {AgmCoreModule} from '@agm/core';
 import { ThankyouComponent } from 'src/app/thankyou/thankyou.component';
+import { WarrantyComponent } from 'src/app/warranty/warranty.component';
 
 
 
@@ -25,6 +26,10 @@ const ChildRoutes: Routes = [
   {
     path:'thankyou',
     component:ThankyouComponent
+  },
+  {
+    path:'warranty',
+    component:WarrantyComponent
   }
   
   ]
@@ -42,7 +47,7 @@ const ChildRoutes: Routes = [
   ],
   declarations:[
     GuestAddressComponent,
-    ThankyouComponent
+    WarrantyComponent
   ]
 })
 export class guestAddressModule { }
