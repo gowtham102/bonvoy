@@ -308,8 +308,9 @@ export class ProductDetailsComponent implements OnInit {
         if(result.status){
             this.shared.changeCount(result.response.extra);
             data.load=false;
-            this.toast.successToastr(this.LANG.Product_added_to_Cart,"",{position:"top-right",toastTimeout:3000});
             this.router.navigate(['/checkout/address']);
+            this.toast.successToastr(this.LANG.Product_added_to_Cart,"",{position:"top-right",toastTimeout:3000});
+           
             if(type == 1){
               setTimeout(() => {
                  
@@ -333,8 +334,9 @@ export class ProductDetailsComponent implements OnInit {
         if(result.status){
             this.shared.changeCount(result.response.extra);
             data.load=false;
-            this.toast.successToastr(this.LANG.Product_added_to_Cart,"",{position:"top-right",toastTimeout:3000});
             this.router.navigate(['/checkout/address']);
+            this.toast.successToastr(this.LANG.Product_added_to_Cart,"",{position:"top-right",toastTimeout:3000});
+            
             if(type == 1){
               setTimeout(() => {
                  
