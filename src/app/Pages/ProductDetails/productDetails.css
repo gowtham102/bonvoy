@@ -791,3 +791,168 @@ textarea {
         height: auto;
     }
 }
+
+
+#loginModal.show {
+    display: block;
+    background: #00000054;
+}
+
+#loginModal .modal-dialog {
+    border-radius: 16px;
+    background: #fff;
+    pointer-events: unset;
+}
+
+#loginModal .modal-body {
+    padding: 0;
+}
+
+.login-bg-img img {
+    border-radius: 8px 0 0 8px;
+}
+
+.padding-login {
+    padding: 42px 74px 59px 30px;
+}
+
+.heading h2 {
+    font-family: 'roobert-reg';
+    font-size: 32px;
+    color: #000;
+    padding-bottom: 27px;
+}
+
+.login-modal .country {
+    /* position: absolute; */
+    width: 20%;
+}
+
+.login-modal .country input,
+.login-modal .country select {
+    margin: 0;
+    width: 100%;
+}
+
+.login-modal .country select {
+    border: 1px solid var(--c-filter-check);
+    font-size: 14px;
+    box-shadow: none;
+    padding: 0;
+    height: 58px;
+    text-align: center;
+    direction: ltr;
+}
+
+
+/* .login-modal .country-code span {
+    position: absolute;
+    width: 5%;
+    height: 58px;
+    left: 20%;
+} */
+
+.login-modal button.checkout {
+    margin: 15px 0;
+}
+
+.login-modal .login-otp,
+.login-modal .goto-register,
+.login-modal .resend a {
+    margin: 15px 0;
+    color: #000;
+    font-size: 14px;
+    text-align: center;
+    font-family: 'roobert-bold';
+}
+
+.login-modal .resend a {
+    font-family: 'roobert-reg';
+}
+
+.login-modal .login-otp a {
+    text-decoration: underline;
+    font-family: 'GothaProBol';
+    cursor: pointer;
+}
+
+.login-modal input {
+    height: 58px;
+}
+
+.login-modal ::placeholder {
+    color: var(--c-coupon-placeholder);
+}
+
+.login-modal :-ms-input-placeholder {
+    color: var(--c-coupon-placeholder);
+}
+
+.login-modal ::-ms-input-placeholder {
+    color: var(--c-coupon-placeholder);
+}
+
+.login-modal .form_input {
+    margin-bottom: 15px;
+    display: flex;
+    width: 100%;
+    grid-column-gap: 3px;
+}
+
+.form-control,
+.form-control:focus {
+    border: 1px solid #DEE4E8;
+    font-size: 14px;
+    box-shadow: none;
+    padding: 10px 27px;
+    border-radius: 8px;
+}
+
+.country input {
+    padding: 0;
+    text-align: center;
+}
+
+.goto-register a {
+    font-family: 'roobert-reg';
+}
+
+.country-code select {
+    border: 1px solid #C7C7C7;
+    font-size: 14px;
+    box-shadow: none;
+    padding: 0;
+    height: 58px;
+    text-align: center;
+    border-radius: 8px;
+    direction: ltr;
+    padding: 0 10px;
+    margin: 0;
+    width: 58px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.login-modal .otp-field {
+    display: flex;
+    justify-content: space-between;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-pack: justify;
+    direction: ltr;
+}
+
+.login-modal .otp-field input {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    /* margin-right: 20px; */
+    text-align: center;
+    border: none;
+    border: 1px solid #C7C7C7;
+    margin-bottom: 30px;
+}
+
+.resend {
+    margin-top: 58px;
+}
