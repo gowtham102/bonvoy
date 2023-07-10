@@ -1214,7 +1214,7 @@ downloadApp(){
 }
 
 searchopen(){
-  $(".search-box").toggleClass('show')
+  $(".pop").toggleClass('show')
 }
   
 
