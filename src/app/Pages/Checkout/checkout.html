@@ -50,7 +50,7 @@
                         <div class="details">
                             <p class="cur-pointer" (click)="goToproductDetails(data)">{{data.product_title}}</p>
                             <p  >Out Of Stock</p>
-                            <span *ngIf="data?.available_quantity>0"><del *ngIf="+data.discount > 0">{{data.unit_price}} {{data.currency}}</del>{{+data.unit_price - +data.discount}} {{data.currency}} </span>
+                            <span *ngIf="data?.available_quantity>0"><del *ngIf="+data.discount > 0">{{data.currency}} {{data.unit_price}} </del>{{data.currency}} {{+data.unit_price - +data.discount}} </span>
                             <!-- <div class="quantity">
                                 <span class="plus" (click)="incrementQuantity(data)"><img class="centered" src="assets/images/icons/plus.svg" alt="plus"></span>
                                 <input type="text" name="quantity" [(ngModel)]="data.quantity" disabled>
@@ -66,24 +66,24 @@
 
                     <ul>
                         <li>
-                            <span>{{LANG.SUBTOTAL}}</span><span> {{cartDetails.sub_total}} {{cartDetails.currency}}</span>
+                            <span>{{LANG.SUBTOTAL}}</span><span>{{cartDetails.currency}} {{cartDetails.sub_total}} </span>
                         </li>
                         <li>
-                            <span>{{LANG.VAT}}</span><span>+  {{cartDetails.vat}} {{cartDetails.currency}}</span>
+                            <span>{{LANG.VAT}}</span><span>+ {{cartDetails.currency}} {{cartDetails.vat}} </span>
                         </li>
                         <li *ngIf="+cartDetails.shipping_charge == 0;else show_shipping">
                             <span>{{LANG.DELIVERY}}</span><span class="text-success">{{LANG.FREE}}</span>
                         </li>
                         <ng-template #show_shipping>
                             <li>
-                                <span>{{LANG.DELIVERY}}</span><span class="text-debit">+  {{cartDetails.shipping_charge}} {{cartDetails.currency}}</span>
+                                <span>{{LANG.DELIVERY}}</span><span class="text-debit">+ {{cartDetails.currency}} {{cartDetails.shipping_charge}} </span>
                             </li>
                         </ng-template>
                         <li *ngIf="+cartDetails.discount_total > 0">
-                            <span>{{LANG.Discount}}</span><span class="text-success">- {{cartDetails.discount_total}} {{cartDetails.currency}} </span>
+                            <span>{{LANG.Discount}}</span><span class="text-success">- {{cartDetails.currency}} {{cartDetails.discount_total}}  </span>
                         </li>
                         <li *ngIf="+cartDetails.bill_value_discount > 0">
-                            <span>{{LANG.Discount_on_Bill}}</span><span class="text-success">-  {{cartDetails.bill_value_discount}} {{cartDetails.currency}}</span>
+                            <span>{{LANG.Discount_on_Bill}}</span><span class="text-success">-  {{cartDetails.currency}} {{cartDetails.bill_value_discount}} </span>
                         </li>
                     </ul>
 
@@ -126,7 +126,7 @@
 
                     <ul class="mt-5">
                         <li>
-                            <span>{{LANG.Total}}</span><span> {{cartDetails.grand_total | number:'1.2'}} {{cartDetails.currency}}</span>
+                            <span>{{LANG.Total}}</span><span>{{cartDetails.currency}} {{cartDetails.grand_total | number:'1.2'}} </span>
                         </li>
                     </ul>
 

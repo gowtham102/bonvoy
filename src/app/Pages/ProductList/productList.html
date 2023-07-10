@@ -311,7 +311,7 @@
                                 </div>
                                 <div class="prod-name text-left ">
                                     <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
-                                    <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>
+                                    <span>{{data.currency}} {{+data.price - +data.discount}}  <del *ngIf="+data.discount > 0">{{data.currency}} {{data.price}} </del></span>
                                 </div>
                                 <ng-container *ngIf="data.available_quantity>0">
                                     <button class="add-cart m-auto" (click)="guestLogin(data)" *ngIf="!data.load;else loader;" [class.out-of-stock]="data?.stock == '2'">

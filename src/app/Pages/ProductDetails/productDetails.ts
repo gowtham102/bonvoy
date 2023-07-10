@@ -242,11 +242,11 @@ export class ProductDetailsComponent implements OnInit {
         localStorage.setItem("logged_in", btoa("1"));
         localStorage.setItem("token", res.response.token);   
         localStorage.setItem("guest_login",this.guestLoginUser)
-
-      })
         this.addToCart(data,type)
         this.logged_in= true
         return
+      })
+        
 
     }
     else if(this.logged_in){
@@ -255,13 +255,15 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart(data:any,type?:number){
+    this.token= localStorage.getItem('token')
     if(data.stock == "2"){
       return
     }
     
     const post_data={
         "product_id": data.id,
-        "quantity":"1"
+        "quantity":"1",
+        "token":this.token
     }
     if(type == 1){
       post_data.quantity=data.quantity;

@@ -43,8 +43,8 @@
                         </div>
                         <div class="details">
                             <p class="cur-pointer" (click)="goToproductDetails(data)">{{data.product_title}}</p>
-                            <p *ngIf="data.available_quantity==0">Out Of Stock</p>
-                            <span *ngIf="data?.available_quantity>0"><del *ngIf="+data.discount > 0">{{data.unit_price}} {{data.currency}}</del>{{+data.unit_price - +data.discount}} {{data.currency}} </span>
+                            <p *ngIf="data.available_quantity==0">Out Of Stock</p> 
+                            <span *ngIf="data?.available_quantity>0"><del *ngIf="+data.discount > 0">{{data.currency}} {{data.unit_price}} </del>{{data.currency}} {{+data.unit_price - +data.discount}}  </span>
                             <p class="p-0">
                                 <a class="remove" (click)="removeCart(data)"><img src="assets/images/icons/remove-cross.svg" alt="remove">
                                     <!-- {{LANG.Remove}} -->
@@ -120,10 +120,10 @@
 
                     <ul>
                         <li>
-                            <span>{{LANG.SUBTOTAL}}</span><span> {{cartDetails.sub_total}} {{cartDetails.currency}}</span>
+                            <span>{{LANG.SUBTOTAL}}</span><span>{{cartDetails.currency}} {{cartDetails.sub_total}} </span>
                         </li>
                         <li>
-                            <span>{{LANG.VAT}}</span><span>+  {{cartDetails.vat}} {{cartDetails.currency}}</span>
+                            <span>{{LANG.VAT}}</span><span>+ {{cartDetails.currency}} {{cartDetails.vat}} </span>
                         </li>
                         <li *ngIf="+cartDetails.shipping_charge == 0;else show_shipping">
                             <span>{{LANG.DELIVERY}}</span><span class="text-success">{{LANG.FREE}}</span>
@@ -183,7 +183,7 @@
                     </div>
                     <ul class="mt-5 total-wrap">
                         <li>
-                            <span>{{LANG.Total}}</span><span> {{cartDetails.grand_total}} {{cartDetails.currency}}</span>
+                            <span>{{LANG.Total}}</span><span>{{cartDetails.currency}} {{cartDetails.grand_total}} </span>
                         </li>
                     </ul>
 
