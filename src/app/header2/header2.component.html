@@ -98,11 +98,15 @@
           </a> -->
                 </div>
                 <!-- <div class="col-3"></div> -->
+                <div class="search-box">
+                    <input type="text" class="text search-input" placeholder="Type here to search..." />
+                </div>
                 <div class="col-md-2 col-6  header-last">
 
                     <!-- <input type="search" placeholder="Search In Bloss" (input)="search($event)" [(ngModel)]="search_keyword"> -->
                     <div class="searchbar">
-                        <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <button class="search-toggle" (click)="searchopen()"><i class="fa fa-search" aria-hidden="true"></i></button>
+
                     </div>
 
                     <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="search mt-3" #search_menu>
@@ -499,4 +503,5 @@
 
         </div>
     </div>
+
 </ng-template>

@@ -1305,3 +1305,26 @@ div.password {
 .logo .dropdown:hover>.dropdown-menu::before {
     height: 100%;
 } */
+
+.search-box {
+    position: absolute;
+    top: 74px;
+    width: 100%;
+    left: 0;
+    padding: 0 100px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-30%);
+    transition: 0.25s all;
+}
+
+.search-box.show {
+    opacity: 1;
+    transform: translateY(0%);
+    visibility: visible;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 20px;
+}

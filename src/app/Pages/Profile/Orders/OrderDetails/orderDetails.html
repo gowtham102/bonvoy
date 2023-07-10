@@ -1,11 +1,53 @@
 <div class="order-wrapper mb-2">
-    <h6>{{LANG.ORDER_DETAILS}}</h6>
+    <div class="order-track-row">
+        <div class="col-md-3 order-track active">
+            <span></span>
+            <p>New Order</p>
+        </div>
+        <div class="col-md-3 order-track ">
+            <span></span>
+            <p>Processing</p>
+
+        </div>
+        <div class="col-md-3 order-track">
+            <span></span>
+            <p>Shipped</p>
+        </div>
+        <div class="col-md-3 order-track">
+            <span></span>
+            <p>Complete</p>
+        </div>
+    </div>
+    <div class="order-track-row">
+        <div class="col-md-3 order-track active">
+            <span></span>
+            <p>New Order</p>
+        </div>
+        <div class="col-md-3 order-track ">
+            <span></span>
+            <p>Processing</p>
+
+        </div>
+        <div class="col-md-3 order-track">
+            <span></span>
+            <p>Shipped</p>
+        </div>
+        <div class="col-md-3 order-track">
+            <span></span>
+            <p>Complete</p>
+        </div>
+    </div>
+    <div class="order-sta">
+        <h6>{{LANG.ORDER_DETAILS}}</h6>
+        <button class="btn " (click)="ordertrack()">Order Status</button>
+    </div>
     <div class="row">
         <div class="col-md-7">
             <div class="orders">
                 <div class="order-date ">
                     <p><span>{{LANG.Order_NUMBER}}</span><span> {{order_details.order_number}}</span></p>
-                    <p><span>{{LANG.Date}}</span><span> {{order_details.ordered_date}}</span></p>
+                    <p><span>{{LANG.Order_date}}</span><span> {{order_details.ordered_date}}</span></p>
+                    <p><span>Estimated Delivery date : </span><span>{{order_details.delivery_date}}</span></p>
                 </div>
                 <div class="order-details">
                     <p class="items">{{order_details?.order_detail?.length == 1 ? LANG.Item : LANG.Items }}</p>
@@ -23,7 +65,7 @@
 
                         </div>
                         <div>
-                            <button class="btn" *ngIf="data.reviewed==''&&data.status==106"  (click)="ratemodal(data.id)">Rate Us</button>
+                            <button class="btn" *ngIf="data.reviewed==''&&data.status==106" (click)="ratemodal(data.id)">Rate Us</button>
 
                         </div>
                     </div>
@@ -158,8 +200,8 @@
                     </div>
                     <div class="summary-right">
                         <p>Paid using</p>
-                        <h5 *ngIf="order_details.payment_type==2">Apple Pay</h5>
-                        <h5 *ngIf="order_details.payment_type==1">Online</h5>
+                        <h5 *ngIf="order_details.payment_type==2">Online</h5>
+                        <h5 *ngIf="order_details.payment_type==1">CaSh On Delivery</h5>
                     </div>
                 </div>
             </div>

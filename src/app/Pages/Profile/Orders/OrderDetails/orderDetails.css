@@ -10,12 +10,11 @@
     color: #000;
     margin: 0;
     font-family: 'roobert-semi';
-    padding-bottom: 12px;
+    /* padding-bottom: 12px; */
 }
 
-
 .orders .order-date {
-    display: flex;
+    /* display: flex; */
     flex-wrap: wrap;
     font-size: 14px;
     font-family: 'roobert-semi';
@@ -361,7 +360,84 @@ textarea {
     margin-top: 25px;
     padding: 10px 15px;
 }
-#review-modal.show{
+
+#review-modal.show {
     display: block;
     background: #00000063;
+}
+
+.order-sta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.order-sta button {
+    background: #000;
+    color: #fcfcfc;
+}
+
+.order-track-row {
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.25s all;
+    height: 0;
+}
+
+.order-track-row.show {
+    visibility: visible;
+    opacity: 1;
+    height: 50px;
+    display: flex;
+}
+
+.order-track span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background: #fff;
+    display: block;
+    margin: auto;
+}
+
+.order-track {
+    padding: 0;
+    text-align: center;
+}
+
+.order-track span::before {
+    content: '';
+    position: absolute;
+    left: 52%;
+    top: 4px;
+    width: 100%;
+    background: #ccc;
+    height: 2px;
+    /* transform: translatey(-50%); */
+}
+
+.order-track p {
+    font-size: 11px;
+    padding-top: 10px;
+    margin: 0;
+}
+
+.order-track:last-child span::before {
+    display: none;
+}
+
+.order-track.active span {
+    background: #000;
+}
+
+.order-track.active span::before {
+    background: #000;
+}
+
+.order-sta {
+    padding-bottom: 12px;
 }

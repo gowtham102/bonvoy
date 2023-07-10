@@ -157,6 +157,7 @@ export const environment = {
     "Order_ID":"Order ID :",
     "Order_NUMBER":"Order Number :",
     "Date":"Date :",
+    "Order_date": "Order Date :",
     "Qty":"Qty.",
     "DELIVERY_ADDRESS":"DELIVERY ADDRESS",
     "DELIVERY_DETAILS":"DELIVERY DETAILS",

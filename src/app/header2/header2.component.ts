@@ -1213,7 +1213,9 @@ downloadApp(){
   window.open(this.menu_data.utility[0].play_store, '_blank');
 }
 
-
+searchopen(){
+  $(".search-box").toggleClass('show')
+}
   
 
 
