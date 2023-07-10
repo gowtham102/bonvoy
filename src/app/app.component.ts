@@ -19,7 +19,7 @@ export class AppComponent {
     setTimeout(() => {
       this.loadingBar.start(); 
       this.loader= false   
-    }, 100);  
+    }, 3000);  
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         if(event?.url.split("/")?.[1] == "a"){

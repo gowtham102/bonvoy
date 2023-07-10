@@ -1,0 +1,10 @@
+.centered-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.pare-2{
+    height: 100vh;
+}

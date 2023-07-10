@@ -238,9 +238,9 @@ export class HomeComponent implements OnInit {
     $('#review-modal').addClass('show');
   }
   review:any
-  insertRating(){
+  insertRating(event:any){
     if(this.rating!=0){
-      let data=  {"order_detail_id":this.product_id,"rating":this.rating,"comment":this.review}
+      let data=  {"order_detail_id":event,"rating":this.rating,"comment":this.review}
       this.productService.insert_review(data).subscribe((res:any)=>{
         if(res.status==true){
           this.toast.successToastr(res.response.message)
@@ -372,6 +372,7 @@ export class HomeComponent implements OnInit {
 
   goToproductList(data?: any, type?: number) {
     if (type === 1) {
+      localStorage.setItem('category_name',data.title)
       this.router.navigate(['/products'], { queryParams: { category_id: btoa(btoa(data.id)) } });
       // this.openMenu();
       return

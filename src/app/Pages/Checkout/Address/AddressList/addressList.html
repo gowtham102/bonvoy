@@ -42,10 +42,10 @@
 </div>
 <div class="cart-details mb-2">
     <div>
-        <input type="checkbox" (click)="onbilladdress()" >
+        <input type="checkbox" (click)="onbilladdress()" checked>
         <label for="vehicle1">Selected Address And Billng Address are Same</label>
     </div>
-    <div class="col-md-12 col-12 p-0">
+    <div class="col-md-12 col-12 p-0" *ngIf="billing_address_type==false">
 
         <div class="modal-body address p-0">
             <div class="header preview-card  send-address">

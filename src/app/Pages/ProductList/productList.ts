@@ -58,9 +58,13 @@ export class ProductListComponent implements OnInit {
     LANG:any;
     subscriptions:Subscription[]=[];
     productloaded:boolean=false;
+    category_name:any
 
 
     constructor(@Inject(DOCUMENT) private document: Document,private productService:ProductService,private route:ActivatedRoute,private shared:SharedService,private router:Router,private cartService:CartService,private toast:ToastrManager){
+      this.category_name=localStorage.getItem('category_name')
+      console.log(this.category_name);
+      
       this.subscriptions.push(this.shared.currentUserStatus.subscribe(user=>this.logged_in=user));      
       this.subscriptions.push(this.shared.countryChanged.subscribe((country_id:string) => {
         // this.getFilters();

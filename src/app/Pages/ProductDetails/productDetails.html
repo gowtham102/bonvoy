@@ -55,7 +55,7 @@
                                    </del><span class="dis-per">({{product_details.discount_percent}}% Off)</span></h4>
                         </span>
                         <p class="tax">Inclusive of all taxes <a href="#">Shipping</a> calculated at checkout.</p>
-                        <div class="star">
+                        <div class="star" *ngIf="product_details.review>0">
                             <ngb-rating [max]=5 [(rate)]="product_details.rating" [readonly]="true"></ngb-rating>
 
 
@@ -274,9 +274,9 @@
             </div>
         </div>
         <div id="review" class="container-fluid tab-pane fade">
-            <button type="button" class="btn review-btn" data-toggle="modal" data-target="#review-modal">
+            <!-- <button type="button" class="btn review-btn" data-toggle="modal" data-target="#review-modal">
                 Write a review
-              </button>
+              </button> -->
             <div class="review-row">
                 <div class="review-wrapper">
                     <div class="review-sec">

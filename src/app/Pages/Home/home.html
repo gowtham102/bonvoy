@@ -1,11 +1,11 @@
 <!-- <div class="site-w"></div> -->
 
 <div class="site_wrapper ">
-    <div (click)="goToproductList(home_page?.banner[0],2)" class="banner " style=" height: calc(100vh - 50px);background-repeat: no-repeat; ">
+    <div  class="banner " style=" height: calc(100vh - 50px);background-repeat: no-repeat; ">
         <div class=" ">
             <owl-carousel-o [options]="customOptions">
-                <ng-template carouselSlide *ngFor="let data of home_page?.banner">
-                    <img src="{{data.image}}" alt="">
+                <ng-template carouselSlide *ngFor="let data of home_page?.banner" >
+                    <img src="{{data.image}}" alt="" (click)="goToproductList(data,2)">
                     <!-- <div class="row banner-image">
                         <div class="col-md-6 col-6">
                             <h2>{{home_page?.banner[0]?.TITLE}} </h2>
@@ -667,14 +667,23 @@ background-size: cover;">
 </div>
 
 
-<div class="modal fade" id="review-modal">
+<div class="modal fade" id="review-modal" *ngIf="home_page?.feedback_orders.length>0">
     <div class="modal-dialog">
         <div class="modal-content">
             <button type="button" class="close" (click)="closemodal()">&times;</button>
 
             <div class="modal-body">
-                <div class="owl-carousel owl-theme" id="modal-slider">
+                <div class="owl-carousel owl-theme" id="modal-slider" *ngFor="let item of home_page?.feedback_orders">
                     <div class="item">
+                        <h6>How would you rate this item?</h6>
+                        <img src="{{item.image}}" alt="" />
+                        <ngb-rating [max]=5 [(rate)]="rating" [readonly]="false"></ngb-rating>
+                        <div class="text-area-input">
+                            <textarea class="form-control" placeholder="Tellus" [(ngModel)]="review"></textarea>
+                            <button class="btn" (click)="insertRating(item.product_id)">Submit </button>
+                        </div>
+                    </div>
+                    <!-- <div class="item">
                         <h6>How would you rate this item?</h6>
                         <img src="../../../assets/images/bonvoy/Free_shipping.gif" alt="" />
                         <ngb-rating [max]=5 [(rate)]="rating" [readonly]="false"></ngb-rating>
@@ -682,16 +691,7 @@ background-size: cover;">
                             <textarea class="form-control" placeholder="Tellus" [(ngModel)]="review"></textarea>
                             <button class="btn" (click)="insertRating()">Submit </button>
                         </div>
-                    </div>
-                    <div class="item">
-                        <h6>How would you rate this item?</h6>
-                        <img src="../../../assets/images/bonvoy/Free_shipping.gif" alt="" />
-                        <ngb-rating [max]=5 [(rate)]="rating" [readonly]="false"></ngb-rating>
-                        <div class="text-area-input">
-                            <textarea class="form-control" placeholder="Tellus" [(ngModel)]="review"></textarea>
-                            <button class="btn" (click)="insertRating()">Submit </button>
-                        </div>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>

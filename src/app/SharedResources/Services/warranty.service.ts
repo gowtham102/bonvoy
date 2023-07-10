@@ -15,4 +15,14 @@ export class WarrantyService {
     return this.api.get(this.url,'')
   }
 
+  distrubuterList(){
+    this.url="distrubuter"
+    return this.api.get(this.url,'')
+  }
+
+  warrantyClaim(data:object){
+    this.url = "warranty_registration"
+    return this.api.post(this.url,data)
+  }
+
 }

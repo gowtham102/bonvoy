@@ -86,7 +86,7 @@ export class AddressListComponent implements OnInit {
     payment_mode:number=1;
     terms:boolean=false;
     cart_design_id:string="";
-    billing_address_type:boolean = false
+    billing_address_type:boolean = true
 
     
 

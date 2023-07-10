@@ -462,6 +462,7 @@ export class CartComponent implements OnInit {
             if(res.status==true){
                 this.toast.successToastr(res.response.message)
                 localStorage.setItem('token',res.response.token)
+                localStorage.setItem("logged_in", btoa("1"));
 
                 this.router.navigate(['/checkout/address']);
 
@@ -486,6 +487,8 @@ export class CartComponent implements OnInit {
             if(res.status==true){
                 this.toast.successToastr(res.response.message)
                 localStorage.setItem('token',res.response.token)
+                localStorage.setItem("logged_in", btoa("1"));
+
                 this.router.navigate(['/checkout/address']);
             }
             else{

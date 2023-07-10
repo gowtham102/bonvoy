@@ -23,7 +23,7 @@
 
                         </div>
                         <div>
-                            <button class="btn" *ngIf="data.reviewed==''"  (click)="ratemodal(data.id)">Rate Us</button>
+                            <button class="btn" *ngIf="data.reviewed==''&&data.status==106"  (click)="ratemodal(data.id)">Rate Us</button>
 
                         </div>
                     </div>
@@ -154,11 +154,12 @@
                 <div class="cart-details summary">
                     <div class="summary-left">
                         <p>Total Amount</p>
-                        <h5>SR 290</h5>
+                        <h5>{{order_details.currency}} {{order_details.total}}</h5>
                     </div>
                     <div class="summary-right">
                         <p>Paid using</p>
-                        <h5><img src="assets/images/icons/apple.svg" alt="" />Apple Pay</h5>
+                        <h5 *ngIf="order_details.payment_type==2">Apple Pay</h5>
+                        <h5 *ngIf="order_details.payment_type==1">Online</h5>
                     </div>
                 </div>
             </div>

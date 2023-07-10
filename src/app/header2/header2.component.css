@@ -839,6 +839,7 @@ div.password {
     left: 0;
     width: 100%;
     background: transparent;
+    z-index: 9;
 }
 
 .download-option .button button {
