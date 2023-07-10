@@ -465,7 +465,7 @@ export class CartComponent implements OnInit {
                 localStorage.setItem("logged_in", btoa("1"));
 
                 this.router.navigate(['/checkout/address']);
-
+                // location.reload()
             }
             else{
                 this.toast.warningToastr(res.response.message)

@@ -94,6 +94,7 @@ export class AddressListComponent implements OnInit {
 
 
     constructor(@Inject(DOCUMENT) private document: Document,private modalService: NgbModal,private orderService:OrderService,private shared:SharedService,private mapsAPILoader: MapsAPILoader, private ngZone: NgZone,private toast:ToastrManager,private profileService:ProfileService,private error:errorHandlerService,private config: NgbDatepickerConfig, public router:Router){
+
         this.notes= localStorage.getItem('notes')
         this.subscriptions.push(this.shared.currentWalletAmount.subscribe((wallet:any)=>this.wallet=wallet));                
         this.subscriptions.push(this.shared.show_payment.subscribe((status:boolean)=>this.show_payment=status));      
@@ -336,13 +337,23 @@ export class AddressListComponent implements OnInit {
 
     //Get Address List
 
+    locationReload:boolean=false
     getAddressList(){
         this.subscriptions.push(this.profileService.getAddressList().subscribe((result:any)=>{
+            if (!localStorage.getItem('foo')) { 
+                localStorage.setItem('foo', 'no reload') 
+                location.reload() 
+              } else {
+                localStorage.removeItem('foo') 
+                this.locationReload=true
+              }
             if(result.response.length==0){
                 this.openLg(this.address_modal,1)
             }
             if(result.status){
+               
                 this.address_list=result.response;
+               
                 this.shared.changeAddressList(result.response)
                 this.address_list.map((data:any)=>{
                     data.address_type_class=data.address_type;
