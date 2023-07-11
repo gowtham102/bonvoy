@@ -25,9 +25,14 @@ import { LoaderModule } from './SharedResources/Components/Loader/loader.module'
 import { AboutUsModule } from './about-us/about-us.module';
 import { Header2Component } from './header2/header2.component';
 import { WarrantyComponent } from './warranty/warranty.component';
+<<<<<<< HEAD
+import { EwasteComponent } from './ewaste/ewaste.component';
 import { WarrantypolicyComponent } from './warrantypolicy/warrantypolicy.component';
 import { ShippingpolicyComponent } from './shippingpolicy/shippingpolicy.component';
-import { ReplacementpolicyComponent } from './replacementpolicy/replacementpolicy.component';
+import { ReplacementpolicyComponent } from './replacementpolicy/replacementpolicy.component'
+=======
+;
+>>>>>>> 445a7b01efda904ce474a16552a8540767ba05e8
 // import { FaqComponent } from './faq/faq.component';
 // import { WarrantyModule } from './warranty/warranty.module';
 // import { ThankyouComponent } from './thankyou/thankyou.component';
@@ -41,9 +46,14 @@ import { ReplacementpolicyComponent } from './replacementpolicy/replacementpolic
     FooterComponent,
     HomeComponent,
     Header2Component,
+<<<<<<< HEAD
+    EwasteComponent,
     WarrantypolicyComponent,
     ShippingpolicyComponent,
     ReplacementpolicyComponent,
+=======
+
+>>>>>>> 445a7b01efda904ce474a16552a8540767ba05e8
     // FaqComponent,
     // WarrantyComponent,
     // ThankyouComponent
