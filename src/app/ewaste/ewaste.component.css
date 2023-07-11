@@ -1,0 +1,51 @@
+.privacy-policy {
+    padding: 10px 185px 60px 185px;
+}
+
+.privacy-policy .content {
+    padding: 64px 100px;
+    /* background: var(--c-white); */
+    font-family: 'GothaProReg';
+}
+
+.privacy-policy .content h4 {
+    font-size: 24px;
+    font-family: 'roobert-reg';
+    color: var(--c-black);
+    margin-bottom: 20px;
+}
+
+.privacy-policy div {
+    font-size: 14px;
+    color: #000;
+    font-family: 'roobert-reg';
+}
+
+.privacy-policy .content p {
+    font-size: 14px;
+    color: var(--c-privacy);
+}
+
+.privacy-policy .content h6 {
+    font-family: 'GothaProMed';
+    color: var(--c-black);
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 572px) {
+    .privacy-policy {
+        padding: 20px;
+    }
+    .privacy-policy .content {
+        padding: 30px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .privacy-policy .content {
+        padding: 20px;
+    }
+    .privacy-policy .content p {
+        font-size: 12px;
+    }
+}

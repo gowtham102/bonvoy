@@ -8,7 +8,7 @@
         </div>
         <div class="details">
             <p class="cur-pointer" (click)="goToproductDetails(data)">{{data.title}}</p>
-            <span>{{+data.price - +data.discount}} {{data.currency}} <del *ngIf="+data.discount > 0">{{data.price}} {{data.currency}}</del></span>            
+            <span>{{data.currency}} {{+data.price - +data.discount}}  <del *ngIf="+data.discount > 0">{{data.currency}} {{data.price}} </del></span>            
             <p class="mt-2">
                 <a class="remove" (click)="addToWishlist(data,i,true)"><img src="assets/images/icons/remove-cross.svg" alt="remove">{{LANG.Remove}}</a>
                 <a (click)="addToCart(data,i)"><img src="assets/images/icons/shopping-bag.svg" alt="shopping-bag">{{LANG.MOVE_TO_CART}}</a>
