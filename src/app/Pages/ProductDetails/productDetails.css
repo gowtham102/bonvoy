@@ -987,11 +987,95 @@ textarea {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 5rem;
     z-index: 999;
     background-color: #f6f6f6;
     box-shadow: 0 0 13px #d2d2d2;
     transition: .25s ease transform;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     transform: translateY(120%);
-    padding: 30px 100px;
+}
+
+.new-launch h2 {
+    font-size: 38px;
+    color: #000;
+    font-family: 'roobert-med';
+    padding: 80px 0 2rem;
+}
+
+.new-launch {
+    padding: 0 5rem;
+}
+
+.new-launch img {
+    max-height: 330px;
+    object-fit: contain;
+}
+
+.prod-sec1 {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.prod .prod-name {
+    margin-top: 55px;
+}
+
+.prod-pr span {
+    font-family: 'roobert-med' !important;
+}
+
+.prod-pr del {
+    margin: 0 5px;
+}
+
+.prod-pr .dis-per {
+    color: #ff6d5c;
+    font-size: 16px;
+}
+
+.launch-row {
+    row-gap: 30px;
+    margin-bottom: 50px;
+}
+
+.prod-sec1 img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+.prod-sec1 h2 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.drop-button button {
+    width: 100%;
+    padding: 13px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.drop-button .dropdown button {
+    border: 2px solid #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* text-align: center; */
+}
+
+.buyit {
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+}
+
+.drop-button {
+    display: flex;
+    /* column-gap: 10px; */
+    align-items: center;
 }
