@@ -51,7 +51,7 @@
                 <div class="logo  col-md-8 col-6 menu d-flex align-center border-wra">
                     <div class="dropdown">
                         <a routerLink="/products" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <a class="dropdown-item" href="#">Something else here</a>
@@ -61,17 +61,17 @@
                             <a class="dropdown-item" href="#">Something else here</a>
                             <a class="dropdown-item" href="#">Something else here</a>
                             <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                        </div> -->
                     </div>
                     <div *ngFor="let data of categories;let i=index;">
                         <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="goToproductList(data,1)" (mouseover)="i"><span>{{data.title}}</span></a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let item of data[i]?.subcategory">
-                                <a class="dropdown-item" >{{item.title}}</a>
-                                
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let item of data[i]?.subcategory">
+                            <a class="dropdown-item">{{item.title}}</a>
 
-                            </div>
-                        
-                        
+
+                        </div>
+
+
                     </div>
 
                     <!-- <div class="btn-group language" *ngIf="isMobile" ngbDropdown role="group" [placement]="arabic ? 'bottom-right' : 'bottom-left'">
@@ -102,12 +102,33 @@
             </div>
           </a> -->
                 </div>
+
                 <!-- <div class="col-3"></div> -->
+                <span class="pop overlay" (click)="searchopen()"></span>
+                <div class="search-box pop">
+                    <input type="search" placeholder="Search In Bonvoy" (input)="search($event)" [(ngModel)]="search_keyword">
+                    <div #collapse="ngbCollapse" [(ngbCollapse)]="!isCollapsed" class="search mt-3 " #search_menu>
+                        <!-- <div class="search-input" #search_input>
+                            <img src="assets/images/icons/search.svg" alt="search">
+                            <input type="text" placeholder="{{LANG.Search}}" name="search" id="search" (input)="search($event)" [(ngModel)]="search_keyword" autocomplete="off">
+                        </div> -->
+                        <div class="result_tab" *ngIf="result_tab" id="search-area" #search_result>
+                            <ul *ngIf="search_results.length > 0">
+                                <div class="search-result-item" *ngFor="let result of search_results">
+                                    <li (click)="onSearchClick(result)">{{result.title}}</li>
+                                </div>
+                            </ul>
+                            <ul *ngIf="no_result">
+                                <li id="no_result" style="width:100%">{{LANG.No_results_found}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-2 col-6  header-last">
 
                     <!-- <input type="search" placeholder="Search In Bloss" (input)="search($event)" [(ngModel)]="search_keyword"> -->
                     <div class="searchbar">
-                        <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <button class="search-toggle" (click)="searchopen()"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </div>
 
                     <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="search mt-3" #search_menu>
@@ -422,7 +443,7 @@
                     <img src="assets/images/bonvoy/login.png" alt="" class="w-100">
                 </div>
 
-                
+
                 <div class="col-md-7 login-bg-right">
                     <div class="heading text-center">
                         <h2>{{LANG.Create_An_Account}}</h2>
@@ -432,7 +453,7 @@
                             <div class="col-md-12">
                                 <div class="form_input">
                                     <div class="country-code form_input position-relative mb-0">
-                                        
+
                                         <input type="text" placeholder="{{LANG.Full_Name}}" class="form-control" name="full_name" [(ngModel)]="full_name">
                                     </div>
                                     <span class="error f-name" *ngIf="registration_error.full_name">{{LANG.This_field_is_required}}</span>

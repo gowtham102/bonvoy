@@ -227,7 +227,7 @@ header .dropdown-toggle::after {
 }
 
 .search {
-    background: var(--c-search);
+    /* background: var(--c-search); */
     height: 88px;
     margin-top: 10px;
     z-index: 1;
@@ -815,10 +815,11 @@ div.password {
     color: #fff;
 }
 
-.action-btn img,
+
+/* .action-btn img,
 .shop-bag img {
     filter: invert(1);
-}
+} */
 
 #header {
     position: absolute;
@@ -1206,10 +1207,10 @@ div.password {
 .count {
     width: 20px;
     height: 20px;
-    background: #fff;
+    background: #000;
     border-radius: 50%;
     font-size: 12px;
-    color: #000;
+    color: #fff;
     position: absolute;
     top: -2px;
     right: -15px;
@@ -1253,4 +1254,57 @@ div.password {
 
 .logo .dropdown:hover>.dropdown-menu::before {
     height: 100%;
+}
+
+.menu a {
+    padding: 0;
+    color: #000;
+    font-size: 20px;
+    font-family: 'roobert-med';
+    cursor: pointer;
+}
+
+.searchbar button {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: #000;
+}
+
+.search-box {
+    position: absolute;
+    top: 74px;
+    width: 100%;
+    left: 0;
+    padding: 0 100px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-30%);
+    transition: 0.25s all;
+}
+
+.search-box.show {
+    opacity: 1;
+    transform: translateY(0%);
+    visibility: visible;
+    z-index: 99;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.overlay.pop {
+    background: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.overlay.pop.show {
+    display: block;
 }

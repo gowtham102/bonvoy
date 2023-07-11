@@ -2,8 +2,8 @@ footer {
     width: 100%;
     /* background: #95918E; */
     /* color: var(--c-footer); */
-    background: rgb(43,43,53);
-    background: linear-gradient(40deg, rgba(43,43,53,1) 0%, rgba(71,75,87,1) 35%);
+    background: rgb(43, 43, 53);
+    background: linear-gradient(40deg, rgba(43, 43, 53, 1) 0%, rgba(71, 75, 87, 1) 35%);
     color: var(--c-white);
     position: relative;
     overflow: hidden;
@@ -296,6 +296,11 @@ footer .footer-section .footer-padding p {
     color: #FFFFFF;
     font-size: 12px;
     font-family: 'roobert-med';
+}
+
+.address-footer p {
+    margin: 0 !important;
+    margin-bottom: 10px !important;
 }
 
 @media screen and (max-width: 576px) {

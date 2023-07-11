@@ -1,7 +1,8 @@
-<div id="faq" class="container-fluid tab-pane fade">
-    <div [attr.id]="'accordion'+i" class="accordion" *ngFor="let item of faqlistdata let i=index">
-        <div class="card ">
-            <!-- <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+<div class="site_wrapper">
+    <div class="container-fluid ">
+        <div [attr.id]="'accordion'+i" class="accordion" *ngFor="let item of faqlistdata let i=index">
+            <div class="card ">
+                <!-- <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
                 <a class="card-title">
                     Sales Package
                 </a>
@@ -11,13 +12,14 @@
                     <li><span>Inside the Box:</span> Pebble Nano Pods Ear Buds, charging Cable, User manual, Warranty Card</li>
                 </ul>
             </div> -->
-            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" [attr.href]="'#collapseTwo'+i">
-                <a class="card-title">  {{item.question}} </a>
-            </div>
-            <div [attr.id]="'collapseTwo'+i" class="card-body collapse  faq  " data-parent="#accordion">
-                <ul>
-                    <li>{{item.answer}}</li>
-                </ul>
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" [attr.href]="'#collapseTwo'+i">
+                    <a class="card-title">  {{item.question}} </a>
+                </div>
+                <div [attr.id]="'collapseTwo'+i" class="card-body collapse  faq  " data-parent="#accordion">
+                    <ul>
+                        <li>{{item.answer}}</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

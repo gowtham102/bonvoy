@@ -1216,7 +1216,9 @@ downloadApp(){
 
 
 
-
+searchopen(){
+  $(".pop").toggleClass('show')
+}
   // menu_slider:boolean=false
   // menu(){
 
