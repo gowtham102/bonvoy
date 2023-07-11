@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WarrantyService } from '../SharedResources/Services/warranty.service';
 import { ToastrManager } from 'ng6-toastr-notifications';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { ToastrManager } from 'ng6-toastr-notifications';
 })
 export class WarrantyComponent implements OnInit {
 
-  constructor(public warantyservice:WarrantyService,  public toast:ToastrManager) { }
+  constructor(public warantyservice:WarrantyService,  public toast:ToastrManager, public router:Router) { }
 
   ngOnInit(): void {
     this.productlist();
@@ -55,6 +56,8 @@ export class WarrantyComponent implements OnInit {
     this.warantyservice.warrantyClaim(data).subscribe((res:any)=>{
       if(res.status){
         this.toast.successToastr("Your Warranty has been Claimed")
+        this.router.navigate([''])
+        
       }
       if(res.status==false){
         this.toast.warningToastr(res.message)

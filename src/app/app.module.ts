@@ -25,7 +25,7 @@ import { LoaderModule } from './SharedResources/Components/Loader/loader.module'
 import { AboutUsModule } from './about-us/about-us.module';
 import { Header2Component } from './header2/header2.component';
 import { WarrantyComponent } from './warranty/warranty.component';
-import { FaqComponent } from './faq/faq.component';
+// import { FaqComponent } from './faq/faq.component';
 // import { WarrantyModule } from './warranty/warranty.module';
 // import { ThankyouComponent } from './thankyou/thankyou.component';
 
@@ -38,7 +38,7 @@ import { FaqComponent } from './faq/faq.component';
     FooterComponent,
     HomeComponent,
     Header2Component,
-    FaqComponent,
+    // FaqComponent,
     // WarrantyComponent,
     // ThankyouComponent
   ],

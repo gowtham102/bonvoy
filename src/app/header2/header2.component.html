@@ -51,11 +51,11 @@
                 <div class="logo  col-md-8 col-6 menu d-flex align-center border-wra">
                     <div class="dropdown">
                         <a routerLink="/products" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div *ngFor="let data of categories;let i=index;">
@@ -103,7 +103,7 @@
                 </div> -->
                 <span class="pop overlay" (click)="searchopen()"></span>
                 <div class="search-box pop">
-                    <input type="search" placeholder="Search In Bloss" (input)="search($event)" [(ngModel)]="search_keyword">
+                    <input type="search" placeholder="Search In Bonvoy" (input)="search($event)" [(ngModel)]="search_keyword">
                     <div #collapse="ngbCollapse" [(ngbCollapse)]="!isCollapsed" class="search mt-3 " #search_menu>
                         <!-- <div class="search-input" #search_input>
                             <img src="assets/images/icons/search.svg" alt="search">

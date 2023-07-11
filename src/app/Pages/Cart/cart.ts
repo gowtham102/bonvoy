@@ -463,7 +463,7 @@ export class CartComponent implements OnInit {
                 this.toast.successToastr(res.response.message)
                 localStorage.setItem('token',res.response.token)
                 localStorage.setItem("logged_in", btoa("1"));
-
+                localStorage.setItem("guest_login","")
                 this.router.navigate(['/checkout/address']);
                 // location.reload()
             }

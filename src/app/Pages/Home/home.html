@@ -50,7 +50,7 @@
         <div class="container-fluid sec-exp">
             <h2 class="collection">Explore Collections</h2>
             <div class="row coll-row">
-                <div class="col-md-3 col-6" *ngFor="let item of home_page?.category.slice(-4)">
+                <div class="col-md-3 col-6" *ngFor="let item of home_page?.category">
                     <div class="category-wrapper" (click)="goToproductList(item,1)">
                         <img src="{{item.image}}" class="w-100" alt="">
                         <h6>{{item.title}}</h6>
@@ -666,16 +666,16 @@ background-size: cover;">
 </div>
 
 
-<div class="modal fade" id="review-modal" *ngIf="home_page?.feedback_orders.length>0">
+<div class="modal fade" id="review-modal" >
     <div class="modal-dialog">
         <div class="modal-content">
             <button type="button" class="close" (click)="closemodal()">&times;</button>
 
-            <div class="modal-body">
-                <div class="owl-carousel owl-theme" id="modal-slider" *ngFor="let item of home_page?.feedback_orders">
-                    <div class="item">
+            <div class="modal-body" >
+                <div class="owl-carousel owl-theme" id="modal-slider" >
+                    <div class="item" *ngFor="let item of home_page.feedback_orders">
                         <h6>How would you rate this item?</h6>
-                        <img src="{{item.image}}" alt="" />
+                        <img  src="{{item.product_image}}" alt="" />
                         <ngb-rating [max]=5 [(rate)]="rating" [readonly]="false"></ngb-rating>
                         <div class="text-area-input">
                             <textarea class="form-control" placeholder="Tellus" [(ngModel)]="review"></textarea>

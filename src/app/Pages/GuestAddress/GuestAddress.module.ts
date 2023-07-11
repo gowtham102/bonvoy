@@ -7,6 +7,7 @@ import { GuestAddressComponent } from './GuestAddress';
 import {AgmCoreModule} from '@agm/core';
 import { ThankyouComponent } from 'src/app/thankyou/thankyou.component';
 import { WarrantyComponent } from 'src/app/warranty/warranty.component';
+import { FaqComponent } from 'src/app/faq/faq.component';
 
 
 
@@ -30,6 +31,10 @@ const ChildRoutes: Routes = [
   {
     path:'warranty',
     component:WarrantyComponent
+  },
+  {
+    path:'faq',
+    component:FaqComponent
   }
   
   ]
@@ -47,7 +52,8 @@ const ChildRoutes: Routes = [
   ],
   declarations:[
     GuestAddressComponent,
-    WarrantyComponent
+    WarrantyComponent,
+    FaqComponent
   ]
 })
 export class guestAddressModule { }

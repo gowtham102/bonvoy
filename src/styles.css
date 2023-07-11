@@ -1247,6 +1247,7 @@ a:hover {
 #modal-slider img {
     width: 60px;
     margin: auto;
+    display: block;
 }
 
 .scrolling_up .search-box {

@@ -113,7 +113,7 @@ export class HeaderComponent implements OnInit {
       this.languageChange();
       this.onResize();
       this.unSubscriptionTimer=Subscription.EMPTY;
-      firebase.initializeApp(environment.firebaseConfig);
+      // firebase.initializeApp(environment.firebaseConfig);
       this.shared.modalOpen.subscribe((data:any)=>{
         if(data.id || data.redirection){
           this.product_data=data;

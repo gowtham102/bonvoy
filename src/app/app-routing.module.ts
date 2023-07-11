@@ -10,9 +10,15 @@ import { WarrantyComponent } from './warranty/warranty.component';
 const routes: Routes = [
   {
     path:'',
-    component:HomeComponent,
+    // component:HomeComponent,
+    redirectTo:'home',
     pathMatch:'full'
   },
+  {
+    path:'home',
+    component:HomeComponent
+  },
+
   {
     path: '',
     loadChildren: () => import('./Pages/ProductList/productList.module').then(m => m.productListModule)

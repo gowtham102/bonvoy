@@ -182,7 +182,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getHomePage();
-    this.openmodal();
+    // this.openmodal();
     $('#modal-slider').owlCarousel({
       loop:true,
       autoPlay:false,
@@ -276,11 +276,18 @@ export class HomeComponent implements OnInit {
 
   getHomePage() {
     this.subscriptions.push(this.homeService.getHomePage().subscribe((result: any) => {
-      if (result.status) {
-        this.home_page = result.response;
+      this.home_page = result.response;
+      if (result.status==true ) {
+        
+
+
         this.customOptions.rtl = this.slider_direction_rtl;
         this.customOptions1.rtl = this.slider_direction_rtl;
         this.bestSeller.rtl = this.slider_direction_rtl;
+        if(this.home_page.feedback_orders.length>0){
+          this.openmodal()
+        }
+        
         return
       }
     }, (respagesError: any) => {
@@ -299,6 +306,7 @@ export class HomeComponent implements OnInit {
         return
       }
     }))
+    
   }
 
 
