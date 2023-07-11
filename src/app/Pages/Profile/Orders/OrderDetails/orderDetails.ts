@@ -26,6 +26,8 @@ export class OrderDetailsComponent implements OnInit {
     LANG:any;
     product_id:string="";
     rating:any
+    width:any="10"
+
     
     constructor(private route:ActivatedRoute,private router:Router,private orderService:OrderService,private shared:SharedService,private toast:ToastrManager, public productService:ProductService){
         this.subscriptions.push(this.route.queryParams
@@ -58,7 +60,11 @@ export class OrderDetailsComponent implements OnInit {
         this.subscriptions.push(this.orderService.orderDetails(this.order_id).subscribe((result:any)=>{
             if(result.status){
                 this.order_details=result.response; 
+                const status=this.order_details.status_list.filter((data: { created_on: any; })=>{
+                    return data.created_on
+                })
                 this.order_details.ordered_date=this.formatDate(this.order_details.created_on);
+                this.width=parseInt(this.width) * status.length
             }
         }))
     }

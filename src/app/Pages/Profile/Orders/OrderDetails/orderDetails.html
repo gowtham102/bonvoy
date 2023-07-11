@@ -1,5 +1,27 @@
 <div class="order-wrapper mb-2">
     <div class="order-track-row">
+        <div class="col-md-3 order-track "  *ngFor="let data of order_details.status_list;let i=index">
+            <div [ngClass]="data.created_on ? 'active':''">
+            <span ></span>
+            <p>{{data.title}}</p>
+            <p>{{data.created_on}}</p>
+            </div>
+        </div>
+        <!-- <div class="col-md-3 order-track ">
+            <span></span>
+            <p>Processing</p>
+
+        </div>
+        <div class="col-md-3 order-track">
+            <span></span>
+            <p>Shipped</p>
+        </div>
+        <div class="col-md-3 order-track">
+            <span></span>
+            <p>Complete</p>
+        </div> -->
+    </div>
+    <!-- <div class="order-track-row">
         <div class="col-md-3 order-track active">
             <span></span>
             <p>New Order</p>
@@ -17,26 +39,7 @@
             <span></span>
             <p>Complete</p>
         </div>
-    </div>
-    <div class="order-track-row">
-        <div class="col-md-3 order-track active">
-            <span></span>
-            <p>New Order</p>
-        </div>
-        <div class="col-md-3 order-track ">
-            <span></span>
-            <p>Processing</p>
-
-        </div>
-        <div class="col-md-3 order-track">
-            <span></span>
-            <p>Shipped</p>
-        </div>
-        <div class="col-md-3 order-track">
-            <span></span>
-            <p>Complete</p>
-        </div>
-    </div>
+    </div> -->
     <div class="order-sta">
         <h6>{{LANG.ORDER_DETAILS}}</h6>
         <button class="btn " (click)="ordertrack()">Order Status</button>

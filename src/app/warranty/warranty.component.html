@@ -5,10 +5,13 @@
         <div class="col-md-12 form-group">
             <label>Full Name</label>
             <input type="text" class="form-control" placeholder="Full Name" [(ngModel)]="full_name" />
+            <span *ngIf="this.address_error.full_name">*please enter the name </span>
         </div>
         <div class="col-md-6 form-group">
             <label>Email</label>
             <input type="text" class="form-control" placeholder="Enter Email" [(ngModel)]="email_id" />
+            <span *ngIf="this.address_error.email_id">*please enter the Email ID </span>
+
         </div>
 
         <div class="col-md-6 form-group">
@@ -18,9 +21,11 @@
                     <option value="+91">+91</option>
                     <option value="+966">+966</option>
                 </select>
-                <input type="text" class="form-control" placeholder="Enter Mobile Number" [(ngModel)]="mobile_number" />
+                <input type="text" class="form-control" placeholder="Enter Mobile Number" [(ngModel)]="mobile_number" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)" />
+              
 
             </div>
+            <span *ngIf="this.address_error.mobile_number">*please enter the Mobile Number </span>
         </div>
         <div class="col-md-6 form-group">
             <label>Where did you Buy from</label>
@@ -28,6 +33,8 @@
                 <option value="Select a distributor">Select a distributor</option>
                 <option value="{{item.id}}" *ngFor="let item of distrubuterListData">{{item.title}}</option>
             </select>
+            <span *ngIf="this.address_error.distrubuter_id">*please Select the Distrubutor </span>
+
         </div>
         <div class="col-md-6 form-group">
             <label>Select Your Product</label>
@@ -35,14 +42,20 @@
                 <option value="Select a distributor">Select a distributor</option>
                 <option value="{{item.id}}" *ngFor="let item of productlistdata">{{item.title}}</option>
             </select>
+            <span *ngIf="this.address_error.product_id">*please Select the product </span>
+
         </div>
         <div class="col-md-6 form-group">
             <label>Serial Number</label>
             <input type="text" class="form-control" placeholder="Enter Serial Number " [(ngModel)]="serial_number" />
+            <span *ngIf="this.address_error.serial_number" >*please enter the Serial Number </span>
+
         </div>
         <div class="col-md-6 form-group">
             <label>Order Serial Number</label>
             <input type="text" class="form-control" placeholder="Enter Order Number" [(ngModel)]="order_number" />
+            <span *ngIf="this.address_error.order_number">*please enter the Order Number </span>
+
         </div>
         <div class="col-md-12 text-center">
             <button class=" btn " (click)="warrantyClaim()">Register Now</button>

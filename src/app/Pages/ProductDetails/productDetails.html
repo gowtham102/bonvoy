@@ -372,7 +372,7 @@
                 <img src="assets/images/login-bg.svg" alt="login-bg" [class.w-80]="!show_password">
             </div> -->
                 <div class="col-md-6 padding-login">
-                    <ng-container>
+                    <ng-container *ngIf="!show_otp">
                         <div class="heading text-center">
                             <h2>{{LANG.Login_Account}}</h2>
                         </div>
