@@ -847,6 +847,11 @@ opacity: 1;
         color: #ffcd00;
     }
     
+    .category-wrapper img {
+        height: 155px;
+        object-fit: contain;
+    }
+    
     textarea {
         height: 130px;
         border-radius: 10px;
