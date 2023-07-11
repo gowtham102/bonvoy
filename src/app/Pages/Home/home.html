@@ -666,20 +666,26 @@ background-size: cover;">
 </div>
 
 
-<div class="modal fade" id="review-modal" >
+<div class="modal fade" id="review-modal">
     <div class="modal-dialog">
         <div class="modal-content">
             <button type="button" class="close" (click)="closemodal()">&times;</button>
 
-            <div class="modal-body" >
-                <div class="owl-carousel owl-theme" id="modal-slider" >
+            <div class="modal-body p-0">
+                <div class="owl-carousel owl-theme" id="modal-slider">
                     <div class="item" *ngFor="let item of home_page.feedback_orders">
                         <h6>How would you rate this item?</h6>
-                        <img  src="{{item.product_image}}" alt="" />
-                        <ngb-rating [max]=5 [(rate)]="rating" [readonly]="false"></ngb-rating>
-                        <div class="text-area-input">
-                            <textarea class="form-control" placeholder="Tellus" [(ngModel)]="review"></textarea>
-                            <button class="btn" (click)="insertRating(item.product_id)">Submit </button>
+                        <div class="rate-caro row">
+                            <div class="col-md-6">
+                                <img src="{{item.product_image}}" class="w-100" alt="" />
+                            </div>
+                            <div class="col-md-6 ">
+                                <ngb-rating [max]=5 [(rate)]="rating" [readonly]="false"></ngb-rating>
+                                <div class="text-area-input">
+                                    <textarea class="form-control" placeholder="Tellus" [(ngModel)]="review"></textarea>
+                                    <button class="btn" (click)="insertRating(item.order_detail_id)">Submit </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- <div class="item">

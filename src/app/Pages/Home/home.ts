@@ -189,7 +189,7 @@ export class HomeComponent implements OnInit {
       margin:10,
       nav:true,
       dots:false,
-      navText: ["<span>Back</span>","<span>Next</span>"],
+      navText: ["<span><i class='fa fa-arrow-left'></i></span>","<span><i class='fa fa-arrow-right'></i></span>"],
       responsiveClass:true,
       responsive:{
           0:{

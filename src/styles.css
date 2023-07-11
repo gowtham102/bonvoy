@@ -1237,17 +1237,22 @@ a:hover {
 }
 
 #modal-slider .owl-nav button {
-    background: #000;
-    color: #fcfcfc;
-    font-size: 18px;
+    color: #000;
+    font-size: 14px;
     padding: 5px 20px !important;
     margin: 0;
+    border: 1px solid #000;
 }
 
 #modal-slider img {
-    width: 60px;
     margin: auto;
     display: block;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.owl-theme .owl-nav [class*=owl-]:hover {
+    background: transparent;
 }
 
 .scrolling_up .search-box {

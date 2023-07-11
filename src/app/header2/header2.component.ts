@@ -1223,9 +1223,9 @@ searchopen(){
 
 
   // menu_slider:boolean=false
-  // menu(){
+  menu(){
 
-  //       $(".menu-close").toggleClass("show");
+        $(".menu-open").toggleClass("show");
       
-  // }
+  }
 } 
