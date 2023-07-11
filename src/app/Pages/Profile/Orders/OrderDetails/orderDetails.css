@@ -430,11 +430,11 @@ textarea {
     display: none;
 }
 
-.order-track.active span {
+.order-track .active span {
     background: #000;
 }
 
-.order-track.active span::before {
+.order-track .active span::before {
     background: #000;
 }
 

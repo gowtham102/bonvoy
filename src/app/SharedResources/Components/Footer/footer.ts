@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { SharedService } from '../../Services/shared.service';
 import { Router } from '@angular/router';
 import { environment } from "src/environments/environment";
+import { HeaderService } from '../../Services/header.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class FooterComponent implements OnInit {
     subscriptions:Subscription[]=[];
  
 
-    constructor(private shared:SharedService,private router:Router){
+    constructor(private shared:SharedService,private router:Router, public headerService:HeaderService){
         this.subscriptions.push(this.shared.currentFooterData.subscribe((data:any) => {
             this.footer_data=data;        
         }))
@@ -30,6 +31,7 @@ export class FooterComponent implements OnInit {
 
     ngOnInit(){
         this.changeLanguage()
+        this.menu()
     }
 
     changeLanguage(){
@@ -41,6 +43,12 @@ export class FooterComponent implements OnInit {
         }
     }
 
+menulist:any
+    menu(){
+        this.headerService.getMenu().subscribe((res:any)=>{
+            this.menulist= res.response
+        })
+    }
       
     goToproductList(category_id:string){
         this.router.navigate(['/products'],{ queryParams: { category_id: btoa(btoa(category_id))}});

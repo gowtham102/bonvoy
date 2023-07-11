@@ -340,13 +340,13 @@ export class AddressListComponent implements OnInit {
     locationReload:boolean=false
     getAddressList(){
         this.subscriptions.push(this.profileService.getAddressList().subscribe((result:any)=>{
-            if (!localStorage.getItem('foo')) { 
-                localStorage.setItem('foo', 'no reload') 
-                location.reload() 
-              } else {
-                localStorage.removeItem('foo') 
-                this.locationReload=true
-              }
+            // if (!localStorage.getItem('foo')) { 
+            //     localStorage.setItem('foo', 'no reload') 
+            //     location.reload() 
+            //   } else {
+            //     localStorage.removeItem('foo') 
+            //     this.locationReload=true
+            //   }
             if(result.response.length==0){
                 this.openLg(this.address_modal,1)
             }
