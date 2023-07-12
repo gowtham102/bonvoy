@@ -352,6 +352,26 @@ export class HomeComponent implements OnInit {
       this.addToCart(data)
     }
   }
+  Buynow(data: any, type?: number) {
+    if (!this.logged_in) {
+      this.guestLoginUser = true
+
+      this.productService.guestLogin().subscribe((res: any) => {
+        localStorage.clear()
+        localStorage.setItem("logged_in", btoa("1"));
+        localStorage.setItem("token", res.response.token);
+        localStorage.setItem("guest_login", this.guestLoginUser)
+
+        this.logged_in = true
+        this.addToCart(data)
+        return
+      })
+
+    }
+    else if (this.logged_in) {
+      this.addToCart(data)
+    }
+  }
 
   addToCart(data: any) {
     if (data.stock == "2") {

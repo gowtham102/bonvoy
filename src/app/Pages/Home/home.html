@@ -450,7 +450,7 @@
                             <span>{{home_page.cruise.reviews}} Reviews</span>
                         </div>
                         <h4>₹ {{home_page.cruise.price - +home_page.cruise.discount}} <del> ₹ {{home_page.cruise.price}} </del><span class="dis-per ">({{home_page.cruise.discount_percent}}% Off)</span></h4>
-                        <button class="btn ">Buy Now</button>
+                        <button class="btn " (click)="guestLogin(home_page.cruise)">Buy Now</button>
 
                     </div>
                 </div>
