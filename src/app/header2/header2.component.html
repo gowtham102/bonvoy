@@ -524,10 +524,19 @@
             </ul>
         </div> -->
 
-        <div class="col-md-12 sear-prod-sec">
+        <div class="col-md-12 sear-prod-sec" *ngIf="search_results.length > 0">
             <h3>Products</h3>
             <div class="row prod-sec-row">
-                <div class="col-md-6">
+                <div class="col-md-6" *ngFor="let result of search_results">
+                    <div class="search-prod">
+                        <img src="{{result.image}}" alt="">
+                        <div>
+                            <h6>{{result.title}}</h6>
+                            <p>₹ {{result.price - +result.discount_percent}} <span class="mrp">M.R.P. : </span><del>₹ {{result.price}}</del><span class="dis-per">({{result.discount_percent}}% Off)</span> </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-6">
                     <div class="search-prod">
                         <img src="assets/images/bonvoy/watch1.png" alt="">
                         <div>
@@ -544,16 +553,7 @@
                             <p>₹ 1900 <span class="mrp">M.R.P. : </span><del>₹ 2000</del><span class="dis-per">(5% Off)</span> </p>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="search-prod">
-                        <img src="assets/images/bonvoy/watch1.png" alt="">
-                        <div>
-                            <h6>Bonvoy watch</h6>
-                            <p>₹ 1900 <span class="mrp">M.R.P. : </span><del>₹ 2000</del><span class="dis-per">(5% Off)</span> </p>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
