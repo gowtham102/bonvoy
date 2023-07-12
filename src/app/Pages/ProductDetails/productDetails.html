@@ -55,7 +55,7 @@
                                    </del><span class="dis-per">({{product_details.discount_percent}}% Off)</span></h4>
                         </span>
                         <p class="tax">Inclusive of all taxes <a href="#">Shipping</a> calculated at checkout.</p>
-                        <div class="star" *ngIf="product_details.review>0">
+                        <div class="star" *ngIf="product_details.rating>0">
                             <ngb-rating [max]=5 [(rate)]="product_details.rating" [readonly]="true"></ngb-rating>
 
 
@@ -281,12 +281,12 @@
                 Write a review
               </button> -->
         <div class="review-row">
-            <div class="review-wrapper">
+            <div class="review-wrapper" *ngFor="let item of product_details.review">
                 <div class="review-sec">
                     <div class="star">
-                        <ngb-rating [max]=5 [(rate)]="product_details.rating" [readonly]="true"></ngb-rating>
+                        <ngb-rating [max]=5 [(rate)]="item.rating" [readonly]="true"></ngb-rating>
                     </div>
-                    <p>I totally loved with this watch, this is very premium looking watch with all the latest features </p>
+                    <p>{{item.comment}}</p>
                 </div>
             </div>
         </div>
