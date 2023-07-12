@@ -1216,6 +1216,9 @@ downloadApp(){
 searchopen(){
   $(".pop").toggleClass('show')
 }
+searchclose(){
+  $(".pop").removeClass('show')
+}
   
 
 
