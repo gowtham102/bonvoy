@@ -20,7 +20,7 @@ export class HeaderService{
     }
 
     search(data:Object){
-        this.url = "search";
+        this.url = "product_list";
 		return this.api.post(this.url, data);   
     }
 
