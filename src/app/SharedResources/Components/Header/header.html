@@ -104,26 +104,7 @@
                 </div>
 
                 <!-- <div class="col-3"></div> -->
-                <span class="pop overlay" (click)="searchopen()"></span>
-                <div class="search-box pop">
-                    <input type="search" placeholder="Search In Bonvoy" (input)="search($event)" [(ngModel)]="search_keyword">
-                    <div #collapse="ngbCollapse" [(ngbCollapse)]="!isCollapsed" class="search mt-3 " #search_menu>
-                        <!-- <div class="search-input" #search_input>
-                            <img src="assets/images/icons/search.svg" alt="search">
-                            <input type="text" placeholder="{{LANG.Search}}" name="search" id="search" (input)="search($event)" [(ngModel)]="search_keyword" autocomplete="off">
-                        </div> -->
-                        <div class="result_tab" *ngIf="result_tab" id="search-area" #search_result>
-                            <ul *ngIf="search_results.length > 0">
-                                <div class="search-result-item" *ngFor="let result of search_results">
-                                    <li (click)="onSearchClick(result)">{{result.title}}</li>
-                                </div>
-                            </ul>
-                            <ul *ngIf="no_result">
-                                <li id="no_result" style="width:100%">{{LANG.No_results_found}}</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="col-md-2 col-6  header-last">
 
                     <!-- <input type="search" placeholder="Search In Bloss" (input)="search($event)" [(ngModel)]="search_keyword"> -->
@@ -513,3 +494,25 @@
         </div>
     </div>
 </ng-template>
+
+
+<span class="pop overlay" (click)="searchopen()"></span>
+<div class="search-box pop">
+    <input type="search" placeholder="Search In Bonvoy" (input)="search($event)" [(ngModel)]="search_keyword">
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="!isCollapsed" class="search mt-3 " #search_menu>
+        <!-- <div class="search-input" #search_input>
+                            <img src="assets/images/icons/search.svg" alt="search">
+                            <input type="text" placeholder="{{LANG.Search}}" name="search" id="search" (input)="search($event)" [(ngModel)]="search_keyword" autocomplete="off">
+                        </div> -->
+        <div class="result_tab" *ngIf="result_tab" id="search-area" #search_result>
+            <ul *ngIf="search_results.length > 0">
+                <div class="search-result-item" *ngFor="let result of search_results">
+                    <li (click)="onSearchClick(result)">{{result.title}}</li>
+                </div>
+            </ul>
+            <ul *ngIf="no_result">
+                <li id="no_result" style="width:100%">{{LANG.No_results_found}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

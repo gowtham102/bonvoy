@@ -285,9 +285,9 @@ export class HomeComponent implements OnInit {
         this.customOptions.rtl = this.slider_direction_rtl;
         this.customOptions1.rtl = this.slider_direction_rtl;
         this.bestSeller.rtl = this.slider_direction_rtl;
-        if(this.home_page.feedback_orders.length>0){
-          this.openmodal()
-        }
+        // if(this.home_page.feedback_orders.length>0){
+        //   this.openmodal()
+        // }
         
         return
       }

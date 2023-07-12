@@ -158,10 +158,10 @@
 
 
     </div>
-    <div class="navbar navbar-expand-sm scroll-nav">
-        <ul class="nav nav-tabs" role="tablist">
+    <nav class="navbar navbar-expand-sm scroll-nav">
+        <ul class="navbar-nav nav-tabs" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" href="#overview" role="tab" data-toggle="tab">Overview</a>
+                <a class="nav-link " href="#overview" role="tab" data-toggle="tab">Overview</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#specification" role="tab" data-toggle="tab">Specification</a>
@@ -174,85 +174,86 @@
             </li>
 
         </ul>
+    </nav>
+
+    <!-- <div class="scrool-spy-sec tab-content"> -->
+
+    <div id="overview" role="tabpanel" class="tab-pane   ">
+        <ng-container *ngFor="let item of product_details?.overview">
+            <img src="{{item.image}}" class="w-100" alt="" />
+        </ng-container>
+
     </div>
-
-    <div class="scrool-spy-sec tab-content">
-
-        <div id="overview" role="tabpanel" class="tab-pane  active ">
-            <ng-container *ngFor="let item of product_details?.overview">
-                <img src="{{item.image}}" class="w-100" alt="" />
-            </ng-container>
-
-        </div>
-        <div id="specification" class="specification container-fluid tab-pane fade" role="tabpanel">
-            <!-- <h4>Specifications</h4> -->
-            <div class="">
-                <div class="card mb-0 pt-3">
-                    <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
-                        <a class="card-title">
+    <div id="specification" class="specification container-fluid tab-pane " role="tabpanel">
+        <h4>Specifications</h4>
+        <div class="">
+            <div class="card mb-0 pt-3">
+                <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+                    <a class="card-title">
                             PRODUCT INFORMATION
                         </a>
-                    </div>
-                    <div id="collapseOne" class="card-body card-spec collapse" data-parent="#accordion">
-                        <ul>
-                            <li [innerHTML]="product_details.specifications"></li>
-                        </ul>
-                    </div>
-                    <!-- <div class="card-header pb-0">
+                </div>
+                <div id="collapseOne" class="card-body card-spec collapse" data-parent="#accordion">
+                    <ul>
+                        <li [innerHTML]="product_details.specifications"></li>
+                    </ul>
+                </div>
+                <!-- <div class="card-header pb-0">
                         <h6 class="card-title"> Specification </h6>
                     </div> -->
-                    <!-- <div class="card-body card-spec ">
+                <!-- <div class="card-body card-spec ">
                         <ul>
                             <li [innerHTML]="product_details.specifications"></li>
                         </ul>
                     </div> -->
-                </div>
-                <div class="card mb-0 pt-3">
-                    <div class="card-header collapsed" data-toggle="collapse" href="#collapseTwo">
-                        <a class="card-title">
+            </div>
+            <div class="card mb-0 pt-3">
+                <div class="card-header collapsed" data-toggle="collapse" href="#collapseTwo">
+                    <a class="card-title">
                             SALES PACKAGE
                         </a>
-                    </div>
-                    <div id="collapseTwo" class="card-body card-spec collapse" data-parent="#accordion">
-                        <ul>
-                            <li [innerHTML]="product_details.sales_package"></li>
-                        </ul>
-                    </div>
-                    <!-- <div class="card-header pb-0">
+                </div>
+                <div id="collapseTwo" class="card-body card-spec collapse" data-parent="#accordion">
+                    <ul>
+                        <li [innerHTML]="product_details.sales_package"></li>
+                    </ul>
+                </div>
+                <!-- <div class="card-header pb-0">
                         <h6 class="card-title"> Specification </h6>
                     </div> -->
-                    <!-- <div class="card-body card-spec ">
+                <!-- <div class="card-body card-spec ">
                         <ul>
                             <li [innerHTML]="product_details.specifications"></li>
                         </ul>
                     </div> -->
-                </div>
-                <div class="card mb-0 pt-3">
-                    <div class="card-header collapsed" data-toggle="collapse" href="#collapseThree">
-                        <a class="card-title">
+            </div>
+            <div class="card mb-0 pt-3">
+                <div class="card-header collapsed" data-toggle="collapse" href="#collapseThree">
+                    <a class="card-title">
                             WARRANTY
                         </a>
-                    </div>
-                    <div id="collapseThree" class="card-body card-spec collapse" data-parent="#accordion">
-                        <ul>
-                            <li [innerHTML]="product_details.product_warranty"></li>
-                        </ul>
-                    </div>
-                    <!-- <div class="card-header pb-0">
+                </div>
+                <div id="collapseThree" class="card-body card-spec collapse" data-parent="#accordion">
+                    <ul>
+                        <li [innerHTML]="product_details.product_warranty"></li>
+                    </ul>
+                </div>
+                <!-- <div class="card-header pb-0">
                         <h6 class="card-title"> Specification </h6>
                     </div> -->
-                    <!-- <div class="card-body card-spec ">
+                <!-- <div class="card-body card-spec ">
                         <ul>
                             <li [innerHTML]="product_details.specifications"></li>
                         </ul>
                     </div> -->
-                </div>
             </div>
         </div>
-        <div id="faq" class="container-fluid tab-pane fade">
-            <div [attr.id]="'accordion'+i" class="accordion" *ngFor="let item of product_details?.faq let i=index">
-                <div class="card ">
-                    <!-- <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+    </div>
+    <div id="faq" class="container-fluid tab-pane ">
+        <h4>Faq</h4>
+        <div [attr.id]="'accordion'+i" class="accordion" *ngFor="let item of product_details?.faq let i=index">
+            <div class="card ">
+                <!-- <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
                         <a class="card-title">
                             Sales Package
                         </a>
@@ -262,33 +263,34 @@
                             <li><span>Inside the Box:</span> Pebble Nano Pods Ear Buds, charging Cable, User manual, Warranty Card</li>
                         </ul>
                     </div> -->
-                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" [attr.href]="'#collapseTwo'+i">
-                        <a class="card-title">  {{item.question}} </a>
-                    </div>
-                    <div [attr.id]="'collapseTwo'+i" class="card-body collapse  faq  " data-parent="#accordion">
-                        <ul>
-                            <li>{{item.answer}}</li>
-                        </ul>
-                    </div>
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" [attr.href]="'#collapseTwo'+i">
+                    <a class="card-title">  {{item.question}} </a>
                 </div>
-            </div>
-        </div>
-        <div id="review" class="container-fluid tab-pane fade">
-            <!-- <button type="button" class="btn review-btn" data-toggle="modal" data-target="#review-modal">
-                Write a review
-              </button> -->
-            <div class="review-row">
-                <div class="review-wrapper">
-                    <div class="review-sec">
-                        <div class="star">
-                            <ngb-rating [max]=5 [(rate)]="product_details.rating" [readonly]="true"></ngb-rating>
-                        </div>
-                        <p>I totally loved with this watch, this is very premium looking watch with all the latest features </p>
-                    </div>
+                <div [attr.id]="'collapseTwo'+i" class="card-body collapse  faq  " data-parent="#accordion">
+                    <ul>
+                        <li>{{item.answer}}</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+    <div id="review" class="container-fluid tab-pane ">
+        <h4>Reviews</h4>
+        <!-- <button type="button" class="btn review-btn" data-toggle="modal" data-target="#review-modal">
+                Write a review
+              </button> -->
+        <div class="review-row">
+            <div class="review-wrapper">
+                <div class="review-sec">
+                    <div class="star">
+                        <ngb-rating [max]=5 [(rate)]="product_details.rating" [readonly]="true"></ngb-rating>
+                    </div>
+                    <p>I totally loved with this watch, this is very premium looking watch with all the latest features </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
 
 
 
