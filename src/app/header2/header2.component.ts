@@ -1225,7 +1225,7 @@ searchopen(){
   // menu_slider:boolean=false
   menu(){
 
-        $(".menu-open").toggleClass("show");
+        $(".menu-open,.overlay-pop1").toggleClass("show");
       
   }
 } 

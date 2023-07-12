@@ -37,6 +37,9 @@
         <div class="contain-wrap">
             <!-- <div class="row justify-content-between align-center"> -->
             <div class="row logo-head ">
+                <button class="menu-btn" (click)="menu()">
+                    <i class="fa fa-bars"></i>
+                </button>
                 <div class="logo col-md-2 col-5 mob-nav">
                     <a routerLink="/">
                         <img src="assets/images/bonvoy/logoBonvoy3.png" alt="Logo img">
@@ -48,15 +51,15 @@
                 <!-- <div class=" col-md-10 "> -->
                 <!-- <button class="close-icon btn" (click)="menu()"><i class="fa fa-times" aria-hidden="true"></i></button> -->
                 <!-- <div class="row mob-row"> -->
-                <button class="menu-btn" (click)="menu()">
-                        <i class="fa fa-bars" aria-hidden="true"></i>
-                    </button>
 
-                <div class="col-md-10 menu-open">
+                <span class="overlay-pop1 " (click)="menu()"></span>
+                <div class="col-md-10 ">
                     <div class="row menu-open-row">
 
 
-                        <div class="logo  col-md-8  menu d-flex align-center border-wra ">
+                        <div class="logo  col-md-8  menu d-flex align-center border-wra menu-open">
+                            <button class="close-icon btn" (click)="menu()"><i class="fa fa-times" aria-hidden="true"></i></button>
+
                             <div class="dropdown">
                                 <a routerLink="/products" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All</a>
                                 <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -111,7 +114,7 @@
                 </div> -->
 
 
-                        <div class="col-md-2   header-last">
+                        <div class="col-md-2 col-2  header-last">
 
                             <div class="searchbar">
                                 <button class="search-toggle" (click)="searchopen()"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -153,7 +156,6 @@
 
                             </a>
                         </div>
-                        <button class="close-icon btn" (click)="menu()"><i class="fa fa-times" aria-hidden="true"></i></button>
 
                     </div>
                 </div>
@@ -528,7 +530,7 @@
             <h3>Products</h3>
             <div class="row prod-sec-row">
                 <div class="col-md-6" *ngFor="let result of search_results">
-                    <div class="search-prod">
+                    <div class="search-prod" (click)="onSearchClick(result)">
                         <img src="{{result.image}}" alt="">
                         <div>
                             <h6>{{result.title}}</h6>
