@@ -43,36 +43,35 @@
     --c-dele: #6E6E6E
 }
 
-
-/* @font-face {
+@font-face {
     font-family: 'GothaProBol';
-    src: url('./assets/fonts/GothaProBol.otf');
+    src: url('./assets/fonts/HelveticaNeueLTCom-Md.woff');
 }
 
 @font-face {
     font-family: 'GothaProLig';
-    src: url('./assets/fonts/GothaProLig.otf');
+    src: url('./assets/fonts/HelveticaNeueLTCom-Md.woff');
 }
 
 @font-face {
     font-family: 'GothaProMed';
-    src: url('./assets/fonts/GothaProMed.otf');
+    src: url('./assets/fonts/HelveticaNeueLTCom-Md.woff');
 }
 
 @font-face {
     font-family: 'GothaProReg';
-    src: url('./assets/fonts/GothaProReg.otf');
+    src: url('./assets/fonts/HelveticaNeueLTCom-Md.woff');
 }
 
 @font-face {
     font-family: 'roobert-bold';
-    src: url('./assets/fonts/Roobert-Bold.otf');
+    src: url('./assets/fonts/HelveticaNeueLTCom-Md.woff');
 }
 
 @font-face {
     font-family: 'roobert-light';
-    src: url('./assets/fonts/Roobert-Light.otf');
-} */
+    src: url('./assets/fonts/HelveticaNeueLTCom-Md.woff');
+}
 
 @font-face {
     font-family: 'roobert-med';
@@ -84,11 +83,10 @@
     src: url('./assets/fonts/HelveticaNeueLTCom-Md.woff');
 }
 
-
-/*@font-face {
+@font-face {
     font-family: 'roobert-semi';
-    src: url('./assets/fonts/Roobert-SemiBold.otf');
-} */
+    src: url('./assets/fonts/HelveticaNeueLTCom-Md.woff');
+}
 
 body {
     font-family: 'roobert-med';
