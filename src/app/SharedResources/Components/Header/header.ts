@@ -1219,6 +1219,9 @@ downloadApp(){
 searchopen(){
   $(".pop").toggleClass('show')
 }
+searchclose(){
+  $(".pop").removeClass('show')
+}
   // menu_slider:boolean=false
   menu(){
 

@@ -508,7 +508,7 @@
 <span class="pop overlay" (click)="searchopen()"></span>
 <div class="search-box pop ">
     <button class="btn search-icon-btn"><i class="fa fa-search"></i></button>
-    <button class="btn search-icon-btn search-icon-btn1"><i class="fa fa-times"></i></button>
+    <button class="btn search-icon-btn search-icon-btn1" (click)="searchclose()"><i class="fa fa-times"></i></button>
     <input type="search" placeholder="Search In Bonvoy" (input)="search($event)" [(ngModel)]="search_keyword">
     <div #collapse="ngbCollapse" [(ngbCollapse)]="!isCollapsed" class="search  " #search_menu>
         <!-- <div class="search-input" #search_input>
