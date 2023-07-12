@@ -69,7 +69,7 @@
                             <span class="minus" (click)="decrementQuantity()"><img class=""
                                     src="assets/images/icons/minus-icon.svg" alt="minus"></span>
                             <input type="text" [ngModel]="product_details.quantity" disabled>
-                            <span class="plus" (click)="incrementQuantity()" *ngIf="product_details.available_quantity>product_details.quantity"><img class=""
+                            <span class="plus" (click)="incrementQuantity()" ><img class=""
                                     src="assets/images/icons/plus-icon.svg" alt="plus"></span>
                         </div>
 
@@ -524,7 +524,7 @@
 </div>
 <div class="prod-bottom">
     <div class="prod-sec1">
-        <img src="../../../assets/images/bonvoy/watch1.png" alt="">
+        <img src="{{main_image}}" alt="">
         <div>
             <h2>{{product_details.title}}</h2>
             <span class="prod-pr"><span>{{product_details.currency}} {{+product_details.price - +product_details.discount}}</span> <del *ngIf="+product_details.discount > 0"> {{product_details.currency}} {{product_details.price}}
@@ -540,6 +540,6 @@
                 <a class="dropdown-item">{{item?.value}}</a>
             </div>
         </div>
-        <button class="btn buyit">Buy It Now</button>
+        <button class="btn buyit" (click)="BuyNow(product_details,2)">Buy It Now</button>
     </div>
 </div>

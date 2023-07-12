@@ -292,7 +292,7 @@ export class CartComponent implements OnInit {
     }
    
     guest_number:any
-    guest_code:any
+    guest_code:any="+91"
     otp1:any
     otp2:any
     otp3:any

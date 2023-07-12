@@ -36,7 +36,7 @@ const ChildRoutes: Routes = [
   },
   {
     path: 'warranty-policy',
-    component:WarrantyComponent
+    component:WarrantypolicyComponent
   },
   
   ]
