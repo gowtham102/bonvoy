@@ -1,18 +1,19 @@
 <!-- <div class="site-w"></div> -->
 <div class=" ">
-    <div class="banner " style=" height: calc(100vh - 50px);background-repeat: no-repeat; ">
-        <div class=" ">
-            <owl-carousel-o [options]="customOptions">
-                <ng-template carouselSlide *ngFor="let data of home_page?.banner">
-                    <img src="{{data.image}}" alt="" (click)="goToproductList(data,2)">
-                    <!-- <div class="row banner-image">
+    <div class="mob-banner">
+        <div class="banner " style=" height: calc(100vh - 50px);background-repeat: no-repeat; ">
+            <div class=" ">
+                <owl-carousel-o [options]="customOptions">
+                    <ng-template carouselSlide *ngFor="let data of home_page?.banner">
+                        <img src="{{data.image}}" alt="" (click)="goToproductList(data,2)">
+                        <!-- <div class="row banner-image">
                         <div class="col-md-6 col-6">
                             <h2>{{home_page?.banner[0]?.TITLE}} </h2>
                             <button class="btn">Buy now</button>
                             <span>Watch</span>
 
                         </div> -->
-                    <!-- <div class="col-md-6 col-6">
+                        <!-- <div class="col-md-6 col-6">
                             <div class="col-md-8 mx-auto">
                                 <img src="{{home_page?.banner[0]?.image}}" alt="banner-image">
                             </div>
@@ -20,21 +21,23 @@
 
                     </div> -->
 
-                    <!-- <div class="centered text-center">
+                        <!-- <div class="centered text-center">
                     
               <p>Premium Best Smart Watch</p>
                 </div> -->
+                    </ng-template>
+                </owl-carousel-o>
+            </div>
+        </div>
+        <div id="slider">
+            <owl-carousel-o [options]="customOptions1">
+                <ng-template carouselSlide *ngFor="let data of home_page?.top_bar">
+                    <p>{{data.TITLE}}</p>
                 </ng-template>
             </owl-carousel-o>
         </div>
     </div>
-    <div id="slider">
-        <owl-carousel-o [options]="customOptions1">
-            <ng-template carouselSlide *ngFor="let data of home_page?.top_bar">
-                <p>{{data.TITLE}}</p>
-            </ng-template>
-        </owl-carousel-o>
-    </div>
+
 
     <div class="position-relative">
 

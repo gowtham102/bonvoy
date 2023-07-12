@@ -366,7 +366,7 @@ footer .footer-section .footer-padding p {
         padding: 30px 0;
     }
     footer .footer-section {
-        padding: 30px 0;
+        padding: 30px 0 12px;
     }
     footer .footer-section input {
         padding: 7px 16px;
@@ -415,5 +415,11 @@ footer .footer-section .footer-padding p {
     }
     .float-whatsapp img {
         width: 125px;
+    }
+    .footer-cont {
+        padding: 0 15px;
+    }
+    .foot-last {
+        padding-top: 20px;
     }
 }

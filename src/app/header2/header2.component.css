@@ -1305,6 +1305,9 @@ div.password {
         background: #000;
         color: #fff;
     }
+    #header {
+        position: unset;
+    }
 }
 
 @media screen and (max-width: 320px) {
