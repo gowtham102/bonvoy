@@ -16,6 +16,7 @@ input:focus-visible {
     grid-column-gap: 50px;
     /* justify-content: center; */
     padding-left: 100px;
+    justify-content: center;
 }
 
 .searchbar i {
@@ -41,7 +42,7 @@ input:focus-visible {
 header {
     /* position: fixed; */
     width: 100%;
-    padding: 25px 0;
+    padding: 16px 0;
     transition: .5s ease-in-out;
     /* top: 0; */
     /* left: 0; */
@@ -912,7 +913,7 @@ div.password {
 .menu a {
     padding: 0;
     color: #fff;
-    font-size: 20px;
+    font-size: 14px;
     font-family: 'roobert-med';
     cursor: pointer;
     position: relative;

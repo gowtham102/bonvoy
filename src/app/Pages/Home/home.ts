@@ -235,7 +235,7 @@ export class HomeComponent implements OnInit {
     
   }
   openmodal(){
-    $('#review-modal').addClass('show');
+    $('#review-modal,.overlay-pop').addClass('show');
   }
   review:any
   insertRating(event:any){
@@ -424,7 +424,7 @@ export class HomeComponent implements OnInit {
   }
 
   closemodal(){
-    $("#review-modal").removeClass("show");
+    $("#review-modal,.overlay-pop").removeClass("show");
   }
 
 } 

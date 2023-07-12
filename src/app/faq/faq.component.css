@@ -5,6 +5,7 @@
 .card {
     border: 0;
     border-bottom: 1px solid #e4e4e4;
+    border-radius: 0;
 }
 
 .card-header {

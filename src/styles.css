@@ -43,7 +43,8 @@
     --c-dele: #6E6E6E
 }
 
-@font-face {
+
+/* @font-face {
     font-family: 'GothaProBol';
     src: url('./assets/fonts/GothaProBol.otf');
 }
@@ -71,25 +72,26 @@
 @font-face {
     font-family: 'roobert-light';
     src: url('./assets/fonts/Roobert-Light.otf');
-}
+} */
 
 @font-face {
     font-family: 'roobert-med';
-    src: url('./assets/fonts/Roobert-Medium.otf');
+    src: url('./assets/fonts/HelveticaNeueLTCom-Md.woff');
 }
 
 @font-face {
     font-family: 'roobert-reg';
-    src: url('./assets/fonts/Roobert-Regular.otf');
+    src: url('./assets/fonts/HelveticaNeueLTCom-Md.woff');
 }
 
-@font-face {
+
+/*@font-face {
     font-family: 'roobert-semi';
     src: url('./assets/fonts/Roobert-SemiBold.otf');
-}
+} */
 
 body {
-    font-family: 'GothaProReg';
+    font-family: 'roobert-med';
     color: #000;
 }
 

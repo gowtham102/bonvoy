@@ -3,8 +3,8 @@
 <div class="parentelement pare-2" *ngIf="loader==true">
     <ngx-loading-bar color="#F16451" height="4px" [includeSpinner]="false" ref="router" [fixed]="false"></ngx-loading-bar>
     <ngx-loading-bar color="#F16451" height="4px" [includeSpinner]="false" ref="http" [fixed]="false"></ngx-loading-bar>
-    <div class="centered-2 " style="background: linear-gradient(40deg, rgba(43, 43, 53, 1) 0%, rgba(71, 75, 87, 1) 35%);" *ngIf="loader==true">
-        <img src="assets/images/bonvoy/bonvoyloader.gif" alt="">
+    <div class="centered-2 " *ngIf="loader==true">
+        <img src="assets/images/bonvoy/bonvoyloader.gif" class="w-25" alt="">
     </div>
 
 </div>
