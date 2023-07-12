@@ -817,71 +817,72 @@ textarea {
     display: none;
 }
 
-
-}
 @media screen and (max-width: 320px) {
     .banner-image .centered h1 {
         font-size: 26px;
     }
-    
     .quantity,
     .quantity input {
         width: 67px;
         -webkit-text-fill-color: rgb(0, 0, 0);
         -webkit-opacity: 1;
     }
-    
     .details button.add-cart {
         width: 150px;
         margin-left: 10px;
     }
-    
     .product-container .row .col-md-9 {
         padding: 0;
     }
-    
     div.description {
         width: 100%;
     }
-    
     .prod-img {
         height: auto;
     }
 }
+
 #loginModal.show {
     display: block;
     background: #00000054;
 }
+
 #loginModal .modal-dialog {
     border-radius: 16px;
     background: #fff;
     pointer-events: unset;
 }
+
 #loginModal .modal-body {
     padding: 0;
 }
+
 .login-bg-img img {
     border-radius: 8px 0 0 8px;
 }
+
 .padding-login {
     padding: 42px 74px 59px 30px;
 }
+
 .heading h2 {
     font-family: 'roobert-reg';
     font-size: 32px;
     color: #000;
     padding-bottom: 27px;
 }
+
 .login-modal .country {
     /* position: absolute; */
-    
     width: 20%;
 }
+
 .login-modal .country input,
 .login-modal .country select {
     margin: 0;
     width: 100%;
 }
+
 .login-modal .country select {
     border: 1px solid var(--c-filter-check);
     font-size: 14px;
@@ -892,15 +893,18 @@ textarea {
     direction: ltr;
 }
 
+
 /* .login-modal .country-code span {
     position: absolute;
     width: 5%;
     height: 58px;
     left: 20%;
 } */
+
 .login-modal button.checkout {
     margin: 15px 0;
 }
+
 .login-modal .login-otp,
 .login-modal .goto-register,
 .login-modal .resend a {
@@ -910,32 +914,40 @@ textarea {
     text-align: center;
     font-family: 'roobert-bold';
 }
+
 .login-modal .resend a {
     font-family: 'roobert-reg';
 }
+
 .login-modal .login-otp a {
     text-decoration: underline;
     font-family: 'GothaProBol';
     cursor: pointer;
 }
+
 .login-modal input {
     height: 58px;
 }
+
 .login-modal ::placeholder {
     color: var(--c-coupon-placeholder);
 }
+
 .login-modal :-ms-input-placeholder {
     color: var(--c-coupon-placeholder);
 }
+
 .login-modal ::-ms-input-placeholder {
     color: var(--c-coupon-placeholder);
 }
+
 .login-modal .form_input {
     margin-bottom: 15px;
     display: flex;
     width: 100%;
     grid-column-gap: 3px;
 }
+
 .form-control,
 .form-control:focus {
     border: 1px solid #DEE4E8;
@@ -944,13 +956,16 @@ textarea {
     padding: 10px 27px;
     border-radius: 8px;
 }
+
 .country input {
     padding: 0;
     text-align: center;
 }
+
 .goto-register a {
     font-family: 'roobert-reg';
 }
+
 .country-code select {
     border: 1px solid #C7C7C7;
     font-size: 14px;
@@ -966,6 +981,7 @@ textarea {
     justify-content: center;
     cursor: pointer;
 }
+
 .login-modal .otp-field {
     display: flex;
     justify-content: space-between;
@@ -974,32 +990,36 @@ textarea {
     -webkit-box-pack: justify;
     direction: ltr;
 }
+
 .login-modal .otp-field input {
     width: 50px;
     height: 50px;
     border-radius: 8px;
     /* margin-right: 20px; */
-    
     text-align: center;
     border: none;
     border: 1px solid #C7C7C7;
     margin-bottom: 30px;
 }
+
 .resend {
     margin-top: 58px;
 }
+
 .mrp {
     font-size: 18px;
     font-family: 'roobert-reg' !important;
     color: #B3B3B3;
     padding-left: 10px;
 }
+
 .dis-per {
     color: #ff6d5c;
     font-size: 16px;
     font-weight: 500;
     padding-left: 10px;
 }
+
 .prod-bottom {
     position: fixed;
     bottom: 0;
@@ -1015,56 +1035,69 @@ textarea {
     align-items: center;
     transform: translateY(120%);
 }
+
 .new-launch h2 {
     font-size: 38px;
     color: #000;
     font-family: 'roobert-med';
     padding: 80px 0 2rem;
 }
+
 .new-launch {
     padding: 0 5rem;
 }
+
 .new-launch img {
     max-height: 330px;
     object-fit: contain;
 }
+
 .prod-sec1 {
     display: flex;
     align-items: center;
     column-gap: 10px;
 }
+
 .prod .prod-name {
     margin-top: 55px;
 }
+
 .prod-pr span {
     font-family: 'roobert-med' !important;
 }
+
 .prod-pr del {
     margin: 0 5px;
 }
+
 .prod-pr .dis-per {
     color: #ff6d5c;
     font-size: 16px;
 }
+
 .launch-row {
     row-gap: 30px;
     margin-bottom: 50px;
 }
+
 .prod-sec1 img {
     width: 65px;
     height: 65px;
     object-fit: contain;
 }
+
 .prod-sec1 h2 {
     font-size: 16px;
     margin: 0;
 }
+
 .drop-button button {
     width: 100%;
     padding: 13px 15px;
     font-size: 14px;
     border-radius: 4px;
 }
+
 .drop-button .dropdown button {
     border: 2px solid #000;
     display: flex;
@@ -1072,14 +1105,15 @@ textarea {
     align-items: center;
     /* text-align: center; */
 }
+
 .buyit {
     background: #000;
     color: #fff;
     font-size: 14px;
 }
+
 .drop-button {
     display: flex;
     /* column-gap: 10px; */
-    
     align-items: center;
 }
