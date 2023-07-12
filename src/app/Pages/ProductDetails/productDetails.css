@@ -447,6 +447,20 @@ section.similar-products {
     font-size: 20px;
 }
 
+.overlay-pop {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+    /* z-index: 9999; */
+}
+
+.overlay-pop.show {
+    display: block;
+}
+
 #review-modal .modal-body h6 {
     font-size: 18px;
     text-align: center;

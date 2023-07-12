@@ -1097,6 +1097,20 @@ a:hover {
     transform: translateY(0) !important;
 }
 
+.overlay-pop {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+    /* z-index: 9999; */
+}
+
+.overlay-pop.show {
+    display: block;
+}
+
 @media screen and (min-width: 1200px) {
     .best-seller .owl-item {
         width: auto !important;
