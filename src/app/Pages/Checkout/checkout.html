@@ -128,7 +128,7 @@
                         <li>
                             <span>{{LANG.Total}}</span><span>{{cartDetails.currency}} {{cartDetails.grand_total | number:'1.2'}} </span>
                         </li>
-                        <li class="justify-content-center mb-0">Estimated Delivery Date : {{cartDetails.delivery_date}}</li>
+                        <li class="justify-content-center mb-0 estimated-icon"><img src="assets/images/bonvoy/express.svg" alt="">Estimated Delivery Date : {{cartDetails.delivery_date}}</li>
                     </ul>
 
                     <!-- <button class="checkout " (click)="checkoutNavigations()" *ngIf="route_path != 'payment'">{{LANG.Continue}}</button> -->

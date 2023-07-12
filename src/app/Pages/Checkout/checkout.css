@@ -12,7 +12,7 @@
     padding-bottom: 30px;
 }
 
-.out-of-stock{
+.out-of-stock {
     background: #ccc;
     opacity: 0.5;
 }
@@ -372,4 +372,16 @@ del {
 .product-container .breadcrumbs p {
     margin-top: 35px;
     margin-bottom: 18px;
+}
+
+.estimated-icon {
+    color: blue !important;
+    font-weight: 400;
+    background: #f9f9f9;
+    padding: 15px 0;
+    border-radius: 8px;
+}
+
+.estimated-icon img {
+    margin-right: 20px;
 }

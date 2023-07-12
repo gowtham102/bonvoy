@@ -76,7 +76,7 @@ export class OrderDetailsComponent implements OnInit {
 order_id_rate:any
     ratemodal(event:any){
         this.order_id_rate= event
-        $('#review-modal').addClass('show');
+        $('#review-modal,.overlay-pop').addClass('show');
     }
 
     formatDate(value:any){
@@ -117,5 +117,7 @@ order_id_rate:any
     ordertrack(){
         $(".order-track-row").toggleClass("show")
     }
-
+    closemodal(){
+        $("#review-modal,.overlay-pop").removeClass("show");
+      }
 } 
