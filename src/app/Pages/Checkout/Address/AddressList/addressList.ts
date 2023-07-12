@@ -32,7 +32,7 @@ export class AddressListComponent implements OnInit {
     address_clicked:boolean=true;
     latitude = 28.644800;
     longitude = 77.216721;
-    icon: string="assets/images/icons/map_icon.svg";
+    icon: string="assets/images/bonvoy/bonvoy_pin.png";
     modalReference:any;
     order_timings:any=[];
     order_time:string="";
