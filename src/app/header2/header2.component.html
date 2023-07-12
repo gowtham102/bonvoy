@@ -534,7 +534,7 @@
                         <img src="{{result.image}}" alt="">
                         <div>
                             <h6>{{result.title}}</h6>
-                            <p>₹ {{result.price - +result.discount_percent}} <span class="mrp">M.R.P. : </span><del>₹ {{result.price}}</del><span class="dis-per">({{result.discount_percent}}% Off)</span> </p>
+                            <p *ngIf="(result.price - +result.discount_percent)>0 ">₹ {{result.price - +result.discount_percent}}<span class="mrp">M.R.P. : </span><del>₹ {{result.price}}</del><span class="dis-per">({{result.discount_percent}}% Off)</span> <p *ngIf="(result.price - +result.discount_percent)<0 ">₹ 0<span class="mrp">M.R.P. : </span><del>₹ {{result.price}}</del><span class="dis-per">({{result.discount_percent}}% Off)</span> </p>
                         </div>
                     </div>
                 </div>

@@ -76,7 +76,7 @@
         <div class="col-md-2 footer-padding col-6">
             <h6>Products</h6>
             <ul *ngFor="let item of footer_data.category">
-                <li><a>{{item.title}}</a></li>
+                <li (click)="goToproductList(item)"><a>{{item.title}}</a></li>
                 
             </ul>
 
@@ -101,10 +101,10 @@
 
                 <li><a routerLink="/privacy-policy"> Privacy Policy</a></li>
                 <li><a routerLink="/terms-&-condition">Terms of Service</a></li>
-                <li><a href="#">Warranty Policy</a></li>
-                <li><a href="#">Replacement & Refund Policy</a></li>
-                <li><a href="#">Shipping Policy</a></li>
-                <li><a href="#">E-waste Policy</a></li>
+                <li><a routerLink="warranty-policy">Warranty Policy</a></li>
+                <li><a routerLink="replacement-policy">Replacement & Refund Policy</a></li>
+                <li><a routerLink="shipping-policy">Shipping Policy</a></li>
+                <li><a routerLink="e-waste-policy">E-waste Policy</a></li>
 
             </ul>
         </div>

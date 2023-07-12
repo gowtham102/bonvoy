@@ -313,6 +313,12 @@
                                     <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
                                     <span>{{data.currency}} {{+data.price - +data.discount}}  <del *ngIf="+data.discount > 0">{{data.currency}} {{data.price}} </del></span>
                                 </div>
+                                <div class="star" *ngIf="data.rating>0">
+                                    <ngb-rating [max]=5 [(rate)]="data.rating" [readonly]="true"></ngb-rating>
+        
+        
+                                    <p>{{data.reviews}} Reviews</p>
+                                </div>
                                 <ng-container *ngIf="data.available_quantity>0">
                                     <button class="add-cart m-auto" (click)="guestLogin(data)" *ngIf="!data.load;else loader;" [class.out-of-stock]="data?.stock == '2'">
                                         {{data?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}
@@ -323,6 +329,7 @@
                                         Out Of Stock
                                     </button>
                                 </ng-container>
+                                
                               
                                 <ng-template #loader>
                                     <button class="add-cart m-auto cart-loader"> 

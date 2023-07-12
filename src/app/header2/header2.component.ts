@@ -1161,7 +1161,7 @@ onSearchClick(data:any){
 
     search(event:any){
             const search_key=event.target.value;
-            if(search_key.length > 2){
+            if(search_key.length > 0){
                 let data={"search":search_key}
                 this.subscriptions.push(this.headerService.search(data).subscribe((result:any)=>{
                     if(result.response.length > 0){  
