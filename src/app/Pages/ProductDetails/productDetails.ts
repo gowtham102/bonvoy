@@ -631,7 +631,7 @@ p_variation:any
       }
       this.loginService.userLogin(data).subscribe((res:any)=>{
           if(res.status==true){
-            this.closemodal()
+            // this.closemodal()
             localStorage.setItem('token',res.response.token)
             this.token = res.response.token
             this.logged_in= true
@@ -663,7 +663,7 @@ p_variation:any
               localStorage.setItem('token',res.response.token)
               localStorage.setItem("logged_in", btoa("1"));
               this.logged_in=true
-              this.closemodal()
+              // this.closemodal()
               this.BuyNow()
               // this.router.navigate(['/checkout']);
           }
@@ -699,11 +699,11 @@ p_variation:any
 
 
   openmodal(){
-      $("#loginModal").addClass("show");
+      $("#loginModal,.overlay-pop").toggleClass("show");
     }
-  closemodal(){
-      $("#loginModal").removeClass("show");
-    }
+  // closemodal(){
+  //     $("#loginModal,").removeClass("show");
+  //   }
 
    
 

@@ -523,7 +523,7 @@ export class CartComponent implements OnInit {
 
 
     openmodal(){
-        $("#loginModal").addClass("show");
+        $("#loginModal,.overlay-pop").toggleClass("show");
       }
       
 

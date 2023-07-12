@@ -43,7 +43,7 @@
                         </div>
                         <div class="details">
                             <p class="cur-pointer" (click)="goToproductDetails(data)">{{data.product_title}}</p>
-                            <p *ngIf="data.available_quantity==0">Out Of Stock</p> 
+                            <p *ngIf="data.available_quantity==0">Out Of Stock</p>
                             <span *ngIf="data?.available_quantity>0"><del *ngIf="+data.discount > 0">{{data.currency}} {{data.unit_price}} </del>{{data.currency}} {{+data.unit_price - +data.discount}}  </span>
                             <p class="p-0">
                                 <a class="remove" (click)="removeCart(data)"><img src="assets/images/icons/remove-cross.svg" alt="remove">
@@ -200,6 +200,7 @@
 <!-- <ng-template  let-modal> -->
 <div class="login-modal modal fade" id="loginModal">
     <div class="modal-dialog">
+        <span class="overlay-pop" (click)="openmodal()"></span>
         <div class="modal-body ">
             <div class="row justify-content-between">
                 <div class="col-md-6 login-bg-img p-0">
