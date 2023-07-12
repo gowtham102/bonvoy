@@ -1220,9 +1220,9 @@ searchopen(){
   $(".pop").toggleClass('show')
 }
   // menu_slider:boolean=false
-  // menu(){
+  menu(){
 
-  //       $(".menu-close").toggleClass("show");
-      
-  // }
+    $(".menu-open,.overlay-pop1").toggleClass("show");
+  
+}
 } 

@@ -1120,7 +1120,7 @@ div.password {
     } */
     header {
         padding: 9px 0;
-        top: 100px;
+        /* top: 100px; */
     }
     header.shrink {
         top: 0;
