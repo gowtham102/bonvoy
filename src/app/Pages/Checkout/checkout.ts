@@ -5,6 +5,7 @@ import { ToastrManager } from 'ng6-toastr-notifications';
 import { SharedService } from 'src/app/SharedResources/Services/shared.service';
 import { Subscription, timer } from 'rxjs';
 import { environment } from "src/environments/environment";
+import { DatePipe } from '@angular/common';
 
 
 
@@ -36,7 +37,7 @@ export class CheckoutComponent implements OnInit {
     full_width:boolean=false;
     reciever_details_error:boolean=false;
     grand_total:string="0";
-    constructor(route: ActivatedRoute,private router: Router,private cartService:CartService,private toast:ToastrManager,private shared:SharedService) {
+    constructor(route: ActivatedRoute,private router: Router,private cartService:CartService,private toast:ToastrManager,private shared:SharedService,private datePipe: DatePipe) {
         this.subscriptions.push(this.shared.currentDetailsStatus.subscribe((data:any)=>this.reciever_details_error=data));            
         this.subscriptions.push(this.shared.currentCartList.subscribe((data:any)=>this.cart_list=data));            
         this.subscriptions.push(this.shared.walletUsed.subscribe((data:any)=>{
@@ -183,6 +184,7 @@ export class CheckoutComponent implements OnInit {
               
                 this.cartDetails=result.response;
                 this.cart_length=result.response.cart_Detail.length;
+                this.cartDetails.delivery_date= this.datePipe.transform(new Date(), 'dd MMM');
                 this.setCoupon(this.cartDetails.coupon_code);
                 this.cart_loaded=true;
                 this.grand_total=this.cartDetails.grand_total;

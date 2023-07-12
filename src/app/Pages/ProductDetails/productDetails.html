@@ -507,7 +507,7 @@
 <div class="container-fluid new-launch">
     <h2>New Launch</h2>
     <div class="row launch-row">
-        <div class="col-md-3 prod text-center" *ngFor="let item of product_details.new_launch.slice(-4)">
+        <div class="col-md-3 prod text-center" *ngFor="let item of product_details.new_launch">
             <img src="{{item.image}}" class="w-100" alt="" />
             <div class="prod-name">
                 <p>{{item.title}}</p>
@@ -533,7 +533,7 @@
     <div class="col-md-4 col-6 drop-button">
         <div class="dropdown col-md-6">
             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown">
-                {{product_details?.product_variation[0]?.value}}
+               <span> {{p_variation}}</span>
             </button>
             <div class="dropdown-menu" *ngFor="let item of product_details?.variation1" (click)="getProductDetails2(item.id)">
                 <a class="dropdown-item">{{item?.value}}</a>

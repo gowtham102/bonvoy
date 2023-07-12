@@ -21,7 +21,9 @@ export class FooterComponent implements OnInit {
 
     constructor(private shared:SharedService,private router:Router, public headerService:HeaderService){
         this.subscriptions.push(this.shared.currentFooterData.subscribe((data:any) => {
-            this.footer_data=data;        
+            this.footer_data=data; 
+            console.log(this.footer_data);
+                   
         }))
         this.subscriptions.push(this.shared.languageChange.subscribe((path:any)=>{
             this.changeLanguage();
@@ -31,7 +33,7 @@ export class FooterComponent implements OnInit {
 
     ngOnInit(){
         this.changeLanguage()
-        this.menu()
+        // this.menu()
     }
 
     changeLanguage(){

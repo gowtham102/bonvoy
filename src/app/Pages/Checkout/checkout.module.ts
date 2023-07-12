@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import {AgmCoreModule} from '@agm/core';
 
 
@@ -68,6 +68,7 @@ const ChildRoutes: Routes = [
     AddAddressComponent,
     AddressListComponent,
     PaymentComponent
-  ]
+  ],
+  providers: [DatePipe]
 })
 export class CheckoutModule { }

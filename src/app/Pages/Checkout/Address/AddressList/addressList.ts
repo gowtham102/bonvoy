@@ -337,7 +337,7 @@ export class AddressListComponent implements OnInit {
 
     //Get Address List
 
-    locationReload:boolean=false
+    // locationReload:boolean=false
     getAddressList(){
         this.subscriptions.push(this.profileService.getAddressList().subscribe((result:any)=>{
             // if (!localStorage.getItem('foo')) { 

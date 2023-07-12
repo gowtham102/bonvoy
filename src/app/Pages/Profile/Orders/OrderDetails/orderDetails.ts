@@ -74,8 +74,11 @@ export class OrderDetailsComponent implements OnInit {
     }
     
 order_id_rate:any
-    ratemodal(event:any){
+order_image:any
+
+    ratemodal(event:any,event2:any){
         this.order_id_rate= event
+        this.order_image= event2
         $('#review-modal,.overlay-pop').addClass('show');
     }
 

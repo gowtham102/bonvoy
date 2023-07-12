@@ -137,7 +137,7 @@ export class ProductDetailsComponent implements OnInit {
           this.slider_direction_rtl=false;
           this.tabby_lang="en";
     }
-
+p_variation:any
     getProductDetails(){
       this.subscriptions.push(this.productService.getProductDetails(this.product_id).subscribe((result:any)=>{
           if(result.response.length == 0){
@@ -149,6 +149,7 @@ export class ProductDetailsComponent implements OnInit {
           this.product_details.quantity="1";
           this.product_details.display_from_date=this.formatDate(this.product_details.delivery_from);
           this.product_details.display_to_date=this.formatDate(this.product_details.delivery_to);
+          this.p_variation = this.product_details.product_variation[0].value
           this.addPromoCode()
 
           this.no_product=false;
@@ -462,7 +463,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   guest_number:any
-  guest_code:any
+  guest_code:any="+91"
   otp1:any
   otp2:any
   otp3:any
@@ -630,12 +631,15 @@ export class ProductDetailsComponent implements OnInit {
       }
       this.loginService.userLogin(data).subscribe((res:any)=>{
           if(res.status==true){
-              this.toast.successToastr(res.response.message)
-              localStorage.setItem('token',res.response.token)
-              localStorage.setItem("logged_in", btoa("1"));
-              this.closemodal()
-              // this.router.navigate(['/checkout/address']);
+            this.closemodal()
+            localStorage.setItem('token',res.response.token)
+            this.token = res.response.token
+            this.logged_in= true
               this.BuyNow()
+              // this.toast.successToastr(res.response.message)
+              
+              localStorage.setItem("logged_in", btoa("1"));
+              
           }
           else{
               this.toast.warningToastr(res.response.message)

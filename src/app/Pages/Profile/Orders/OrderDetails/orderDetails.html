@@ -68,7 +68,7 @@
 
                         </div>
                         <div>
-                            <button class="btn" (click)="ratemodal(data.id)">Rate Us</button>
+                            <button class="btn" (click)="ratemodal(data.id,data.product_image)" *ngIf="order_details.status==106">Rate Us</button>
 
                         </div>
                     </div>
@@ -225,7 +225,7 @@
                 <h6>How would you rate this item?</h6>
                 <div class="rate-caro row">
                     <div class="col-md-6">
-                        <img src="{{order_details.order_detail.product_image}}" class="w-100" alt="" />
+                        <img src="{{order_image}}" class="w-100" alt="" />
                     </div>
                     <div class="col-md-6 ">
                         <ngb-rating [max]=5 [(rate)]="rating" [readonly]="false"></ngb-rating>

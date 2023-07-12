@@ -434,22 +434,22 @@
         <h2>Bonvoy Cruise</h2>
         <div class="row align-items-center">
             <div class=" col-md-6 ">
-                <!-- <video class="w-100 " autoplay loop muted src="https://cdn.shopify.com/videos/c/vp/7fd35c4088ae4566a51cac9df620163b/7fd35c4088ae4566a51cac9df620163b.HD-1080p-7.2Mbps-14026403.mp4 "></video> -->
+                <video class="w-100 " autoplay loop  src="{{home_page?.cruise?.video}}"></video>
             </div>
             <div class="col-md-6 ">
                 <div class="cruise-right ">
                     <div class="cruise-right1 col-md-6 ">
-                        <img src="assets/images/bonvoy/watch1.png " alt=" ">
+                        <img src="{{home_page.cruise.image}}" alt=" ">
                     </div>
                     <div class="cruise-right2 ">
-                        <h5>Pebble Cruise</h5>
-                        <p>Infinite Display, 320*386 High-Resolution Bluetooth Calling Smartwatch, Rotating Crown, AI Health Sensors & Voice Assistant, 125+Sports Mode, 100+Watch Faces</p>
+                        <h5>{{home_page.cruise.title}}</h5>
+                        <p [innerHTML]="home_page.cruise.description"></p>
 
-                        <div class="star ">
-                            <ngb-rating [max]=5 [(rate)]="rating " [readonly]="true "></ngb-rating>
-                            <span>10 Reviews</span>
+                        <div class="star " *ngIf="home_page.cruise.rating>0">
+                            <ngb-rating [max]=5 [(rate)]="home_page.cruise.rating " [readonly]="true "></ngb-rating>
+                            <span>{{home_page.cruise.reviews}} Reviews</span>
                         </div>
-                        <h4>₹ 8400 <del> ₹ 8500 </del><span class="dis-per ">(1% Off)</span></h4>
+                        <h4>₹ {{home_page.cruise.price - +home_page.cruise.discount}} <del> ₹ {{home_page.cruise.price}} </del><span class="dis-per ">({{home_page.cruise.discount_percent}}% Off)</span></h4>
                         <button class="btn ">Buy Now</button>
 
                     </div>
