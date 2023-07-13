@@ -495,6 +495,12 @@
     .cart-product {
         width: 37%;
     }
+    .summary-details .summary {
+        padding: 37px 25px 40px;
+    }
+    .total-wrap {
+        margin-top: 20px !important;
+    }
 }
 
 @media screen and (max-width: 320px) {

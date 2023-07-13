@@ -167,6 +167,22 @@ button.checkout {
     font-family: 'roobert-med';
 }
 
+.star {
+    display: flex;
+    align-items: center;
+    margin: 3px 0;
+    justify-content: center;
+    min-height: 36px;
+}
+
+.star p {
+    margin-bottom: 0;
+    font-size: 14px;
+    margin-left: 10px;
+    color: #919291;
+    font-weight: 500;
+}
+
 @media screen and (min-width: 573px) and (max-width: 1199px) {
     /* .prod-image img{
         width: 100%;
@@ -182,6 +198,13 @@ button.checkout {
         font-size: 26px;
         padding-top: 10px;
         padding-bottom: 20px;
+    }
+    .star {
+        min-height: 21px;
+        margin: 0;
+    }
+    .star p {
+        font-size: 12px;
     }
     .site_wrapper {
         overflow: hidden;

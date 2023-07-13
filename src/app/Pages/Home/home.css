@@ -881,11 +881,11 @@ opacity: 1;
             align-items: center;
             margin: 3px 0;
             justify-content: center;
+            min-height: 36px;
         }
-        
-        .star span {
+        /* .star span {
             color: #ffe67f;
-        }
+        } */
         
         .star p {
             margin-bottom: 0;

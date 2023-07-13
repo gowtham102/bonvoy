@@ -303,7 +303,7 @@
                                     <i class="fa fa-heart" [class.active]="data.wishlist == '1'" aria-hidden="true"></i>                                
                                 </button>
                                 </a>
-                                <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)"*ngIf="data.available_quantity>0">
+                                <div class="prod-image cur-pointer" (click)="goToProductDetails(data.id)" *ngIf="data.available_quantity>0">
                                     <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';this.className='img-error';">
                                 </div>
                                 <div class="prod-image cur-pointer out-of-stock-div" (click)="goToProductDetails(data.id)" *ngIf="data.available_quantity==0">
@@ -311,13 +311,15 @@
                                 </div>
                                 <div class="prod-name text-left ">
                                     <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
+                                    <div class="star ">
+                                        <div class="star" *ngIf="data.rating>0">
+                                            <ngb-rating [max]=5 [(rate)]="data.rating" [readonly]="true"></ngb-rating>
+
+
+                                            <p>{{data.reviews}} Reviews</p>
+                                        </div>
+                                    </div>
                                     <span>{{data.currency}} {{+data.price - +data.discount}}  <del *ngIf="+data.discount > 0">{{data.currency}} {{data.price}} </del></span>
-                                </div>
-                                <div class="star" *ngIf="data.rating>0">
-                                    <ngb-rating [max]=5 [(rate)]="data.rating" [readonly]="true"></ngb-rating>
-        
-        
-                                    <p>{{data.reviews}} Reviews</p>
                                 </div>
                                 <ng-container *ngIf="data.available_quantity>0">
                                     <button class="add-cart m-auto" (click)="guestLogin(data)" *ngIf="!data.load;else loader;" [class.out-of-stock]="data?.stock == '2'">
@@ -329,8 +331,8 @@
                                         Out Of Stock
                                     </button>
                                 </ng-container>
-                                
-                              
+
+
                                 <ng-template #loader>
                                     <button class="add-cart m-auto cart-loader"> 
                                     <loader></loader>
