@@ -161,16 +161,16 @@
     <nav class="navbar navbar-expand-sm scroll-nav">
         <ul class="navbar-nav ">
             <li class="nav-item">
-                <a class="nav-link " href="#overview">Overview</a>
+                <a class="nav-link " (click)="scrollToElementspc()">Overview</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#specification">Specification</a>
+                <a class="nav-link" (click)="scrollToElementspc()">Specification</a>
             </li>
             <li>
-                <a class="nav-link" href="#faq">FAQ</a>
+                <a class="nav-link" (click)="scrollToElementfaq()">FAQ</a>
             </li>
             <li>
-                <a class="nav-link" href="#review">Reviews</a>
+                <a class="nav-link" (click)="scrollToElement()">Reviews</a>
             </li>
 
         </ul>
@@ -274,7 +274,7 @@
             </div>
         </div>
     </div>
-    <div id="review" class="container-fluid  tab-pane">
+    <div id="review"  class="container-fluid  tab-pane">
         <h4>Reviews</h4>
 
         <!-- <button type="button" class="btn review-btn" data-toggle="modal" data-target="#review-modal">
@@ -509,8 +509,8 @@
     <h2>New Launch</h2>
     <div class="row launch-row">
         <div class="col-md-3 col-6 prod text-center" *ngFor="let item of product_details.new_launch">
-            <img src="{{item.image}}" class="w-100" alt="" />
-            <div class="prod-name">
+            <img src="{{item.image}}" class="w-100" alt="" (click)="goToProductDetails(item.id)" />
+            <div class="prod-name" (click)="goToProductDetails(item.id)">
                 <p>{{item.title}}</p>
                 <div class="star justify-content-center">
                     <ngb-rating *ngIf="item.rating!=''" [max]=5 [(rate)]="item.rating" [readonly]="true"></ngb-rating>

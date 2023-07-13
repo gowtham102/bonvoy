@@ -1,4 +1,4 @@
-import { Component,Inject,OnInit } from '@angular/core';
+import { Component,Inject,OnInit,Renderer2 } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Subscription } from 'rxjs';
 import { ProductService } from 'src/app/SharedResources/Services/product.service';
@@ -76,7 +76,7 @@ export class ProductDetailsComponent implements OnInit {
     }
 
 
-    constructor(@Inject(DOCUMENT) private document: Document,public productService:ProductService,private route:ActivatedRoute,private cartService:CartService,private router:Router,private toast:ToastrManager,private shared:SharedService, public loginService:LoginService){
+    constructor(@Inject(DOCUMENT) private document: Document,public productService:ProductService,private route:ActivatedRoute,private cartService:CartService,private router:Router,private toast:ToastrManager,private shared:SharedService, public loginService:LoginService,){
       this.subscriptions.push(this.shared.currentUserStatus.subscribe(user=>this.logged_in=user));
       this.subscriptions.push(this.shared.currentCountryList.subscribe((data:any) =>this.country_list=data));
 
@@ -701,13 +701,35 @@ p_variation:any
   openmodal(){
       $("#loginModal,.overlay-pop").toggleClass("show");
     }
-  // closemodal(){
-  //     $("#loginModal,").removeClass("show");
-  //   }
+  
+//   first(){
+    
+//   const errorField = this.renderer.selectRootElement('faq');
+//     errorField.scrollIntoView();
+// }
+targetElement: any;
 
-   
+scrollToElement() {
+  this.targetElement = document.getElementById('review');
 
-      
+  this.targetElement.scrollIntoView();
+}
+scrollToElementfaq() {
+  this.targetElement = document.getElementById('faq');
+
+  this.targetElement.scrollIntoView();
+}
+scrollToElementspc() {
+  this.targetElement = document.getElementById('specification');
+
+  this.targetElement.scrollIntoView();
+}
+scrollToElementovr() {
+  this.targetElement = document.getElementById('overview');
+
+  this.targetElement.scrollIntoView();
+}
+
 
 
 

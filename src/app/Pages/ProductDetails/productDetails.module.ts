@@ -40,6 +40,7 @@ const ChildRoutes: Routes = [
   ],
   declarations:[
     ProductDetailsComponent,
-  ]
+  ],
+  providers:[]
 })
 export class productDetailsModule { }
