@@ -309,38 +309,40 @@
                                 <div class="prod-image cur-pointer out-of-stock-div" (click)="goToProductDetails(data.id)" *ngIf="data.available_quantity==0">
                                     <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';this.className='img-error';">
                                 </div>
-                                
-                                </div>
+
                                 <div class="prod-name  ">
                                     <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
                                     <div class="star ">
-                                        <div class="star" *ngIf="data.rating>0">
+                                        <div class="star">
                                             <ngb-rating [max]=5 [(rate)]="data.rating" [readonly]="true"></ngb-rating>
-    
-    
-                                            <p>{{data.reviews}} Reviews</p>
+
+
+                                            <p *ngIf="data.rating>0">{{data.reviews}} Reviews</p>
                                         </div>
-                                    
-                                    <span>{{data.currency}} {{+data.price - +data.discount}}  <del *ngIf="+data.discount > 0">{{data.currency}} {{data.price}} </del></span>
-                                </div>
-                                <ng-container *ngIf="data.available_quantity>0">
-                                    <button class="add-cart m-auto" (click)="guestLogin(data)" *ngIf="!data.load;else loader;" [class.out-of-stock]="data?.stock == '2'">
+
+                                    </div>
+                                    <span style="display: block;">{{data.currency}} {{+data.price - +data.discount}}  <del *ngIf="+data.discount > 0">{{data.currency}} {{data.price}} </del></span>
+
+                                    <ng-container *ngIf="data.available_quantity>0">
+                                        <button class="add-cart m-auto" (click)="guestLogin(data)" *ngIf="!data.load;else loader;" [class.out-of-stock]="data?.stock == '2'">
                                         {{data?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}
                                     </button>
-                                </ng-container>
-                                <ng-container *ngIf="data.available_quantity==0">
-                                    <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else loader;" [class.out-of-stock]="data?.stock == '2'" disabled>
+                                    </ng-container>
+                                    <ng-container *ngIf="data.available_quantity==0">
+                                        <button class="add-cart m-auto" (click)="addToCart(data)" *ngIf="!data.load;else loader;" [class.out-of-stock]="data?.stock == '2'" disabled>
                                         Out Of Stock
                                     </button>
-                                </ng-container>
+                                    </ng-container>
 
 
-                                <ng-template #loader>
-                                    <button class="add-cart m-auto cart-loader"> 
+                                    <ng-template #loader>
+                                        <button class="add-cart m-auto cart-loader"> 
                                     <loader></loader>
                                 </button>
-                                </ng-template>
+                                    </ng-template>
+                                </div>
                             </div>
+
                         </div>
                         <div class="col-md-12 text-center">
                             <!-- <button class="checkout" *ngIf="!load;else load_more_loader;" (click)="loadMore()">
