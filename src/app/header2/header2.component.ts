@@ -1233,7 +1233,7 @@ searchclose(){
       
   }
   cartCheck(){
-    if( !this.guestLogin){
+    if( !this.guestLogin&& !this.logged_in){
       this.productService.guestLogin().subscribe((res:any)=>{
         this.token = res.response.token
         localStorage.setItem("token",this.token)
@@ -1242,14 +1242,14 @@ searchclose(){
       
       return
     }
-    if(!this.logged_in){
-      this.productService.guestLogin().subscribe((res:any)=>{
-        this.token = res.response.token
-        localStorage.setItem("token",this.token)
-        this.router.navigate(['/my-cart'])
-      })
-      return
-    }
+    // if(!this.logged_in){
+    //   this.productService.guestLogin().subscribe((res:any)=>{
+    //     this.token = res.response.token
+    //     localStorage.setItem("token",this.token)
+    //     this.router.navigate(['/my-cart'])
+    //   })
+    //   return
+    // }
     else {
       this.router.navigate(['/my-cart'])
     }
