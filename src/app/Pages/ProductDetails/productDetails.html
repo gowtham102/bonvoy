@@ -518,7 +518,7 @@
                     <p *ngIf="item.reviews!=0">{{item.reviews}} Reviews</p>
                 </div>
                 <span class="prod-pr"><span>{{item.currency}}{{item.price - item.discount}}</span><del>{{item.currency}}{{item.price}}</del><span class="dis-per">({{item.discount_percent}}% off)</span></span>
-                <button class="add-cart" (click)="guestLogin(item,2)" [disabled]="item.available_quantity==0"  [class.out-of-stock]="item?.stock == '2'">{{item?.stock == '2' ?
+                <button class="add-cart" (click)="guestLogin(item,2)" [disabled]="item.available_quantity==0" [class.out-of-stock]="item?.stock == '2'">{{item?.stock == '2' ?
                     LANG.out_of_stock : LANG.ADD_TO_CART}}</button>
             </div>
         </div>
@@ -534,12 +534,14 @@
         </div>
     </div>
     <div class="col-md-4 col-8 drop-button">
-        <div class="dropdown col-md-6">
+        <div class="dropdown">
             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown">
-               <span> {{p_variation}}</span>
+               <span> {{product_details.product_variation[0].value}}</span>
             </button>
-            <div class="dropdown-menu" *ngFor="let item of product_details?.variation1" (click)="getProductDetails2(item.id)">
-                <a class="dropdown-item">{{item?.value}}</a>
+            <div class="dropdown-menu">
+                <div *ngFor="let item of product_details?.variation1" (click)="getProductDetails2(item.id)">
+                    <a class="dropdown-item">{{item?.value}}</a>
+                </div>
             </div>
         </div>
         <button class="btn buyit" (click)="BuyNow(product_details,2)">Buy It Now</button>
