@@ -240,7 +240,7 @@ p_variation:any
 
       this.productService.guestLogin().subscribe((res:any)=>{
         localStorage.clear()
-        localStorage.setItem("logged_in", btoa("1"));
+        // localStorage.setItem("logged_in", btoa("1"));
         localStorage.setItem("token", res.response.token);   
         localStorage.setItem("guest_login",this.guestLoginUser)
         this.addToCart(data,type)
@@ -266,29 +266,40 @@ p_variation:any
         "quantity":"1",
         "token":this.token
     }
-    if(type == 1){
-      post_data.quantity=data.quantity;
-      this.load=true;
-    }else{
-      data.load=true;
-    }
-    this.subscriptions.push(this.cartService.addCart(post_data).subscribe((result:any)=>{
+    if(type == 2){
+      this.subscriptions.push(this.cartService.addCart(post_data).subscribe((result:any)=>{
         this.load=false;
         if(result.status){
             this.shared.changeCount(result.response.extra);
             data.load=false;
             this.toast.successToastr(this.LANG.Product_added_to_Cart,"",{position:"top-right",toastTimeout:3000});
-            this.router.navigate(['/my-cart']);
 
-            if(type == 1){
-              setTimeout(() => {
-                  this.router.navigate(['/my-cart']);
-              }, 100);
-            }
+            
             return
         }
         this.toast.warningToastr(result.response.message,"",{position:"top-right",toastTimeout:3000})
     }))
+    }else{
+      data.load=true;
+    }
+    if(type==1){this.subscriptions.push(this.cartService.addCart(post_data).subscribe((result:any)=>{
+      this.load=false;
+      if(result.status){
+          this.shared.changeCount(result.response.extra);
+          data.load=false;
+          this.toast.successToastr(this.LANG.Product_added_to_Cart,"",{position:"top-right",toastTimeout:3000});
+          this.router.navigate(['/my-cart']);
+
+          if(type == 1){
+            setTimeout(() => {
+                this.router.navigate(['/my-cart']);
+            }, 100);
+          }
+          return
+      }
+      this.toast.warningToastr(result.response.message,"",{position:"top-right",toastTimeout:3000})
+  }))}
+    
   }
   BuyNow(data?:any,type?:number){
     

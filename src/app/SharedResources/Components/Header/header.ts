@@ -19,6 +19,8 @@ import { errorHandlerService } from '../../Services/errorHandler.service';
 import { registration_data } from '../../Models/registration.model'
 import { CartService } from '../../Services/cartWishlist.service';
 import { filter } from 'rxjs/operators';
+import { HomeService } from '../../Services/home.service';
+import { ProductService } from '../../Services/product.service';
 declare const $: any;
 
 
@@ -103,7 +105,7 @@ export class HeaderComponent implements OnInit {
 
    
 
-    constructor(@Inject(DOCUMENT) private document: Document,private win: WindowService,private headerService:HeaderService,private modalService: NgbModal,private shared:SharedService,private router:Router,private toast:ToastrManager,private loginService:LoginService,private error:errorHandlerService,private cartService:CartService,private renderer: Renderer2){
+    constructor(@Inject(DOCUMENT) private document: Document,private win: WindowService,private headerService:HeaderService,private modalService: NgbModal,private shared:SharedService,private router:Router,private toast:ToastrManager,private loginService:LoginService,private error:errorHandlerService,private cartService:CartService,private renderer: Renderer2,public productService:ProductService){
       this.subscriptions.push(this.shared.currentUserStatus.subscribe(user=>this.logged_in=user));
       this.subscriptions.push(this.shared.currentCount.subscribe(count=>this.cart_count=count));
       this.subscriptions.push(this.shared.currentCountryList.subscribe((data:any) =>this.country_list=data));
@@ -1227,5 +1229,27 @@ searchclose(){
 
     $(".menu-open,.overlay-pop1").toggleClass("show");
   
+}
+cartCheck(){
+  if( !this.guestLogin){
+    this.productService.guestLogin().subscribe((res:any)=>{
+      this.token = res.response.token
+      localStorage.setItem("token",this.token)
+      this.router.navigate(['/my-cart'])
+    })
+    
+    return
+  }
+  if(!this.logged_in){
+    this.productService.guestLogin().subscribe((res:any)=>{
+      this.token = res.response.token
+      localStorage.setItem("token",this.token)
+      this.router.navigate(['/my-cart'])
+    })
+    return
+  }
+  else {
+    this.router.navigate(['/my-cart'])
+  }
 }
 } 

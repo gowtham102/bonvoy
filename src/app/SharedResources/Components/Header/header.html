@@ -151,7 +151,7 @@
                                     </ng-container>
                                 </div>
                             </div>
-                            <a routerLink="/my-cart" class="position-relative shop-bag"><img src="assets/images/icons/shopping-bag.svg" alt="" />
+                            <a (click)="cartCheck()" class="position-relative shop-bag"><img src="assets/images/icons/shopping-bag.svg" alt="" />
                                 <span class="count">{{cart_count}}</span>
 
                             </a>
@@ -558,7 +558,7 @@
                 </div> -->
             </div>
         </div>
-        <div class="sear-prod-sec col-md-12" *ngIf="search_results.length == 0">
+        <div class="sear-prod-sec col-md-12" *ngIf="no_result">
             <p>No Results Found</p>
         </div>
     </div>

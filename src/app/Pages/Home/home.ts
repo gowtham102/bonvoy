@@ -351,7 +351,7 @@ export class HomeComponent implements OnInit {
 
       this.productService.guestLogin().subscribe((res: any) => {
         localStorage.clear()
-        localStorage.setItem("logged_in", btoa("1"));
+        // localStorage.setItem("logged_in", btoa("1"));
         localStorage.setItem("token", res.response.token);
         localStorage.setItem("guest_login", this.guestLoginUser)
 

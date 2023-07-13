@@ -518,6 +518,8 @@
                     <p *ngIf="item.reviews!=0">{{item.reviews}} Reviews</p>
                 </div>
                 <span class="prod-pr"><span>{{item.currency}}{{item.price - item.discount}}</span><del>{{item.currency}}{{item.price}}</del><span class="dis-per">({{item.discount_percent}}% off)</span></span>
+                <button class="add-cart" (click)="guestLogin(item,2)" [disabled]="item.available_quantity==0"  [class.out-of-stock]="item?.stock == '2'">{{item?.stock == '2' ?
+                    LANG.out_of_stock : LANG.ADD_TO_CART}}</button>
             </div>
         </div>
     </div>
