@@ -49,7 +49,7 @@
                         </div>
                         <div class="details">
                             <p class="cur-pointer" (click)="goToproductDetails(data)">{{data.product_title}}</p>
-                            <p>Out Of Stock</p>
+                            <!-- <p>Out Of Stock</p> -->
                             <span *ngIf="data?.available_quantity>0"><del *ngIf="+data.discount > 0">{{data.currency}} {{data.unit_price}} </del>{{data.currency}} {{+data.unit_price - +data.discount}} </span>
                             <!-- <div class="quantity">
                                 <span class="plus" (click)="incrementQuantity(data)"><img class="centered" src="assets/images/icons/plus.svg" alt="plus"></span>

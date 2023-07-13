@@ -291,7 +291,7 @@ export class CartComponent implements OnInit {
 
     }
    
-    guest_number:any
+    guest_number:any=""
     guest_code:any="+91"
     otp1:any
     otp2:any
@@ -417,10 +417,14 @@ export class CartComponent implements OnInit {
         }
         return
       }
-      
+      login_error:any={}
       
     sendOTP(){
-
+        if(this.guest_number==""){
+            this.toast.warningToastr("PleASE ENTER THE MOBILE NUMBER")
+            this.login_error.mobile_number= true
+            return
+          }
         let data = {
             country_code: this.guest_code,
             mobile_number: this.guest_number

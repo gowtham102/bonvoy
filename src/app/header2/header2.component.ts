@@ -365,6 +365,7 @@ export class Header2Component implements OnInit {
 
   goToproductList(data:any,type?:number){
     if(type === 1){
+      localStorage.setItem('category_name',data.title)
       this.router.navigate(['/products'],{ queryParams: { category_id: btoa(btoa(data.id))}});
       this.openMenu();
       return
@@ -440,6 +441,11 @@ otpFromPhp(mobile_number:string,type?:number){
 
 
 sendOTP(){
+  if(this.mobile_number==""){
+    this.toast.warningToastr("PleASE ENTER THE MOBILE NUMBER")
+    this.login_error.mobile_number= true
+    return
+  }
     this.err=false;
     // this.resetError();
     // this.errorHandler();

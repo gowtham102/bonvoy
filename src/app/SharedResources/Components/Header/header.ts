@@ -365,6 +365,7 @@ export class HeaderComponent implements OnInit {
 
   goToproductList(data:any,type?:number){
     if(type === 1){
+      localStorage.setItem('category_name',data.title)
       this.router.navigate(['/products'],{ queryParams: { category_id: btoa(btoa(data.id))}});
       this.openMenu();
       return
@@ -440,9 +441,14 @@ otpFromPhp(mobile_number:string,type?:number){
 
 
 sendOTP(){
+  if(this.mobile_number==""){
+    this.toast.warningToastr("PleASE ENTER THE MOBILE NUMBER")
+    this.login_error.mobile_number= true
+    return
+  }
     this.err=false;
-    // this.resetError();
-    // this.errorHandler();
+    this.resetError();
+    this.errorHandler();
     if(!this.err){
         this.load=true;
         if(this.show_password){
@@ -664,7 +670,7 @@ mobileErrorHandler(){
     this.login_error.mobile_number=true;	
     this.err=true;
   }
-  if(this.country_code == "+91"){
+  if(this.country_code == "+966"){
     const re=/^([0]{1}[5]{1}[0-9]*)$/
     const re1=/^([5]{1}[0-9]*)$/
     if(!this.login_error.mobile_number && !re.test(this.mobile_number) && !re1.test(this.mobile_number)){
@@ -1230,26 +1236,26 @@ searchclose(){
     $(".menu-open,.overlay-pop1").toggleClass("show");
   
 }
-cartCheck(){
-  if( !this.guestLogin && !this.logged_in){
-    this.productService.guestLogin().subscribe((res:any)=>{
-      this.token = res.response.token
-      localStorage.setItem("token",this.token)
-      this.router.navigate(['/my-cart'])
-    })
+// cartCheck(){
+//   if( !this.guestLogin && !this.logged_in){
+//     this.productService.guestLogin().subscribe((res:any)=>{
+//       this.token = res.response.token
+//       localStorage.setItem("token",this.token)
+//       this.router.navigate(['/my-cart'])
+//     })
     
-    return
-  }
-  // if(!this.logged_in){
-  //   this.productService.guestLogin().subscribe((res:any)=>{
-  //     this.token = res.response.token
-  //     localStorage.setItem("token",this.token)
-  //     this.router.navigate(['/my-cart'])
-  //   })
-  //   return
-  // }
-  else {
-    this.router.navigate(['/my-cart'])
-  }
-}
+//     return
+//   }
+//   // if(!this.logged_in){
+//   //   this.productService.guestLogin().subscribe((res:any)=>{
+//   //     this.token = res.response.token
+//   //     localStorage.setItem("token",this.token)
+//   //     this.router.navigate(['/my-cart'])
+//   //   })
+//   //   return
+//   // }
+//   else {
+//     this.router.navigate(['/my-cart'])
+//   }
+// }
 } 

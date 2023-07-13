@@ -9,7 +9,7 @@
     </div> -->
     <Span class="overlay pop" (click)="filtersec()"></Span>
     <h2 class="smart-watch" *ngIf="category_id==''">All Watches</h2>
-    <h2 class="smart-watch" *ngIf="category_id!=''">{{category_name}}</h2>
+    <h2 class="smart-watch" *ngIf="category_id!='' && product_list.length>0">{{product_list[0].category}}</h2>
     <div class="site_container containe-fluid ">
         <div class="row w-100 ">
             <div class="col-md-12 ">
@@ -309,16 +309,17 @@
                                 <div class="prod-image cur-pointer out-of-stock-div" (click)="goToProductDetails(data.id)" *ngIf="data.available_quantity==0">
                                     <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';this.className='img-error';">
                                 </div>
-                                <div class="star ">
-                                    <div class="star" *ngIf="data.rating>0">
-                                        <ngb-rating [max]=5 [(rate)]="data.rating" [readonly]="true"></ngb-rating>
-
-
-                                        <p>{{data.reviews}} Reviews</p>
-                                    </div>
+                                
                                 </div>
-                                <div class="prod-name text-left ">
+                                <div class="prod-name  ">
                                     <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
+                                    <div class="star ">
+                                        <div class="star" *ngIf="data.rating>0">
+                                            <ngb-rating [max]=5 [(rate)]="data.rating" [readonly]="true"></ngb-rating>
+    
+    
+                                            <p>{{data.reviews}} Reviews</p>
+                                        </div>
                                     
                                     <span>{{data.currency}} {{+data.price - +data.discount}}  <del *ngIf="+data.discount > 0">{{data.currency}} {{data.price}} </del></span>
                                 </div>

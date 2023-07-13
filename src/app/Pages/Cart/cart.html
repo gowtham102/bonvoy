@@ -236,13 +236,14 @@
                                                     </select>
                                         </div>
                                         <input type="text" placeholder="{{LANG.Mobile_Number}}" class="form-control" name="mobile_number" maxlength="10" [(ngModel)]="guest_number" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)">
+                                        <!-- <span class="error" *ngIf="login_error.mobile_number">{{LANG.This_field_is_required}}</span> -->
 
                                     </div>
                                     <!-- </div> -->
                                     <!-- <span></span> -->
                                     <!-- </div> -->
-                                    <!-- <span class="error" *ngIf="login_error.mobile_number">{{LANG.This_field_is_required}}</span>
-                                        <span class="error" *ngIf="login_error.mobile_number_valid && country_code == '+91'">{{LANG.Enter_Valid_Number}}
+                                    <span class="error" *ngIf="login_error.mobile_number">{{LANG.This_field_is_required}}</span>
+                                        <!-- <span class="error" *ngIf="login_error.mobile_number_valid && country_code == '+91'">{{LANG.Enter_Valid_Number}}
                                             (Ex:
                                             0551234567 or 551235678)</span>
                                         <span class="error" *ngIf="login_error.mobile_number_valid && country_code != '+91'">{{LANG.Enter_Valid_Number}}</span> -->

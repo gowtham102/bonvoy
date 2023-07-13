@@ -52,9 +52,13 @@ menulist:any
         })
     }
       
-    goToproductList(category_id:string){
-        this.router.navigate(['/products'],{ queryParams: { category_id: btoa(btoa(category_id))}});
-    }
+    goToproductList(data:any,type?:number){
+        
+          localStorage.setItem('category_name',data.title)
+          this.router.navigate(['/products'],{ queryParams: { category_id: btoa(btoa(data.id))}});
+          return
+        
+      }
 
 
     openWhatsApp(){
