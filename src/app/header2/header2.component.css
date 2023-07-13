@@ -43,7 +43,7 @@ header {
     /* position: fixed; */
     width: 100%;
     padding: 16px 0;
-    transition: .5s ease-in-out;
+    transition: .25s ease-in-out;
     /* top: 0; */
     /* left: 0; */
     /* background: var(--c-white); */
