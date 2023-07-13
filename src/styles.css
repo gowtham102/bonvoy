@@ -1244,6 +1244,39 @@ a:hover {
     .privacy-policy .content {
         padding: 0px !important;
     }
+    #review-modal .modal-dialog {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #review-modal .close {
+        right: 18px;
+        top: 17px;
+    }
+    #review-modal ngb-rating {
+        font-size: 38px;
+    }
+    .upload-file label {
+        padding: 10px 0.4em;
+        margin: 10px 0;
+        font-size: 15px;
+    }
+    .rate-caro img {
+        height: 124px;
+        object-fit: contain;
+    }
+    #review-modal .modal-body h6 {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    #review-modal .modal-content {
+        border-radius: 8px;
+        padding: 25px;
+    }
+    #review-modal textarea {
+        height: 90px;
+        margin-top: 16px;
+    }
     /* ========arabic========= */
     .arabic .thank-you-wrapper .thank-you img {
         right: 0;
