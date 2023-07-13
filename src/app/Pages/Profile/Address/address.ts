@@ -25,9 +25,9 @@ import { DOCUMENT } from '@angular/common';
 
 export class AddressComponent implements OnInit {
     address_clicked:boolean=true;
-    latitude = 24.774265;
-    longitude = 46.738586;
-    icon: string="assets/images/icons/map_icon.svg";
+    latitude = 28.644800;
+    longitude = 77.216721;
+    icon: string="assets/images/bonvoy/bonvoy_pin.png";
     modalReference:any;
     order_timings:any=[];
     order_time:string="";

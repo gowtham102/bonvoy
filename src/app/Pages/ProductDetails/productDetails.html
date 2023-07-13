@@ -167,10 +167,10 @@
                 <a class="nav-link" (click)="scrollToElementspc()">Specification</a>
             </li>
             <li>
-                <a class="nav-link" (click)="scrollToElementfaq()">FAQ</a>
+                <a class="nav-link" (click)="scrollToElementfaq()" *ngIf="product_details?.faq.length>0">FAQ</a>
             </li>
             <li>
-                <a class="nav-link" (click)="scrollToElement()">Reviews</a>
+                <a class="nav-link" (click)="scrollToElement()" *ngIf="product_details.review.length>0">Reviews</a>
             </li>
 
         </ul>
@@ -187,7 +187,7 @@
     <div id="specification" class="specification container-fluid tab-pane ">
         <h4>Specifications</h4>
         <div class="">
-            <div class="card mb-0 pt-3">
+            <div class="card mb-0 pt-3" *ngIf="product_details.specifications!=''">
                 <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
                     <a class="card-title">
                             PRODUCT INFORMATION
@@ -207,7 +207,7 @@
                         </ul>
                     </div> -->
             </div>
-            <div class="card mb-0 pt-3">
+            <div class="card mb-0 pt-3" *ngIf="product_details.sales_package!=''">
                 <div class="card-header collapsed" data-toggle="collapse" href="#collapseTwo">
                     <a class="card-title">
                             SALES PACKAGE
@@ -227,7 +227,7 @@
                         </ul>
                     </div> -->
             </div>
-            <div class="card mb-0 pt-3">
+            <div class="card mb-0 pt-3" *ngIf="product_details.product_warranty!=''">
                 <div class="card-header collapsed" data-toggle="collapse" href="#collapseThree">
                     <a class="card-title">
                             WARRANTY
@@ -249,7 +249,7 @@
             </div>
         </div>
     </div>
-    <div id="faq" class="container-fluid  tab-pane">
+    <div id="faq" class="container-fluid  tab-pane" *ngIf="product_details?.faq.length>0">
         <h4>Faq</h4>
         <div [attr.id]="'accordion'+i" class="accordion" *ngFor="let item of product_details?.faq let i=index">
             <div class="card mb-0 pt-3">
@@ -274,7 +274,7 @@
             </div>
         </div>
     </div>
-    <div id="review" class="container-fluid  tab-pane">
+    <div id="review" class="container-fluid  tab-pane" *ngIf="product_details.review.length>0">
         <h4>Reviews</h4>
 
         <!-- <button type="button" class="btn review-btn" data-toggle="modal" data-target="#review-modal">

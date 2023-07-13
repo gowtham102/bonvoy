@@ -29,10 +29,10 @@ export class AppComponent {
         }
       }
 
-      if (event instanceof NavigationEnd) {
-        ga('set', 'page', event.urlAfterRedirects);
-        ga('send', 'pageview');
-      }
+      // if (event instanceof NavigationEnd) {
+      //   // ga('set', 'page', event.urlAfterRedirects);
+      //   ga('send', 'pageview');
+      // }
 
     });
     this.loader= true

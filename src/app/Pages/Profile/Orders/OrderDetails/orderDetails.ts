@@ -103,7 +103,7 @@ order_image:any
     review:any
     insertRating(){
       if(this.rating!=0){
-        let data=  {"order_detail_id":this.order_id_rate,"rating":this.rating,"comment":this.review}
+        let data=  {"order_detail_id":this.order_id_rate,"rating":this.rating,"comment":this.review, 'image':this.productImage}
         this.productService.insert_review(data).subscribe((res:any)=>{
           if(res.status==true){
             this.toast.successToastr(res.response.message)

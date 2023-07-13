@@ -68,6 +68,7 @@ const ChildRoutes: Routes = [
     AddAddressComponent,
     AddressListComponent,
     PaymentComponent
+    
   ],
   providers: [DatePipe]
 })
