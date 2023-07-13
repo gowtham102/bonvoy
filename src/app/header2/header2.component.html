@@ -74,8 +74,8 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let item of data?.subcategory">
                                     <a class="dropdown-item">{{item.title}}</a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let innerItem of item.subcategory" (mouseenter)="innerItem.hover = true" (mouseleave)="innerItem.hover = false">
-                                        <a class="dropdown-item"  >{{innerItem.title}}</a>
-                                        
+                                        <a class="dropdown-item">{{innerItem.title}}</a>
+
                                     </div>
 
                                 </div>
@@ -154,7 +154,7 @@
                                     </ng-container>
                                 </div>
                             </div>
-                            <a routerLink="/my-cart" class="position-relative shop-bag"><img src="assets/images/icons/shopping-bag.svg" alt="" />
+                            <a (click)="cartCheck()" class="position-relative shop-bag"><img src="assets/images/icons/shopping-bag.svg" alt="" />
                                 <span class="count">{{cart_count}}</span>
 
                             </a>

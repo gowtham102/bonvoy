@@ -98,6 +98,10 @@ form {
     width: 100%;
 }
 
+a {
+    cursor: pointer;
+}
+
 span.error {
     position: absolute;
     color: red !important;

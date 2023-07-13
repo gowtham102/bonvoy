@@ -30,7 +30,7 @@
                 <div class="cart-details">
                     <h6 *ngIf="cart_length > 0">{{cart_length}} {{cart_length == 1 ? LANG.Item : LANG.Items }}</h6>
 
-                    <div class="pt-3 pb-5 continue-shopping" *ngIf="cart_length == 0 && cart_loaded">
+                    <div class="pt-3  continue-shopping" *ngIf="cart_length == 0 && cart_loaded">
                         <h3>{{LANG.Your_cart_is_empty}}</h3>
                     </div>
 
