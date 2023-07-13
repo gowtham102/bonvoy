@@ -275,12 +275,25 @@ export class HomeComponent implements OnInit {
     this.slider_direction_rtl = false;
   }
 
+  video_player:any
+  videoElement:any
+  autoplayEnable:boolean = false
+
   getHomePage() {
     this.subscriptions.push(this.homeService.getHomePage().subscribe((result: any) => {
-      this.home_page = result.response;
       if (result.status==true ) {
         
+        this.home_page = result.response;
 
+        console.log(this.home_page.cruise.video);
+        this.video_player=this.home_page.cruise.video
+        this.videoElement = document.getElementById('videoElement');
+        this.autoplayEnable= true
+
+        setTimeout(() => {
+          this.videoElement.play();
+        }, 1000);        console.log(this.videoElement);
+        
 
         this.customOptions.rtl = this.slider_direction_rtl;
         this.customOptions1.rtl = this.slider_direction_rtl;

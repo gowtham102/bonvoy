@@ -12,8 +12,8 @@ import { Component,OnInit } from '@angular/core';
 
 
 export class AddAddressComponent implements OnInit {
-    latitude = 24.774265;
-    longitude = 46.738586;
+    latitude = 28.644800;
+    longitude = 77.216721;
     
     constructor(){
     }

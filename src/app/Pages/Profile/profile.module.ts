@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import {AgmCoreModule} from '@agm/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -86,6 +86,7 @@ const ChildRoutes: Routes = [
       WishlistComponent,
       ReminderComponent,
       WalletComponent
-  ]
+  ],
+  providers: [DatePipe]
 })
 export class ProfileModule { }

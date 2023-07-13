@@ -71,9 +71,12 @@
 
                             <div *ngFor="let data of categories;let i=index;">
                                 <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="goToproductList(data,1)" (mouseover)="i"><span>{{data.title}}</span></a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let item of categories[i]?.subcategory">
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let item of data?.subcategory">
                                     <a class="dropdown-item">{{item.title}}</a>
-
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let innerItem of item.subcategory" (mouseenter)="innerItem.hover = true" (mouseleave)="innerItem.hover = false">
+                                        <a class="dropdown-item"  >{{innerItem.title}}</a>
+                                        
+                                    </div>
 
                                 </div>
 

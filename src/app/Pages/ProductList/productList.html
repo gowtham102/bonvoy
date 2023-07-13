@@ -294,7 +294,7 @@
                 <div class="col-md-12 prod-list">
                     <div class="row main_listing" id="abcde">
                         <div class="col-md-12" *ngIf="product_list.length == 0 && products_loaded">
-                            <h1>{{LANG.Sorry_No_products_found}}</h1>
+                            <h1>Coming Soon</h1>
                         </div>
                         <div class="col-lg-3 col-md-4 col-6" *ngFor="let data of product_list;let i=index;">
                             <div class="item prod text-center">
@@ -309,16 +309,17 @@
                                 <div class="prod-image cur-pointer out-of-stock-div" (click)="goToProductDetails(data.id)" *ngIf="data.available_quantity==0">
                                     <img src="{{data.image}}" onError="this.src='assets/images/icons/logo-grey.svg';this.className='img-error';">
                                 </div>
-                                <div class="prod-name text-left ">
-                                    <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
-                                    <span>{{data.currency}} {{+data.price - +data.discount}}  <del *ngIf="+data.discount > 0">{{data.currency}} {{data.price}} </del></span>
-                                </div>
                                 <div class="star" *ngIf="data.rating>0">
                                     <ngb-rating [max]=5 [(rate)]="data.rating" [readonly]="true"></ngb-rating>
         
         
                                     <p>{{data.reviews}} Reviews</p>
                                 </div>
+                                <div class="prod-name text-left ">
+                                    <p class="m-0 cur-pointer" (click)="goToProductDetails(data.id)">{{data.title}}</p>
+                                    <span>{{data.currency}} {{+data.price - +data.discount}}  <del *ngIf="+data.discount > 0">{{data.currency}} {{data.price}} </del></span>
+                                </div>
+                                
                                 <ng-container *ngIf="data.available_quantity>0">
                                     <button class="add-cart m-auto" (click)="guestLogin(data)" *ngIf="!data.load;else loader;" [class.out-of-stock]="data?.stock == '2'">
                                         {{data?.stock == '2' ? LANG.out_of_stock : LANG.ADD_TO_CART}}

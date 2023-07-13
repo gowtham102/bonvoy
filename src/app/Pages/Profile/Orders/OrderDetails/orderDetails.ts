@@ -6,6 +6,9 @@ import { environment } from "src/environments/environment";
 import { SharedService } from 'src/app/SharedResources/Services/shared.service';
 import { ProductService } from 'src/app/SharedResources/Services/product.service';
 import { ToastrManager } from 'ng6-toastr-notifications';
+import * as firebase from 'firebase/app';
+import { DatePipe } from '@angular/common';
+
 declare const $: any;
 
 @Component({
@@ -29,7 +32,7 @@ export class OrderDetailsComponent implements OnInit {
     width:any="10"
 
     
-    constructor(private route:ActivatedRoute,private router:Router,private orderService:OrderService,private shared:SharedService,private toast:ToastrManager, public productService:ProductService){
+    constructor(private route:ActivatedRoute,private router:Router,private orderService:OrderService,private shared:SharedService,private toast:ToastrManager, public productService:ProductService,private datePipe: DatePipe){
         this.subscriptions.push(this.route.queryParams
         .subscribe(
             (params: Params) => {
@@ -61,6 +64,7 @@ export class OrderDetailsComponent implements OnInit {
             if(result.status){
                 this.order_details=result.response; 
                 const status=this.order_details.status_list.filter((data: { created_on: any; })=>{
+                    data.created_on= this.datePipe.transform(new Date(), 'dd MMM hh:mm');
                     return data.created_on
                 })
                 this.order_details.ordered_date=this.formatDate(this.order_details.created_on);
@@ -115,7 +119,57 @@ order_image:any
   
     
     }
+
+    changeProfileImage(event:any) {
+
+        let file = event.target.files[0];
+        let ext=file.type.split('/').pop().toLowerCase();
+        if(ext !== "jpeg" && ext !== "jpg" && ext !== "png"){
+            this.toast.warningToastr("",file.name + this.LANG.is_not_a_valid_file,{position:"top-right",toastTimeout:3000,maxShown:1,animate:'null'})
+            return false
+        }
+        if (file) {
+            let reader = new FileReader();
+            reader.onload = (e: any) => {
+            this.productImage=e.target.result;
+            this.profileImageFile=file
+            this.profile_image_selected=true;
+
+        }
+            reader.readAsDataURL(file);
+            this.profile_image_selected= true
+        }
+        return
+    }
       
+    progress:any
+    productImage:any
+    
+    profileImageFile:any
+    profile_image_selected:boolean= true
+    uploadProfileImage() {
+        this.profile_image_selected = false
+        var n = Date.now();
+        var fileName = this.profileImageFile.name;
+        var path = fileName + n
+        const filePath = `Profile/${path}`;
+        const uploadTask =
+        firebase.storage().ref().child(`${filePath}`).put(this.profileImageFile);
+        uploadTask.on(
+            firebase.storage.TaskEvent.STATE_CHANGED,
+            snapshot => {
+            const progress = ((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                this.progress = progress
+                
+            },
+            error => console.log(error),
+            async () => {
+            await uploadTask.snapshot.ref.getDownloadURL().then(res => {
+                this.productImage=res;
+            });
+            }
+        );
+    }
 
     ordertrack(){
         $(".order-track-row").toggleClass("show")

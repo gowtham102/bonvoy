@@ -825,7 +825,7 @@ export class AddressListComponent implements OnInit {
 
     use_wallet:boolean=false;
     billing_name:any
-    biling_code:any
+    biling_code:any="+91"
     billing_email:any
     billing_number:any
     billing_address:any
@@ -834,6 +834,9 @@ export class AddressListComponent implements OnInit {
     }
     
     submitOrder(){
+        if(this.notes=="undefined"){
+            this.notes=""
+        }
         if(!this.terms){
             this.toast.warningToastr(this.LANG.Please_accept_terms_and_conditions,"",{position:'top-right',toastTimeout:3000,maxShown:1,newestOnTop:false,animate:'null'});
             return

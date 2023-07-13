@@ -225,13 +225,16 @@
                 <h6>How would you rate this item?</h6>
                 <div class="rate-caro row">
                     <div class="col-md-6">
+
                         <img src="{{order_image}}" class="w-100" alt="" />
                     </div>
                     <div class="col-md-6 ">
                         <ngb-rating [max]=5 [(rate)]="rating" [readonly]="false"></ngb-rating>
                         <div class="text-area-input">
+                            <input  type="file" (change)="changeProfileImage($event)" >
+
                             <textarea class="form-control" placeholder="Tellus" [(ngModel)]="review"></textarea>
-                            <button class="btn" (click)="insertRating()">Submit </button>
+                            <button class="btn" (click)="insertRating()" >Submit </button>
                         </div>
                     </div>
                 </div>

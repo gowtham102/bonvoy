@@ -712,22 +712,22 @@ targetElement: any;
 scrollToElement() {
   this.targetElement = document.getElementById('review');
 
-  this.targetElement.scrollIntoView();
+  this.targetElement.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 }
 scrollToElementfaq() {
   this.targetElement = document.getElementById('faq');
 
-  this.targetElement.scrollIntoView();
+  this.targetElement.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 }
 scrollToElementspc() {
   this.targetElement = document.getElementById('specification');
 
-  this.targetElement.scrollIntoView();
+  this.targetElement.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 }
 scrollToElementovr() {
   this.targetElement = document.getElementById('overview');
 
-  this.targetElement.scrollIntoView();
+  this.targetElement.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 }
 
 

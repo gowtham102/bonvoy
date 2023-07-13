@@ -434,7 +434,7 @@
         <h2>Bonvoy Cruise</h2>
         <div class="row align-items-center">
             <div class=" col-md-6 ">
-                <video class="w-100 " autoplay loop   src="{{home_page?.cruise?.video}}"></video>
+                <video class="w-100 " [muted]="autoplayEnable" id="videoElement" autoplay loop   src="{{video_player}}"></video>
             </div>
             <div class="col-md-6 ">
                 <div class="cruise-right ">
