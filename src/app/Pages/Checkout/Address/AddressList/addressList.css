@@ -664,6 +664,14 @@
             margin-right: 35%;
             margin-left: auto;
         }
+        .check-box-wrapper {
+            display: flex;
+            grid-column-gap: 5px;
+            align-items: baseline;
+        }
+        .check-box-wrapper label {
+            font-size: 15px;
+        }
     }
     
     @media screen and (max-width: 320px) {

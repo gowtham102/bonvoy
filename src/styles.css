@@ -1032,7 +1032,7 @@ a:hover {
 }
 
 .star span {
-    color: #ffe67f !important;
+    color: #ffcd00 !important;
 }
 
 .card-body ul li p {
@@ -1137,6 +1137,51 @@ a:hover {
 }
 
 @media screen and (max-width: 576px) {
+    .login-modal .modal-body,
+    .login-modal .modal-body.otp-pad {
+        padding: 20px 25px !important;
+    }
+    .login-modal .country {
+        width: 30% !important;
+    }
+    .login-modal .country-code span {
+        width: 5%;
+        left: 25%;
+        display: none;
+    }
+    .login-modal .country-code input {
+        margin-left: 0%;
+        width: 100%;
+    }
+    .padding-login {
+        padding: 15px !important;
+    }
+    span.error.f-name {
+        margin-left: 35%;
+    }
+    .login-bg-img img {
+        height: 200px;
+        object-fit: cover;
+    }
+    /* .border-wra {
+        justify-content: flex-start;
+        grid-column-gap: 20px;
+    } */
+    .login-modal .country input {
+        width: 100%;
+        margin: 0;
+    }
+    .login-modal button.checkout {
+        margin: 0 auto !important;
+    }
+    .login-modal .otp-field input {
+        width: 100% !important;
+        height: 50px !important;
+        margin: 0 5px 30px;
+    }
+    .search-bar-input input {
+        padding: 15px;
+    }
     .banner .owl-carousel .owl-stage-outer,
     .banner .owl-theme {
         height: auto;
@@ -1159,7 +1204,7 @@ a:hover {
     }
     button.add-cart {
         padding: 9px 16px;
-        transform: unset;
+        transform: unset !important;
         visibility: visible;
         font-size: 13px;
     }
@@ -1192,6 +1237,12 @@ a:hover {
     .login-modal .modal-dialog {
         max-width: 88% !important;
         margin: 18px auto;
+    }
+    .privacy-policy {
+        padding: 20px;
+    }
+    .privacy-policy .content {
+        padding: 0px !important;
     }
     /* ========arabic========= */
     .arabic .thank-you-wrapper .thank-you img {
@@ -1280,4 +1331,8 @@ a:hover {
     #toastr-container>div {
         width: 16em !important;
     }
+}
+
+.privacy-policy h1 {
+    display: none;
 }

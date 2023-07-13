@@ -69,7 +69,7 @@
                             <span class="minus" (click)="decrementQuantity()"><img class=""
                                     src="assets/images/icons/minus-icon.svg" alt="minus"></span>
                             <input type="text" [ngModel]="product_details.quantity" disabled>
-                            <span class="plus" (click)="incrementQuantity()" ><img class=""
+                            <span class="plus" (click)="incrementQuantity()"><img class=""
                                     src="assets/images/icons/plus-icon.svg" alt="plus"></span>
                         </div>
 
@@ -252,7 +252,7 @@
     <div id="faq" class="container-fluid  tab-pane">
         <h4>Faq</h4>
         <div [attr.id]="'accordion'+i" class="accordion" *ngFor="let item of product_details?.faq let i=index">
-            <div class="card ">
+            <div class="card mb-0 pt-3">
                 <!-- <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
                         <a class="card-title">
                             Sales Package
@@ -274,7 +274,7 @@
             </div>
         </div>
     </div>
-    <div id="review"  class="container-fluid  tab-pane">
+    <div id="review" class="container-fluid  tab-pane">
         <h4>Reviews</h4>
 
         <!-- <button type="button" class="btn review-btn" data-toggle="modal" data-target="#review-modal">
@@ -525,13 +525,13 @@
 <div class="prod-bottom">
     <div class="prod-sec1">
         <img src="{{main_image}}" alt="">
-        <div>
+        <div class="prod-sec-left">
             <h2>{{product_details.title}}</h2>
             <span class="prod-pr"><span>{{product_details.currency}} {{+product_details.price - +product_details.discount}}</span> <del *ngIf="+product_details.discount > 0"> {{product_details.currency}} {{product_details.price}}
             </del><span class="dis-per">({{product_details.discount_percent}}% Off)</span></span>
         </div>
     </div>
-    <div class="col-md-4 col-6 drop-button">
+    <div class="col-md-4 col-8 drop-button">
         <div class="dropdown col-md-6">
             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown">
                <span> {{p_variation}}</span>
