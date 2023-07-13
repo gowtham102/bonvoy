@@ -871,6 +871,7 @@ opacity: 1;
         
         .prod-image img {
             width: 100%;
+            min-height: 340px;
             max-height: 340px;
             object-fit: contain;
             margin: auto;
@@ -1184,7 +1185,8 @@ opacity: 1;
             .prod-image img {
                 object-fit: contain;
                 width: 95%;
-                height: 200px;
+                max-height: 200px;
+                min-height: 200px;
             }
             .prod-row {
                 grid-row-gap: 47px;

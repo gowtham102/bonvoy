@@ -370,17 +370,23 @@ h4.underline-head:after {
     display: none;
 }
 
-.prod:hover button.wishlist,
-.prod:hover button.add-cart {
+.prod:hover button.wishlist {
     /* transform: translate(0); */
+    /* transform: translateY(-33px); */
+    /* transition: .5s ease-in-out; */
+    visibility: visible;
+    opacity: 1;
+}
+
+.prod:hover button.add-cart {
     transform: translateY(-33px);
-    transition: .5s ease-in-out;
+    transition: .25s ease-in-out;
     visibility: visible;
 }
 
 .prod:hover button.wishlist {
     /* transform: translate(0); */
-    transform: translateY(0);
+    /* transform: translateY(0); */
 }
 
 button.wishlist {
@@ -393,12 +399,14 @@ button.wishlist {
     border-radius: 50%;
     box-shadow: 1px var(--c-black);
     box-shadow: 0px 1px 0px 1px var(--c-lightgrey);
-    transform: translate(100px);
+    /* transform: translate(100px); */
     visibility: hidden;
     z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transition: 0.3s all;
 }
 
 button.wishlist i {
@@ -1205,6 +1213,7 @@ a:hover {
         padding: 10px;
         transform: translate(0);
         visibility: visible;
+        opacity: 1;
     }
     button.add-cart {
         padding: 9px 16px;
@@ -1315,6 +1324,7 @@ a:hover {
     .arabic button.wishlist {
         transform: translate(0);
         visibility: visible;
+        opacity: 1;
     }
     .arabic .company-details .email-details {
         margin-left: 30px;
