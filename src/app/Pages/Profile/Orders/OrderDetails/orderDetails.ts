@@ -108,6 +108,7 @@ order_image:any
           if(res.status==true){
             this.toast.successToastr(res.response.message)
             $('#review-modal').addClass('close');
+            this.ngOnInit()
           }
           if(res.status==false){
             this.toast.warningToastr(res.response.message)

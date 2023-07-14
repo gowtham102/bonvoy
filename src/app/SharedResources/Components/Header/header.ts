@@ -171,6 +171,7 @@ export class HeaderComponent implements OnInit {
     ngOnInit(){
       this.windowRef = this.win.windowRef;
       this.getMenu();
+      this.getCart()
     }
 
     // ngAfterViewInit(){
@@ -521,6 +522,12 @@ loginUser(){
         this.load=false;
         this.toast.warningToastr(result.response.message,"",{position:'top-right',toastTimeout:3000,maxShown:1,newestOnTop:false,animate:'null'})
     }))
+}
+
+getCart(){ 
+  this.subscriptions.push(this.cartService.getCartDetails().subscribe((result:any)=>{
+    
+  }))
 }
 
 loginWithOtp(data:any){

@@ -68,7 +68,7 @@
 
                         </div>
                         <div>
-                            <button class="btn" (click)="ratemodal(data.id,data.product_image)" *ngIf="order_details.status==106">Rate Us</button>
+                            <button class="btn" (click)="ratemodal(data.id,data.product_image)" *ngIf="order_details.status==106 && data.reviewed==''">Rate Us</button>
 
                         </div>
                     </div>

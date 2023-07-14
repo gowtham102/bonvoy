@@ -592,7 +592,7 @@ export class AddressListComponent implements OnInit {
         //     this.address_error.address = true;
         //     this.err = true;
         // }
-        if (this.address && (this.lat == "" || this.long == "" || this.lat == undefined || this.long == undefined)) {
+        if (this.address=="" && (this.lat == "" || this.long == "" || this.lat == undefined || this.long == undefined)) {
             this.address_error.address_valid = true;
             this.err = true;
         }
