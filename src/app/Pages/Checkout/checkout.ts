@@ -305,7 +305,10 @@ export class CheckoutComponent implements OnInit {
     }
    
 
-      
+    ngOnDestroy(): void {
+        this.subscriptions.map(s => s.unsubscribe());
+      }  
+
 
 
 

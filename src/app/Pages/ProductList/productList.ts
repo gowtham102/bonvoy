@@ -364,7 +364,9 @@ export class ProductListComponent implements OnInit {
         	$(".pop").toggleClass("show");	
         }
 
-      
+        ngOnDestroy(): void {
+          this.subscriptions.map(s => s.unsubscribe());
+        }
 
 
 

@@ -37,6 +37,7 @@ export class CartComponent implements OnInit {
     logged_in:boolean=true
     notes:any
     country_list:any
+    guest_login:any
 
     constructor(@Inject(DOCUMENT) private document: Document,private cartService:CartService,private toast:ToastrManager,private shared:SharedService,private router:Router, public loginService:LoginService){
         this.subscriptions.push(this.shared.currentUserStatus.subscribe(user=>this.logged_in=user));
@@ -44,6 +45,7 @@ export class CartComponent implements OnInit {
         this.subscriptions.push(this.shared.countryChanged.subscribe((country_id:string) => {
             this.getCart();
         })) 
+        this.guest_login = localStorage.getItem('guest_login')
         this.subscriptions.push(this.shared.languageChange.subscribe((path:any)=>{
             this.changeLanguage();
             this.getCart();
@@ -468,6 +470,11 @@ export class CartComponent implements OnInit {
                 localStorage.setItem('token',res.response.token)
                 localStorage.setItem("logged_in", btoa("1"));
                 localStorage.setItem("guest_login","")
+                localStorage.setItem(btoa(btoa(("user_info"))), btoa(btoa(unescape(encodeURIComponent(JSON.stringify(res.response))))));
+                this.shared.changeUserStatus(true);
+                this.shared.changeUserData(res.response);
+                const user_profile={user_name:res.response.full_name,profile_image:res.response.profile_image  || "assets/images/icons/user-round.svg"}
+                this.shared.changeUserProfile(user_profile);
                 this.router.navigate(['/checkout/address']);
                 // location.reload()
             }
@@ -492,7 +499,12 @@ export class CartComponent implements OnInit {
                 this.toast.successToastr(res.response.message)
                 localStorage.setItem('token',res.response.token)
                 localStorage.setItem("logged_in", btoa("1"));
-
+                localStorage.setItem("guest_login","")
+                localStorage.setItem(btoa(btoa(("user_info"))), btoa(btoa(unescape(encodeURIComponent(JSON.stringify(res.response))))));
+                this.shared.changeUserStatus(true);
+                this.shared.changeUserData(res.response);
+                const user_profile={user_name:res.response.full_name,profile_image:res.response.profile_image  || "assets/images/icons/user-round.svg"}
+                this.shared.changeUserProfile(user_profile);
                 this.router.navigate(['/checkout/address']);
             }
             else{

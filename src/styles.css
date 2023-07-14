@@ -1153,6 +1153,7 @@ a:hover {
 }
 
 @media screen and (max-width: 576px) {
+    body{overflow-x:hidden ;}
     .privacy-policy .content h4 {
         font-size: 24px !important;
     }

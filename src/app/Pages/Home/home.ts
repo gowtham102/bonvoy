@@ -183,30 +183,42 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getHomePage();
     // this.openmodal();
-    $('#modal-slider').owlCarousel({
-      loop:true,
-      autoPlay:false,
-      margin:10,
-      nav:true,
-      dots:false,
-      navText: ["<span><i class='fa fa-arrow-left'></i></span>","<span><i class='fa fa-arrow-right'></i></span>"],
-      responsiveClass:true,
-      responsive:{
-          0:{
-              items:1,
-              nav:true
-          },
-          600:{
-              items:3,
-              nav:false
-          },
-          1000:{
-              items:1,
-              nav:true,
-              loop:false
-          }
-      }
-  })
+  //   $('#modal-slider').owlCarousel({
+  //     loop:true,
+  //     autoPlay:false,
+  //     margin:10,
+  //     nav:true,
+  //     dots:false,
+  //     navText: ["<span><i class='fa fa-arrow-left'></i></span>","<span><i class='fa fa-arrow-right'></i></span>"],
+  //     responsiveClass:true,
+  //     responsive:{
+  //         0:{
+  //             items:1,
+  //             nav:true
+  //         },
+  //         600:{
+  //             items:3,
+  //             nav:false
+  //         },
+  //         1000:{
+  //             items:1,
+  //             nav:true,
+  //             loop:false
+  //         }
+  //     }
+  // })
+    this.slidercarousel()
+    
+
+
+   
+
+    
+  }
+  openmodal(){
+    $('#review-modal,.overlay-pop').addClass('show');
+  }
+  slidercarousel(){
     $('#slider').owlCarousel({
       loop: true,
       margin: 10,
@@ -228,14 +240,6 @@ export class HomeComponent implements OnInit {
         }
       }
     });
-
-
-   
-
-    
-  }
-  openmodal(){
-    $('#review-modal,.overlay-pop').addClass('show');
   }
   review:any
   insertRating(event:any){

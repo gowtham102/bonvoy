@@ -42,7 +42,7 @@ export class AddressComponent implements OnInit {
     full_name: string="";
     email_id: string="";
     mobile_number: string=""; 
-    country_code: string="";
+    country_code: string="+91";
     default_address:string="1";
     address_type:string="1";
     address: string="";
@@ -452,8 +452,8 @@ export class AddressComponent implements OnInit {
         this.mobile_number="";
         this.address="";
         this.address_clicked=false;
-        this.latitude = 24.774265;
-        this.longitude = 46.738586;
+        this.latitude = 28.644800;
+        this.longitude = 77.216721;
         this.lat=null;
         this.long=null;
         this.address_type="1";

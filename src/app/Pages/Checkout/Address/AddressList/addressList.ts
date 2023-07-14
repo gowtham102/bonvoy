@@ -461,9 +461,10 @@ export class AddressListComponent implements OnInit {
         });
     }
 
-
+    billadderr:any={}
     addAddress(){
         this.err=false;
+        
         this.resetError();
         this.errorHandler();
         if(this.err) return;
@@ -501,6 +502,26 @@ export class AddressListComponent implements OnInit {
             return
         }
         this.saveUserAddress(data)
+    }
+
+    billingAddressErr(){
+        if(this.billing_address==""){
+            this.billadderr.billing_address= true
+            this.err= true
+        }
+        if(this.billing_email==""){
+            this.billadderr.billing_email= true
+            this.err= true
+        }
+        if(this.billing_name==""){
+            this.billadderr.billing_name= true
+            this.err= true
+        }
+        if(this.billing_number==""){
+            this.billadderr.billing_number= true
+            this.err= true
+            return
+        }
     }
 
 
@@ -638,6 +659,15 @@ export class AddressListComponent implements OnInit {
           "email_id_valid":false,
           "address":false,
           "address_valid":false,
+        }
+        this.billadderr={
+          "billing_name":false,
+          "billing_email":false,
+          "billing_number":false,
+          "billing_address":false,
+        //   "email_id_valid":false,
+        //   "address":false,
+        //   "address_valid":false,
         }
     }
 
@@ -824,18 +854,23 @@ export class AddressListComponent implements OnInit {
     }
 
     use_wallet:boolean=false;
-    billing_name:any
+    billing_name:any=""
     biling_code:any="+91"
-    billing_email:any
-    billing_number:any
-    billing_address:any
+    billing_email:any=""
+    billing_number:any=""
+    billing_address:any=""
     useWallet(){
         this.shared.emitWalletUsed(this.use_wallet)
     }
     
     submitOrder(){
+        this.err= false
+        this.resetError()
         if(this.notes=="undefined"){
             this.notes=""
+        }
+        if(this.billing_address_type== false){
+            this.billingAddressErr()
         }
         if(!this.terms){
             this.toast.warningToastr(this.LANG.Please_accept_terms_and_conditions,"",{position:'top-right',toastTimeout:3000,maxShown:1,newestOnTop:false,animate:'null'});
@@ -846,45 +881,49 @@ export class AddressListComponent implements OnInit {
             return
         }
         this.load=true;
-        const data={
-            "address_id":this.delivery_address_id,
-            "payment_type":this.payment_type.toString(),
-            "payment_mode":this.payment_mode.toString(),
-            "order_from":"1",
-            "wallet":this.use_wallet ? "1":"0",
-            "date":this.order_date,
-            "time":this.order_time,
-            "to_time":this.to_time,
-            "card_id":this.cart_design_id,
-            "card_to":this.to_text,
-            "card_from":this.from_text,
-            "card_message":this.message,
-            "recievers_number":this.reciever_number,
-            "recievers_address":this.reciever_address,
-            "notes":this.notes,
-            "billing_address":{
-                "full_name":this.billing_name,
-                "country_code":this.biling_code,
-                "email_id":this.billing_email,
-                "phone_number":this.billing_number,
-                "address":this.billing_address
+        if(this.err== false){
+            const data={
+                "address_id":this.delivery_address_id,
+                "payment_type":this.payment_type.toString(),
+                "payment_mode":this.payment_mode.toString(),
+                "order_from":"1",
+                "wallet":this.use_wallet ? "1":"0",
+                "date":this.order_date,
+                "time":this.order_time,
+                "to_time":this.to_time,
+                "card_id":this.cart_design_id,
+                "card_to":this.to_text,
+                "card_from":this.from_text,
+                "card_message":this.message,
+                "recievers_number":this.reciever_number,
+                "recievers_address":this.reciever_address,
+                "notes":this.notes,
+                "billing_address":{
+                    "full_name":this.billing_name,
+                    "country_code":this.biling_code,
+                    "email_id":this.billing_email,
+                    "phone_number":this.billing_number,
+                    "address":this.billing_address
+                }
             }
-        }
-        this.orderService.orderSubmit(data).subscribe((result:any)=>{
-          this.load=false
-          if(result.response.status){
-              this.clearLocalData();
-            if(result.response.url){
-                location.href=result.response.url;
+            this.orderService.orderSubmit(data).subscribe((result:any)=>{
+              this.load=false
+              if(result.response.status){
+                  this.clearLocalData();
+                if(result.response.url){
+                    location.href=result.response.url;
+                    return
+                }
+                this.toast.successToastr(this.LANG.Order_Placed_successfully,"",{position:'top-right',toastTimeout:3000});
+                this.shared.changeCount("0");
+                this.router.navigate(['/order-success'])
+                localStorage.setItem('guest_login','false')
                 return
-            }
-            this.toast.successToastr(this.LANG.Order_Placed_successfully,"",{position:'top-right',toastTimeout:3000});
-            this.shared.changeCount("0");
-            this.router.navigate(['/order-success'])
-            return
-          }
-          this.toast.warningToastr(result.response.message,"",{position:'top-right',toastTimeout:3000})
-      })
+              }
+              this.toast.warningToastr(result.response.message,"",{position:'top-right',toastTimeout:3000})
+          })
+        }
+        this.load=false
     }
 
     openTerms(modalContent:any) {

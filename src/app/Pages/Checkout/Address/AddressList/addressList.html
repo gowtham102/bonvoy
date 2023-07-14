@@ -57,8 +57,8 @@
                     <form autocomplete="off">
                         <textarea name="address" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="off" class="form-control" placeholder="{{LANG.Address_building_no}}" id="search_field" [(ngModel)]="billing_address" (change)="clearSelectedAddress()" disabled="{{billing_address_type}}"></textarea>
                     </form>
-                    <!-- <span class="error" *ngIf="address_error.address">{{LANG.This_field_is_required}}</span>
-                    <span class="error" *ngIf="address_error.address_valid">{{LANG.Please_Select_valid_address}}</span> -->
+                    <span class="error" *ngIf="billadderr.billing_address">{{LANG.This_field_is_required}}</span>
+                    <!-- <span class="error" *ngIf="address_error.address_valid">{{LANG.Please_Select_valid_address}}</span> -->
                 </div>
                 <div class="form_input ">
                     <div class="country-code form_input position-relative m-0">
@@ -74,9 +74,10 @@
                                 </div>
                             </div>
                         </div>
-                        <span></span>
                         <input type="text" placeholder="{{LANG.Mobile_Number}}" class="form-control" name="mobile_number" maxlength="10" [(ngModel)]="billing_number" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)" disabled="{{billing_address_type}}">
                     </div>
+                    <span class="error" *ngIf="billadderr.billing_number">{{LANG.This_field_is_required}}</span>
+
                     <!-- <span class="error" *ngIf="address_error.mobile_number">{{LANG.This_field_is_required}}</span> -->
                     <!-- <span class="error"
                         *ngIf="address_error.mobile_number_valid && country_code == '+91'">{{LANG.Enter_Valid_Number}}
@@ -86,11 +87,13 @@
                 </div>
                 <div class="form_input">
                     <input class="form-control" placeholder="{{LANG.Full_Name}}" name="full_name" [(ngModel)]="billing_name" disabled="{{billing_address_type}}">
-                    <!-- <span class="error f-name" *ngIf="address_error.full_name">{{LANG.This_field_is_required}}</span> -->
+                    <span class="error f-name" *ngIf="billadderr.billing_name">{{LANG.This_field_is_required}}</span>
+
                 </div>
+
                 <div class="form_input">
                     <input class="form-control" placeholder="{{LANG.Email_ID}}" name="email_id" [(ngModel)]="billing_email" disabled="{{billing_address_type}}">
-                    <!-- <span class="error" *ngIf="address_error.email_id">{{LANG.This_field_is_required}}</span> -->
+                    <span class="error" *ngIf="billadderr.billing_email">{{LANG.This_field_is_required}}</span>
                     <!-- <span class="error" *ngIf="address_error.email_id_valid">{{LANG.Please_enter_valid_Email}}</span> -->
                 </div>
                 <!-- <div class="form_input form-address">

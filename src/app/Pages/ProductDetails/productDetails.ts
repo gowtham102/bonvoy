@@ -646,6 +646,12 @@ p_variation:any
             localStorage.setItem('token',res.response.token)
             this.token = res.response.token
             this.logged_in= true
+            localStorage.setItem("guest_login","")
+                localStorage.setItem(btoa(btoa(("user_info"))), btoa(btoa(unescape(encodeURIComponent(JSON.stringify(res.response))))));
+                this.shared.changeUserStatus(true);
+                this.shared.changeUserData(res.response);
+                const user_profile={user_name:res.response.full_name,profile_image:res.response.profile_image  || "assets/images/icons/user-round.svg"}
+                this.shared.changeUserProfile(user_profile);
               this.BuyNow()
               // this.toast.successToastr(res.response.message)
               
@@ -673,6 +679,12 @@ p_variation:any
               this.toast.successToastr(res.response.message)
               localStorage.setItem('token',res.response.token)
               localStorage.setItem("logged_in", btoa("1"));
+              localStorage.setItem("guest_login","")
+                localStorage.setItem(btoa(btoa(("user_info"))), btoa(btoa(unescape(encodeURIComponent(JSON.stringify(res.response))))));
+                this.shared.changeUserStatus(true);
+                this.shared.changeUserData(res.response);
+                const user_profile={user_name:res.response.full_name,profile_image:res.response.profile_image  || "assets/images/icons/user-round.svg"}
+                this.shared.changeUserProfile(user_profile);
               this.logged_in=true
               // this.closemodal()
               this.BuyNow()
@@ -741,6 +753,10 @@ scrollToElementovr() {
   this.targetElement.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 }
 
+
+ngOnDestroy(): void {
+  this.subscriptions.map(s => s.unsubscribe());
+}
 
 
 

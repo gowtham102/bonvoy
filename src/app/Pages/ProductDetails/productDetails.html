@@ -167,10 +167,10 @@
                 <a class="nav-link" (click)="scrollToElementspc()">Specification</a>
             </li>
             <li>
-                <a class="nav-link" (click)="scrollToElementfaq()" *ngIf="product_details?.faq.length>0">FAQ</a>
+                <a class="nav-link" (click)="scrollToElementfaq()" *ngIf="product_details?.faq?.length>0">FAQ</a>
             </li>
             <li>
-                <a class="nav-link" (click)="scrollToElement()" *ngIf="product_details.review.length>0">Reviews</a>
+                <a class="nav-link" (click)="scrollToElement()" *ngIf="product_details?.review?.length>0">Reviews</a>
             </li>
 
         </ul>
@@ -195,7 +195,7 @@
                 </div>
                 <div id="collapseOne" class="card-body card-spec collapse" data-parent="#accordion">
                     <ul>
-                        <li [innerHTML]="product_details.specifications"></li>
+                        <li [innerHTML]="product_details?.specifications"></li>
                     </ul>
                 </div>
                 <!-- <div class="card-header pb-0">
@@ -207,7 +207,7 @@
                         </ul>
                     </div> -->
             </div>
-            <div class="card mb-0 pt-3" *ngIf="product_details.sales_package!=''">
+            <div class="card mb-0 pt-3" *ngIf="product_details?.sales_package!=''">
                 <div class="card-header collapsed" data-toggle="collapse" href="#collapseTwo">
                     <a class="card-title">
                             SALES PACKAGE
@@ -215,7 +215,7 @@
                 </div>
                 <div id="collapseTwo" class="card-body card-spec collapse" data-parent="#accordion">
                     <ul>
-                        <li [innerHTML]="product_details.sales_package"></li>
+                        <li [innerHTML]="product_details?.sales_package"></li>
                     </ul>
                 </div>
                 <!-- <div class="card-header pb-0">
@@ -227,7 +227,7 @@
                         </ul>
                     </div> -->
             </div>
-            <div class="card mb-0 pt-3" *ngIf="product_details.product_warranty!=''">
+            <div class="card mb-0 pt-3" *ngIf="product_details?.product_warranty!=''">
                 <div class="card-header collapsed" data-toggle="collapse" href="#collapseThree">
                     <a class="card-title">
                             WARRANTY
@@ -235,7 +235,7 @@
                 </div>
                 <div id="collapseThree" class="card-body card-spec collapse" data-parent="#accordion">
                     <ul>
-                        <li [innerHTML]="product_details.product_warranty"></li>
+                        <li [innerHTML]="product_details?.product_warranty"></li>
                     </ul>
                 </div>
                 <!-- <div class="card-header pb-0">
@@ -249,7 +249,7 @@
             </div>
         </div>
     </div>
-    <div id="faq" class="container-fluid  tab-pane" *ngIf="product_details?.faq.length>0">
+    <div id="faq" class="container-fluid  tab-pane" *ngIf="product_details?.faq?.length>0">
         <h4>Faq</h4>
         <div [attr.id]="'accordion'+i" class="accordion" *ngFor="let item of product_details?.faq let i=index">
             <div class="card mb-0 pt-3">
@@ -264,29 +264,29 @@
                         </ul>
                     </div> -->
                 <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" [attr.href]="'#collapseTwo'+i">
-                    <a class="card-title">  {{item.question}} </a>
+                    <a class="card-title">  {{item?.question}} </a>
                 </div>
                 <div [attr.id]="'collapseTwo'+i" class="card-body collapse  faq  " data-parent="#accordion">
                     <ul>
-                        <li>{{item.answer}}</li>
+                        <li>{{item?.answer}}</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <div id="review" class="container-fluid  tab-pane" *ngIf="product_details.review.length>0">
+    <div id="review" class="container-fluid  tab-pane" *ngIf="product_details?.review?.length>0">
         <h4>Reviews</h4>
 
         <!-- <button type="button" class="btn review-btn" data-toggle="modal" data-target="#review-modal">
                 Write a review
               </button> -->
         <div class="review-row">
-            <div class="review-wrapper" *ngFor="let item of product_details.review">
+            <div class="review-wrapper" *ngFor="let item of product_details?.review">
                 <div class="review-sec">
                     <div class="star">
                         <ngb-rating [max]=5 [(rate)]="item.rating" [readonly]="true"></ngb-rating>
                     </div>
-                    <p>{{item.comment}}</p>
+                    <p>{{item?.comment}}</p>
                 </div>
             </div>
         </div>
@@ -295,7 +295,7 @@
 
 
 
-    <section class="similar-products" *ngIf="related_products.length > 0">
+    <section class="similar-products" *ngIf="related_products?.length > 0">
         <div class="container home">
             <div class="best-seller mt-5">
                 <div class="row">
@@ -508,7 +508,7 @@
 <div class="container-fluid new-launch">
     <h2>New Launch</h2>
     <div class="row launch-row">
-        <div class="col-md-3 col-6 prod text-center" *ngFor="let item of product_details.new_launch">
+        <div class="col-md-3 col-6 prod text-center" *ngFor="let item of product_details?.new_launch">
             <img src="{{item.image}}" class="w-100" alt="" (click)="goToProductDetails(item.id)" />
             <div class="prod-name" (click)="goToProductDetails(item.id)">
                 <p>{{item.title}}</p>
@@ -529,14 +529,14 @@
         <img src="{{main_image}}" alt="">
         <div class="prod-sec-left">
             <h2>{{product_details.title}}</h2>
-            <span class="prod-pr"><span>{{product_details.currency}} {{+product_details.price - +product_details.discount}}</span> <del *ngIf="+product_details.discount > 0"> {{product_details.currency}} {{product_details.price}}
-            </del><span class="dis-per">({{product_details.discount_percent}}% Off)</span></span>
+            <span class="prod-pr"><span>{{product_details?.currency}} {{+product_details?.price - +product_details?.discount}}</span> <del *ngIf="+product_details?.discount > 0"> {{product_details?.currency}} {{product_details?.price}}
+            </del><span class="dis-per">({{product_details?.discount_percent}}% Off)</span></span>
         </div>
     </div>
     <div class="col-md-4 col-8 drop-button px-0">
         <div class="dropdown">
             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown">
-               <span> {{product_details.product_variation[0].value}}</span>
+               <span> {{product_details?.product_variation[0]?.value}}</span>
             </button>
             <div class="dropdown-menu">
                 <div *ngFor="let item of product_details?.variation1" (click)="getProductDetails2(item.id)">
