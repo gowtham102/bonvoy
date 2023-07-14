@@ -107,11 +107,15 @@ order_image:any
         this.productService.insert_review(data).subscribe((res:any)=>{
           if(res.status==true){
             this.toast.successToastr(res.response.message)
-            $('#review-modal').addClass('close');
+            $('#review-modal,.overlay-pop').removeClass('show');
+            // $('#review-modal').addClass('close');
+            // this.closemodal();
           }
           if(res.status==false){
             this.toast.warningToastr(res.response.message)
-            $('#review-modal').addClass('close');
+            $('#review-modal,.overlay-pop').removeClass('show');
+            
+
           }
         })
       }
