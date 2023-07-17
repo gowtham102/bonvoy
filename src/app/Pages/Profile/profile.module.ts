@@ -14,6 +14,9 @@ import { WalletComponent } from './Wallet/wallet';
 import { ReminderComponent } from './Reminder/reminder';
 import { FormsModule } from '@angular/forms';
 import { LoaderModule } from 'src/app/SharedResources/Components/Loader/loader.module';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment.prod';
 
 
 
@@ -74,7 +77,9 @@ const ChildRoutes: Routes = [
     }),
     CommonModule,
     FormsModule,
-    LoaderModule
+    LoaderModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   declarations:[
       ProfileComponent,
@@ -85,7 +90,8 @@ const ChildRoutes: Routes = [
       AddressComponent,
       WishlistComponent,
       ReminderComponent,
-      WalletComponent
+      WalletComponent,
+     
   ],
   providers: [DatePipe]
 })

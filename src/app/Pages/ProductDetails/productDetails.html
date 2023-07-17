@@ -283,7 +283,7 @@
         <div class="review-row">
             <div class="review-wrapper" *ngFor="let item of product_details?.review">
                 <div class="review-sec">
-                    <!-- <img src="assets/images/bonvoy/watch1.png" alt="" /> -->
+                    <img *ngIf="item.image !=''" src="{{item.image}}" alt="" />
                     <div class="star">
                         <ngb-rating [max]=5 [(rate)]="item.rating" [readonly]="true"></ngb-rating>
                     </div>

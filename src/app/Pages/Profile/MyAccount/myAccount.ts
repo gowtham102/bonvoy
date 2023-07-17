@@ -8,6 +8,9 @@ import { profile_data } from 'src/app/SharedResources/Models/profile.model'
 import * as firebase from 'firebase/app';
 import { environment } from "src/environments/environment";
 import { LoginService } from 'src/app/SharedResources/Services/login.service';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
+
 
 
 
@@ -39,7 +42,7 @@ export class MyAccountComponent implements OnInit {
     user_profile:any={};
 
     
-    constructor(private profileService:ProfileService,private toast:ToastrManager,private loginService:LoginService,private shared:SharedService){
+    constructor(private profileService:ProfileService,private toast:ToastrManager,private loginService:LoginService,private shared:SharedService,public storage:AngularFireStorage){
       this.subscriptions.push(this.shared.currentUserData.subscribe((data:any) =>this.user_profile=data));
       this.subscriptions.push(this.shared.languageChange.subscribe((path:any)=>{
         this.changeLanguage();
@@ -139,22 +142,35 @@ export class MyAccountComponent implements OnInit {
 
 
     changeProfileImage(event:any) {
-        let file = event.target.files[0];
-        let ext=file.type.split('/').pop().toLowerCase();
-        if(ext !== "jpeg" && ext !== "jpg" && ext !== "png"){
-            this.toast.warningToastr("",file.name + this.LANG.is_not_a_valid_file,{position:"top-right",toastTimeout:3000,maxShown:1,animate:'null'})
-            return false
-        }
-        if (file) {
-            let reader = new FileReader();
-            reader.onload = (e: any) => {
-            this.profileImage=e.target.result;
-            this.profileImageFile=file
-            this.profile_image_selected=true;
-        }
-            reader.readAsDataURL(file);
-        }
-        return
+        // let file = event.target.files[0];
+        // let ext=file.type.split('/').pop().toLowerCase();
+        // if(ext !== "jpeg" && ext !== "jpg" && ext !== "png"){
+        //     this.toast.warningToastr("",file.name + this.LANG.is_not_a_valid_file,{position:"top-right",toastTimeout:3000,maxShown:1,animate:'null'})
+        //     return false
+        // }
+        // if (file) {
+        //     let reader = new FileReader();
+        //     reader.onload = (e: any) => {
+        //     this.=e.target.result;
+        //     this.profileImageFile=file
+        //     this.profile_image_selected=true;
+        // }
+        //     reader.readAsDataURL(file);
+        // }
+        // return
+        const file = event.target.files[0];
+        const filePath = 'bonvoy/' + file.name;
+        const fileRef = this.storage.ref(filePath);
+        const task = this.storage.upload(filePath, file);
+    
+        task.snapshotChanges().pipe(
+        finalize(() => {
+            fileRef.getDownloadURL().subscribe(url => {
+            this.profileImage = url
+            this.profile_image_selected= true
+            });
+        })
+        ).subscribe();
     }
 
 

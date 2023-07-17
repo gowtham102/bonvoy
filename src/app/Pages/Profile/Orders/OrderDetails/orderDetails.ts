@@ -8,6 +8,9 @@ import { ProductService } from 'src/app/SharedResources/Services/product.service
 import { ToastrManager } from 'ng6-toastr-notifications';
 import * as firebase from 'firebase/app';
 import { DatePipe } from '@angular/common';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
+
 
 declare const $: any;
 
@@ -32,7 +35,7 @@ export class OrderDetailsComponent implements OnInit {
     width:any="10"
 
     
-    constructor(private route:ActivatedRoute,private router:Router,private orderService:OrderService,private shared:SharedService,private toast:ToastrManager, public productService:ProductService,private datePipe: DatePipe){
+    constructor(private route:ActivatedRoute,private router:Router,private orderService:OrderService,private shared:SharedService,private toast:ToastrManager, public productService:ProductService,private datePipe: DatePipe,public storage:AngularFireStorage){
         this.subscriptions.push(this.route.queryParams
         .subscribe(
             (params: Params) => {
@@ -128,24 +131,37 @@ order_image:any
 
     changeProfileImage(event:any) {
 
-        let file = event.target.files[0];
-        let ext=file.type.split('/').pop().toLowerCase();
-        if(ext !== "jpeg" && ext !== "jpg" && ext !== "png"){
-            this.toast.warningToastr("",file.name + this.LANG.is_not_a_valid_file,{position:"top-right",toastTimeout:3000,maxShown:1,animate:'null'})
-            return false
-        }
-        if (file) {
-            let reader = new FileReader();
-            reader.onload = (e: any) => {
-            this.productImage=e.target.result;
-            this.profileImageFile=file
-            this.profile_image_selected=true;
+        // let file = event.target.files[0];
+        // let ext=file.type.split('/').pop().toLowerCase();
+        // if(ext !== "jpeg" && ext !== "jpg" && ext !== "png"){
+        //     this.toast.warningToastr("",file.name + this.LANG.is_not_a_valid_file,{position:"top-right",toastTimeout:3000,maxShown:1,animate:'null'})
+        //     return false
+        // }
+        // if (file) {
+        //     let reader = new FileReader();
+        //     reader.onload = (e: any) => {
+        //     this.productImage=e.target.result;
+        //     this.profileImageFile=file
+        //     this.profile_image_selected=true;
 
-        }
-            reader.readAsDataURL(file);
+        // }
+        //     reader.readAsDataURL(file);
+        //     this.profile_image_selected= true
+        // }
+        // return
+        const file = event.target.files[0];
+        const filePath = 'bonvoy/' + file.name;
+        const fileRef = this.storage.ref(filePath);
+        const task = this.storage.upload(filePath, file);
+    
+        task.snapshotChanges().pipe(
+        finalize(() => {
+            fileRef.getDownloadURL().subscribe(url => {
+            this.productImage = url
             this.profile_image_selected= true
-        }
-        return
+            });
+        })
+        ).subscribe();
     }
       
     progress:any
