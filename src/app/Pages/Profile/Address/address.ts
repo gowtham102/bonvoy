@@ -344,7 +344,7 @@ export class AddressComponent implements OnInit {
         //     this.address_error.address = true;
         //     this.err = true;
         // }
-        if (this.address && (this.lat == "" || this.long == "" || this.lat == undefined || this.long == undefined)) {
+        if (this.address=="" && (this.lat == "" || this.long == "" || this.lat == undefined || this.long == undefined)) {
             this.address_error.address_valid = true;
             this.err = true;
         }
@@ -363,7 +363,7 @@ export class AddressComponent implements OnInit {
             this.address_error.mobile_number=true;	
             this.err=true;
         }
-        if(this.country_code == "+91"){
+        if(this.country_code == "+966"){
             const re=/^([0]{1}[5]{1}[0-9]*)$/
             const re1=/^([5]{1}[0-9]*)$/
     

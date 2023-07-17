@@ -5,12 +5,18 @@
 export const environment = {
   production: false,
   firebaseConfig : {
-    apiKey: "AIzaSyDA3vOcn5iDR0zPp4CjkTcunLir_95Iy54",
-    authDomain: "bloss-web.firebaseapp.com",
-    projectId: "bloss-web",
-    storageBucket: "bloss-web.appspot.com",
-    messagingSenderId: "489545158449",
-    appId: "1:489545158449:web:9c9515a112b3e6465eaa10"
+    // apiKey: "AIzaSyDA3vOcn5iDR0zPp4CjkTcunLir_95Iy54",
+    // authDomain: "bloss-web.firebaseapp.com",
+    // projectId: "bloss-web",
+    // storageBucket: "bloss-web.appspot.com",
+    // messagingSenderId: "489545158449",
+    // appId: "1:489545158449:web:9c9515a112b3e6465eaa10"
+    apiKey: "AIzaSyBw6ueeocfAhWM31ZK1feuQkwi0cDRpMhA",
+    authDomain: "bonvoy-f0f85.firebaseapp.com",
+    projectId: "bonvoy-f0f85",
+    storageBucket: "bonvoy-f0f85.appspot.com",
+    messagingSenderId: "529435904753",
+    appId: "1:529435904753:web:ae7c6a59069bae89c9f750",
   },
 
   english_translations:{
