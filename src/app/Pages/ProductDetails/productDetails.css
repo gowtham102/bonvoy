@@ -85,7 +85,7 @@
     margin-top: 20px;
     font-size: 14px;
     color: #002d46b3;
-    margin-bottom: 2.5rem;
+    margin-bottom: 25px;
 }
 
 .available-quantity span {
@@ -636,7 +636,7 @@ textarea {
 .tooltip-color {
     font-size: 20px;
     color: #919291;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 10px;
 }
 

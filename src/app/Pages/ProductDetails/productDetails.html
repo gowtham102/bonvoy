@@ -9,7 +9,7 @@
 
     <div class="product-container container mt-3" [class.no-product]="no_product">
         <ng-container *ngIf="!no_product && product_loaded">
-            <div class="breadcrumbs mb-4">
+            <div class="breadcrumbs ">
                 <div class="row m-0 px-4 breadcrum-padding">
                     <p><a routerLink="/">{{LANG.Home}} </a> / <a (click)="goToproductList()" class="cur-pointer">{{product_details.category}}</a> / <a class="active">{{product_details.title}}</a> </p>
                 </div>
