@@ -104,8 +104,14 @@ order_image:any
     }
    
     review:any
+    err:boolean= false
     insertRating(){
-      if(this.rating!=0){
+        this.err= false
+        this.resetError()
+        this.errRat()
+        
+      if(!this.err){
+
         let data=  {"order_detail_id":this.order_id_rate,"rating":this.rating,"comment":this.review, 'image':this.productImage}
         this.productService.insert_review(data).subscribe((res:any)=>{
           if(res.status==true){
@@ -129,6 +135,21 @@ order_image:any
     
     }
 
+    errorRating:any={}
+    errRat(){
+        if(Number.isNaN(this.rating)){
+            this.errorRating.error=true
+            this.err= true
+            return
+        }
+        
+    }
+
+    resetError(){
+        this.errorRating= {
+            "error":false
+        }
+    }
     changeProfileImage(event:any) {
 
         // let file = event.target.files[0];

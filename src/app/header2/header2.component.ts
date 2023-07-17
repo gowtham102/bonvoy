@@ -54,7 +54,7 @@ export class Header2Component implements OnInit {
     city_data:any={};
     cart_count:string="0";
     menu_data:any={};
-    categories:any=[];
+    categories:any=[ {showSubMenu: false,}];
     windowRef: any;
     login_error:any={};
     showResend:boolean=false;
@@ -1259,5 +1259,14 @@ searchclose(){
     else {
       this.router.navigate(['/my-cart'])
     }
+  }
+
+  submenu:boolean= false
+  showSubMenu(menu: any) {
+    this.submenu = true;
+  }
+
+  hideSubMenu(menu: any) {
+    this.submenu = false;
   }
 } 

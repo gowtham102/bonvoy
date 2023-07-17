@@ -229,7 +229,10 @@
                         <img src="{{order_image}}" class="w-100" alt="" />
                     </div>
                     <div class="col-md-6 ">
+                        <div style="position: relative;" class="span-div">
                         <ngb-rating [max]=5 [(rate)]="rating" [readonly]="false"></ngb-rating>
+                        <span class="error" *ngIf="errorRating.error">{{LANG.This_field_is_required}}</span>
+                    </div>
                         <div class="text-area-input">
                             <div class="upload-file">
                                 <label for="imageupload">Add Your Photo</label>

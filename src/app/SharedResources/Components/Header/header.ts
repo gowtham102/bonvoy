@@ -209,6 +209,22 @@ export class HeaderComponent implements OnInit {
     showFileInput(fileInput:HTMLInputElement){
       fileInput.click()
     }
+    guest_login:any
+    windowReload(){
+      this.guest_login=  localStorage.getItem('guest_login')
+      if(this.router.url=='/my-cart'){
+        
+          if( !localStorage.getItem('firstLoad') )
+          {
+            localStorage['firstLoad'] = true;
+            window.location.reload();
+          }  
+          else
+            localStorage.removeItem('firstLoad');
+        
+        }
+      }
+    
 
     openMenu(){
         // if(!this.show_menu && this.isMobile){
@@ -517,6 +533,7 @@ loginUser(){
             this.modalService.dismissAll();
             this.load=false;
             this.toast.successToastr(this.LANG.Login_successfull_Welcome+result.response.full_name,"",{position:'top-right',toastTimeout:3000});
+            this.windowReload()
             return
         }
         this.load=false;
@@ -565,6 +582,7 @@ loginWithOtp(data:any){
         this.modalService.dismissAll();
         this.load=false;
         this.toast.successToastr(this.LANG.Login_successfull_Welcome+result.response.full_name,"",{position:'top-right',toastTimeout:3000});
+        this.windowReload()
         return
     }
     this.load=false;
@@ -1006,6 +1024,7 @@ registerUser(){
           const user_profile={user_name:result.response.full_name,profile_image:result.response.profile_image}
           this.shared.changeUserProfile(user_profile);
           this.toast.successToastr(this.LANG.Registration_successfull_Welcome+result.response.full_name,"",{position:'top-right',toastTimeout:3000});
+          this.windowReload()
           this.clearData();
           this.modalService.dismissAll();
           const city_name=this.city_list.find((item:any) => item.id === result.response.city_id)?.name;

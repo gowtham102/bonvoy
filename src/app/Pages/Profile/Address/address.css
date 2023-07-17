@@ -184,6 +184,7 @@
     margin: 20px 0;
     display: flex;
     width: 100%;
+    position:relative
 }
 
 .address .form_input label {
@@ -195,7 +196,10 @@
     height: 100px;
     border-radius: 12px;
 }
-
+ 
+span.error{
+    bottom: -20px;
+}
 .country-code {
     border-radius: 27px;
     border: 1px solid #DEE4E8;

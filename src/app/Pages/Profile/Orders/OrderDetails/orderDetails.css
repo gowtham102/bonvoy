@@ -32,6 +32,12 @@
     /* font-size: 12px; */
     padding-top: 36px;
 }
+.span-div span.error{
+    width: 100%;
+    display: block;
+    left: 0;
+    bottom: -20px;
+}
 
 p.items {
     color: var(--c-black);
