@@ -1262,11 +1262,13 @@ searchclose(){
   }
 
   submenu:boolean= false
-  showSubMenu(menu: any) {
+  showSubMenu(menu: any, index:any) {
     this.submenu = true;
+    this.categories[index].show = true;
   }
 
-  hideSubMenu(menu: any) {
+  hideSubMenu(menu: any, index:any) {
     this.submenu = false;
+    this.categories[index].show = false;
   }
 } 
