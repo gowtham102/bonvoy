@@ -947,21 +947,22 @@ div.password {
 .logo .dropdown-menu {
     transition: 0.25s all;
     display: block;
-    visibility: hidden;
-    opacity: 0;
+    /* visibility: hidden; */
+    /* opacity: 0; */
     min-width: 20rem;
     max-width: 26rem;
     padding: 2rem 0;
     left: -30px;
-    height: 0;
+    height: 200px;
 }
 
-.logo .dropdown:hover>.dropdown-menu {
+
+/* .dropdown-toggle:hover>.dropdown-menu {
     visibility: visible;
     opacity: 1;
     background: #fff;
     height: 200px;
-}
+} */
 
 .logo .dropdown-toggle::after {
     display: none;
