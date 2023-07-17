@@ -284,6 +284,8 @@
             <div class="review-wrapper" *ngFor="let item of product_details?.review">
                 <div class="review-sec">
                     <img *ngIf="item.image !=''" src="{{item.image}}" alt="" />
+                    <h6>{{item.full_name}}</h6>
+                    <p class="created-on">{{item.created_on}}</p>
                     <div class="star">
                         <ngb-rating [max]=5 [(rate)]="item.rating" [readonly]="true"></ngb-rating>
                     </div>

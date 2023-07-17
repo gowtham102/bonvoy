@@ -931,6 +931,15 @@ textarea {
     object-fit: contain;
 }
 
+.review-sec h6 {
+    padding-top: 10px;
+}
+
+.created-on {
+    font-size: 11px !important;
+    color: #767676 !important;
+}
+
 @media (min-width: 1200px) {
     .product-container {
         max-width: 1200px;
@@ -1117,6 +1126,10 @@ textarea {
     }
     .review-row {
         row-gap: 20px;
+        flex-wrap: wrap;
+    }
+    .review-sec img {
+        height: 80px;
     }
     .new-launch {
         padding: 0 15px;

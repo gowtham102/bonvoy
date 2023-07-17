@@ -673,6 +673,12 @@
         .check-box-wrapper label {
             font-size: 15px;
         }
+        .address .location-input {
+            display: none;
+        }
+        .modal-title {
+            font-size: 20px !important;
+        }
     }
     
     @media screen and (max-width: 320px) {
