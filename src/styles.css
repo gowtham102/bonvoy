@@ -1153,7 +1153,9 @@ a:hover {
 }
 
 @media screen and (max-width: 576px) {
-    body{overflow-x:hidden ;}
+    body {
+        overflow-x: hidden;
+    }
     .privacy-policy .content h4 {
         font-size: 24px !important;
     }
@@ -1228,6 +1230,7 @@ a:hover {
         transform: unset !important;
         visibility: visible;
         font-size: 13px;
+        margin-top: 6px !important;
     }
     .add-address-modal .map agm-map .agm-map-container-inner {
         border-radius: 0;
