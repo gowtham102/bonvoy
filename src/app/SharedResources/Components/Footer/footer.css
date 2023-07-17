@@ -399,6 +399,7 @@ footer .footer-section .footer-padding p {
     footer .footer-section img {
         height: 42px;
         margin-bottom: 5px;
+        width: 100%;
     }
     footer .copy-right .col-md-12 {
         padding: 9px;
