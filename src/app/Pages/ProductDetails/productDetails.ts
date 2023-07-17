@@ -233,9 +233,9 @@ p_variation:any
   }
 
   guestLoginUser:any = false
-
   guestLogin(data?:any,type?:number){
-    if(!this.logged_in){
+    this.guestLoginUser=  localStorage.getItem('guest_login')
+    if(!this.logged_in && this.guestLoginUser!='true'){
       this.guestLoginUser = true
 
       this.productService.guestLogin().subscribe((res:any)=>{
@@ -250,7 +250,7 @@ p_variation:any
         
 
     }
-    else if(this.logged_in){
+    else if(this.logged_in || this.guestLoginUser=='true' ){
       this.addToCart(data,type)
     }
   }
