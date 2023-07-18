@@ -181,6 +181,9 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
+   
+this.modalpopup();
+this.animationtext();
     this.getHomePage();
     // this.openmodal();
   //   $('#modal-slider').owlCarousel({
@@ -215,9 +218,10 @@ export class HomeComponent implements OnInit {
 
     
   }
-  openmodal(){
-    $('#review-modal,.overlay-pop').addClass('show');
-  }
+  // openmodal(){
+  //   $('#review-modal,.overlay-pop').addClass('show');
+  // }
+ 
   slidercarousel(){
     $('#slider').owlCarousel({
       loop: true,
@@ -465,4 +469,36 @@ export class HomeComponent implements OnInit {
     $("#review-modal,.overlay-pop").removeClass("show");
   }
 
+
+  modalpopup(){
+    const myTimeout: ReturnType<typeof setTimeout> = setTimeout(myGreeting, 50000000);
+
+    function myGreeting(): void {
+      const demoElement = document.getElementById("review-modal");
+      if (demoElement) {
+        demoElement.style.display = "none";
+      }
+    }
+  }
+  animationtext(){
+    const swiftUpElements = document.querySelectorAll('.swift-up-text');
+
+swiftUpElements.forEach((elem: Element) => {
+  const words = elem.textContent?.split(' ') ?? [];
+  elem.innerHTML = '';
+
+  words.forEach((el: string, index: number) => {
+    words[index] = `<span><i>${words[index]}</i></span>`;
+  });
+
+  elem.innerHTML = words.join(' ');
+
+  const children = document.querySelectorAll('span > i');
+  children.forEach((node: Element, index: number) => {
+    const element = node as HTMLElement;
+    element.style.animationDelay = `${index * 0.2}s`;
+  });
+});
+
+  }
 } 
