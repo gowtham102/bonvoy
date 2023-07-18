@@ -125,7 +125,7 @@ export class MyAccountComponent implements OnInit {
         if(!this.err){
             if(this.profile_image_selected){
                 this.load=true;
-                this.uploadProfileImage()
+                this.updateData()
                 return
             }
             this.updateData();

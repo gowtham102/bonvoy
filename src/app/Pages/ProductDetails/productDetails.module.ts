@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule} from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
 
@@ -41,6 +41,6 @@ const ChildRoutes: Routes = [
   declarations:[
     ProductDetailsComponent,
   ],
-  providers:[]
+  providers: [DatePipe]
 })
 export class productDetailsModule { }

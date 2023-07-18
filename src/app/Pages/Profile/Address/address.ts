@@ -100,7 +100,12 @@ export class AddressComponent implements OnInit {
     }
     
 
-    openLg(content:any,type?:number) {
+    openLg(content:any,type?:number, id?:any) {
+        console.log(id);
+        if(id!=""){
+            this.getAddressList()
+        }
+        
         if(type){
             this.clearData();
         }

@@ -8,7 +8,7 @@ import { ToastrManager } from 'ng6-toastr-notifications';
 import { SharedService } from 'src/app/SharedResources/Services/shared.service';
 import { environment } from "src/environments/environment";
 import { LoginService } from 'src/app/SharedResources/Services/login.service';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, DatePipe } from '@angular/common';
 declare const $: any;
 
 declare const TabbyPromo:any;
@@ -76,7 +76,7 @@ export class ProductDetailsComponent implements OnInit {
     }
 
 
-    constructor(@Inject(DOCUMENT) private document: Document,public productService:ProductService,private route:ActivatedRoute,private cartService:CartService,private router:Router,private toast:ToastrManager,private shared:SharedService, public loginService:LoginService,){
+    constructor(@Inject(DOCUMENT) private document: Document,public productService:ProductService,private route:ActivatedRoute,private cartService:CartService,private router:Router,private toast:ToastrManager,private shared:SharedService, public loginService:LoginService,private datePipe: DatePipe){
       this.subscriptions.push(this.shared.currentUserStatus.subscribe(user=>this.logged_in=user));
       this.subscriptions.push(this.shared.currentCountryList.subscribe((data:any) =>this.country_list=data));
 
@@ -149,7 +149,11 @@ p_variation:any
           this.product_details.quantity="1";
           this.product_details.display_from_date=this.formatDate(this.product_details.delivery_from);
           this.product_details.display_to_date=this.formatDate(this.product_details.delivery_to);
-          this.p_variation = this.product_details.product_variation[0].value
+          const status=this.product_details.review.filter((data: { created_on: any; })=>{
+            data.created_on= this.datePipe.transform(new Date(), 'dd MMM ');
+            return data.created_on
+        })
+
           this.addPromoCode()
 
           this.no_product=false;

@@ -294,7 +294,8 @@ export class ProductListComponent implements OnInit {
     }
     guestLoginUser:any = false
     guestLogin(data:any,type?:number){
-      if(!this.logged_in){
+      this.guestLoginUser = localStorage.getItem('guest_login')
+      if(!this.logged_in && this.guestLoginUser != 'true'){
         this.guestLoginUser = true
         this.productService.guestLogin().subscribe((res:any)=>{
           localStorage.clear()
@@ -307,7 +308,7 @@ export class ProductListComponent implements OnInit {
         })
   
       }
-      else if(this.logged_in){
+      else if(this.logged_in || this.guestLoginUser == 'true'){
         this.addToCart(data)
       }
     }
