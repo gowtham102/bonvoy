@@ -103,7 +103,7 @@ export class AddressComponent implements OnInit {
     openLg(content:any,type?:number, id?:any) {
         console.log(id);
         if(id!=""){
-            this.getAddressList()
+            this.getAddressList(id)
         }
         
         if(type){
@@ -124,8 +124,8 @@ export class AddressComponent implements OnInit {
     }
 
     //Get Address List
-
-    getAddressList(){
+    address_request_id:any
+    getAddressList(id?:any){
         this.subscriptions.push(this.profileService.getAddressList().subscribe((result:any)=>{
             if(result.status){
                 this.address_list=result.response;
@@ -138,6 +138,12 @@ export class AddressComponent implements OnInit {
                         data.type_class='office'
                     }else{
                         data.type_class='other'
+                    }
+                    if(id!=""){
+                        this.address_request_id= id
+                        this.latitude = data.latitude
+                        this.longitude = data.longitude
+                        this.address = data.address
                     }
                 });
                 

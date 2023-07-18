@@ -473,7 +473,7 @@ this.animationtext();
 
 
   modalpopup(){
-    const myTimeout: ReturnType<typeof setTimeout> = setTimeout(myGreeting, 5000);
+    const myTimeout: ReturnType<typeof setTimeout> = setTimeout(myGreeting, 3500);
 
     function myGreeting(): void {
       const demoElement = document.getElementById("review-modal");

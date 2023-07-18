@@ -248,6 +248,29 @@ export class AddressListComponent implements OnInit {
             }
         }))
     }
+
+
+    editAddress(data:any){
+        this.full_name=data.full_name;
+        this.email_id=data.email_id;
+        this.address=data.address;
+        this.latitude=parseFloat(data.latitude);
+        this.lat=parseFloat(data.latitude);
+        this.longitude=parseFloat(data.longitude);
+        this.long=parseFloat(data.longitude);
+        this.mobile_number=data.phone;
+        this.country_code=data.country_code;
+        this.address=data.address_type;
+        this.address_id=data.id;
+        if(data.type.toLowerCase() == 'home'){
+            this.address_type='1';
+        }else if(data.type.toLowerCase() == 'office'){
+            this.address_type='2'
+        }else{
+            this.address_type='3'
+        }
+        this.openLg(this.address_modal);
+    }
     
     getOrderTimings(date:string){
         this.subscriptions.push(this.orderService.orderTimings(date).subscribe((result:any)=>{

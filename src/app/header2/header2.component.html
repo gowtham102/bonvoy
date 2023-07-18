@@ -71,12 +71,12 @@
 
                             <div class="position-relative" *ngFor="let data of categories;let i=index;">
                                 <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="goToproductList(data,1)" (mouseenter)="data.showSubMenus = true" (mouseleave)="data.showSubMenus = false"><span>{{data.title}}</span></a>
-                                <div *ngIf="data.showSubMenus && data.subcategory.length>0" class="dropdown-menu">
+                                <!-- <div *ngIf="data.showSubMenus && data.subcategory.length>0" class="dropdown-menu">
                                     <div aria-labelledby="dropdownMenuButton" *ngFor="let item of data?.subcategory">
                                         <a class="dropdown-item" >{{item.title}}</a>
 
                                     </div>
-                                </div>
+                                </div> -->
 
 
                             </div>
