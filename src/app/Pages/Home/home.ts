@@ -9,6 +9,7 @@ import { ToastrManager } from 'ng6-toastr-notifications';
 import { CartService } from 'src/app/SharedResources/Services/cartWishlist.service';
 import { environment } from 'src/environments/environment';
 import { ProductService } from 'src/app/SharedResources/Services/product.service';
+import { style, animate, trigger, transition } from '@angular/animations';
 // import 'owl.carousel';
 declare const $: any;
 
@@ -17,13 +18,14 @@ declare const $: any;
 @Component({
   templateUrl: './home.html',
   styleUrls: ['./home.css']
+  
 })
 
 
 
 
 export class HomeComponent implements OnInit {
-
+  
   slider_direction_rtl: boolean = false;
   load: boolean = false;
   logged_in: boolean = false;
@@ -471,7 +473,7 @@ this.animationtext();
 
 
   modalpopup(){
-    const myTimeout: ReturnType<typeof setTimeout> = setTimeout(myGreeting, 50000000);
+    const myTimeout: ReturnType<typeof setTimeout> = setTimeout(myGreeting, 5000);
 
     function myGreeting(): void {
       const demoElement = document.getElementById("review-modal");
@@ -481,24 +483,74 @@ this.animationtext();
     }
   }
   animationtext(){
-    const swiftUpElements = document.querySelectorAll('.swift-up-text');
+//     const swiftUpElements = document.querySelectorAll('.swift-up-text');
 
-swiftUpElements.forEach((elem: Element) => {
-  const words = elem.textContent?.split(' ') ?? [];
-  elem.innerHTML = '';
+// swiftUpElements.forEach((elem: Element) => {
+//   const words = elem.textContent?.split(' ') ?? [];
+//   elem.innerHTML = '';
 
-  words.forEach((el: string, index: number) => {
-    words[index] = `<span><i>${words[index]}</i></span>`;
-  });
+//   words.forEach((el: string, index: number) => {
+//     words[index] = `<span><i>${words[index]}</i></span>`;
+//   });
 
-  elem.innerHTML = words.join(' ');
+//   elem.innerHTML = words.join(' ');
 
-  const children = document.querySelectorAll('span > i');
-  children.forEach((node: Element, index: number) => {
-    const element = node as HTMLElement;
-    element.style.animationDelay = `${index * 0.2}s`;
-  });
+//   const children = document.querySelectorAll('span > i');
+//   children.forEach((node: Element, index: number) => {
+//     const element = node as HTMLElement;
+//     element.style.animationDelay = `${index * 0.2}s`;
+//   });
+// });
+const words: string[] = [
+  'Bonvoy',
+];
+let part: string;
+let i: number = 0;
+let offset: number = 0;
+const len: number = words.length;
+let forwards: boolean = true;
+let skip_count: number = 0;
+const skip_delay: number = 15;
+const speed: number = 350;
+
+const wordflick = (): void => {
+  setInterval(() => {
+    if (forwards) {
+      if (offset >= words[i].length) {
+        ++skip_count;
+        if (skip_count === skip_delay) {
+          forwards = false;
+          skip_count = 0;
+        }
+      }
+    } else {
+      if (offset === 0) {
+        forwards = true;
+        i++;
+        offset = 0;
+        if (i >= len) {
+          i = 0;
+        }
+      }
+    }
+    part = words[i].substr(0, offset);
+    if (skip_count === 0) {
+      if (forwards) {
+        offset++;
+      } else {
+        offset--;
+      }
+    }
+    $('.word').text(part);
+  }, speed);
+};
+
+$(document).ready(() => {
+  wordflick();
 });
 
   }
+
+
+  
 } 

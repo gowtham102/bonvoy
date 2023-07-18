@@ -899,12 +899,22 @@ opacity: 1;
         #review-modal .modal-dialog {
             max-width: 100%;
             margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         #review-modal .modal-content {
             border-radius: 0;
             padding: 40px;
             height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .word {
+            font-size: 100px;
+            line-height: 1;
         }
         
         #review-modal .close {
@@ -1305,24 +1315,5 @@ opacity: 1;
                 padding: 10px;
                 border-radius: 5px;
                 margin-bottom: 20px;
-            }
-        }
-        
-        .swift-up-text span {
-            display: inline-block;
-            overflow: hidden;
-            animation: 5.3s swift-up ease-in-out forwards;
-        }
-        
-        .swift-up-text span i {
-            font-style: normal;
-            position: relative;
-            top: var(--headingSize);
-            animation: 5.5s swift-up ease-in-out forwards;
-        }
-        
-        @keyframes swift-up {
-            to {
-                top: 0;
             }
         }
