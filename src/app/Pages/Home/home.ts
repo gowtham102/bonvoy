@@ -481,26 +481,14 @@ this.animationtext();
         demoElement.style.display = "none";
       }
     }
+    setTimeout(function () {
+      $('body').toggleClass('Scroll-wra');
+  }, 0);
+  setTimeout(function () {
+    $('body').removeClass('Scroll-wra');
+}, 3500);
   }
   animationtext(){
-//     const swiftUpElements = document.querySelectorAll('.swift-up-text');
-
-// swiftUpElements.forEach((elem: Element) => {
-//   const words = elem.textContent?.split(' ') ?? [];
-//   elem.innerHTML = '';
-
-//   words.forEach((el: string, index: number) => {
-//     words[index] = `<span><i>${words[index]}</i></span>`;
-//   });
-
-//   elem.innerHTML = words.join(' ');
-
-//   const children = document.querySelectorAll('span > i');
-//   children.forEach((node: Element, index: number) => {
-//     const element = node as HTMLElement;
-//     element.style.animationDelay = `${index * 0.2}s`;
-//   });
-// });
 const words: string[] = [
   'Bonvoy',
 ];

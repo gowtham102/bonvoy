@@ -915,6 +915,8 @@ opacity: 1;
         .word {
             font-size: 100px;
             line-height: 1;
+            font-weight: bold;
+            color: #dcc170;
         }
         
         #review-modal .close {
