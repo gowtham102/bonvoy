@@ -22,6 +22,7 @@
     <div class="address-list row" *ngIf="address_list.length > 0">
         <div class="  col-md-6 single-address" *ngFor="let data of address_list;let i=index;" (click)="changeSelectedAddress(data)" [class.active]="data.id == delivery_address_id">
             <div class=" cur-pointer single-address1">
+                <button class="btn edit-btn" (click)="openLg(address_modal,1)"><i class="fa fa-pencil" aria-hidden="true" ></i></button>
                 <span class="overlay" *ngIf="data.load">
                     <loader class="centered"></loader>
                 </span>

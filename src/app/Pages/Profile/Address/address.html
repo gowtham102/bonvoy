@@ -16,18 +16,21 @@
                 <!-- <a class="remove-address" (click)="removeAddress(data,i)">
                     <img src="assets/images/icons/close.svg">
                 </a> -->
-                <div class="profile-address address-part" >
-                    <i class="fa fa-pencil" aria-hidden="true" (click)="openLg(address_modal,1,data.id)"></i>
+                <div class="profile-address address-part">
+                    <div class="edit-btn">
 
+                        <button class="btn" (click)="openLg(address_modal,1,data.id)"><i class="fa fa-pencil" aria-hidden="true" ></i></button>
+                        <button class="remove-address btn" (click)="removeAddress(data,i)">
+                        Remove
+                    </button>
+                    </div>
                     <p class="name">{{data.full_name}} <span class="{{data.type_class}}">{{data.type}}</span></p>
                     <p>{{data.country_code}} {{data.phone}}</p>
                     <span class="location">{{data.address}}</span>
-                    <p>
-                        <!-- <a (click)="editAddress(data)">{{LANG.Edit}}</a> -->
-                        <a class="remove-address" (click)="removeAddress(data,i)">
-                            Remove
-                        </a>
-                    </p>
+                    <!-- <p>
+                        <a (click)="editAddress(data)">{{LANG.Edit}}</a>
+
+                    </p> -->
                 </div>
             </div>
         </div>

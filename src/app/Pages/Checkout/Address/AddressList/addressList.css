@@ -24,7 +24,7 @@
     .address-list .single-address1 {
         border: 1px solid var(--c-addons);
         position: relative;
-        padding: 20px;
+        padding: 10px 20px 20px;
         border-radius: 12px;
         margin: 10px 0px 0px 0px;
         height: 100%;
@@ -570,6 +570,17 @@
         color: var(--c-cart);
         border-radius: 12px;
         font-family: 'GothaProBol';
+    }
+    
+    .edit-btn {
+        display: flex;
+        justify-content: flex-end;
+        margin-left: auto;
+        margin-bottom: 7px;
+    }
+    
+    .edit-btn button {
+        padding: 0;
     }
     
     .btn-group.country-code.form-control.dropdown {
