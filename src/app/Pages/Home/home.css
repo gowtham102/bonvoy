@@ -910,6 +910,7 @@ opacity: 1;
             height: 100vh;
             justify-content: center;
             align-items: center;
+            border: 0;
         }
         
         .word {
@@ -981,6 +982,9 @@ opacity: 1;
         height: 300px;
         object-fit: scale-down;
     } */
+            .word {
+                font-size: 50px;
+            }
             .mob-banner {
                 display: flex;
                 flex-direction: column-reverse;
