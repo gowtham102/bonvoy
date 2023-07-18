@@ -294,7 +294,10 @@
                 <div class="col-md-12 prod-list">
                     <div class="row main_listing" id="abcde">
                         <div class="col-md-12" *ngIf="product_list.length == 0 && products_loaded">
-                            <h1>Coming Soon</h1>
+
+                            <div class="col-md-6 mx-auto">
+                                <img src="assets/images/bonvoy/comingsoon.jpg" class="w-100" alt="" />
+                            </div>
                         </div>
                         <div class="col-lg-3 col-md-4 col-6" *ngFor="let data of product_list;let i=index;">
                             <div class="item prod text-center">
