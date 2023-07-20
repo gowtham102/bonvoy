@@ -59,6 +59,8 @@ export class ProductListComponent implements OnInit {
     subscriptions:Subscription[]=[];
     productloaded:boolean=false;
     category_name:any
+    sub_category_id:any
+
 
 
     constructor(@Inject(DOCUMENT) private document: Document,private productService:ProductService,private route:ActivatedRoute,private shared:SharedService,private router:Router,private cartService:CartService,private toast:ToastrManager){
@@ -78,6 +80,9 @@ export class ProductListComponent implements OnInit {
                 this.resetData();
                 if(params['category_id']){
                   this.category_id = atob(atob(params['category_id']));
+                }
+                if(params['sub_category_id']){
+                  this.sub_category_id = atob(atob(params['sub_category_id']));
                 }
                 if(params['occasion_id']){
                   this.occasion_id = atob(atob(params['occasion_id']));
@@ -134,11 +139,16 @@ export class ProductListComponent implements OnInit {
         this.bread_crumb_text=this.product_list[0].category;
         return
       }
+      if(this.sub_category_id && this.product_list.length > 0){
+        this.bread_crumb_text=this.product_list[0].category;
+        return
+      }
       this.bread_crumb_text=this.LANG.Products
     }
 
     resetData(){
         this.category_id="";
+        this.sub_category_id=""
         this.occasion_id="";
         this.selected_occasions=[];
         this.selected_colors=[];
@@ -187,6 +197,7 @@ export class ProductListComponent implements OnInit {
           "size": this.size.toString(),
           "occasions_id": this.arrayToString(this.selected_occasions), 
           "category_id": this.category_id,
+          "sub_category_id":this.sub_category_id,
           "color_id": this.arrayToString(this.selected_colors),
           "sort_by": this.sort,
           "min_price":this.min_price.toString(),
@@ -204,6 +215,9 @@ export class ProductListComponent implements OnInit {
           this.product_list=result.response || [];
           this.product_count=parseInt(result.count);
           if(this.category_id && this.product_list.length > 0){
+              this.bread_crumb_text=this.product_list[0].category;
+          }
+          if(this.sub_category_id && this.product_list.length > 0){
               this.bread_crumb_text=this.product_list[0].category;
           }
         }

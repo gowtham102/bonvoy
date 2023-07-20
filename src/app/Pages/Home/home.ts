@@ -183,9 +183,24 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
+
+
+    // const hasExecuted = localStorage.getItem('hasExecuted');
+    // if (!hasExecuted) {
+    //   this.modalpopup();
+    //   // this.animationtext()     
+    //    localStorage.setItem('hasExecuted', 'true');
+    //    this.getHomePage();
+    //    return
+    // }
+
+    // else if(hasExecuted){
+    //   this.closemodal()
+    // }
+    
    
-this.modalpopup();
-this.animationtext();
+   
+
     this.getHomePage();
     // this.openmodal();
   //   $('#modal-slider').owlCarousel({
@@ -472,72 +487,75 @@ this.animationtext();
   }
 
 
-  modalpopup(){
-    const myTimeout: ReturnType<typeof setTimeout> = setTimeout(myGreeting, 3500);
+  // modalpopup(){
+  //   const myTimeout: ReturnType<typeof setTimeout> = setTimeout(myGreeting, 2300);
 
-    function myGreeting(): void {
-      const demoElement = document.getElementById("review-modal");
-      if (demoElement) {
-        demoElement.style.display = "none";
-      }
-    }
-    setTimeout(function () {
-      $('body').toggleClass('Scroll-wra');
-  }, 0);
-  setTimeout(function () {
-    $('body').removeClass('Scroll-wra');
-}, 3500);
-  }
-  animationtext(){
-const words: string[] = [
-  'Bonvoy',
-];
-let part: string;
-let i: number = 0;
-let offset: number = 0;
-const len: number = words.length;
-let forwards: boolean = true;
-let skip_count: number = 0;
-const skip_delay: number = 15;
-const speed: number = 350;
+  //   function myGreeting(): void {
+  //     const demoElement = document.getElementById("review-modal");
+  //     if (demoElement) {
+  //       demoElement.style.display = "none";
+  //     }
+  //   }
+  //   setTimeout(function () {
+  //     $('body').toggleClass('Scroll-wra');
+  //     }, 0);
+  //     setTimeout(function () {
+  //       $('body').removeClass('Scroll-wra');
+  //   }, 3500);
+  // }
+  // animationtext(){
+  //   const words: string[] = [
+  //     'Bonvoy',
+  //   ];
+  //   let part: string;
+  //   let i: number = 0;
+  //   let offset: number = 0;
+  //   const len: number = words.length;
+  //   let forwards: boolean = true;
+  //   let skip_count: number = 0;
+  //   const skip_delay: number = 15;
+  //   const speed: number = 350;
 
-const wordflick = (): void => {
-  setInterval(() => {
-    if (forwards) {
-      if (offset >= words[i].length) {
-        ++skip_count;
-        if (skip_count === skip_delay) {
-          forwards = false;
-          skip_count = 0;
-        }
-      }
-    } else {
-      if (offset === 0) {
-        forwards = true;
-        i++;
-        offset = 0;
-        if (i >= len) {
-          i = 0;
-        }
-      }
-    }
-    part = words[i].substr(0, offset);
-    if (skip_count === 0) {
-      if (forwards) {
-        offset++;
-      } else {
-        offset--;
-      }
-    }
-    $('.word').text(part);
-  }, speed);
-};
+  //   const wordflick = (): void => {
+  //     setInterval(() => {
+  //       if (forwards) {
+  //         if (offset >= words[i].length) {
+  //           ++skip_count;
+  //           if (skip_count === skip_delay) {
+  //             forwards = false;
+  //             skip_count = 0;
+  //           }
+  //         }
+  //       } else {
+  //         if (offset === 0) {
+  //           forwards = true;
+  //           i++;
+  //           offset = 0;
+  //           if (i >= len) {
+  //             i = 0;
+  //           }
+  //         }
+  //       }
+  //       part = words[i].substr(0, offset);
+  //       if (skip_count === 0) {
+  //         if (forwards) {
+  //           offset++;
+  //         } else {
+  //           offset--;
+  //         }
+  //       }
+  //       $('.word').text(part);
+  //     }, speed);
+  //   };
 
-$(document).ready(() => {
-  wordflick();
-});
+  //   $(document).ready(() => {
+  //     wordflick();
+  //   });
 
-  }
+  // }
+
+
+
 
 
   

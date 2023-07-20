@@ -370,6 +370,12 @@ export class Header2Component implements OnInit {
       this.openMenu();
       return
     }
+    if(type === 2){
+      localStorage.setItem('sub_category_name',data.title)
+      this.router.navigate(['/products'],{ queryParams: { category_id: btoa(btoa(data.id))}});
+      this.openMenu();
+      return
+    }
     this.router.navigate(['/products'],{ queryParams: { occasion_id: btoa(btoa(data.id))}});
     this.openMenu();
   }

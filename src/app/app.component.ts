@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,HostListener } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd  } from '@angular/router';
 import { LoadingBarService } from '@ngx-loading-bar/core';
 
@@ -16,6 +16,7 @@ export class AppComponent {
   loader:boolean= false
 
   constructor(private loadingBar: LoadingBarService,public router: Router){
+    
     setTimeout(() => {
       this.loadingBar.start(); 
       this.loader= false   
@@ -37,6 +38,12 @@ export class AppComponent {
     });
     this.loader= true
   }
+
+  @HostListener('window:beforeunload', ['$event'])
+    clearLocalStorage(event: BeforeUnloadEvent) {
+      localStorage.removeItem('hasExecuted');
+    }
+
 
 
   

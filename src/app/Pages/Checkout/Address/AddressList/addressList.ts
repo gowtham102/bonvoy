@@ -235,12 +235,13 @@ export class AddressListComponent implements OnInit {
     
 
     openLg(content:any,type?:number) {
-        this.clearData();
+        // this.clearData();
         this.modalReference=this.modalService.open(content,{ centered: true , windowClass: 'add-address-modal' });
         const time=timer(500);
         this.subscriptions.push(time.subscribe(()=>{
             this.getAutoComplete()
             if(type == 1){
+                this.clearData()
                 this.full_name=this.user_data.full_name || "";
                 this.mobile_number=this.user_data.mobile_number || "";
                 this.country_code=this.user_data.country_code || "";
@@ -260,7 +261,7 @@ export class AddressListComponent implements OnInit {
         this.long=parseFloat(data.longitude);
         this.mobile_number=data.phone;
         this.country_code=data.country_code;
-        this.address=data.address_type;
+        // this.address=data.address_type;
         this.address_id=data.id;
         if(data.type.toLowerCase() == 'home'){
             this.address_type='1';

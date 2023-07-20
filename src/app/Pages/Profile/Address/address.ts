@@ -101,19 +101,19 @@ export class AddressComponent implements OnInit {
     
 
     openLg(content:any,type?:number, id?:any) {
-        console.log(id);
-        if(id!=""){
-            this.getAddressList(id)
-        }
+        // console.log(id);
+        // if(id!=""){
+        //     this.getAddressList(id)
+        // }
         
-        if(type){
+        if(type==1){
             this.clearData();
         }
         this.modalReference=this.modalService.open(content,{ centered: true , windowClass: 'add-address-modal' });
         const time=timer(500);
         this.subscriptions.push(time.subscribe(()=>{
             this.getAutoComplete()
-            if(type){
+            if(type==1){
                 this.full_name=this.user_data.full_name || "";
                 this.mobile_number=this.user_data.mobile_number || "";
                 this.country_code=this.user_data.country_code || "";
@@ -355,7 +355,7 @@ export class AddressComponent implements OnInit {
         //     this.address_error.address = true;
         //     this.err = true;
         // }
-        if (this.address=="" && (this.lat == "" || this.long == "" || this.lat == undefined || this.long == undefined)) {
+        if (this.address=="" || (this.lat == "" || this.long == "" || this.lat == undefined || this.long == undefined)) {
             this.address_error.address_valid = true;
             this.err = true;
         }
@@ -465,8 +465,8 @@ export class AddressComponent implements OnInit {
         this.address_clicked=false;
         this.latitude = 28.644800;
         this.longitude = 77.216721;
-        this.lat=null;
-        this.long=null;
+        this.lat=28.644800;
+        this.long=77.216721;
         this.address_type="1";
         this.resetError();
     }
