@@ -937,7 +937,7 @@ div.password {
 
 .logo .dropdown-menu a {
     color: #000;
-    padding: 0.7rem 3rem !important;
+    padding: 6px 2rem !important;
 }
 
 .logo .dropdown-menu a::before {
@@ -947,13 +947,11 @@ div.password {
 .logo .dropdown-menu {
     transition: 0.25s all;
     display: block;
-    /* visibility: hidden; */
-    /* opacity: 0; */
-    min-width: 20rem;
+    min-width: 12rem;
     max-width: 26rem;
-    padding: 2rem 0;
+    padding: 1rem 0;
     left: -30px;
-    height: 200px;
+    height: auto;
 }
 
 
