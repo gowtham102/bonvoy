@@ -387,6 +387,12 @@ export class HeaderComponent implements OnInit {
       this.openMenu();
       return
     }
+    if(type === 2){
+      localStorage.setItem('sub_category_name',data.title)
+      this.router.navigate(['/products'],{ queryParams: { sub_category_id: btoa(btoa(data.id))}});
+      this.openMenu();
+      return
+    }
     this.router.navigate(['/products'],{ queryParams: { occasion_id: btoa(btoa(data.id))}});
     this.openMenu();
   }
@@ -1262,6 +1268,27 @@ searchclose(){
     $(".menu-open,.overlay-pop1").toggleClass("show");
   
 }
+
+showSubMenu: { [menuName: string]: boolean } = {};
+  currentMenu:any
+  hideTimer: any;
+  showSubmenu(menu: any): void {
+    this.currentMenu = menu;
+    }
+
+    hideSubmenu(): void {
+      this.hideTimer = setTimeout(() => {
+        this.currentMenu = null;
+      }, 500); // Adjust the delay as needed (milliseconds)
+    }
+  
+    cancelHideSubmenu(): void {
+      if (this.hideTimer) {
+        clearTimeout(this.hideTimer);
+        this.hideTimer = null;
+      }
+    }
+
 // cartCheck(){
 //   if( !this.guestLogin && !this.logged_in){
 //     this.productService.guestLogin().subscribe((res:any)=>{

@@ -8,8 +8,9 @@
         </div>
     </div> -->
     <Span class="overlay pop" (click)="filtersec()"></Span>
-    <h2 class="smart-watch" *ngIf="category_id==''">All Watches</h2>
+    <h2 class="smart-watch" *ngIf="category_id=='' && sub_category_id==''">All Watches</h2>
     <h2 class="smart-watch" *ngIf="category_id!='' && product_list.length>0">{{product_list[0].category}}</h2>
+    <h2 class="smart-watch" *ngIf="sub_category_id!='' && product_list.length>0">{{product_list[0].sub_category}}</h2>
     <div class="site_container containe-fluid ">
         <div class="row w-100 ">
             <div class="col-md-12 ">

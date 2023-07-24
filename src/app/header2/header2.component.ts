@@ -372,7 +372,7 @@ export class Header2Component implements OnInit {
     }
     if(type === 2){
       localStorage.setItem('sub_category_name',data.title)
-      this.router.navigate(['/products'],{ queryParams: { category_id: btoa(btoa(data.id))}});
+      this.router.navigate(['/products'],{ queryParams: { sub_category_id: btoa(btoa(data.id))}});
       this.openMenu();
       return
     }
@@ -1267,14 +1267,29 @@ searchclose(){
     }
   }
 
-  submenu:boolean= false
-  showSubMenu(menu: any, index:any) {
-    this.submenu = true;
-    this.categories[index].show = true;
-  }
+  showSubMenu: { [menuName: string]: boolean } = {};
+  currentMenu:any
+  hideTimer: any;
+  showSubmenu(menu: any): void {
+    this.currentMenu = menu;
+    }
 
-  hideSubMenu(menu: any, index:any) {
-    this.submenu = false;
-    this.categories[index].show = false;
-  }
+    hideSubmenu(): void {
+      this.hideTimer = setTimeout(() => {
+        this.currentMenu = null;
+      }, 500); // Adjust the delay as needed (milliseconds)
+    }
+  
+    cancelHideSubmenu(): void {
+      if (this.hideTimer) {
+        clearTimeout(this.hideTimer);
+        this.hideTimer = null;
+      }
+    }
+
+
+  // hideSubMenu(menu: any, index:any) {
+  //   this.submenu = false;
+  //   this.categories[index].show = false;
+  // }
 } 
