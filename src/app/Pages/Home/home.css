@@ -318,6 +318,7 @@ opacity: 1; */
             /* height: 694px; */
             background-size: cover !important;
             margin-bottom: 30px;
+            cursor: pointer;
         }
         
         .experience {

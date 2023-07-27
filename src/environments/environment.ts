@@ -135,7 +135,7 @@ export const environment = {
     "Your_payment_was_failed":"Your payment was failed.",
     "Your_payment_for_order_ID":"Your payment for order ID",
     "was_failed":"was failed.",
-    "Thankyou":"Thankyou!",
+    "Thankyou":"Thank you!",
     "was_successfull":"was successfull.",
     "Your_order_has_been_placed":"Your order has been placed. We’ll notify you with the delivery information soon.",
     "Privacy_Policy":"Privacy Policy",
