@@ -51,8 +51,8 @@
                         <h2>{{product_details.title}}</h2>
                         <p [innerHTML]="product_details.description"></p>
                         <span>
-                            <h4>{{product_details.currency}} {{+product_details.price - +product_details.discount}} <span class="mrp">M.R.P. :</span> <del *ngIf="+product_details.discount > 0"> {{product_details.currency}} {{product_details.price}}
-                                   </del><span class="dis-per">({{product_details.discount_percent}}% Off)</span></h4>
+                            <h4>{{product_details.currency}} {{+product_details.price - +product_details.discount}} <span class="mrp" *ngIf="product_details.discount_percent!=0">M.R.P. :</span> <del *ngIf="+product_details.discount > 0"> {{product_details.currency}} {{product_details.price}}
+                                   </del><span class="dis-per" *ngIf="product_details.discount_percent!=0">({{product_details.discount_percent}}% Off)</span></h4>
                         </span>
                         <p class="tax">Inclusive of all taxes <a href="#">Shipping</a> calculated at checkout.</p>
                         <div class="star" *ngIf="product_details.rating>0">
