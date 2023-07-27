@@ -86,7 +86,8 @@ export class AddressListComponent implements OnInit {
     payment_mode:number=1;
     terms:boolean=false;
     cart_design_id:string="";
-    billing_address_type:boolean = true
+    billing_address_type:boolean = true;
+    order_id:any
 
     
 
@@ -932,6 +933,7 @@ export class AddressListComponent implements OnInit {
             }
             this.orderService.orderSubmit(data).subscribe((result:any)=>{
               this.load=false
+              localStorage.setItem("order_id" , result.response.extra)
               if(result.response.status){
                   this.clearLocalData();
                 if(result.response.url){

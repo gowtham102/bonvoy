@@ -50,12 +50,49 @@
 }
 
 button.checkout {
-    width: 71%;
+    width: auto;
+    padding: 8px 25px;
+    height: unset;
 }
 
 .thank-you img {
     height: 100% !important;
     width: 50% !important;
+}
+
+.order-success {
+    text-align: center;
+}
+
+.order_number p {
+    padding-bottom: 6px !important;
+}
+
+.btn:hover {
+    color: #fff;
+}
+
+.order_number h6 {
+    font-size: 14px;
+    padding-top: 15px;
+    font-family: 'roobert-light';
+}
+
+.track-order {
+    border: 1px solid #000;
+    background: #fff;
+    padding: 20px;
+    margin-top: 33px;
+}
+
+.track-order .checkout {
+    margin-top: 17px;
+    margin-bottom: 10px;
+}
+
+.track-order-wrapper {
+    background: #f4f3f0;
+    padding: 20px;
 }
 
 @media screen and (min-width: 573px) and (max-width: 1199px) {

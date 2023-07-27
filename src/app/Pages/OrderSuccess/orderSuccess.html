@@ -1,11 +1,33 @@
 <div class="site_wrapper bg-grey">
     <div class="thank-you-wrapper container">
         <div class="thank-you">
-            <img src="assets/images/bonvoy/cover6.png" alt="thankk-you">
-            <div class="content order-success col-md-5">
+            <!-- <img src="assets/images/bonvoy/cover6.png" alt="thankk-you"> -->
+            <div class="content order-success col-md-7">
                 <h1>{{LANG.Thankyou}}</h1>
                 <p>{{message}}</p>
-                <button class="checkout mt-2" routerLink="/">{{LANG.CONTINUE_SHOPPING}}</button>
+                <!-- <button class="checkout mt-2" >{{LANG.CONTINUE_SHOPPING}}</button> -->
+                <div class="order_number">
+                    <p>Your order number is</p>
+                    <button class="btn checkout">{{orderdetailsdata.order_number}}</button>
+                    <h6>We would love to hear from from you,please share your shopping experience with us,It is a valuable oppurtunity for us to take steps to improve the customer experience</h6>
+                    <p>What score would you give for this shopping experience</p>
+                </div>
+                <p>By submitting review you give us consent to publish and process personal information in accordance with
+                    <a routerLink="/terms-&-condition">Terms of use</a> and <a routerLink="/privacy-policy">privacy and policy</a></p>
+
+                <div class="track-order">
+                    <div class="track-order-wrapper">
+                        <p>Order Date:{{orderdetailsdata.created_on}}</p>
+                        <p>Expected Delivery:{{orderdetailsdata.delivery_date}}</p>
+                        <p>Deliver Address:{{orderdetailsdata.address}}</p>
+                        <p>Contact number:{{orderdetailsdata.mobile_number}}</p>
+                        <p>Payment method :
+                            <span *ngIf="orderdetailsdata.payment_type==1">Cash on delivery</span>
+                            <span *ngIf="orderdetailsdata.payment_type==2">Online payment</span>
+                        </p>
+                        <button class="checkout" (click)="goToOrderDetails()">Track Your Order</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
