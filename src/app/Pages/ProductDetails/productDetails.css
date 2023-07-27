@@ -971,8 +971,12 @@ textarea {
     /* .prod-quantity {
         justify-content: space-between;
     } */
+    .overflow-wrap {
+        overflow-x: auto;
+    }
     .product-det-img {
         grid-row-gap: 20px;
+        flex-wrap: nowrap;
     }
     .banner-image {
         max-height: 210px;
