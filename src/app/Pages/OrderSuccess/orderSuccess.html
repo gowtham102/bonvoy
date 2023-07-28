@@ -17,10 +17,10 @@
 
                     <div class="track-order">
                         <div class="track-order-wrapper">
-                            <p>Order Date:{{orderdetailsdata.created_on}}</p>
-                            <p>Expected Delivery:{{orderdetailsdata.delivery_date}}</p>
-                            <p>Deliver Address:{{orderdetailsdata.address}}</p>
-                            <p>Contact number:{{orderdetailsdata.mobile_number}}</p>
+                            <p>Order Date :{{orderdetailsdata.created_on}}</p>
+                            <p>Expected Delivery :{{orderdetailsdata.delivery_date}}</p>
+                            <p class="adds">Deliver Address :{{orderdetailsdata.address}}</p>
+                            <p>Contact number :{{orderdetailsdata.mobile_number}}</p>
                             <p>Payment method :
                                 <span *ngIf="orderdetailsdata.payment_type==1">Cash on delivery</span>
                                 <span *ngIf="orderdetailsdata.payment_type==2">Online payment</span>

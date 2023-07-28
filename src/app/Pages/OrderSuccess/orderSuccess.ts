@@ -102,10 +102,31 @@ export class OrderSuccessComponent implements OnInit {
     }
     this.message = `${this.LANG.Your_order_has_been_placed}`;
   }
+
   orderdetailsdata: any;
+  formatDate(value:any){
+    if(value == ""){
+      return
+    }
+    const date=value.split(" ")[0]
+    const day=date.split("-")[2]
+    const month=date.split("-")[1]
+    const year=date.split("-")[0]
+    return ` ${day} ${this.getMonth(month)} ${year}`
+  }
+
+  getMonth(index:number){
+      const months = ["January","February","March","April","May",
+      "June","July","August", "September","October","November","December"];
+      return months[index-1]
+  }
+
   orderdetails() {
     this.orderservice.orderDetails(this.orderid).subscribe((res: any) => {
       this.orderdetailsdata = res.response;
+      this.orderdetailsdata.delivery_date= this.formatDate(this.orderdetailsdata.delivery_date);
+      this.orderdetailsdata.created_on= this.formatDate(this.orderdetailsdata.created_on);
+
     });
   }
 

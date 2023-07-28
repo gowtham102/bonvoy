@@ -171,6 +171,22 @@ export class CheckoutComponent implements OnInit {
         
         
     }
+    formatDate(value:any){
+        if(value == ""){
+          return
+        }
+        const date=value.split(" ")[0]
+        const day=date.split("-")[2]
+        const month=date.split("-")[1]
+        const year=date.split("-")[0]
+        return ` ${day} ${this.getMonth(month)}`
+      }
+    
+      getMonth(index:number){
+          const months = ["January","February","March","April","May",
+          "June","July","August", "September","October","November","December"];
+          return months[index-1]
+      }
 
 
     
@@ -184,7 +200,7 @@ export class CheckoutComponent implements OnInit {
               
                 this.cartDetails=result.response;
                 this.cart_length=result.response.cart_Detail.length;
-                this.cartDetails.delivery_date= this.datePipe.transform(new Date(), 'dd MMM');
+                this.cartDetails.delivery_date= this.formatDate(this.cartDetails.delivery_date);
                 this.setCoupon(this.cartDetails.coupon_code);
                 this.cart_loaded=true;
                 this.grand_total=this.cartDetails.grand_total;

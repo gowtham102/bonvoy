@@ -94,6 +94,11 @@ button.checkout {
     background: #f4f3f0;
     padding: 20px;
 }
+.adds{
+   width: 70%;
+   margin: 0 auto !important;
+}
+
 
 @media screen and (min-width: 573px) and (max-width: 1199px) {
     .thank-you-wrapper {
