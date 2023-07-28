@@ -850,7 +850,7 @@ textarea {
 }
 
 .new-launch img {
-    max-height: 330px;
+    height: 330px;
     object-fit: contain;
 }
 
@@ -862,6 +862,9 @@ textarea {
 
 .prod .prod-name {
     margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .prod-pr span {

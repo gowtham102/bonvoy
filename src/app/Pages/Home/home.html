@@ -449,7 +449,7 @@
                             <ngb-rating [max]=5 [(rate)]="home_page?.cruise.rating " [readonly]="true "></ngb-rating>
                             <span>{{home_page?.cruise?.reviews}} Reviews</span>
                         </div>
-                        <h4>₹ {{home_page?.cruise?.price - +home_page?.cruise?.discount}} <del> ₹ {{home_page?.cruise?.price}} </del><span class="dis-per ">({{home_page?.cruise?.discount_percent}}% Off)</span></h4>
+                        <h4>₹ {{home_page?.cruise?.price - +home_page?.cruise?.discount}} <del *ngIf="home_page?.cruise?.discount_percent != 0"> ₹ {{home_page?.cruise?.price}} </del><span class="dis-per " *ngIf="home_page?.cruise?.discount_percent != 0">({{home_page?.cruise?.discount_percent}}% Off)</span></h4>
                         <button class="btn " (click)="guestLogin(home_page?.cruise)">ADD TO CART</button>
 
                     </div>
