@@ -67,7 +67,7 @@ export class OrderDetailsComponent implements OnInit {
             if(result.status){
                 this.order_details=result.response; 
                 const status=this.order_details.status_list.filter((data: { created_on: any; })=>{
-                    data.created_on= this.datePipe.transform(new Date(), 'dd MMM hh:mm');
+                    data.created_on= this.formatDate(data.created_on)
                     return data.created_on
                 })
                 this.order_details.ordered_date=this.formatDate(this.order_details.created_on);
@@ -90,19 +90,22 @@ order_image:any
     }
 
     formatDate(value:any){
+        if(value == ""){
+          return
+        }
         const date=value.split(" ")[0]
         const day=date.split("-")[2]
         const month=date.split("-")[1]
         const year=date.split("-")[0]
-        return `${this.getMonth(month)} ${day},${year}`
-    }
+        return ` ${day}-${this.getMonth(month)}-${year}`
+      }
 
     getMonth(index:number){
-        const months = ["January","February","March","April","May",
-        "June","July","August", "September","October","November","December"];
+        const months = ["Jan","Feb","Mar","Apr","May",
+        "Jun","Jul","Aug", "Sep","Oct","Nov","Dec"];
         return months[index-1]
     }
-   
+    
     review:any
     err:boolean= false
     insertRating(){
