@@ -4,6 +4,7 @@ import { Params, ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { SharedService } from 'src/app/SharedResources/Services/shared.service';
 import { OrderService } from 'src/app/SharedResources/Services/order.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   templateUrl: './orderSuccess.html',
@@ -20,7 +21,8 @@ export class OrderSuccessComponent implements OnInit {
     private route: ActivatedRoute,
     private shared: SharedService,
     private orderservice: OrderService,
-    private router:Router
+    private router:Router,
+    private datePipe: DatePipe
   ) {
     this.orderid = localStorage.getItem('order_id');
     this.subscriptions.push(
@@ -112,23 +114,54 @@ export class OrderSuccessComponent implements OnInit {
     const day=date.split("-")[2]
     const month=date.split("-")[1]
     const year=date.split("-")[0]
-    return ` ${day} ${this.getMonth(month)} ${year}`
+    return ` ${day}-${this.getMonth(month)}-${year}`
+  }
+  formatDate2(value:any){
+    if(value == ""){
+      return
+    }
+    const date=value.split(" ")[0]
+    const day=date.split("-")[2]
+    const month=date.split("-")[1]
+    const year=date.split("-")[0]
+    return ` ${day} ${this.getMonth2(month)} `
   }
 
   getMonth(index:number){
-      const months = ["January","February","March","April","May",
-      "June","July","August", "September","October","November","December"];
+      const months = ["Jan","Feb","Mar","Apr","May",
+      "Jun","Jul","Aug", "Sep","Oct","Nov","Dec"];
       return months[index-1]
   }
+  getMonth2(index:number){
+    const months = ["January","February","March","April","May",
+    "June","July","August", "September","October","November","December"];
+    return months[index-1]
+}
+  time:any
 
   orderdetails() {
     this.orderservice.orderDetails(this.orderid).subscribe((res: any) => {
       this.orderdetailsdata = res.response;
-      this.orderdetailsdata.delivery_date= this.formatDate(this.orderdetailsdata.delivery_date);
-      this.orderdetailsdata.created_on= this.formatDate(this.orderdetailsdata.created_on);
+      // console.log(this.datePipe.transform(this.orderdetailsdata.delivery_date, ' hh:mm a'))
 
+      this.getDayOfWeek()
+
+      this.orderdetailsdata.delivery_date= this.formatDate2(this.orderdetailsdata.delivery_date);
+      this.orderdetailsdata.created_on= this.formatDate(this.orderdetailsdata.created_on);
     });
   }
+
+  day:any
+
+
+  getDayOfWeek() {
+    this.day= this.datePipe.transform(this.orderdetailsdata.delivery_date, 'EEEE');
+    this.time = this.datePipe.transform(this.orderdetailsdata.created_on, ' hh:mm:ss')
+    // 'EEEE' stands for the full name of the day (e.g., Monday, Tuesday, etc.)
+    console.log(this.datePipe.transform(this.orderdetailsdata.delivery_date, 'EEEE'))
+  }
+
+  
 
 
   goToOrderDetails(){
