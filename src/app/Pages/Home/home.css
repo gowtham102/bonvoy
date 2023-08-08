@@ -355,10 +355,10 @@ opacity: 1; */
         }
         
         .category-wrapper {
-            background: #fafafa;
+            /* background: #fafafa; */
             border-radius: 15px;
             text-align: center;
-            padding: 34px 25px;
+            /* padding: 34px 25px; */
             height: 100%;
             cursor: pointer;
         }
@@ -962,7 +962,7 @@ opacity: 1;
         }
         
         .category-wrapper img {
-            height: 155px;
+            height: 225px;
             object-fit: contain;
         }
         
