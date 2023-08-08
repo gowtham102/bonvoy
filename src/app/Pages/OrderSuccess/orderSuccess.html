@@ -3,7 +3,7 @@
         <div class="thank-you">
             <!-- <img src="assets/images/bonvoy/cover6.png" alt="thankk-you"> -->
             <div class="content order-success col-md-7">
-                <h1>{{LANG.Thankyou}}</h1>
+                <h1>Thank You</h1>
                 <p>{{message}}</p>
                 <!-- <button class="checkout mt-2" >{{LANG.CONTINUE_SHOPPING}}</button> -->
                 <div class="order_number">
@@ -17,8 +17,8 @@
 
                     <div class="track-order">
                         <div class="track-order-wrapper">
-                            <p>Order Date :{{orderdetailsdata.created_on}}</p>
-                            <p>Expected Delivery :{{orderdetailsdata.delivery_date}}</p>
+                            <p>Order Date :{{orderdetailsdata.created_on}} {{time}}</p>
+                            <p>Expected Delivery :{{day}}{{orderdetailsdata.delivery_date}} </p>
                             <p class="adds">Deliver Address :{{orderdetailsdata.address}}</p>
                             <p>Contact number :{{orderdetailsdata.mobile_number}}</p>
                             <p>Payment method :

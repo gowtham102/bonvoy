@@ -68,7 +68,7 @@
                         <div class="quantity position-relative">
                             <span class="minus" (click)="decrementQuantity()"><img class=""
                                     src="assets/images/icons/minus-icon.svg" alt="minus"></span>
-                            <input type="text" [ngModel]="product_details.quantity" disabled>
+                            <input type="text" [(ngModel)]="product_details.quantity" disabled>
                             <span class="plus" (click)="incrementQuantity()"><img class=""
                                     src="assets/images/icons/plus-icon.svg" alt="plus"></span>
                         </div>

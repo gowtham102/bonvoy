@@ -267,7 +267,7 @@ p_variation:any
     
     const post_data={
         "product_id": data.id,
-        "quantity":"1",
+        "quantity":this.product_details.quantity,
         "token":this.token
     }
     if(type == 2){
@@ -319,7 +319,7 @@ p_variation:any
       
       const post_data={
         "product_id": data.id,
-        "quantity":"1"
+        "quantity":this.product_details.quantity
     }
     
     this.subscriptions.push(this.cartService.addCart(post_data).subscribe((result:any)=>{
