@@ -71,6 +71,9 @@ export class WarrantyComponent implements OnInit {
     
   }
 
+
+  
+
   errorhandle(){
     if(this.product_id==""){
       this.err= true
