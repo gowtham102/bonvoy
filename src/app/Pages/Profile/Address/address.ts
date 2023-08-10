@@ -10,6 +10,7 @@ import { address_data } from 'src/app/SharedResources/Models/address.model';
 import { ProfileService } from 'src/app/SharedResources/Services/profile.service';
 import { errorHandlerService } from 'src/app/SharedResources/Services/errorHandler.service';
 import { DOCUMENT } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -64,7 +65,7 @@ export class AddressComponent implements OnInit {
     @ViewChild('address_modal') address_modal: any;
 
 
-    constructor(@Inject(DOCUMENT) private document: Document,private modalService: NgbModal,private orderService:OrderService,private shared:SharedService,private mapsAPILoader: MapsAPILoader, private ngZone: NgZone,private toast:ToastrManager,private profileService:ProfileService,private error:errorHandlerService){
+    constructor(@Inject(DOCUMENT) private document: Document,private modalService: NgbModal,private orderService:OrderService,private shared:SharedService,private mapsAPILoader: MapsAPILoader, private ngZone: NgZone,private toast:ToastrManager,private profileService:ProfileService,private error:errorHandlerService,private http: HttpClient){
         this.subscriptions.push(this.shared.currentCountryList.subscribe((data:any)=>this.country_list=data));   
         this.subscriptions.push(this.shared.languageChange.subscribe((path:any)=>{
             this.changeLanguage();
@@ -524,6 +525,28 @@ export class AddressComponent implements OnInit {
         this.address_clicked = true;
         this.address_error.address=false
     }
+
+pincodeList:any
+    getPincode(pincode:any){
+        if(pincode.length==6){
+            const apiUrl = `https://api.postalpincode.in/pincode/${pincode}`;
+            this.http.get(apiUrl).subscribe(
+                (data: any) => {
+                  // Handle the API response here
+                  console.log(data);
+                  
+                  this.pincodeList= data[0].PostOffice
+                  this.state_id=data[0].PostOffice[0].State 
+                  this.city_id=data[0].PostOffice[0].Block
+                }
+        )}
+
+        if(pincode!=6){
+            this.state_id=""
+            this.city_id=""
+        }
+    }
+    
     
    
 

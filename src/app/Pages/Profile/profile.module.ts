@@ -17,6 +17,7 @@ import { LoaderModule } from 'src/app/SharedResources/Components/Loader/loader.m
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment.prod';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -80,6 +81,7 @@ const ChildRoutes: Routes = [
     LoaderModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    HttpClientModule
   ],
   declarations:[
       ProfileComponent,
