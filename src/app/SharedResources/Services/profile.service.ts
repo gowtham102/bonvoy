@@ -41,6 +41,11 @@ export class ProfileService{
         return this.api.get(this.url, query);
     }
 
+    countryList(){
+        this.url="country_list.php"
+        return this.api.get(this.url,"")
+    }
+
 
     addAddress(data:Object){
         this.url="user_address";

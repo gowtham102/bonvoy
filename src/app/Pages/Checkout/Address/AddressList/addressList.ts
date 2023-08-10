@@ -48,6 +48,7 @@ export class AddressListComponent implements OnInit {
     cart_list:any=[]
     address_id: string="";
     full_name: string="";
+    pincode:any
     email_id: string="";
     mobile_number: string=""; 
     country_code: string="";
@@ -88,6 +89,8 @@ export class AddressListComponent implements OnInit {
     cart_design_id:string="";
     billing_address_type:boolean = true;
     order_id:any
+    state_id:any
+    city_id:any
 
     
 
@@ -222,6 +225,8 @@ export class AddressListComponent implements OnInit {
         this.getOrderTimings("");
         this.getAddressList();
         this.changeLanguage();
+        this.countryList()
+
     }
 
     changeLanguage(){
@@ -511,12 +516,12 @@ export class AddressListComponent implements OnInit {
             "type": address_type,
             "phone": this.mobile_number,
             "country_code": this.country_code,
-            "pincode":"",
+            "pincode":this.pincode,
             "landmark": "",
             "address_type": "1",
             "country_id": "0",
-            "city_id": "",
-            "state_id": "",
+            "city_id":this.city_id,
+            "state_id": this.state_id,
             "action":"1"
         }
         if(this.address_id){
@@ -596,11 +601,39 @@ export class AddressListComponent implements OnInit {
             this.toast.errorToastr(error,this.LANG.Error,{position:'top-right',toastTimeout:3000})
         }))
     }
-
+    countryListData:any
+    countryList(){
+        this.profileService.countryList().subscribe((res:any)=>{
+            this.countryListData = res.response
+        })
+    }
+    stateIndex:any
+    stateChange(event:any){
+        console.log(event);
+        this.stateIndex= event
+        
+    }
+    cityChange(event:any){
+        console.log(event);
+        // this.stateIndex= event
+        
+    }
     errorHandler(){
         this.mobileErrorHandler();
         if(this.full_name == "" || this.full_name == undefined){
             this.address_error.full_name=true;	
+            this.err=true;
+        }
+        if(this.pincode == "" || this.pincode == undefined){
+            this.address_error.pincode=true;	
+            this.err=true;
+        }
+        if(this.state_id == "" || this.state_id == undefined){
+            this.address_error.state_id=true;	
+            this.err=true;
+        }
+        if(this.city_id == "" || this.city_id == undefined){
+            this.address_error.city_id=true;	
             this.err=true;
         }
         // if(this.email_id == "" || this.email_id == undefined){
@@ -684,6 +717,9 @@ export class AddressListComponent implements OnInit {
           "email_id_valid":false,
           "address":false,
           "address_valid":false,
+          "state_id":false,
+          "city_id":false,
+          "pincode":false
         }
         this.billadderr={
           "billing_name":false,

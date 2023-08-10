@@ -54,6 +54,9 @@ export class AddressComponent implements OnInit {
     user_data:any={};
     LANG:any;
     arabic: boolean = false;
+    countryListData:any
+    state_id:any
+    city_id:any
 
     subscriptions:Subscription[]=[];
 
@@ -87,6 +90,7 @@ export class AddressComponent implements OnInit {
     ngOnInit(){
         this.getAddressList();
         this.changeLanguage();
+        this.countryList()
     }
 
     changeLanguage(){
@@ -98,7 +102,24 @@ export class AddressComponent implements OnInit {
         this.LANG=environment.english_translations;
         this.arabic=false;
     }
+    stateIndex:any
+    stateChange(event:any){
+        console.log(event);
+        this.stateIndex= event
+        
+    }
+    cityChange(event:any){
+        console.log(event);
+        // this.stateIndex= event
+        
+    }
     
+
+    countryList(){
+        this.profileService.countryList().subscribe((res:any)=>{
+            this.countryListData = res.response
+        })
+    }
 
     openLg(content:any,type?:number, id?:any) {
         // console.log(id);
@@ -237,6 +258,7 @@ export class AddressComponent implements OnInit {
     }
 
 
+    pincode:any
     addAddress(){
         this.err=false;
         this.resetError();
@@ -260,12 +282,12 @@ export class AddressComponent implements OnInit {
                 "phone": this.mobile_number,
                 "country_code": this.country_code,
                 "email_id": this.email_id,
-                "pincode":"",
+                "pincode":this.pincode,
                 "landmark": "",
                 "address_type": this.default_address,
                 "country_id": this.country_id,
-                "city_id": "",
-                "state_id": "",
+                "city_id": this.city_id,
+                "state_id": this.state_id,
                 "action":"1"
             }
             if(this.address_id){
@@ -339,6 +361,18 @@ export class AddressComponent implements OnInit {
         this.mobileErrorHandler();
         if(this.full_name == "" || this.full_name == undefined){
             this.address_error.full_name=true;	
+            this.err=true;
+        }
+        if(this.pincode == "" || this.pincode == undefined){
+            this.address_error.pincode=true;	
+            this.err=true;
+        }
+        if(this.state_id == "" || this.state_id == undefined){
+            this.address_error.state_id=true;	
+            this.err=true;
+        }
+        if(this.city_id == "" || this.city_id == undefined){
+            this.address_error.city_id=true;	
             this.err=true;
         }
         // if(this.email_id == "" || this.email_id == undefined){
@@ -418,9 +452,12 @@ export class AddressComponent implements OnInit {
           "mobile_number_valid":false,
           "full_name":false,
           "email_id":false,
+          "state_id":false,
+          "city_id":false,
           "email_id_valid":false,
           "address":false,
           "address_valid":false,
+          "pincode":false
         }
     }
 

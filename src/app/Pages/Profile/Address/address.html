@@ -94,6 +94,26 @@
                             <span class="error" *ngIf="address_error.mobile_number_valid && country_code != '+966'">{{LANG.Enter_Valid_Number}}</span>
                         </div>
                         <div class="form_input">
+                            <select class="form-control"name="" id="" *ngFor="let item of countryListData[0].state let i=index" (change)="stateChange(i)" [(ngModel)]="state_id">
+                                <option value="">Select the state</option>
+                                <option  value="{{item.id}}">{{item.name}}</option>
+                            </select>
+                            <span class="error" *ngIf="address_error.satte_id">{{LANG.This_field_is_required}}</span>
+
+                        </div>
+                        <div class="form_input">
+                            <select class="form-control"name="" id="" *ngFor="let item of countryListData[0]?.state[stateIndex]?.city let i=index" (change)="cityChange(i)" [(ngModel)]="city_id">
+                                <option value="">Select the City</option>
+                                <option  value="{{item.id}}">{{item.name}}</option>
+                            </select>
+                            <span class="error" *ngIf="address_error.city_id">{{LANG.This_field_is_required}}</span>
+
+                        </div>
+                        <div class="form_input">
+                            <input class="form-control" placeholder="Enter the Pincode" name="full_name" [(ngModel)]="pincode">
+                            <span class="error f-name" *ngIf="address_error.pincode">{{LANG.This_field_is_required}}</span>
+                        </div>
+                        <div class="form_input">
                             <input class="form-control" placeholder="{{LANG.Full_Name}}" name="full_name" [(ngModel)]="full_name">
                             <span class="error f-name" *ngIf="address_error.full_name">{{LANG.This_field_is_required}}</span>
                         </div>
