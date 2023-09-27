@@ -243,6 +243,35 @@
 
                     </div>
                     <div class="address-form">
+                        <div class="form_input">
+                            <input class="form-control" placeholder="{{LANG.Full_Name}}" name="full_name" [(ngModel)]="full_name">
+                            <span class="error f-name" *ngIf="address_error.full_name">{{LANG.This_field_is_required}}</span>
+                        </div>
+                        <div class="form_input ">
+                            <div class="country-code form_input position-relative m-0">
+                                <div class="country">
+                                    <div class="btn-group country-code form-control" ngbDropdown role="group" display="dynamic" placement="bottom-left">
+                                        <button type="button" class="btn p-0 dropdown-toggle" ngbDropdownToggle>
+                                          {{country_code}}
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right sml" ngbDropdownMenu>
+                                            <button *ngFor="let data of country_list;" class="dropdown-item" type="button" ngbDropdownItem (click)="changeCountryCode(data.country_code)">
+                                              {{data.country_code}}
+                                          </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span></span>
+                                <input type="text" placeholder="{{LANG.Mobile_Number}}" class="form-control" name="mobile_number" maxlength="10" [(ngModel)]="mobile_number" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)">
+                            </div>
+                            <span class="error" *ngIf="address_error.mobile_number">{{LANG.This_field_is_required}}</span>
+                            <span class="error" *ngIf="address_error.mobile_number_valid && country_code == '+966'">{{LANG.Enter_Valid_Number}} (Ex: 0551234567 or 551235678)</span>
+                            <span class="error" *ngIf="address_error.mobile_number_valid && country_code != '+966'">{{LANG.Enter_Valid_Number}}</span>
+                        </div>
+                        <div class="form_input ">
+                            <input class="form-control" placeholder="{{LANG.Email_ID}}" name="email_id" [(ngModel)]="email_id">
+                            <span class="error" *ngIf="address_error.email_id_valid">{{LANG.Please_enter_valid_Email}}</span> 
+                        </div>
                         <div class="form_input location-input">
                             <button class="btn location" (click)="useCurrentLocation()">
                                 <img src="assets/images/icons/location.svg"> {{LANG.Use_My_Location}}
@@ -255,7 +284,7 @@
                             <span class="error" *ngIf="address_error.address">{{LANG.This_field_is_required}}</span>
                             <span class="error" *ngIf="address_error.address_valid">{{LANG.Please_Select_valid_address}}</span>
                         </div>
-                        <div class="form_input ">
+                        <!-- <div class="form_input ">
                             <div class="country-code form_input position-relative m-0">
                                 <div class="country">
                                     <div class="btn-group country-code form-control" ngbDropdown role="group" display="dynamic" placement="bottom-left">
@@ -276,7 +305,7 @@
                             <span class="error" *ngIf="address_error.mobile_number_valid && country_code == '+91'">{{LANG.Enter_Valid_Number}}
                                 (Ex: 0551234567 or 551235678)</span>
                             <span class="error" *ngIf="address_error.mobile_number_valid && country_code != '+91'">{{LANG.Enter_Valid_Number}}</span>
-                        </div>
+                        </div> -->
                         <div class="form_input">
                             <input class="form-control" placeholder="Enter the Pincode" name="full_name" [(ngModel)]="pincode" (input)="getPincode(pincode)" maxlength="6">
                             <span class="error f-name" *ngIf="address_error.pincode">{{LANG.This_field_is_required}}</span>
@@ -289,20 +318,23 @@
                         </div>
                         <div class="form_input">
                             
-                            <input class="form-control" placeholder="Enter the City" name="full_name" [(ngModel)]="city_id" disabled>
-
+                            <!-- <input class="form-control" placeholder="Enter the City" name="full_name" [(ngModel)]="city_id" disabled> -->
+                            <select name="Select the City"  class="form-control"id="" [(ngModel)]="city_id" (change)="selectCity()">
+                                <option disabled>Select the city</option>
+                                <option value="{{item.name}}" *ngFor="let item of pincodeList?.city">{{item.name}}</option>
+                            </select>
                             <span class="error" *ngIf="address_error.city_id">{{LANG.This_field_is_required}}</span>
 
                         </div>
-                        <div class="form_input">
+                        <!-- <div class="form_input">
                             <input class="form-control" placeholder="{{LANG.Full_Name}}" name="full_name" [(ngModel)]="full_name">
                             <span class="error f-name" *ngIf="address_error.full_name">{{LANG.This_field_is_required}}</span>
-                        </div>
-                        <div class="form_input">
+                        </div> -->
+                        <!-- <div class="form_input">
                             <input class="form-control" placeholder="{{LANG.Email_ID}}" name="email_id" [(ngModel)]="email_id">
-                            <!-- <span class="error" *ngIf="address_error.email_id">{{LANG.This_field_is_required}}</span> -->
+                            <span class="error" *ngIf="address_error.email_id">{{LANG.This_field_is_required}}</span> 
                             <span class="error" *ngIf="address_error.email_id_valid">{{LANG.Please_enter_valid_Email}}</span>
-                        </div>
+                        </div> -->
                         <div class="form_input form-address">
                             <label>{{LANG.Address_Type}}</label>
                             <div class="address-type">

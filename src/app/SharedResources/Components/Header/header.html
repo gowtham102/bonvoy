@@ -312,12 +312,12 @@
                                                 </div>
                                             </div>
                                             <!-- <span></span> -->
-                                            <input type="text" placeholder="{{LANG.Mobile_Number}}" class="form-control" name="mobile_number" maxlength="10" [(ngModel)]="mobile_number" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)">
+                                            <input type="text" placeholder="{{LANG.Mobile_Number}}" class="form-control" name="mobile_number" maxlength="10" minlength="10" [(ngModel)]="mobile_number" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)">
                                         </div>
                                         <span class="error" *ngIf="login_error.mobile_number">{{LANG.This_field_is_required}}</span>
                                         <span class="error" *ngIf="login_error.mobile_number_valid && country_code == '+91'">{{LANG.Enter_Valid_Number}}
                                             (Ex:
-                                            0551234567 or 551235678)</span>
+                                            95512345** )</span>
                                         <span class="error" *ngIf="login_error.mobile_number_valid && country_code != '+91'">{{LANG.Enter_Valid_Number}}</span>
                                     </div>
                                 </div>
@@ -330,7 +330,8 @@
                                 </div>
                                 <div class="col-md-12">
                                     <button class="checkout" (click)="sendOTP()" *ngIf="!load;else loader;">
-                                        {{show_password ? LANG.LOGIN_ACCOUNT : LANG.SEND_OTP}}
+                                        <!-- {{show_password ? LANG.LOGIN_ACCOUNT : LANG.SEND_OTP}} -->
+                                        Login
                                     </button>
                                     <ng-template #loader>
                                         <button class="checkout cart-loader">

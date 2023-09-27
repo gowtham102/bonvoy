@@ -1,5 +1,5 @@
-<app-header *ngIf="show_header && router.url !=='/thankyou'&&router.url!=='/home'   && loader==false"></app-header>
-<app-header2 *ngIf="show_header && router.url !=='/thankyou'&&router.url==='/home'    && loader==false"></app-header2>
+<app-header *ngIf="show_header && router.url !=='/thankyou'&&router.url!=='/home'   "></app-header>
+<app-header2 *ngIf="show_header && router.url !=='/thankyou'&&router.url==='/home'"></app-header2>
 <!-- <div class="parentelement pare-2" *ngIf="loader==true">
     <ngx-loading-bar color="#F16451" height="4px" [includeSpinner]="false" ref="router" [fixed]="false"></ngx-loading-bar>
     <ngx-loading-bar color="#F16451" height="4px" [includeSpinner]="false" ref="http" [fixed]="false"></ngx-loading-bar>
@@ -7,7 +7,7 @@
 
 </div> -->
 
-<router-outlet *ngIf="loader==false"></router-outlet>
+<router-outlet ></router-outlet>
 
 
-<app-footer *ngIf="show_header && router.url !=='/thankyou'  && loader==false"></app-footer>
+<app-footer *ngIf="show_header && router.url !=='/thankyou'  "></app-footer>

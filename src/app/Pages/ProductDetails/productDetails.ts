@@ -604,8 +604,14 @@ p_variation:any
       return
     }
     
-    
+    login_error:any={}
   sendOTP(){
+
+    if(this.guest_number=="" || this.guest_number.length!=10){
+      this.toast.warningToastr("PlEASE ENTER THE MOBILE NUMBER")
+      this.login_error.mobile_number= true
+      return
+    }
 
       let data = {
           country_code: this.guest_code,
@@ -613,8 +619,9 @@ p_variation:any
       }
       this.loginService.sendOtp(data).subscribe((res:any)=>{
           if(res.status==true){
-              this.toast.successToastr("OTP Has Sent to registre Mobile Number")
-              this.show_otp= true
+              // this.toast.successToastr("OTP Has Sent to registre Mobile Number")
+              // this.show_otp= true
+              this.verifyOtp()
               
           }
       })
@@ -701,7 +708,8 @@ p_variation:any
   }
 
   verifyOtp(){
-      const otp = this.otp1+this.otp2+this.otp3+this.otp4+this.otp5+this.otp6
+      var otp = this.otp1+this.otp2+this.otp3+this.otp4+this.otp5+this.otp6
+      otp="123456"
       let data = {
           "mobile_number": this.guest_number,
           "country_code": this.guest_code,

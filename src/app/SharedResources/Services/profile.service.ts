@@ -57,6 +57,12 @@ export class ProfileService{
         return this.api.get(this.url, "");
     }
 
+
+    getPincode(pincode:any){
+        this.url="city_list.php?pincode="+pincode
+        return this.api.get(this.url,"")
+    }
+
     
 
    

@@ -431,7 +431,7 @@
     </section>
 
     <div class="container-fluid sec-exp cruise">
-        <h2>Bonvoy Watches</h2>
+        <h2>{{home_page?.cruise?.title}}</h2>
         <div class="row align-items-center">
             <div class=" col-md-6 ">
                 <video class="w-100 " [muted]="autoplayEnable" id="videoElement" autoplay loop src="{{home_page?.cruise?.video}}"></video>
@@ -451,6 +451,33 @@
                         </div>
                         <h4>₹ {{home_page?.cruise?.price - +home_page?.cruise?.discount}} <del *ngIf="home_page?.cruise?.discount_percent != 0"> ₹ {{home_page?.cruise?.price}} </del><span class="dis-per " *ngIf="home_page?.cruise?.discount_percent != 0">({{home_page?.cruise?.discount_percent}}% Off)</span></h4>
                         <button class="btn " (click)="guestLogin(home_page?.cruise)">ADD TO CART</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid sec-exp cruise">
+        <h2>{{home_page?.cruise2?.title}}</h2>
+        <div class="row align-items-center">
+            <div class=" col-md-6 ">
+                <video class="w-100 " [muted]="autoplayEnable" id="videoElement" autoplay loop src="{{home_page?.cruise2?.video}}"></video>
+            </div>
+            <div class="col-md-6 ">
+                <div class="cruise-right ">
+                    <div class="cruise-right1 col-md-6 " (click)="goToProductDetails(home_page.cruise2.id)">
+                        <img src="{{home_page?.cruise2?.image}}" alt=" ">
+                    </div>
+                    <div class="cruise-right2 ">
+                        <h5>{{home_page?.cruise2?.title}}</h5>
+                        <p [innerHTML]="home_page?.cruise2?.description"></p>
+
+                        <div class="star " *ngIf="home_page?.cruise2?.rating>0">
+                            <ngb-rating [max]=5 [(rate)]="home_page?.cruise2.rating " [readonly]="true "></ngb-rating>
+                            <span>{{home_page?.cruise2?.reviews}} Reviews</span>
+                        </div>
+                        <h4>₹ {{home_page?.cruise2?.price - +home_page?.cruise2?.discount}} <del *ngIf="home_page?.cruise2?.discount_percent != 0"> ₹ {{home_page?.cruise2?.price}} </del><span class="dis-per " *ngIf="home_page?.cruise2?.discount_percent != 0">({{home_page?.cruise2?.discount_percent}}% Off)</span></h4>
+                        <button class="btn " (click)="guestLogin(home_page?.cruise2)">ADD TO CART</button>
 
                     </div>
                 </div>

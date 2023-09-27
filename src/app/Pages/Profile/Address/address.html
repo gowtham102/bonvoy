@@ -42,6 +42,7 @@
 <ng-template #address_modal let-modal>
     <div class="add-address-modal" [class.arabic]="arabic">
         <div class="row">
+            
             <div class="col-md-5 col-12">
                 <div class="map">
                     <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onSelectAddress($event)">
@@ -61,16 +62,8 @@
                     </div>
                     <div class="address-form">
                         <div class="form_input">
-                            <button class="btn location" (click)="useCurrentLocation()">
-                                <img src="assets/images/icons/location.svg"> {{LANG.Use_My_Location}}
-                            </button>
-                        </div>
-                        <div class="form_input">
-                            <form autocomplete="off">
-                                <textarea name="address" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="off" class="form-control" placeholder="{{LANG.Address_building_no}}" id="search_field" [(ngModel)]="address" (change)="clearSelectedAddress()"></textarea>
-                            </form>
-                            <span class="error" *ngIf="address_error.address">{{LANG.This_field_is_required}}</span>
-                            <span class="error" *ngIf="address_error.address_valid">{{LANG.Please_Select_valid_address}}</span>
+                            <input class="form-control" placeholder="{{LANG.Full_Name}}" name="full_name" [(ngModel)]="full_name">
+                            <span class="error f-name" *ngIf="address_error.full_name">{{LANG.This_field_is_required}}</span>
                         </div>
                         <div class="form_input ">
                             <div class="country-code form_input position-relative m-0">
@@ -93,32 +86,47 @@
                             <span class="error" *ngIf="address_error.mobile_number_valid && country_code == '+966'">{{LANG.Enter_Valid_Number}} (Ex: 0551234567 or 551235678)</span>
                             <span class="error" *ngIf="address_error.mobile_number_valid && country_code != '+966'">{{LANG.Enter_Valid_Number}}</span>
                         </div>
+                        <div class="form_input ">
+                            <input class="form-control" placeholder="{{LANG.Email_ID}}" name="email_id" [(ngModel)]="email_id">
+                            <span class="error" *ngIf="address_error.email_id_valid">{{LANG.Please_enter_valid_Email}}</span> 
+                        </div>
+                        <div class="form_input">
+                            <button class="btn location" (click)="useCurrentLocation()">
+                                <img src="assets/images/icons/location.svg"> {{LANG.Use_My_Location}}
+                            </button>
+                        </div>
+                        <div class="form_input">
+                            <form autocomplete="off">
+                                <textarea name="address" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="off" class="form-control" placeholder="{{LANG.Address_building_no}}" id="search_field" [(ngModel)]="address" (change)="clearSelectedAddress()"></textarea>
+                            </form>
+                            <span class="error" *ngIf="address_error.address">{{LANG.This_field_is_required}}</span>
+                            <span class="error" *ngIf="address_error.address_valid">{{LANG.Please_Select_valid_address}}</span>
+                        </div>
+                        
                         <div class="form_input">
                             <input class="form-control" placeholder="Enter the Pincode" name="full_name" [(ngModel)]="pincode" (input)="getPincode(pincode)" maxlength="6">
                             <span class="error f-name" *ngIf="address_error.pincode">{{LANG.This_field_is_required}}</span>
                         </div>
                         <div class="form_input">
                             <input class="form-control" placeholder="Enter the State" name="full_name" [(ngModel)]="state_id" disabled>
+                           
 
                             <span class="error" *ngIf="address_error.satte_id">{{LANG.This_field_is_required}}</span>
 
                         </div>
                         <div class="form_input">
                             
-                            <input class="form-control" placeholder="Enter the City" name="full_name" [(ngModel)]="city_id" disabled>
-
+                            <!-- <input class="form-control" placeholder="Enter the City" name="full_name" [(ngModel)]="city_id" disabled> -->
+                            <select name="" class="form-control"id="" [(ngModel)]="city_id" (change)="selectCity()">
+                                <option aria-selected="true" disabled>Select the city</option>
+                                <option value="{{item.name}}" *ngFor="let item of pincodeList?.city">{{item.name}}</option>
+                            </select>
                             <span class="error" *ngIf="address_error.city_id">{{LANG.This_field_is_required}}</span>
 
                         </div>
                         
-                        <div class="form_input">
-                            <input class="form-control" placeholder="{{LANG.Full_Name}}" name="full_name" [(ngModel)]="full_name">
-                            <span class="error f-name" *ngIf="address_error.full_name">{{LANG.This_field_is_required}}</span>
-                        </div>
-                        <div class="form_input ">
-                            <input class="form-control" placeholder="{{LANG.Email_ID}}" name="email_id" [(ngModel)]="email_id">
-                            <!-- <span class="error" *ngIf="address_error.email_id">{{LANG.This_field_is_required}}</span> -->
-                            <span class="error" *ngIf="address_error.email_id_valid">{{LANG.Please_enter_valid_Email}}</span> </div>
+                        
+                        
                         <div class="form_input form-adress">
                             <label>{{LANG.Address_Type}}</label>
                             <div class="address-type">

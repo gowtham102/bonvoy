@@ -17,10 +17,10 @@ export class AppComponent {
 
   constructor(private loadingBar: LoadingBarService,public router: Router){
     
-    setTimeout(() => {
-      this.loadingBar.start(); 
-      this.loader= false   
-    }, 2200);  
+    // setTimeout(() => {
+    //   this.loadingBar.start(); 
+    //   this.loader= false   
+    // }, 2200);  
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         if(event?.url.split("/")?.[1] == "a"){

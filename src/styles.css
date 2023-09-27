@@ -1395,6 +1395,11 @@ a:hover {
     }
 }
 
-.privacy-policy h1 {
+.privacy-policy h4 {
     display: none;
+}
+.privacy-policy h1{
+    font-size: 35px;
+    color:#000;
+    font-family: 'roobert-reg';
 }

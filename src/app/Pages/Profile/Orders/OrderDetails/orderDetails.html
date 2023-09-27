@@ -43,6 +43,7 @@
     <div class="order-sta">
         <h6>{{LANG.ORDER_DETAILS}}</h6>
         <button class="btn " (click)="ordertrack()">Order Status</button>
+        <a class="btn " *ngIf="order_details.track_url != ''" href="{{order_details?.track_url}}" target="_blank">Track Order</a>
     </div>
     <div class="row">
         <div class="col-md-7">

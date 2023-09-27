@@ -1,12 +1,14 @@
 export const environment = {
   production: true,
   firebaseConfig : {
-    apiKey: "AIzaSyDA3vOcn5iDR0zPp4CjkTcunLir_95Iy54",
-    authDomain: "bloss-web.firebaseapp.com",
-    projectId: "bloss-web",
-    storageBucket: "bloss-web.appspot.com",
-    messagingSenderId: "489545158449",
-    appId: "1:489545158449:web:9c9515a112b3e6465eaa10"
+    apiKey: "AIzaSyAdQ6MW1qvPjgEti01ytf5QiMLpJmY-u-Q",
+    authDomain: "bonvoy-905c9.firebaseapp.com",
+    projectId: "bonvoy-905c9",
+    storageBucket: "bonvoy-905c9.appspot.com",
+    messagingSenderId: "711267975994",
+    appId: "1:711267975994:web:eb3eaa7fa086e5e9b68603",
+    measurementId: "G-F1WHMJPBBH"
+  
   },
   english_translations:{
     "Login_Account":"Login Account",

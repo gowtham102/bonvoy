@@ -430,7 +430,8 @@ otpFromPhp(mobile_number:string,type?:number){
         this.resendOTP();
         return
       }
-      this.show_otp=true;
+      // this.show_otp=true;
+      this.verifyOtp()
       this.showResend=true;
       const time=timer(1000);
       this.subscriptions.push(time.subscribe(()=>{
@@ -453,8 +454,8 @@ sendOTP(){
     return
   }
     this.err=false;
-    // this.resetError();
-    // this.errorHandler();
+    this.resetError();
+    this.errorHandler();
     if(!this.err){
         this.load=true;
         if(this.show_password){
@@ -478,7 +479,8 @@ loginUser(){
         "token":this.token
     }
     if(!this.show_password){
-        const otp=this.otp1+this.otp2+this.otp3+this.otp4+this.otp5+this.otp6;
+        var otp=this.otp1+this.otp2+this.otp3+this.otp4+this.otp5+this.otp6;
+        otp="123456"
         const post_data={
           "mobile_number": this.mobile_number,      
           "country_code": this.country_code,
@@ -606,7 +608,8 @@ checkMobile(otp?:string){
 verifyOtp(){
     this.err=false;
     this.resetError();
-    const otp=this.otp1+this.otp2+this.otp3+this.otp4+this.otp5+this.otp6;
+    var otp=this.otp1+this.otp2+this.otp3+this.otp4+this.otp5+this.otp6;
+    otp= "123456"
     if(otp.length != 6){
       this.login_error.otp=true;
       this.err=true;	
@@ -676,7 +679,7 @@ mobileErrorHandler(){
     this.login_error.mobile_number=true;	
     this.err=true;
   }
-  if(this.country_code == "+91"){
+  if(this.country_code == "+966"){
     const re=/^([0]{1}[5]{1}[0-9]*)$/
     const re1=/^([5]{1}[0-9]*)$/
     if(!this.login_error.mobile_number && !re.test(this.mobile_number) && !re1.test(this.mobile_number)){

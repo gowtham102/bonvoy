@@ -122,7 +122,12 @@ export class AddressComponent implements OnInit {
         })
     }
 
-    openLg(content:any,type?:number, id?:any) {
+    openLg(content:any,type?:number, id?:any,data?:any) {
+        if(data?.state_id==""){
+            this.pincode=""
+            this.state_id=""
+            this.city_id=""
+        }
         // console.log(id);
         // if(id!=""){
         //     this.getAddressList(id)
@@ -140,9 +145,13 @@ export class AddressComponent implements OnInit {
                 this.mobile_number=this.user_data.mobile_number || "";
                 this.country_code=this.user_data.country_code || "";
                 this.email_id=this.user_data.email_id || "";
+                this.pincode=""
+                this.city_id=""
+                this.state_id=""
             }
         }))
         this.resetError();
+        // this.getPincode(this.pincode)
     }
 
     //Get Address List
@@ -237,6 +246,33 @@ export class AddressComponent implements OnInit {
     }
 
     editAddress(data:any){
+        if(data.state_id==""){
+            this.pincode=""
+            this.city_id= ""
+            this.state_id=""
+            this.full_name=data.full_name;
+            this.email_id=data.email_id;
+            this.address=data.address;
+            this.latitude=parseFloat(data.latitude);
+            this.lat=parseFloat(data.latitude);
+            this.longitude=parseFloat(data.longitude);
+            this.long=parseFloat(data.longitude);
+            this.mobile_number=data.phone;
+            this.pincode=data.pincode
+            
+            this.country_code=data.country_code;
+            this.default_address=data.address_type;
+            this.address_id=data.id;
+            if(data.type.toLowerCase() == 'home'){
+                this.address_type='1';
+            }else if(data.type.toLowerCase() == 'office'){
+                this.address_type='2'
+            }else{
+                this.address_type='3'
+            }
+            this.openLg(this.address_modal,0,0,data);
+            return
+        }
         this.full_name=data.full_name;
         this.email_id=data.email_id;
         this.address=data.address;
@@ -245,6 +281,9 @@ export class AddressComponent implements OnInit {
         this.longitude=parseFloat(data.longitude);
         this.long=parseFloat(data.longitude);
         this.mobile_number=data.phone;
+        this.pincode=data.pincode
+        this.state_id= data.state_id
+        this.city_id = data.city_id
         this.country_code=data.country_code;
         this.default_address=data.address_type;
         this.address_id=data.id;
@@ -256,6 +295,7 @@ export class AddressComponent implements OnInit {
             this.address_type='3'
         }
         this.openLg(this.address_modal);
+        this.getPincode(data.pincode,data)
     }
 
 
@@ -527,19 +567,17 @@ export class AddressComponent implements OnInit {
     }
 
 pincodeList:any
-    getPincode(pincode:any){
+    getPincode(pincode:any,data?:any){
+        
         if(pincode.length==6){
-            const apiUrl = `https://api.postalpincode.in/pincode/${pincode}`;
-            this.http.get(apiUrl).subscribe(
-                (data: any) => {
-                  // Handle the API response here
-                  console.log(data);
-                  
-                  this.pincodeList= data[0].PostOffice
-                  this.state_id=data[0].PostOffice[0].State 
-                  this.city_id=data[0].PostOffice[0].Block
-                }
-        )}
+            this.profileService.getPincode(pincode).subscribe((res:any)=>{
+                this.state_id= res.response.state_name
+                this.pincodeList= res.response
+                this.city_id= data.city_id
+                
+                
+            })
+        }
 
         if(pincode!=6){
             this.state_id=""
@@ -548,7 +586,8 @@ pincodeList:any
     }
     
     
-   
+    selectCity(){}
+
 
       
 

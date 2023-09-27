@@ -6,7 +6,7 @@ import SHA1 from 'sha1';
 export class configServiceComponent{
 	
 
-	HOST : string = "http://35.154.4.154/bonvoy/api/app/v0_1/api/";
+	HOST : string = "https://www.bonvoyworld.com/api/app/v0_1/api/";
 	// HOST : string = "https://api.bloss-sa.com/app/v0_1/api/"; 
 	
 

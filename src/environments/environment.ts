@@ -6,12 +6,20 @@ export const environment = {
   production: false,
   firebaseConfig : {
     
-    apiKey: "AIzaSyBw6ueeocfAhWM31ZK1feuQkwi0cDRpMhA",
-    authDomain: "bonvoy-f0f85.firebaseapp.com",
-    projectId: "bonvoy-f0f85",
-    storageBucket: "bonvoy-f0f85.appspot.com",
-    messagingSenderId: "529435904753",
-    appId: "1:529435904753:web:ae7c6a59069bae89c9f750",
+    // apiKey: "AIzaSyBw6ueeocfAhWM31ZK1feuQkwi0cDRpMhA",
+    // authDomain: "bonvoy-f0f85.firebaseapp.com",
+    // projectId: "bonvoy-f0f85",
+    // storageBucket: "bonvoy-f0f85.appspot.com",
+    // messagingSenderId: "529435904753",
+    // appId: "1:529435904753:web:ae7c6a59069bae89c9f750",
+    apiKey: "AIzaSyAdQ6MW1qvPjgEti01ytf5QiMLpJmY-u-Q",
+    authDomain: "bonvoy-905c9.firebaseapp.com",
+    projectId: "bonvoy-905c9",
+    storageBucket: "bonvoy-905c9.appspot.com",
+    messagingSenderId: "711267975994",
+    appId: "1:711267975994:web:eb3eaa7fa086e5e9b68603",
+    measurementId: "G-F1WHMJPBBH"
+  
   },
 
   english_translations:{

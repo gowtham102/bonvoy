@@ -167,7 +167,7 @@
                 <a class="nav-link" (click)="scrollToElementspc()">Specification</a>
             </li>
             <li>
-                <a class="nav-link" (click)="scrollToElementfaq()" *ngIf="product_details?.faq?.length>0">FAQ</a>
+                <a class="nav-link" (click)="scrollToElementfaq()" *ngIf="product_details?.faq?.length>0">FAQs</a>
             </li>
             <li>
                 <a class="nav-link" (click)="scrollToElement()" *ngIf="product_details?.review?.length>0">Reviews</a>
@@ -250,7 +250,7 @@
         </div>
     </div>
     <div id="faq" class="container-fluid  tab-pane" *ngIf="product_details?.faq?.length>0">
-        <h4>Faq</h4>
+        <h4>FAQs</h4>
         <div [attr.id]="'accordion'+i" class="accordion" *ngFor="let item of product_details?.faq let i=index">
             <div class="card mb-0 pt-3">
                 <!-- <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
@@ -405,6 +405,8 @@
                                                     </select>
                                         </div>
                                         <input type="text" placeholder="{{LANG.Mobile_Number}}" class="form-control" name="mobile_number" maxlength="10" [(ngModel)]="guest_number" (keypress)="onlyNumbers($event)" (paste)="restrictAlphabets($event)">
+                                        <span class="error" *ngIf="login_error.mobile_number">{{LANG.This_field_is_required}}</span>
+
 
                                     </div>
                                     <!-- </div> -->
@@ -426,7 +428,7 @@
                                 </div> -->
                             <div class="col-md-12">
                                 <button class="checkout" (click)="sendOTP()" *ngIf="!load;else loader;">
-                                        <!-- {{show_password ? LANG.LOGIN_ACCOUNT : LANG.SEND_OTP}} -->Send Otp
+                                        <!-- {{show_password ? LANG.LOGIN_ACCOUNT : LANG.SEND_OTP}} -->Login
                                     </button>
                                 <ng-template #loader>
                                     <button class="checkout cart-loader">
